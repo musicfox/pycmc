@@ -1,6 +1,19 @@
 # pycm
 A Pythonic interface for the`chartmetric.io` api 
 
+## Setup
+
+Ensure that you have a `.credentials.json` file in your toplevel project
+directory containing the following:
+
+```{json}
+{
+    "token":"",
+    "scope":"",
+    "expires_in":"",
+    "refreshtoken":"your-token-here"
+}
+```
 ## Example Usage
 ``` {Python}
 
