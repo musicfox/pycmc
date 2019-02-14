@@ -1,0 +1,12 @@
+name: pycm
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.6
+  - pytest
+  - pip:
+    - white
+    - user_agent  
+    - requests-html
