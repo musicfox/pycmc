@@ -9,6 +9,7 @@ import os
 import json
 import time
 import requests
+import psutil
 
 def TTLwait(func,):
     """
@@ -35,3 +36,15 @@ def ProjectRootDir():
     :returns:       string path with trailing /
     """
     return f"{Path(__file__).parent.parent}/"
+
+def FindProcess(name):
+    """
+    Return a list of processes matching given name.
+
+    :param name:        string process name
+    
+    :returns:           list of items matching process 'name'
+    """
+    it = psutil.process_iter(attrs=['name'])
+    result = [p for p in it if p.info['name'] == name]
+    return result

@@ -117,4 +117,3 @@ def Filename(filename = '.credentials.json'):
     :returns:               string given filename w/extension
     """
     return filename
-
