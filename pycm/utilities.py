@@ -4,7 +4,11 @@ utilities.py
 Utilities for the pycm api interface.
 """
 from functools import wraps
+from pathlib import Path
+import os
+import json
 import time
+import requests
 
 def TTLwait(func, TTL_seconds = 3600):
     @wraps(func)
@@ -37,17 +41,66 @@ def LoadCredentials():
     
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
-    pass
+    if CheckCredentials(): # exists and has valid refresh so load it
+        with open(ProjectRootDir() + CredentialsFilename(), 'r') as fp:
+            f = json.load(fp)
+            return f
 
 def CheckCredentials():
     """
     Check that the .credentials.json file is extant within the project
-    root directory.
+    root directory. Also sets the credentials filename statically.
+
+    It is important that this causes failure as early in the client init
+    phase as possible.
 
     :returns:       boolean True if .credentials.json exists AND the
                     dictionary contains a non-empty string for the
                     "refreshtoken" string, otherwise False.
     """
+    # check that path exists
+    filepath = f"{ProjectRootDir()}{CredentialsFilename()}"
+    # import and check that refreshtoken value is a non-empty string
+    if not os.path.exists(filepath):
+        raise FileNotFoundError
+    with open(filepath) as fp:
+        credentials = json.load(fp)
+    if credentials['refreshtoken'] != '':
+        return True
+    return False 
 
-    pass 
+def FetchAccessToken():
+    """
+    Use the refreshtoken to fetch the access and other credentials
+    from chartmetric.io.
 
+    :returns:       Request object in dictionary form with keys:
+                    token, expires_in, refresh_token, and scope
+    """
+    authURL = f"https://api.chartmetric.io/api/token"
+    headers = {'Content-Type': 'application/json',}
+    refreshtokenkey = 'refreshtoken'
+    refreshtoken = LoadCredentials()[refreshtokenkey]
+    data = '{' + f'"{refreshtokenkey}":"{refreshtoken}"' + '}'
+    response = requests.post(authURL, headers=headers, data=data)
+    if not response.ok: # raise if issue
+        response.raise_for_status()
+    return json.loads(response.text)
+
+def CredentialsFilename(filename = '.credentials.json'):
+    """
+    Return the given filename.
+
+    :param filename:        string filename w/extension
+
+    :returns:               string given filename w/extension
+    """
+    return filename
+
+def ProjectRootDir():
+    """
+    Return path to root directory of project with trailing slash.
+    
+    :returns:       string path with trailing /
+    """
+    return f"{Path(__file__).parent.parent}/"
