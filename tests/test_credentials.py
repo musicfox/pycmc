@@ -68,7 +68,9 @@ def test_UpdateCredentials():
     assert credentials.Load()['expires_in'] != ''
 
 def test_PeriodicCredentials():
+    credentials.Update()
     stale = credentials.Load()
     credentials.PeriodicUpdate(1) # wait a single second
     new = credentials.Load()
     assert new['token'] != stale['token']
+
