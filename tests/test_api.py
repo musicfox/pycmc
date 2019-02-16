@@ -6,6 +6,7 @@ import json
 import sys
 import os
 import pycm.utilities as utilities
+import pycm.credentials as creds
 import pycm.api as api
 
 @pytest.fixture
@@ -18,10 +19,10 @@ def projpath(path=None):
 
 @pytest.fixture
 def credentials(projpath):
+    # initialize
+    creds.Update()
     # load credentials
-    with open(f"{projpath}/.credentials.json") as fp:
-        credentials = json.load(fp)
-    return credentials 
+    return creds.Load()
 
 def test_initialization(credentials):
     pass
