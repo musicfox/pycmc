@@ -127,3 +127,6 @@ dmypy.json
 
 # PROJECT SPECIFIC EXCLUDES
 .credentials.json
+
+# Mac, ugh.
+.DS_Store
