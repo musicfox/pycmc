@@ -55,10 +55,9 @@ def test_FetchAccessToken(credentials_response):
     # within the test runner execution)
     assert credentials_response is not None
     assert credentials_response != ''
-    assert credentials_response == utilities.FetchAccessToken() 
+    assert utilities.LoadCredentials()['refreshtoken'] == utilities.FetchAccessToken()['refresh_token']
 
 def test_UpdateCredentials():
-    
     pass
 
 def test_PeriodicCredentials():
