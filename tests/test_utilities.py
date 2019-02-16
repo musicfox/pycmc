@@ -58,7 +58,11 @@ def test_FetchAccessToken(credentials_response):
     assert utilities.LoadCredentials()['refreshtoken'] == utilities.FetchAccessToken()['refresh_token']
 
 def test_UpdateCredentials():
-    pass
+    utilities.UpdateCredentials()
+    assert os.path.exists(utilities.ProjectRootDir() + '.credentials.json')
+    assert utilities.LoadCredentials()['scope'] != ''
+    assert utilities.LoadCredentials()['token'] != ''
+    assert utilities.LoadCredentials()['expires_in'] != ''
 
 def test_PeriodicCredentials():
     pass

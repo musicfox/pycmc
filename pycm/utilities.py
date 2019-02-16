@@ -29,10 +29,20 @@ def UpdateCredentials():
 
     :returns:       None
     """
-    # check that .credentials.json is extant
+    filename = ProjectRootDir() + CredentialsFilename()
     # load .credentials.json
+    credentials = LoadCredentials() 
+    # get new ones
+    fetched = FetchAccessToken()
     
-    pass
+    # set em and forget em, for the TTL length
+    credentials['token'] = fetched['token']
+    credentials['scope'] = fetched['scope']
+    credentials['expires_in'] = fetched['expires_in']
+    credentials['refreshtoken'] = fetched['refresh_token']
+    
+    with open(filename, 'w') as fp:
+        json.dump(credentials, fp)
 
 def LoadCredentials():
     """
