@@ -189,3 +189,238 @@ class ChartMetric:
         }
         return self._requestGet(data)
 
+    def SoundCloudTracks(self, date, country='US',kind='top',genre = 'all-music'):
+        """
+        Query the charts/soundcloud/tracks endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :param kind:        string 'top' or 'trending'
+        :param genre:       string genre (see CM docs)
+
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/soundcloud/tracks",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+                ('kind', kind),
+                ('genre', genre),
+            ),
+        }
+        return self._requestGet(data)
+
+    def ShazamTracks(self, date, country='US'):
+        """
+        Query the charts/shazam/tracks endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/shazam/tracks",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+            ),
+        }
+        return self._requestGet(data)
+
+    def BeatportTracks(self, date, ):
+        """
+        Query the charts/beatport/tracks endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/beatport/tracks",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('date', date),
+                ('genre', 'top-100'),
+            ),
+        }
+        return self._requestGet(data)
+
+    def iTunesAlbums(self, date, country='US'):
+        """
+        Query the charts/itunes/albums endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/itunes/albums",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+                ('genre', 'All Genres'),
+            ),
+        }
+        return self._requestGet(data)
+
+    def iTunesTracks(self, date, country='US'):
+        """
+        Query the charts/itunes/tracks endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/itunes/tracks",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+                ('genre', 'All Genres'),
+            ),
+        }
+        return self._requestGet(data)
+
+    def iTunesVideos(self, date, country='US'):
+        """
+        Query the charts/itunes/videos endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/itunes/videos",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+            ),
+        }
+        return self._requestGet(data)
+
+    def YoutubeTrends(self, date, country='US'):
+        """
+        Query the charts/youtube/trends endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/youtube/trends",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('date', date),
+                ('code2', country),
+            ),
+        }
+        return self._requestGet(data)
+
+    def YoutubeVideos(self, date, country='US'):
+        """
+        Query the charts/youtube/videos endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/youtube/videos",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+            ),
+        }
+        return self._requestGet(data)
+
+    def YoutubeArtists(self, date, country='US'):
+        """
+        Query the charts/youtube/artists endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/youtube/artists",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('code2', country),
+                ('date', date),
+            ),
+        }
+        return self._requestGet(data)
+
+    def YoutubeTracks(self, date, country='US'):
+        """
+        Query the charts/youtube/tracks endpoint for the
+        given date.
+
+        :param date:        string date in ISO format %Y-%m-%y
+        :param country:     string country code, e.g. 'US'
+        :returns:           list of dictionary of Soundcloud
+                            chart data
+        """
+        data = {
+            'url': f"{utilities.BaseURL()}/charts/youtube/tracks",
+            'headers': {
+                'Authorization': f"Bearer {self.token}",
+            },
+            'params': (
+                ('date', date),
+                ('code2', country),
+            ),
+        }
+        response = requests.get(
+            data["url"], headers=data["headers"], params=data["params"]
+        )
+        if not response.ok:  # raise internal exception if bad response
+            response.raise_for_status()
+        return json.loads(response.text)
+
+        return self._requestGet(data)
+

@@ -74,60 +74,78 @@ def test_AppleMusicVideos(cm):
     assert test[0]['name'] != ''
     assert test[0]['id'] != ''
 
-#def test_SoundCloudTracks(cm):
-#    test = cm.SoundCloudTracks('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_ShazamTracks(cm):
-#    test = cm.ShazamTracks('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_BeatportTracks(cm):
-#    test = cm.BeatportTracks('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_iTunesAlbums(cm):
-#    test = cm.iTunesAlbums('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_iTunesTracks(cm):
-#    test = cm.iTunesTracks('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_iTunesVideos(cm):
-#    test = cm.iTunesVideos('2019-02-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-#
-#def test_YoutubeTrends(cm):
-#    test = cm.YoutubeTrends('2019-02-15')
-#    pass # not sure how this comes yet
-#
+def test_SoundCloudTracks(cm):
+    test = cm.SoundCloudTracks('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+    assert len(test) == 100
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
+
+def test_ShazamTracks(cm):
+    test = cm.ShazamTracks('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+    assert len(test) == 200
+    assert test[0]['rank'] != ''
+    assert test[0]['shazam_track_id'] != ''
+    # not joking: API only returns the Shazam ID of the track
+    # no name or anything
+
+def test_BeatportTracks(cm):
+    test = cm.BeatportTracks('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 50
+    assert len(test) < 200 
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
+
+def test_iTunesAlbums(cm):
+    test = cm.iTunesAlbums('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 100
+    assert len(test) < 201
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
+
+def test_iTunesTracks(cm):
+    test = cm.iTunesTracks('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 100
+    assert len(test) < 201
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
+
+def test_iTunesVideos(cm):
+    test = cm.iTunesVideos('2019-02-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 100
+    assert len(test) < 201
+    assert test[0]['name'] != ''
+    #assert test[0]['id'] != ''
+
+def test_YoutubeTrends(cm):
+    test = cm.YoutubeTrends('2019-02-15')
+    pass # not sure how this comes yet
+
 #def test_YoutubeVideos(cm):
 #    test = cm.YoutubeVideos('2019-02-15')
+#    assert isinstance(test, type(list()))
+#    assert len(test) > 0
+#    assert len(test) == 200
+#    assert test[0]['name'] != ''
+#    assert test[0]['id'] != ''
+#
+#def test_YoutubeArtists(cm):
+#    test = cm.YoutubeArtists('2019-02-15')
+#    assert isinstance(test, type(list()))
+#    assert len(test) > 0
+#    assert len(test) == 200
+#    assert test[0]['name'] != ''
+#    assert test[0]['id'] != ''
+#    
+#def test_YoutubeTracks(cm):
+#    test = cm.YoutubeTracks('2019-02-15')
 #    assert isinstance(test, type(list()))
 #    assert len(test) > 0
 #    assert len(test) == 200
