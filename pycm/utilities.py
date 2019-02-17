@@ -11,6 +11,7 @@ import time
 import requests
 import psutil
 
+
 def TTLwait(func,):
     """
     Utility waiting function for the credentials.PeriodicUpdate
@@ -19,15 +20,18 @@ def TTLwait(func,):
     :param func:    function PeriodicUpdate from the credentials.py module 
     :returns:       credentials.PeriodicUpdate method instantiation
     """
+
     @wraps(func)
     def wrapper(*args, **kwds):
         if len(args) > 0:
             TTL_seconds = args[0]
         else:
             TTL_seconds = 3600
-        time.sleep(TTL_seconds) 
+        time.sleep(TTL_seconds)
         return func(*args, **kwds)
+
     return wrapper
+
 
 def ProjectRootDir():
     """
@@ -37,6 +41,7 @@ def ProjectRootDir():
     """
     return f"{Path(__file__).parent.parent}/"
 
+
 def FindProcess(name):
     """
     Return a list of processes matching given name.
@@ -45,9 +50,10 @@ def FindProcess(name):
     
     :returns:           list of items matching process 'name'
     """
-    it = psutil.process_iter(attrs=['name'])
-    result = [p for p in it if p.info['name'] == name]
+    it = psutil.process_iter(attrs=["name"])
+    result = [p for p in it if p.info["name"] == name]
     return result
 
+
 def BaseURL():
-    return f"https://api.charmetric.io/api"
+    return f"https://api.chartmetric.io/api"

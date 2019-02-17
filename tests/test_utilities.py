@@ -28,4 +28,5 @@ def test_FindProcess():
     assert len(utilities.FindProcess('Python')) > 0
 
 def test_BaseURL():
-    assert utilities.BaseURL() == "https://api.charmetric.io/api"
+    assert utilities.BaseURL() == "https://api.chartmetric.io/api"
+    

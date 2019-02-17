@@ -11,16 +11,19 @@ import time
 import requests
 import pycm.utilities as utilities
 
+
 def TTLwait(func,):
     @wraps(func)
     def wrapper(*args, **kwds):
         if len(args) > 0:
-            time.sleep(args[0]) # TTL_seconds
+            time.sleep(args[0])  # TTL_seconds
         return func(*args, **kwds)
+
     return wrapper
 
+
 @TTLwait
-def PeriodicUpdate(TTL_seconds = 3600, repeat=None):
+def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     """
     Wrapper method to take a TTL variable, wait, and call
     UpdateCredentials. Current chartmetric api documentation (Feb-2019)
@@ -33,14 +36,15 @@ def PeriodicUpdate(TTL_seconds = 3600, repeat=None):
     """
     if repeat is not None and repeat > 0:
         counter = 0
-        while True and counter < repeat: # run until out of scope
-            Update() 
+        while True and counter < repeat:  # run until out of scope
+            Update()
             counter += 1
     elif repeat is not None:
         while True:
             Update()
-    else: # run once, in TTL_seconds seconds
-        Update()      
+    else:  # run once, in TTL_seconds seconds
+        Update()
+
 
 def Update():
     """
@@ -52,18 +56,19 @@ def Update():
     """
     filename = utilities.ProjectRootDir() + Filename()
     # load .credentials.json
-    credentials = Load() 
+    credentials = Load()
     # get new ones
     fetched = FetchAccessToken()
-    
+
     # set em and forget em, for the TTL length
-    credentials['token'] = fetched['token']
-    credentials['scope'] = fetched['scope']
-    credentials['expires_in'] = fetched['expires_in']
-    credentials['refreshtoken'] = fetched['refresh_token']
-    
-    with open(filename, 'w') as fp:
+    credentials["token"] = fetched["token"]
+    credentials["scope"] = fetched["scope"]
+    credentials["expires_in"] = fetched["expires_in"]
+    credentials["refreshtoken"] = fetched["refresh_token"]
+
+    with open(filename, "w") as fp:
         json.dump(credentials, fp)
+
 
 def Load():
     """
@@ -72,10 +77,11 @@ def Load():
     
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
-    if Check(): # exists and has valid refresh so load it
-        with open(utilities.ProjectRootDir() + Filename(), 'r') as fp:
+    if Check():  # exists and has valid refresh so load it
+        with open(utilities.ProjectRootDir() + Filename(), "r") as fp:
             f = json.load(fp)
             return f
+
 
 def Check():
     """
@@ -96,9 +102,10 @@ def Check():
         raise FileNotFoundError
     with open(filepath) as fp:
         credentials = json.load(fp)
-    if credentials['refreshtoken'] != '':
+    if credentials["refreshtoken"] != "":
         return True
-    return False 
+    return False
+
 
 def FetchAccessToken():
     """
@@ -109,16 +116,17 @@ def FetchAccessToken():
                     token, expires_in, refresh_token, and scope
     """
     authURL = f"https://api.chartmetric.io/api/token"
-    headers = {'Content-Type': 'application/json',}
-    refreshtokenkey = 'refreshtoken'
+    headers = {"Content-Type": "application/json"}
+    refreshtokenkey = "refreshtoken"
     refreshtoken = Load()[refreshtokenkey]
-    data = '{' + f'"{refreshtokenkey}":"{refreshtoken}"' + '}'
+    data = "{" + f'"{refreshtokenkey}":"{refreshtoken}"' + "}"
     response = requests.post(authURL, headers=headers, data=data)
-    if not response.ok: # raise if issue
+    if not response.ok:  # raise if issue
         response.raise_for_status()
     return json.loads(response.text)
 
-def Filename(filename = '.credentials.json'):
+
+def Filename(filename=".credentials.json"):
     """
     Return the given filename.
 
