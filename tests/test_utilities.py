@@ -24,8 +24,9 @@ def test_projectrootdir():
     assert f"{Path(__file__).parent.parent}/" == utilities.ProjectRootDir() 
 
 def test_FindProcess():
-    assert utilities.FindProcess('Python') is not None
-    assert len(utilities.FindProcess('Python')) > 0
+    assert utilities.FindProcess('root') is not None
+    # the below is bogus but should use to test a process on the machine
+    assert len(utilities.FindProcess('root')) == 0
 
 def test_BaseURL():
     assert utilities.BaseURL() == "https://api.chartmetric.io/api"
