@@ -48,3 +48,6 @@ def FindProcess(name):
     it = psutil.process_iter(attrs=['name'])
     result = [p for p in it if p.info['name'] == name]
     return result
+
+def BaseURL():
+    return f"https://api.charmetric.io/api"
