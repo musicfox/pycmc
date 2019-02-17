@@ -20,17 +20,27 @@ def TTLwait(func,):
     return wrapper
 
 @TTLwait
-def PeriodicUpdate(TTL_seconds = 3600):
+def PeriodicUpdate(TTL_seconds = 3600, repeat=None):
     """
     Wrapper method to take a TTL variable, wait, and call
     UpdateCredentials. Current chartmetric api documentation (Feb-2019)
     indicates a credential refresh is required every 3600 seconds.
 
     :param TTL_seconds:     integer seconds to wait between refreshes
-    
+    :param repeat:          integer loops to repeat; -1 = inf 
+
     :returns:               None
     """
-    Update() 
+    if repeat is not None and repeat > 0:
+        counter = 0
+        while True and counter < repeat: # run until out of scope
+            Update() 
+            counter += 1
+    elif repeat is not None:
+        while True:
+            Update()
+    else: # run once, in TTL_seconds seconds
+        Update()      
 
 def Update():
     """

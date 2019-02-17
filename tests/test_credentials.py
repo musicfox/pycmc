@@ -6,6 +6,7 @@ import json
 import sys
 import os
 import requests
+import time
 import pycm.utilities as utilities
 import pycm.credentials as credentials
 
@@ -70,7 +71,12 @@ def test_UpdateCredentials():
 def test_PeriodicCredentials():
     credentials.Update()
     stale = credentials.Load()
-    credentials.PeriodicUpdate(1) # wait a single second
+    try:
+        credentials.PeriodicUpdate(1, repeat=2) # wait a single second
+        time.sleep(2)
+        raise TimeoutError
+    except TimeoutError as err:
+        pass
     new = credentials.Load()
     assert new['token'] != stale['token']
 
