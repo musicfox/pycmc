@@ -1,6 +1,6 @@
 import pytest
 import pycm
-
+import pycm.utilities as utilities
 
 @pytest.fixture
 def projpath(path=None):
@@ -9,13 +9,6 @@ def projpath(path=None):
             path += '/'
         return path
     return utilities.ProjectRootDir()
-
-@pytest.fixture
-def credentials(projpath):
-    # initialize
-    creds.Update()
-    # load credentials
-    return creds.Load()
 
 def test_spotify_tracks():
     test = pycm.charts.spotify.tracks('2019-02-15')
