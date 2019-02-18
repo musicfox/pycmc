@@ -23,3 +23,26 @@ directory containing the following:
                                                       'popularity',)
 ```
 
+## Roadmap
+
+To mimic the API design of chartmetric and make our lives easier here,
+we'll roughly adhere to the following design:
+
+ChartMetric() API Base class w/the following children:
+    - Album
+    - Artist
+    - Charts
+    - Curator
+    - Playlist
+    - Track
+
+Each child above provides various (most) methods for a specific endpoint
+to the chartmetric.io API.
+
+Example Usage:
+```{Python}
+>>> from pycm import api
+>>> cm = api.ChartMetric()
+>>> # spotify charts
+>>> cstracks = cm.charts.spotify.tracks(date='2019-01-01', ) 
+```
