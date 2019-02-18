@@ -9,8 +9,14 @@ import os
 import json
 import time
 import requests
-import pycm.utilities as utilities
 
+def ProjectRootDir():
+    """
+    Return path to root directory of project with trailing slash.
+    
+    :returns:       string path with trailing /
+    """
+    return f"{Path(__file__).parent.parent}/"
 
 def TTLwait(func,):
     @wraps(func)
@@ -20,7 +26,6 @@ def TTLwait(func,):
         return func(*args, **kwds)
 
     return wrapper
-
 
 @TTLwait
 def PeriodicUpdate(TTL_seconds=3600, repeat=None):
@@ -45,7 +50,6 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     else:  # run once, in TTL_seconds seconds
         Update()
 
-
 def Update():
     """
     Use the .credentials.json file in the project root directory
@@ -54,7 +58,7 @@ def Update():
 
     :returns:       None
     """
-    filename = utilities.ProjectRootDir() + Filename()
+    filename = ProjectRootDir() + Filename()
     # load .credentials.json
     credentials = Load()
     # get new ones
@@ -78,7 +82,7 @@ def Load():
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
     if Check():  # exists and has valid refresh so load it
-        with open(utilities.ProjectRootDir() + Filename(), "r") as fp:
+        with open(ProjectRootDir() + Filename(), "r") as fp:
             f = json.load(fp)
             return f
 
@@ -96,7 +100,7 @@ def Check():
                     "refreshtoken" string, otherwise False.
     """
     # check that path exists
-    filepath = f"{utilities.ProjectRootDir()}{Filename()}"
+    filepath = f"{ProjectRootDir()}{Filename()}"
     # import and check that refreshtoken value is a non-empty string
     if not os.path.exists(filepath):
         raise FileNotFoundError
@@ -135,3 +139,5 @@ def Filename(filename=".credentials.json"):
     :returns:               string given filename w/extension
     """
     return filename
+
+

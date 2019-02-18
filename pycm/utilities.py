@@ -10,7 +10,7 @@ import json
 import time
 import requests
 import psutil
-
+from pycm.credentials_manager import token 
 
 def TTLwait(func,):
     """
@@ -31,7 +31,6 @@ def TTLwait(func,):
         return func(*args, **kwds)
 
     return wrapper
-
 
 def ProjectRootDir():
     """
@@ -57,3 +56,40 @@ def FindProcess(name):
 
 def BaseURL():
     return f"https://api.chartmetric.io/api"
+
+def RequestData(urlhandle, params):
+    """
+    Build chartmetric data object and call requests.get with 
+    constructed data.
+    
+    :param urlhandle:       string additional url after base
+                            *with a leading* and *without ending slash*
+    
+    :param params:          dictionary of keyword data to send in the
+                            query string, specific to the particular 
+    			api endpoint
+    
+    :returns:               dictionary with keys url, headers,
+                            and params
+    """
+    return {
+        "url": f"{BaseURL()}{urlhandle}",
+        "headers": {"Authorization": f"Bearer {token}"},
+        "params": params,
+    }
+
+def RequestGet(data):
+    """
+    Method to call requests.get with data.
+
+    :param data:        dictionary with at least the following 
+                        key:value pairs: url, headers, params
+    
+    :returns:           dictionary of request data 
+    """
+    response = requests.get(
+        data["url"], headers=data["headers"], params=data["params"]
+    )
+    if not response.ok:  # raise internal exception if bad response
+        response.raise_for_status()
+    return json.loads(response.text)['obj']

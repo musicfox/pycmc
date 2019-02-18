@@ -1,3 +1,6 @@
+import pycm.credentials
+import pycm.credentials_manager
+
 import pycm.charts.applemusic
 import pycm.charts.beatport
 import pycm.charts.itunes
@@ -11,3 +14,5 @@ import pycm.album
 import pycm.artist
 
 import pycm.utilities
+import pycm.background
+
