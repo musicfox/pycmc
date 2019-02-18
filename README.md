@@ -29,12 +29,12 @@ To mimic the API design of chartmetric and make our lives easier here,
 we'll roughly adhere to the following design:
 
 ChartMetric() API Base class w/the following children:
-    - Album
-    - Artist
-    - Charts
-    - Curator
-    - Playlist
-    - Track
+    - album
+    - artist
+    - charts
+    - curator
+    - playlist
+    - track
 
 Each child above provides various (most) methods for a specific endpoint
 to the chartmetric.io API.
