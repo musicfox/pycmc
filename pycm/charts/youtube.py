@@ -1,7 +1,8 @@
 import requests
 import json
-from pycm.api import cm
 import pycm.utilities as utilities
+
+youtube_charts_url = f"/charts/youtube"
 
 def trends(date, country="US"):
     """
@@ -13,12 +14,13 @@ def trends(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/youtube/trends",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("date", date), ("code2", country)),
+    urlhandle = f"{youtube_charts_url}/trends"
+    params = {
+        'date': date,
+        'code2': country,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def videos(date, country="US"):
@@ -31,12 +33,14 @@ def videos(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/youtube/videos",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date)),
+
+    urlhandle = f"{youtube_charts_url}/videos"
+    params = {
+        'date': date,
+        'code2': country,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def artists(date, country="US"):
@@ -49,12 +53,14 @@ def artists(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/youtube/artists",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date)),
+
+    urlhandle = f"{youtube_charts_url}/artists"
+    params = {
+        'date': date,
+        'code2': country,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def tracks(date, country="US"):
@@ -67,16 +73,10 @@ def tracks(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/youtube/tracks",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("date", date), ("code2", country)),
+    urlhandle = f"{youtube_charts_url}/tracks"
+    params = {
+        'date': date,
+        'code2': country,
     }
-    response = requests.get(
-        data["url"], headers=data["headers"], params=data["params"]
-    )
-    if not response.ok:  # raise internal exception if bad response
-        response.raise_for_status()
-    return json.loads(response.text)
-
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)

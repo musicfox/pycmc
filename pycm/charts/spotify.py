@@ -5,8 +5,8 @@ chartmetric.io API.
 import requests
 import json
 import pycm.utilities as utilities
-from pycm.api import cm
 
+spotify_charts_url = f"/charts/spotify"
 
 def tracks(date, country="US", viral=False):
     """
@@ -17,13 +17,16 @@ def tracks(date, country="US", viral=False):
 
     :returns:           list of dictionary of spotify chart data
     """
-    data = cm._requestData(
-        "/charts/spotify/tracks",
-        date,
-        country,
-        "viral" if viral else "regional",
-    )
-    return cm._requestGet(data)
+
+    urlhandle = f"{spotify_charts_url}/tracks/"
+    params = {
+        'date': date,
+        'code2': country,
+        'duration': 'daily',
+        'type': 'viral' if viral else 'regional',
+    }
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def freshfind(date,):
@@ -35,14 +38,10 @@ def freshfind(date,):
 
     :returns:           list of dictionary of spotify chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/spotify/freshfind",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("date", date),),
+    urlhandle = f"{spotify_charts_url}/freshfind"
+    params = {
+        "date": date,
     }
-    response = requests.get(
-        data["url"], headers=data["headers"], params=data["params"]
-    )
-    if not response.ok:  # raise internal exception if bad response
-        response.raise_for_status()
-    return json.loads(response.text)
+
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)

@@ -1,5 +1,6 @@
-from pycm.api import cm
 import pycm.utilities as utilities
+
+soundcloud_charts_url = f"/charts/soundcloud"
 
 def tracks(date, country="US", kind="top", genre="all-music"):
     """
@@ -14,14 +15,12 @@ def tracks(date, country="US", kind="top", genre="all-music"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/soundcloud/tracks",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (
-            ("code2", country),
-            ("date", date),
-            ("kind", kind),
-            ("genre", genre),
-        ),
+    urlhandle = f"{soundcloud_charts_url}/tracks"
+    params = {
+        "code2": country,
+        "date": date,
+        "kind": kind,
+        "genre": genre,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)

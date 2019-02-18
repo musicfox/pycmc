@@ -1,5 +1,6 @@
-from pycm.api import cm
 import pycm.utilities as utilities
+
+charts_apple_music_url = f"/charts/apple_music"
 
 def tracks(date, country='US', genre="All Genres"):
     """
@@ -12,17 +13,15 @@ def tracks(date, country='US', genre="All Genres"):
 
     :returns:           list of dictionary of apple music chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/apple_music/tracks",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (
-            ("date", date),
-            ("code2", country),
-            ("genre", genre),
-            ("chart_type", "daily"),
-        ),
+    params = {
+        "date": date,
+        "code2": country,
+        "genre": genre,
+        "chart_type": "daily",
     }
-    return cm._requestGet(data)
+    urlhandle = f"{charts_apple_music_url}/tracks"
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def albums(date, country="US", genre="All Genres"):
@@ -36,12 +35,14 @@ def albums(date, country="US", genre="All Genres"):
 
     :returns:           list of dictionary of apple music chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/apple_music/albums",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("date", date), ("code2", country), ("genre", genre)),
+    urlhandle = f"{charts_apple_music_url}/albums"
+    params = {
+        "date": date,
+        "code2": country,
+        "genre": genre,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params) 
+    return utilities.RequestGet(data)
 
 
 def videos(date, country="US", genre="All Genres"):
@@ -55,9 +56,11 @@ def videos(date, country="US", genre="All Genres"):
 
     :returns:           list of dictionary of apple music chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/apple_music/videos",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("date", date), ("code2", country), ("genre", genre)),
+    urlhandle = f"{charts_apple_music_url}/videos"
+    params = {
+        "date": date,
+        "code2": country,
+        "genre": genre,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)

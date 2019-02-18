@@ -1,5 +1,6 @@
-from pycm.api import cm
 import pycm.utilities as utilities
+
+shazam_charts_url = f"/charts/shazam"
 
 def tracks(date, country="US"):
     """
@@ -12,9 +13,10 @@ def tracks(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/shazam/tracks",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date)),
+    urlhandle = f"{shazam_charts_url}/tracks"
+    params = {
+        'code2': country,
+        'date': date,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)

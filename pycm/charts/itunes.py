@@ -1,5 +1,5 @@
-from pycm.api import cm
 import pycm.utilities as utilities
+itunes_charts_url = f"/charts/itunes"
 
 def albums(date, country="US"):
     """
@@ -11,12 +11,14 @@ def albums(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/itunes/albums",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date), ("genre", "All Genres")),
+    urlhandle = f"{itunes_charts_url}/albums"
+    params = {
+        'code2': country,
+        'date': date,
+        'genre': 'All Genres',
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def tracks(date, country="US"):
@@ -29,12 +31,14 @@ def tracks(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/itunes/tracks",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date), ("genre", "All Genres")),
+    urlhandle = f"{itunes_charts_url}/tracks"
+    params = {
+        'code2': country,
+        'date': date,
+        'genre': 'All Genres',
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 
 def videos(date, country="US"):
@@ -47,9 +51,12 @@ def videos(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    data = {
-        "url": f"{utilities.BaseURL()}/charts/itunes/videos",
-        "headers": {"Authorization": f"Bearer {cm.token}"},
-        "params": (("code2", country), ("date", date)),
+    urlhandle = f"{itunes_charts_url}/videos"
+    params = {
+        'code2': country,
+        'date': date,
     }
-    return cm._requestGet(data)
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
+
+
