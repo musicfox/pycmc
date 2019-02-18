@@ -126,27 +126,31 @@ def test_iTunesVideos(cm):
 
 def test_YoutubeTrends(cm):
     test = cm.YoutubeTrends('2019-02-15')
-    pass # not sure how this comes yet
+    assert isinstance(test, type(list()))
+#    assert len(test) > 0
+#    assert len(test) == 200
+#    assert test[0]['name'] != ''
+#    assert test[0]['id'] != ''
 
-#def test_YoutubeVideos(cm):
-#    test = cm.YoutubeVideos('2019-02-15')
-#    assert isinstance(test, type(list()))
+def test_YoutubeVideos(cm):
+    test = cm.YoutubeVideos('2019-02-15')
+    assert isinstance(test, type(list()))
 #    assert len(test) > 0
 #    assert len(test) == 200
 #    assert test[0]['name'] != ''
 #    assert test[0]['id'] != ''
-#
-#def test_YoutubeArtists(cm):
-#    test = cm.YoutubeArtists('2019-02-15')
-#    assert isinstance(test, type(list()))
+
+def test_YoutubeArtists(cm):
+    test = cm.YoutubeArtists('2019-02-15')
+    assert isinstance(test, type(list()))
 #    assert len(test) > 0
 #    assert len(test) == 200
 #    assert test[0]['name'] != ''
 #    assert test[0]['id'] != ''
-#    
-#def test_YoutubeTracks(cm):
-#    test = cm.YoutubeTracks('2019-02-15')
-#    assert isinstance(test, type(list()))
+    
+def test_YoutubeTracks(cm):
+    test = cm.YoutubeTracks('2019-02-15')
+    assert isinstance(test, type(list()))
 #    assert len(test) > 0
 #    assert len(test) == 200
 #    assert test[0]['name'] != ''
