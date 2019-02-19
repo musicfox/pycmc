@@ -32,16 +32,15 @@ following:
 To mimic the API design of chartmetric and make our lives easier here,
 we'll roughly adhere to the following module design where the `pycm` package 
 contains following modules:  
-
-    - `album`
-    - `artist`
-    - `charts`
-    - `curator`
-    - `playlist`
-    - `track`
-    - `credentials`
-    - `credentials_manager`
-    - `utilities`
+- `album`
+- `artist`
+- `charts`
+- `curator`
+- `playlist`
+- `track`
+- `credentials`
+- `credentials_manager`
+- `utilities`
 
 Each module above provides (most) methods for a specific endpoint
 to the chartmetric.io API, (mostly) labelled as their GET endpoints.  
