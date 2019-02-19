@@ -85,14 +85,12 @@ charts from Spotify.
 
 *What was the US jamming to on the first day of the new year?*
 ```{Python}
->>> # spotify charts
 >>> cstracks = pycm.charts.spotify.tracks(date='2019-01-01', ) 
 ```
 #### Apple Music videos charts 
 
 What videos are charting in Apple Music on the same day as above?
 ```{Python}
->>> # itunes videos charts
 >>> applemusic_vcharts = pycm.charts.itunes.videos(date='2019-01-01')
 ```
 #### Artist metatdata
