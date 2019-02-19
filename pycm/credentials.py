@@ -8,6 +8,7 @@ from pathlib import Path
 import os
 import json
 import time
+import datetime
 import requests
 
 @property
@@ -157,8 +158,8 @@ def Check(filepath=None):
         filepath = f"{ProjectRootDir()}/{Filename()}"
     # import and check that refreshtoken value is a non-empty string
     if not os.path.exists(filepath):
-        print(f"Bad path: {filepath}")
-        raise FileNotFoundError
+        print(f"Bad path: {filepath} @ {datetime.now()}")
+        #raise FileNotFoundError
     with open(filepath) as fp:
         credentials = json.load(fp)
     if credentials["refreshtoken"] != "":
