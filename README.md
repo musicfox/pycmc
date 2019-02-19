@@ -30,9 +30,9 @@ following:
 ## Design 
 
 To mimic the API design of chartmetric and make our lives easier here,
-we'll roughly adhere to the following module design:
+we'll roughly adhere to the following module design where the `pycm` package 
+contains following modules:  
 
-`pycm` package w/the following modules:
     - `album`
     - `artist`
     - `charts`
@@ -55,7 +55,6 @@ To get an album's metadata just call the metadata function:
 >>> import pycm
 >>> pycm.album.metadata('chartmetricID') # return dict of album metatdata
 ```
-The call mostly replicates the link. *Nice.*  
 
 ## More Example Usage:
 
