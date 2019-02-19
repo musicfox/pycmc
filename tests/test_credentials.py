@@ -11,8 +11,8 @@ import pycm.utilities as utilities
 import pycm.credentials as credentials
 
 @pytest.fixture
-def filepath():
-    return f"/home/jason/.pycm/.credentials.json"
+def filepath(projpath):
+    return f"{projpath}/tests/.credentials.json"
 
 @pytest.fixture
 def projpath(path=None):
@@ -90,3 +90,23 @@ def test_CredentialsDir(filepath):
     credentials.CredentialsDir = filepath
     test2 = credentials.CredentialsDir
     assert test2 == filepath
+
+def test_DefaultCredentials(filepath, ):
+    projfilepath = f"{credentials.ProjectRootDir()}/{credentials.Filename()}"
+    credentials.CredentialsDir = projfilepath
+    orig = credentials.Load()
+    # change the dir
+    credentials.CredentialsDir = filepath
+    credentials.DefaultCredentials('fake token')
+    bad = credentials.Load()
+
+    assert os.path.exists(filepath)
+    assert orig != bad
+    assert bad['refreshtoken'] == 'fake token'
+    assert len(bad.keys()) == 4
+
+    # reset creds
+    credentials.CredentialsDir = projfilepath
+ 
+    # fail the test if we're not normal...
+    assert credentials.Load()['refreshtoken'] != 'fake token'

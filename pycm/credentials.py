@@ -21,6 +21,41 @@ def CredentialsDir(filepath):
     """
     return filepath
 
+def DefaultCredentials(refreshtoken):
+    """
+    Set and save the a default (only refreshtoken)
+    .credentials.json file in the project directory or
+    in a custom credentials directory, if set.
+
+    :param refreshtoken:        string refreshtoken from 
+                                chartmetric
+
+    :returns:                   None
+    """
+    cust_dir = isinstance(CredentialsDir, type(str()))
+    filepath = f"{ProjectRootDir()}/{Filename()}"\
+        if not cust_dir else CredentialsDir
+
+    # extract path from filepath and make the dir, if not extant
+    clean = lambda p: str(p.parts[:-1]).replace("'", '').\
+            replace(",",'').replace("(", "").replace(")", "").\
+            replace(" ", '/')[1:] # first two chars //
+
+    fpath = clean(Path(filepath))
+    os.makedirs(fpath, exist_ok=True)
+    
+    # check that the token isn't already present
+    if not os.path.exists(filepath): # create the empty file
+        creds = {
+            "token":"",
+            "scope":"",
+            "expires_in":"",
+            "refreshtoken": refreshtoken,
+        } 
+        with open(filepath, 'w') as fp:
+            json.dump(creds, fp)
+        if not os.path.exists(filepath): # nothing works w/o auth
+            raise                        # so break exec early
 
 def ProjectRootDir():
     """
@@ -119,9 +154,10 @@ def Check(filepath=None):
                     "refreshtoken" string, otherwise False.
     """
     if filepath is None:
-        filepath = f"{ProjectRootDir()}{Filename()}"
+        filepath = f"{ProjectRootDir()}/{Filename()}"
     # import and check that refreshtoken value is a non-empty string
     if not os.path.exists(filepath):
+        print(f"Bad path: {filepath}")
         raise FileNotFoundError
     with open(filepath) as fp:
         credentials = json.load(fp)
