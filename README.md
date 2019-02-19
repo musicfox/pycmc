@@ -1,7 +1,9 @@
 # pycm
 A Python interface for the`chartmetric.io` API.
 
-## Setup as a `git` `submodule`
+## Setup
+
+### as a `git` `submodule`
 Do just one of the following:
 
 ```
@@ -15,6 +17,14 @@ git submodule add [-b master] https://github.com/thinkjrs/pycm.git
 git submodule add [-b master] git@github.com:thinkjrs/pycm.git
 git submodule init
 ```
+
+### as a `pip` `package`
+```
+pip install --user git+https://github.com:thinkjrs/pycm
+```
+
+### Authentication
+
 Ensure that you have a `.credentials.json` file in your toplevel project/repo
 (the directory into which you cloned this repo) directory containing the
 following:  
