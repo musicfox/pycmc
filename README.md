@@ -101,3 +101,53 @@ Let's get some metadata on Post Malone:
 ```{Python}
 >>> post_malone_meta = pycm.artist.metadata(mcid='135326', )
 ```
+
+### Directory hierarchy reference
+```{Bash}
+.
+├── conftest.py
+├── environment.yml
+├── LICENSE
+├── MANIFEST.in
+├── pycm
+│   ├── album.py
+│   ├── artist.py
+│   ├── background.py
+│   ├── charts
+│   │   ├── applemusic.py
+│   │   ├── beatport.py
+│   │   ├── itunes.py
+│   │   ├── shazam.py
+│   │   ├── soundcloud.py
+│   │   ├── spotify.py
+│   │   └── youtube.py
+│   ├── credentials_manager.py
+│   ├── credentials.py
+│   ├── curator.py
+│   ├── __init__.py
+│   ├── playlist.py
+│   ├── track.py
+│   └── utilities.py
+├── pycm.egg-info
+│   ├── dependency_links.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── README.md
+├── requirements.txt
+├── setup.py
+└── tests
+    ├── conftest.py
+    ├── exemplar.py
+    ├── README.md
+    ├── test_album.py
+    ├── test_artist.py
+    ├── test_charts.py
+    ├── test_credentials_manager.py
+    ├── test_credentials.py
+    ├── test_curator.py
+    ├── test_playlist.py
+    ├── test_track.py
+    └── test_utilities.py
+```
