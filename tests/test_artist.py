@@ -10,28 +10,48 @@ def projpath(path=None):
     return utilities.ProjectRootDir()
 
 @pytest.fixture
-def credentials(projpath):
-    # initialize
-    creds.Update()
-    # load credentials
-    return creds.Load()
+def dates():
+    return {'start': '2018-03-01', 'end': '2018-03-03'}
 
-def test_fanmetrics():
-    pass
-def test_WherePeopleListen():
-    pass
+def test_fanmetrics(dates):
+    test = pycm.artist.fanmetrics('3380', dates['start'])
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
+
+def test_listening(dates):
+    test = pycm.artist.listening('3380', dates['start'])
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
+
 def test_tunefind():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
 def test_albums():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
 def test_tracks():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 def test_related():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
 def test_metadata():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
 def test_playlists():
     pass
+
 def test_urls():
-    pass
+    test = pycm.artist.tunefind('3380',) 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
