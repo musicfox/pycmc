@@ -1,5 +1,7 @@
 # pycm
-A Python interface for the`chartmetric.io` API.
+A Python interface for the`chartmetric.io` API.  
+
+
 
 ## Setup
 
@@ -41,7 +43,7 @@ following:
 
 To mimic the API design of chartmetric and make our lives easier here,
 we'll roughly adhere to the following module design where the `pycm` package 
-contains following modules:  
+contains the following modules:  
 - `album`
 - `artist`
 - `charts`
@@ -67,13 +69,13 @@ To get an album's metadata just call the metadata function:
 
 ## More Example Usage:
 
-**Import**
+#### Get started
 ```{Python}
 >>> import pycm
 ```
 Yep, that's it. As the great Miles Davis often said, *less is more.*
 
-**Spotify top charts**  
+#### Spotify top charts
 
 Obviously we'll start with the elephant in the room and get the top
 charts from Spotify.
@@ -83,14 +85,14 @@ charts from Spotify.
 >>> # spotify charts
 >>> cstracks = pycm.charts.spotify.tracks(date='2019-01-01', ) 
 ```
-**Apple Music videos charts**  
+#### Apple Music videos charts 
 
 What videos are charting in Apple Music on the same day as above?
 ```{Python}
 >>> # itunes videos charts
 >>> applemusic_vcharts = pycm.charts.itunes.videos(date='2019-01-01')
 ```
-**Artist metatdata**
+#### Artist metatdata
 
 Let's get some metadata on Post Malone:
 ```{Python}
