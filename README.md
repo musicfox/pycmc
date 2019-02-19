@@ -26,23 +26,56 @@ directory containing the following:
 ## Roadmap
 
 To mimic the API design of chartmetric and make our lives easier here,
-we'll roughly adhere to the following design:
+we'll roughly adhere to the following module design:
 
-ChartMetric() API Base class w/the following children:
+`pycm` package w/the following modules:
     - album
     - artist
     - charts
     - curator
     - playlist
     - track
+    - credentials
+    - credentials_manager
+    - utilities
 
-Each child above provides various (most) methods for a specific endpoint
-to the chartmetric.io API.
-
-Example Usage:
+Each module above provides (most) methods for a specific endpoint
+to the chartmetric.io API, labelled as their GET endpoints. For example,
 ```{Python}
->>> from pycm import api
->>> cm = api.ChartMetric()
+>>> 'API ALBUM URL' = 'https://api.charmetric.io/api/album'
+```
+To get an album's metadata just call the metadata function:
+```
+>>> import pycm
+>>> pycm.album.metadata('chartmetricID') # return dict of album metatdata
+```
+
+Some Example Usage:
+
+**Import**
+```{Python}
+>>> import pycm
+```
+Yep, that's it. As the great Miles Davis often said, less is more.
+
+**Spotify top charts**
+Obviously we'll start with the elephant in the room and get the top
+charts from Spotify.
+
+*What was the US jamming to on the first day of the new year?*
+```{Python}
 >>> # spotify charts
->>> cstracks = cm.charts.spotify.tracks(date='2019-01-01', ) 
+>>> cstracks = pycm.charts.spotify.tracks(date='2019-01-01', ) 
+```
+**Apple Music videos charts**
+What videos are charting in Apple Music on the same day as above?
+```{Python}
+>>> # itunes videos charts
+>>> applemusic_vcharts = pycm.charts.itunes.videos(date='2019-01-01')
+```
+**Artist metatdata**
+
+Let's get some metadata on Post Malone:
+```{Python}
+>>> post_malone_meta = pycm.artist.metadata(mcid='135326', )
 ```
