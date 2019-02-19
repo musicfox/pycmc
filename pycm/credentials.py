@@ -10,6 +10,18 @@ import json
 import time
 import requests
 
+@property
+def CredentialsDir(filepath):
+    """
+    Set the credentials filepath (directory + filename.json)
+
+    :param filepath:        string filepath e.g. /home/user/.credentials.json
+
+    :returns:               string filepath
+    """
+    return filepath
+
+
 def ProjectRootDir():
     """
     Return path to root directory of project with trailing slash.
@@ -58,7 +70,10 @@ def Update():
 
     :returns:       None
     """
-    filename = ProjectRootDir() + Filename()
+    cust_dir = isinstance(CredentialsDir, type(str()))
+    filename = ProjectRootDir() + Filename()\
+        if not cust_dir else CredentialsDir
+
     # load .credentials.json
     credentials = Load()
     # get new ones
@@ -81,13 +96,17 @@ def Load():
     
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
-    if Check():  # exists and has valid refresh so load it
-        with open(ProjectRootDir() + Filename(), "r") as fp:
+    cust_dir = isinstance(CredentialsDir, type(str()))
+    filepath = ProjectRootDir() + Filename()\
+        if not cust_dir else CredentialsDir
+
+    if Check(filepath):  # exists and has valid refresh so load it
+        with open(filepath, "r") as fp:
             f = json.load(fp)
             return f
 
 
-def Check():
+def Check(filepath=None):
     """
     Check that the .credentials.json file is extant within the project
     root directory. Also sets the credentials filename statically.
@@ -99,8 +118,8 @@ def Check():
                     dictionary contains a non-empty string for the
                     "refreshtoken" string, otherwise False.
     """
-    # check that path exists
-    filepath = f"{ProjectRootDir()}{Filename()}"
+    if filepath is None:
+        filepath = f"{ProjectRootDir()}{Filename()}"
     # import and check that refreshtoken value is a non-empty string
     if not os.path.exists(filepath):
         raise FileNotFoundError

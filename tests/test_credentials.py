@@ -11,6 +11,10 @@ import pycm.utilities as utilities
 import pycm.credentials as credentials
 
 @pytest.fixture
+def filepath():
+    return f"/home/jason/.pycm/.credentials.json"
+
+@pytest.fixture
 def projpath(path=None):
     if path is not None:
         if path[-1] != '/': # add trailing slash
@@ -80,3 +84,9 @@ def test_PeriodicCredentials():
     new = credentials.Load()
     assert new['token'] != stale['token']
 
+def test_CredentialsDir(filepath):
+    test = credentials.CredentialsDir
+    assert test != filepath
+    credentials.CredentialsDir = filepath
+    test2 = credentials.CredentialsDir
+    assert test2 == filepath
