@@ -1,4 +1,5 @@
-import pycm.utilities as utilities
+#import pycm.utilities as utilities
+from . import utilities
 import requests
 import json
 

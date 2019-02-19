@@ -20,9 +20,10 @@ our last refresh. **Don't forget to str(expires_in)** for API use.
 """
 
 import time
-import pycm.credentials as credentials
-import pycm.background as background
-
+#import pycm.credentials as credentials
+#import pycm.background as background
+from . import credentials
+from . import background
 
 @property
 def token(string):

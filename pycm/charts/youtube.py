@@ -1,6 +1,6 @@
 import requests
 import json
-import pycm.utilities as utilities
+from .. import utilities
 
 youtube_charts_url = f"/charts/youtube"
 

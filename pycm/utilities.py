@@ -10,7 +10,7 @@ import json
 import time
 import requests
 import psutil
-from pycm.credentials_manager import token 
+from .credentials_manager import token 
 
 def TTLwait(func,):
     """

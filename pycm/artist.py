@@ -1,5 +1,5 @@
-import pycm.utilities as utilities
-
+#import pycm.utilities as utilities
+from . import utilities
 def fanmetrics(cmid, start_date, dsrc='instagram', valueCol='followers', ):
     """
     Query the chartmetric API for artist fanmetrics.

@@ -4,7 +4,7 @@ chartmetric.io API.
 """
 import requests
 import json
-import pycm.utilities as utilities
+from .. import utilities
 
 spotify_charts_url = f"/charts/spotify"
 

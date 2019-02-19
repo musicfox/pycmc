@@ -1,4 +1,4 @@
-import pycm.utilities as utilities
+from .. import utilities
 itunes_charts_url = f"/charts/itunes"
 
 def albums(date, country="US"):

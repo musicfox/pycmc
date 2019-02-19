@@ -1,4 +1,5 @@
-import pycm.utilities as utilities
+#import pycm.utilities as utilities
+from . import utilities
 
 def lists(stype='spotify', sort='followers', country='US', limit=100, offset=0, indie=False, daysAgo=7):
     """

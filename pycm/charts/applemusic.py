@@ -1,4 +1,4 @@
-import pycm.utilities as utilities
+from .. import utilities
 
 charts_apple_music_url = f"/charts/apple_music"
 

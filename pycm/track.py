@@ -1,5 +1,5 @@
-import pycm.utilities as utilities
-
+#import pycm.utilities as utilities
+from . import utilities
 
 def metadata(cmid):
     """

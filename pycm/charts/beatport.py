@@ -1,4 +1,4 @@
-import pycm.utilities as utilities
+from .. import utilities
 
 beatport_charts_url = f"/charts/beatport"
 
