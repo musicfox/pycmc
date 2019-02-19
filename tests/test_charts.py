@@ -1,6 +1,6 @@
 import pytest
 import pycm
-import pycm.utilities as utilities
+from pycm import utilities
 
 @pytest.fixture
 def projpath(path=None):
