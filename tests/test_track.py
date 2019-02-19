@@ -8,20 +8,32 @@ def projpath(path=None):
             path += '/'
         return path
     return utilities.ProjectRootDir()
-
 @pytest.fixture
-def credentials(projpath):
-    # initialize
-    creds.Update()
-    # load credentials
-    return creds.Load()
+def dates():
+    return {'start': '2018-03-01', 'end': '2018-03-03'}
 
 def test_metadata():
-    pass
+    test = pycm.track.metadata('15678739') # Khalid - Angels
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
+    assert test['name'] is not ''
+    assert test['artists'][0]['name'] is not ''
 
 def test_tunefind():
-    pass
+    test = pycm.track.tunefind('15678739') # Khalid - Angels
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+#    assert test['name'] is not ''
+#    assert test['artists'][0]['name'] is not ''
 
-def test_playlists():
+def test_playlists(dates):
+    """
+    Unfortunately CM's exemplar is incorrect here...
+    https://api.chartmetric.io/apidoc/#api-Track-GetCurrentPlaylistsByTracks
+    """
     # playlist placement
-    pass
+    #test = pycm.track.playlists('3308',
+    #                            dates['start'],
+    #                            dates['end']) # Khalid - Angels
+    #assert isinstance(test, type(list()))
+    #assert len(test) > 0
