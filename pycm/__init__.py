@@ -15,4 +15,4 @@ import pycm.artist
 
 import pycm.utilities
 import pycm.background
-
+import pycm.curator
