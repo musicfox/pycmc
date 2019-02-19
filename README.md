@@ -21,8 +21,11 @@ git submodule init
 ```
 
 ### as a `pip` `package`
-```
-pip install --user git+https://github.com:thinkjrs/pycm
+```{Bash}
+$ git clone git@github.com:thinkjrs/pycm
+$ cd pycm
+$ conda activate myenv # source activate myenv
+$ pip install --user -e .
 ```
 
 ### Authentication
