@@ -8,6 +8,7 @@ def projpath(path=None):
             path += '/'
         return path
     return utilities.ProjectRootDir()
+
 @pytest.fixture
 def dates():
     return {'start': '2018-03-01', 'end': '2018-03-03'}
