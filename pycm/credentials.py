@@ -8,7 +8,7 @@ from pathlib import Path
 import os
 import json
 import time
-import datetime
+from datetime import datetime
 import requests
 
 @property
