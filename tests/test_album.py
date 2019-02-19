@@ -10,18 +10,21 @@ def projpath(path=None):
     return utilities.ProjectRootDir()
 
 @pytest.fixture
-def credentials(projpath):
-    # initialize
-    creds.Update()
-    # load credentials
-    return creds.Load()
+def dates():
+    return {'start': '2018-03-01', 'end': '2018-03-03'}
 
 def test_metadata():
-    pass
+    test = pycm.album.metadata('1119543')
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
 
 def test_tunefind():
-    pass
+    test = pycm.album.metadata('1119543')
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
 
-def test_playlists():
+def test_playlists(dates):
     # playlist placement
-    pass
+    test = pycm.album.playlists('1119543', dates['start'], )
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
