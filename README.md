@@ -1,10 +1,23 @@
 # pycm
-A Pythonic interface for the`chartmetric.io` api 
+A Python interface for the`chartmetric.io` API.
 
-## Setup
+## Setup as a `git` `submodule`
+Do just one of the following:
 
-Ensure that you have a `.credentials.json` file in your toplevel project
-directory containing the following:
+```
+# either one will work, personal preference -- though you should use keys ;-p
+git submodule add [-b master] https://github.com/thinkjrs/pycm.git
+```
+
+**NOTE:** the option key/value in brackets can be left out entirely  
+
+```{Bash}
+git submodule add [-b master] git@github.com:thinkjrs/pycm.git
+git submodule init
+```
+Ensure that you have a `.credentials.json` file in your toplevel project/repo
+(the directory into which you cloned this repo) directory containing the
+following:  
 
 ```{json}
 {
@@ -14,51 +27,46 @@ directory containing the following:
     "refreshtoken":"your-token-here"
 }
 ```
-## Example Usage
-``` {Python}
-
->>> import pycm
->>> pycm.api.init('credentials')
->>> post_malone_spotify_popularity = pycm.api.spotify('post malone',
-                                                      'popularity',)
-```
-
-## Roadmap
+## Design 
 
 To mimic the API design of chartmetric and make our lives easier here,
 we'll roughly adhere to the following module design:
 
 `pycm` package w/the following modules:
-    - album
-    - artist
-    - charts
-    - curator
-    - playlist
-    - track
-    - credentials
-    - credentials_manager
-    - utilities
+    - `album`
+    - `artist`
+    - `charts`
+    - `curator`
+    - `playlist`
+    - `track`
+    - `credentials`
+    - `credentials_manager`
+    - `utilities`
 
 Each module above provides (most) methods for a specific endpoint
-to the chartmetric.io API, labelled as their GET endpoints. For example,
+to the chartmetric.io API, (mostly) labelled as their GET endpoints.  
+
+For example,
 ```{Python}
->>> 'API ALBUM URL' = 'https://api.charmetric.io/api/album'
+>>> 'API ALBUM META URL' = 'https://api.charmetric.io/api/album/:id'
 ```
 To get an album's metadata just call the metadata function:
 ```
 >>> import pycm
 >>> pycm.album.metadata('chartmetricID') # return dict of album metatdata
 ```
+The call mostly replicates the link. *Nice.*  
 
-Some Example Usage:
+## More Example Usage:
 
 **Import**
 ```{Python}
 >>> import pycm
 ```
-Yep, that's it. As the great Miles Davis often said, less is more.
+Yep, that's it. As the great Miles Davis often said, *less is more.*
 
-**Spotify top charts**
+**Spotify top charts**  
+
 Obviously we'll start with the elephant in the room and get the top
 charts from Spotify.
 
@@ -67,7 +75,8 @@ charts from Spotify.
 >>> # spotify charts
 >>> cstracks = pycm.charts.spotify.tracks(date='2019-01-01', ) 
 ```
-**Apple Music videos charts**
+**Apple Music videos charts**  
+
 What videos are charting in Apple Music on the same day as above?
 ```{Python}
 >>> # itunes videos charts
