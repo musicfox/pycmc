@@ -10,7 +10,8 @@ import json
 import time
 import requests
 import psutil
-from .credentials_manager import token 
+from importlib import reload
+from . import credentials_manager
 
 def TTLwait(func,):
     """
@@ -72,9 +73,10 @@ def RequestData(urlhandle, params):
     :returns:               dictionary with keys url, headers,
                             and params
     """
+    reload(credentials_manager)
     return {
         "url": f"{BaseURL()}{urlhandle}",
-        "headers": {"Authorization": f"Bearer {token}"},
+        "headers": {"Authorization": f"Bearer {credentials_manager.token}"},
         "params": params,
     }
 
