@@ -55,7 +55,7 @@ def UpdateCredentials():
 @background.task
 def TimedLoop():
     while True:
-        sleep(3601) # an extra second, just in case ;-)
+        sleep(3000)# api is inconsistent so using conservative 3000 vs 3600
         UpdateCredentials()
 
 
