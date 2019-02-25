@@ -48,8 +48,10 @@ def test_metadata():
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
-def test_playlists():
-    pass
+def test_playlists(dates):
+    test = pycm.artist.playlists('3380', 'spotify', dates['start'], 'current') 
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 def test_urls():
     test = pycm.artist.tunefind('3380',) 

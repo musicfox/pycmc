@@ -1,5 +1,6 @@
 #import pycm.utilities as utilities
 from . import utilities
+
 def fanmetrics(cmid, start_date, dsrc='instagram', valueCol='followers', ):
     """
     Query the chartmetric API for artist fanmetrics.
@@ -115,12 +116,24 @@ def metadata(cmid):
     return utilities.RequestGet(data)
 
 
-def playlists(cmid, dsrc, valueCol, start_date, ):
+def playlists(cmid, dsrc, start_date, status='past'):
     """
-    https://api.chartmetric.io/api/artist/:id/:type/:status/playlists
-    """
-    pass
+    Query the chartmetric.io API for artist playlist data.
 
+    https://api.chartmetric.io/api/artist/:id/:type/:status/playlists
+    :param cmid:        string chartmetric artist id
+    :param start_date:  string ISO date %Y-%m-%d
+    :param dsrc:        string data source 'spotify', 'applemusic', or 'deezer'
+
+    :returns:           no one knows-> it's chartmetric's API
+    """
+    urlhandle = f"/artist/{cmid}/{dsrc}/{status}/playlists"
+    params = {
+        'since': start_date,
+        'indie': False, 
+    }
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)
 
 def urls(cmid):
     """
