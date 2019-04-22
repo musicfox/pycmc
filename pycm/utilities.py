@@ -56,7 +56,7 @@ def FindProcess(name):
 
 
 def BaseURL():
-    return f"https://api.chartmetric.io/api"
+    return f"https://api.chartmetric.com/api"
 
 def RequestData(urlhandle, params):
     """
