@@ -24,9 +24,10 @@ def tracks(date, country="US", viral=False):
         'country_code': country,
         'duration': 'daily',
         'type': 'viral' if viral else 'regional',
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def freshfind(date,):
@@ -44,4 +45,4 @@ def freshfind(date,):
     }
 
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
