@@ -13,12 +13,13 @@ def albums(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/albums"
     params = {
-        'code2': country,
+        'country_code': country,
         'date': date,
         'genre': 'All Genres',
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def tracks(date, country="US"):
@@ -33,12 +34,13 @@ def tracks(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/tracks"
     params = {
-        'code2': country,
+        'country_code': country,
         'date': date,
         'genre': 'All Genres',
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def videos(date, country="US"):
@@ -53,8 +55,9 @@ def videos(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/videos"
     params = {
-        'code2': country,
+        'country_code': country,
         'date': date,
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
