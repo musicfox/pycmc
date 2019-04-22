@@ -18,10 +18,10 @@ def tracks(date, country="US", viral=False):
     :returns:           list of dictionary of spotify chart data
     """
 
-    urlhandle = f"{spotify_charts_url}/tracks/"
+    urlhandle = f"{spotify_charts_url}"
     params = {
         'date': date,
-        'code2': country,
+        'country_code': country,
         'duration': 'daily',
         'type': 'viral' if viral else 'regional',
     }
