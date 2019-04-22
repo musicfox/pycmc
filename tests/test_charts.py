@@ -11,6 +11,9 @@ def projpath(path=None):
     return utilities.ProjectRootDir()
 
 def test_spotify_tracks():
+    """
+    Endpoint as listedn on docs is broken
+    """
     test = pycm.charts.spotify.tracks('2019-02-15')
     assert isinstance(test, type(list()))
     assert len(test) > 0

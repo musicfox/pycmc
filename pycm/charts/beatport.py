@@ -12,10 +12,11 @@ def tracks(date,):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    urlhandle = f"{beatport_charts_url}/tracks"
+    urlhandle = f"{beatport_charts_url}"
     params = {
         'date': date,
-        'genre': 'top-100'
+        'genre': 'top-100',
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
