@@ -1,3 +1,8 @@
+"""
+These endpoints do not work as listed on the cm documentation. 04-22-2019.
+https://cm-test-node-api.herokuapp.com/apidoc/#api-Playlist-GetPlaylistMetadata
+"""
+
 import pytest
 import pycm
 
@@ -27,6 +32,9 @@ def test_lists():
 pass
 
 def test_metadata(dta):
+    """
+    This endpoint is breaking upstream. 04-22-2019.
+    """
     test = pycm.playlist.metadata(dta['cmid'], dta['stype'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
@@ -46,6 +54,9 @@ def test_tracks(dta):
 
 
 def test_evolution(dates):
+    """
+    This endpoint is breaking upstream. 04-22-2019.
+    """
     test = pycm.playlist.evolution(439,
                                    'artist',
                                    dates['start'],
