@@ -1,6 +1,6 @@
 from .. import utilities
 
-charts_apple_music_url = f"/charts/apple_music"
+charts_apple_music_url = f"/charts/applemusic"
 
 def tracks(date, country='US', genre="All Genres"):
     """
@@ -15,13 +15,14 @@ def tracks(date, country='US', genre="All Genres"):
     """
     params = {
         "date": date,
-        "code2": country,
+        "country_code": country,
         "genre": genre,
-        "chart_type": "daily",
+        "type": "daily",
+        "offset": 0,
     }
     urlhandle = f"{charts_apple_music_url}/tracks"
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def albums(date, country="US", genre="All Genres"):
@@ -38,11 +39,11 @@ def albums(date, country="US", genre="All Genres"):
     urlhandle = f"{charts_apple_music_url}/albums"
     params = {
         "date": date,
-        "code2": country,
+        "country_code": country,
         "genre": genre,
     }
     data = utilities.RequestData(urlhandle, params) 
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def videos(date, country="US", genre="All Genres"):
@@ -59,8 +60,8 @@ def videos(date, country="US", genre="All Genres"):
     urlhandle = f"{charts_apple_music_url}/videos"
     params = {
         "date": date,
-        "code2": country,
+        "country_code": country,
         "genre": genre,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
