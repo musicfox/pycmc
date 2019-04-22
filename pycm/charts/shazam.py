@@ -13,10 +13,11 @@ def tracks(date, country="US"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    urlhandle = f"{shazam_charts_url}/tracks"
+    urlhandle = f"{shazam_charts_url}"
     params = {
-        'code2': country,
         'date': date,
+        'country_code': country,
+        'offset':0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
