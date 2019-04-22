@@ -15,12 +15,12 @@ def tracks(date, country="US", kind="top", genre="all-music"):
     :returns:           list of dictionary of Soundcloud
                         chart data
     """
-    urlhandle = f"{soundcloud_charts_url}/tracks"
+    urlhandle = f"{soundcloud_charts_url}"
     params = {
-        "code2": country,
+        "country_code": country,
         "date": date,
         "kind": kind,
         "genre": genre,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
