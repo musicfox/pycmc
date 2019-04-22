@@ -60,6 +60,6 @@ def videos(date, country="US"):
         'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
