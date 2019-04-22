@@ -19,6 +19,7 @@ def test_fanmetrics(dates):
     assert len(test.keys()) > 0
 
 def test_listening(dates):
+
     test = pycm.artist.listening('3380', dates['start'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
@@ -49,7 +50,8 @@ def test_metadata():
     assert len(test) > 0
 
 def test_playlists(dates):
-    test = pycm.artist.playlists('3380', 'spotify', dates['start'], 'current') 
+    # this breaks upstream 04/22/2019
+    test = pycm.artist.playlists('439', 'spotify', dates['start'], 'current') 
     assert isinstance(test, type(list()))
     assert len(test) > 0
 

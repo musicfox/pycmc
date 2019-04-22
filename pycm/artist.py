@@ -32,7 +32,7 @@ def listening(cmid, start_date):
     :param cmid:        string chartmetric artist ID
     :returns:           dict of artist metatdata
     """
-    urlhandle = f"/artist/{cmid}/spWherePeopleListenInsights"
+    urlhandle = f"/artist/{cmid}/where-people-listen"
     params = {
         'since': start_date,
     }
@@ -130,7 +130,7 @@ def playlists(cmid, dsrc, start_date, status='past'):
     urlhandle = f"/artist/{cmid}/{dsrc}/{status}/playlists"
     params = {
         'since': start_date,
-        'indie': False, 
+        #'indie': False, 
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
