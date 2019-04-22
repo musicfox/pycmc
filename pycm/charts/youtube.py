@@ -17,7 +17,8 @@ def trends(date, country="US"):
     urlhandle = f"{youtube_charts_url}/trends"
     params = {
         'date': date,
-        'code2': country,
+        'country_code': country,
+        'offset':0,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
@@ -37,10 +38,11 @@ def videos(date, country="US"):
     urlhandle = f"{youtube_charts_url}/videos"
     params = {
         'date': date,
-        'code2': country,
+        'country_code': country,
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def artists(date, country="US"):
@@ -57,10 +59,11 @@ def artists(date, country="US"):
     urlhandle = f"{youtube_charts_url}/artists"
     params = {
         'date': date,
-        'code2': country,
+        'country_code': country,
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 
 def tracks(date, country="US"):
@@ -76,7 +79,8 @@ def tracks(date, country="US"):
     urlhandle = f"{youtube_charts_url}/tracks"
     params = {
         'date': date,
-        'code2': country,
+        'country_code': country,
+        'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
