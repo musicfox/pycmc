@@ -30,22 +30,22 @@ def test_tunefind():
     assert len(test) > 0
 
 def test_albums():
-    test = pycm.artist.tunefind('3380',) 
+    test = pycm.artist.albums('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 def test_tracks():
-    test = pycm.artist.tunefind('3380',) 
+    test = pycm.artist.tracks('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 def test_related():
-    test = pycm.artist.tunefind('3380',) 
+    test = pycm.artist.related('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 def test_metadata():
-    test = pycm.artist.tunefind('3380',) 
+    test = pycm.artist.metadata('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
@@ -56,6 +56,6 @@ def test_playlists(dates):
     assert len(test) > 0
 
 def test_urls():
-    test = pycm.artist.tunefind('3380',) 
+    test = pycm.artist.urls('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
