@@ -46,8 +46,8 @@ def test_related():
 
 def test_metadata():
     test = pycm.artist.metadata('3380',) 
-    assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert isinstance(test, dict(list()))
+    assert test is not None
 
 def test_playlists(dates):
     # this breaks upstream 04/22/2019
