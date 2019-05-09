@@ -22,8 +22,8 @@ def tracks(date, country="US", viral=False):
     params = {
         'date': date,
         'country_code': country,
-        'duration': 'daily',
         'type': 'viral' if viral else 'regional',
+        'interval': 'daily',
         'offset': 0,
     }
     data = utilities.RequestData(urlhandle, params)
