@@ -46,7 +46,7 @@ def test_related():
 
 def test_metadata():
     test = pycm.artist.metadata('3380',) 
-    assert isinstance(test, dict(list()))
+    assert isinstance(test, dict())
     assert test is not None
 
 def test_playlists(dates):
