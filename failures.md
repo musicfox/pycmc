@@ -1,6 +1,6 @@
 ```bash
 ============================= test session starts ==============================
-platform linux -- Python 3.6.8, pytest-3.6.0, py-1.5.3, pluggy-0.6.0 -- /home/jason/.miniconda3/envs/pycm/bin/python
+platform linux -- Python 3.6.8, pytest-3.6.0, py-1.5.3, pluggy-0.6.0 -- /home/jason/.miniconda3/envs/musicfox-research/bin/python
 cachedir: .pytest_cache
 rootdir: /home/jason/Repos/pycm, inifile:
 collecting ... collected 51 items
@@ -13,11 +13,11 @@ tests/test_artist.py::test_listening PASSED                              [  9%]
 tests/test_artist.py::test_tunefind PASSED                               [ 11%]
 tests/test_artist.py::test_albums PASSED                                 [ 13%]
 tests/test_artist.py::test_tracks PASSED                                 [ 15%]
-tests/test_artist.py::test_related PASSED                                [ 17%]
+tests/test_artist.py::test_related FAILED                                [ 17%]
 tests/test_artist.py::test_metadata PASSED                               [ 19%]
 tests/test_artist.py::test_playlists FAILED                              [ 21%]
 tests/test_artist.py::test_urls PASSED                                   [ 23%]
-tests/test_charts.py::test_spotify_tracks FAILED                         [ 25%]
+tests/test_charts.py::test_spotify_tracks PASSED                         [ 25%]
 tests/test_charts.py::test_SpotifyFreshFind PASSED                       [ 27%]
 tests/test_charts.py::test_applemusic_tracks PASSED                      [ 29%]
 tests/test_charts.py::test_applemusic_albums PASSED                      [ 31%]
@@ -58,6 +58,48 @@ tests/test_utilities.py::test_FindProcess PASSED                         [ 98%]
 tests/test_utilities.py::test_BaseURL PASSED                             [100%]
 
 =================================== FAILURES ===================================
+_________________________________ test_related _________________________________
+
+    def test_related():
+>       test = pycm.artist.related('3380',)
+
+tests/test_artist.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+pycm/artist.py:103: in related
+    return utilities.RequestGet(data)
+pycm/utilities.py:96: in RequestGet
+    response.raise_for_status()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Response [400]>
+
+    def raise_for_status(self):
+        """Raises stored :class:`HTTPError`, if one occurred."""
+    
+        http_error_msg = ''
+        if isinstance(self.reason, bytes):
+            # We attempt to decode utf-8 first because some servers
+            # choose to localize their reason strings. If the string
+            # isn't utf-8, we fall back to iso-8859-1 for all other
+            # encodings. (See PR #3538)
+            try:
+                reason = self.reason.decode('utf-8')
+            except UnicodeDecodeError:
+                reason = self.reason.decode('iso-8859-1')
+        else:
+            reason = self.reason
+    
+        if 400 <= self.status_code < 500:
+            http_error_msg = u'%s Client Error: %s for url: %s' % (self.status_code, reason, self.url)
+    
+        elif 500 <= self.status_code < 600:
+            http_error_msg = u'%s Server Error: %s for url: %s' % (self.status_code, reason, self.url)
+    
+        if http_error_msg:
+>           raise HTTPError(http_error_msg, response=self)
+E           requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.chartmetric.com/api/artist/3380/relatedartists
+
+../../.local/lib/python3.6/site-packages/requests/models.py:935: HTTPError
 ________________________________ test_playlists ________________________________
 
 dates = {'end': '2018-03-03', 'start': '2018-03-01'}
@@ -68,7 +110,7 @@ dates = {'end': '2018-03-03', 'start': '2018-03-01'}
 
 tests/test_artist.py:54: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pycm/artist.py:136: in playlists
+pycm/artist.py:138: in playlists
     return utilities.RequestGet(data)
 pycm/utilities.py:96: in RequestGet
     response.raise_for_status()
@@ -101,51 +143,6 @@ self = <Response [400]>
         if http_error_msg:
 >           raise HTTPError(http_error_msg, response=self)
 E           requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.chartmetric.com/api/artist/439/spotify/current/playlists?since=2018-03-01
-
-../../.local/lib/python3.6/site-packages/requests/models.py:935: HTTPError
-_____________________________ test_spotify_tracks ______________________________
-
-    def test_spotify_tracks():
-        """
-        Endpoint as listedn on docs is broken
-        """
->       test = pycm.charts.spotify.tracks('2019-02-15')
-
-tests/test_charts.py:17: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-pycm/charts/spotify.py:30: in tracks
-    return utilities.RequestGet(data)
-pycm/utilities.py:96: in RequestGet
-    response.raise_for_status()
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <Response [400]>
-
-    def raise_for_status(self):
-        """Raises stored :class:`HTTPError`, if one occurred."""
-    
-        http_error_msg = ''
-        if isinstance(self.reason, bytes):
-            # We attempt to decode utf-8 first because some servers
-            # choose to localize their reason strings. If the string
-            # isn't utf-8, we fall back to iso-8859-1 for all other
-            # encodings. (See PR #3538)
-            try:
-                reason = self.reason.decode('utf-8')
-            except UnicodeDecodeError:
-                reason = self.reason.decode('iso-8859-1')
-        else:
-            reason = self.reason
-    
-        if 400 <= self.status_code < 500:
-            http_error_msg = u'%s Client Error: %s for url: %s' % (self.status_code, reason, self.url)
-    
-        elif 500 <= self.status_code < 600:
-            http_error_msg = u'%s Server Error: %s for url: %s' % (self.status_code, reason, self.url)
-    
-        if http_error_msg:
->           raise HTTPError(http_error_msg, response=self)
-E           requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://api.chartmetric.com/api/charts/spotify?date=2019-02-15&country_code=US&duration=daily&type=regional&offset=0
 
 ../../.local/lib/python3.6/site-packages/requests/models.py:935: HTTPError
 ________________________________ test_metadata _________________________________
@@ -245,5 +242,5 @@ self = <Response [404]>
 E           requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.chartmetric.com/api/playlist/spotify/by/artist/439/evolution?since=2018-03-01&until=2018-03-03
 
 ../../.local/lib/python3.6/site-packages/requests/models.py:935: HTTPError
-===================== 4 failed, 47 passed in 83.27 seconds =====================
+==================== 4 failed, 47 passed in 104.60 seconds =====================
 ```
