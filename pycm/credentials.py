@@ -175,7 +175,7 @@ def FetchAccessToken():
     :returns:       Request object in dictionary form with keys:
                     token, expires_in, refresh_token, and scope
     """
-    authURL = f"https://api.chartmetric.io/api/token"
+    authURL = f"https://api.chartmetric.com/api/token"
     headers = {"Content-Type": "application/json"}
     refreshtokenkey = "refreshtoken"
     refreshtoken = Load()[refreshtokenkey]

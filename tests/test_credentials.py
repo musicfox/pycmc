@@ -35,7 +35,7 @@ def credentials_response(credential):
     Make a request to the charmetric api for the access token and
     return the text of the response.
     """
-    authURL = f"https://api.chartmetric.io/api/token"
+    authURL = f"https://api.chartmetric.com/api/token"
     headers = {'Content-Type': 'application/json',}
     refreshtokenkey = 'refreshtoken'
     refreshtoken = credential[refreshtokenkey]
