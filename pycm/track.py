@@ -6,9 +6,9 @@ def metadata(cmid):
     Query the track metadata endpoint given the chartmetric
     id. 
     
-    https://api.chartmetric.io/api/track/:id
+    https://api.chartmetric.com/api/track/:id
 
-    :param cmid:        string chartmetric.io entity ID
+    :param cmid:        string chartmetric.com entity ID
 
     :returns:           dictionary of track metadata
     """
@@ -20,9 +20,9 @@ def tunefind(cmid):
     """
     Query the track tunefind stats endpoint given the chartmetric id.
 
-    https://api.chartmetric.io/api/track/:id/tunefind
+    https://api.chartmetric.com/api/track/:id/tunefind
 
-    :param cmid:        string chartmetric.io entity ID
+    :param cmid:        string chartmetric.com entity ID
     """
     urlhandle = f"/track/{cmid}/tunefind"
     data = utilities.RequestData(urlhandle, params = None)
@@ -32,8 +32,8 @@ def playlists(cmid, date, status='current', indie=False, limit=1000,):
     """
     Query the track playlist placement API endpoint.
 
-    https://api.chartmetric.io/api/track/:id/:streamingType/:status/playlists
-    :param cmid:        string chartmetric.io entity ID
+    https://api.chartmetric.com/api/track/:id/:streamingType/:status/playlists
+    :param cmid:        string chartmetric.com entity ID
     :param start_date:  string ISO date
     :param end_date:    string ISO date
     :param status:      string 'current' or 'past'
