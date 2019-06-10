@@ -159,6 +159,7 @@ def Check(filepath=None):
     # import and check that refreshtoken value is a non-empty string
     if not os.path.exists(filepath):
         print(f"Bad path: {filepath} @ {datetime.now()}")
+        return False
         #raise FileNotFoundError
     with open(filepath) as fp:
         credentials = json.load(fp)
