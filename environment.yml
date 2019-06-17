@@ -9,6 +9,7 @@ dependencies:
   - ipython
   - jupyter
   - psutil
+  - coverage
   - pip
   - pip:
     - white
