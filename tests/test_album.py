@@ -65,9 +65,9 @@ def test_metadata(srkeys):
         print(f"pycm.album.metadata -> {err}")
 
 def test_tunefind():
-    test = pycm.album.metadata('1119543')
-    assert isinstance(test, type(dict()))
-    assert len(test.keys()) > 0
+    test = pycm.album.tunefind('1119543')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 def test_playlists(dates):
     # playlist placement
