@@ -1,5 +1,12 @@
-pycm package
+``pycm`` package documentation
 ============
+
+Subpackages
+-----------
+
+.. toctree::
+
+   pycm.charts
 
 Submodules
 ----------
@@ -77,11 +84,10 @@ pycm.utilities module
    :show-inheritance:
 
 
-Subpackages
------------
+Module contents
+---------------
 
-.. toctree::
-
-   pycm.charts
-
-
+.. automodule:: pycm
+   :members:
+   :undoc-members:
+   :show-inheritance:
