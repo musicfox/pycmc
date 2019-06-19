@@ -1,5 +1,6 @@
 pages:
   script:
+  - mkidr public
   - mv docs/_build/html/ public/
   artifacts:
     paths:
