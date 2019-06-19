@@ -1,6 +1,6 @@
 pages:
   script:
-  - mkidr public
+  - mkdir public
   - mv docs/_build/html/ public/
   artifacts:
     paths:
