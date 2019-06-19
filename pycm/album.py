@@ -38,8 +38,7 @@ def playlists(cmid, start_date, end_date=None, stype='spotify', status='current'
     :param cmid:        string chartmetric.com entity ID
     :param start_date:  string ISO date
     :param end_date:    string ISO date
-    :param stype:       string streaming platform
-                        'spotify, 'applemusic', or 'deezer'
+    :param stype:       string streaming platform 'spotify, 'applemusic', or 'deezer'
     :param status:      string 'current' or 'past'
     :param indie:       Boolean true if playlist created by major labels
     :param limit:       number of entries to be returned
