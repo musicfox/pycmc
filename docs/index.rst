@@ -10,24 +10,33 @@ Welcome to pycm's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Artist
-======
-.. automodule:: pycm.artist
-    :members:
-Album
-=====
 .. automodule:: pycm.album
     :members:
 
-.. automodule::    pycm.artist
-    background
-    charts (package)
-    credentials
-    credentials_manager
-    curator
-    playlist
-    track
-    utilities
+.. automodule:: pycm.artist
+.. automodule:: pycm.background
+    :members:
+
+.. automodule:: pycm.charts (package)
+    :members:
+
+.. automodule:: pycm.credentials
+    :members:
+
+.. automodule:: pycm.credentials_manager
+    :members:
+
+.. automodule:: pycm.curator
+    :members:
+
+.. automodule:: pycm.playlist
+    :members:
+
+.. automodule:: pycm.track
+    :members:
+
+.. automodule:: pycm.utilities
+    :members:
 
 
 Indices and tables
@@ -36,29 +45,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-PACKAGE CONTENTS
-    album
-    artist
-    background
-    charts (package)
-    credentials
-    credentials_manager
-    curator
-    playlist
-    track
-    utilities
-
-SUBMODULES
-    applemusic
-    beatport
-    itunes
-    shazam
-    soundcloud
-    spotify
-    youtube
-
-FILE
-    /home/jason/Repos/pycm/pycm/__init__.py
-
-
