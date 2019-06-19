@@ -1,7 +1,11 @@
+image: python:3.7-alpine
+
 pages:
   script:
-  - mkdir public
-  - mv docs/_build/html/ public/
+  - pip install sphinx
+  - pip install recommonmark
+  - make html
+  - mv _build/html/ public
   artifacts:
     paths:
     - public
