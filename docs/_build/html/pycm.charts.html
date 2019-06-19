@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>pycm.charts package &#8212; pycm  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pycm package" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pycm-charts-package">
+<h1>pycm.charts package<a class="headerlink" href="#pycm-charts-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pycm.charts.applemusic">
+<span id="pycm-charts-applemusic-module"></span><h2>pycm.charts.applemusic module<a class="headerlink" href="#module-pycm.charts.applemusic" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.applemusic.albums">
+<code class="sig-prename descclassname">pycm.charts.applemusic.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">genre='All Genres'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.applemusic.albums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/apple_music/albums endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Genre</dt>
+<dd class="field-even"><p>string genre (see CM docs)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of dictionary of apple music chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.applemusic.tracks">
+<code class="sig-prename descclassname">pycm.charts.applemusic.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">genre='All Genres'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.applemusic.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/apple_music/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Genre</dt>
+<dd class="field-even"><p>string genre (see CM docs)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of dictionary of apple music chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.applemusic.videos">
+<code class="sig-prename descclassname">pycm.charts.applemusic.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">genre='All Genres'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.applemusic.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/apple_music/videos endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Genre</dt>
+<dd class="field-even"><p>string genre (see CM docs)</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of dictionary of apple music chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.beatport">
+<span id="pycm-charts-beatport-module"></span><h2>pycm.charts.beatport module<a class="headerlink" href="#module-pycm.charts.beatport" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.beatport.tracks">
+<code class="sig-prename descclassname">pycm.charts.beatport.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.beatport.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/beatport/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.itunes">
+<span id="pycm-charts-itunes-module"></span><h2>pycm.charts.itunes module<a class="headerlink" href="#module-pycm.charts.itunes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.itunes.albums">
+<code class="sig-prename descclassname">pycm.charts.itunes.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.itunes.albums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/itunes/albums endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.itunes.tracks">
+<code class="sig-prename descclassname">pycm.charts.itunes.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.itunes.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/itunes/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.itunes.videos">
+<code class="sig-prename descclassname">pycm.charts.itunes.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.itunes.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/itunes/videos endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.shazam">
+<span id="pycm-charts-shazam-module"></span><h2>pycm.charts.shazam module<a class="headerlink" href="#module-pycm.charts.shazam" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.shazam.tracks">
+<code class="sig-prename descclassname">pycm.charts.shazam.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.shazam.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/shazam/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.soundcloud">
+<span id="pycm-charts-soundcloud-module"></span><h2>pycm.charts.soundcloud module<a class="headerlink" href="#module-pycm.charts.soundcloud" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.soundcloud.tracks">
+<code class="sig-prename descclassname">pycm.charts.soundcloud.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">kind='top'</em>, <em class="sig-param">genre='all-music'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.soundcloud.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/soundcloud/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+<li><p><strong>kind</strong> – string ‘top’ or ‘trending’</p></li>
+<li><p><strong>genre</strong> – string genre (see CM docs)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.spotify">
+<span id="pycm-charts-spotify-module"></span><h2>pycm.charts.spotify module<a class="headerlink" href="#module-pycm.charts.spotify" title="Permalink to this headline">¶</a></h2>
+<p>Defines methods for obtaining Spotify chart data from the
+chartmetric.io API.</p>
+<dl class="function">
+<dt id="pycm.charts.spotify.freshfind">
+<code class="sig-prename descclassname">pycm.charts.spotify.</code><code class="sig-name descname">freshfind</code><span class="sig-paren">(</span><em class="sig-param">date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.spotify.freshfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/spotify/freshfind endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of spotify chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.spotify.tracks">
+<code class="sig-prename descclassname">pycm.charts.spotify.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">viral=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.spotify.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/spotify/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of spotify chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts.youtube">
+<span id="pycm-charts-youtube-module"></span><h2>pycm.charts.youtube module<a class="headerlink" href="#module-pycm.charts.youtube" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pycm.charts.youtube.artists">
+<code class="sig-prename descclassname">pycm.charts.youtube.</code><code class="sig-name descname">artists</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.youtube.artists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/youtube/artists endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.youtube.tracks">
+<code class="sig-prename descclassname">pycm.charts.youtube.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.youtube.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/youtube/tracks endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.youtube.trends">
+<code class="sig-prename descclassname">pycm.charts.youtube.</code><code class="sig-name descname">trends</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.youtube.trends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/youtube/trends endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="pycm.charts.youtube.videos">
+<code class="sig-prename descclassname">pycm.charts.youtube.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param">date</em>, <em class="sig-param">country='US'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.charts.youtube.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/youtube/videos endpoint for the
+given date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> – string date in ISO format %Y-%m-%y</p></li>
+<li><p><strong>country</strong> – string country code, e.g. ‘US’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionary of Soundcloud
+chart data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycm.charts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pycm.charts" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pycm</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pycm.charts package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.applemusic">pycm.charts.applemusic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.beatport">pycm.charts.beatport module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.itunes">pycm.charts.itunes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.shazam">pycm.charts.shazam module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.soundcloud">pycm.charts.soundcloud module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.spotify">pycm.charts.spotify module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts.youtube">pycm.charts.youtube module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pycm.charts">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">pycm package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, MusicFox, Inc., Jason R. Stevens, Richard Shu, Sherry Yu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/pycm.charts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
