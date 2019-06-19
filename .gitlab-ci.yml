@@ -4,6 +4,7 @@ pages:
   script:
   - pip install sphinx
   - pip install recommonmark
+  - apk --no-cache add make
   - make html
   - mv _build/html/ public
   artifacts:
