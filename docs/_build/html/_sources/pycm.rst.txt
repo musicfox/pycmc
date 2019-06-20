@@ -1,5 +1,5 @@
-pycm package
-============
+``pycm`` package documentation
+===============================
 
 Subpackages
 -----------

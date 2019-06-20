@@ -19,8 +19,8 @@ sys.setrecursionlimit(1500)
 # -- Project information -----------------------------------------------------
 
 project = 'pycm'
-copyright = '2019, MusicFox, Inc., Jason R. Stevens, Richard Shu, Sherry Yu'
-author = 'Jason R. Stevens, CFA | Richard Shu | Sherry Yu'
+copyright = '2019, MusicFox, Inc.'
+author = 'Jason R. Stevens, CFA, Richard Shu, Sherry Yu'
 
 
 # -- General configuration ---------------------------------------------------
@@ -49,7 +49,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_logo = 'logo-dark-text.png'
+html_favicon = 'favicon.ico'
+html_theme = 'haiku'
+#html_theme_options = {
+#    full_logo = "true" 
+#}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -58,4 +63,7 @@ html_static_path = ['_static']
 
 # Add basic extension to take python docstrings
 # autodoc
+
+# -- Options for Syntax Highlighting -----------------------------------------
+pygments_style = 'colorful'
 

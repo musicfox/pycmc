@@ -1,37 +1,38 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <title>pycm package &#8212; pycm  documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>pycm package documentation &#8212; pycm  documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
-  
+      <div class="header" role="banner"><img class="rightlogo" src="_static/logo-dark-text.png" alt="Logo"/><h1 class="heading"><a href="index.html">
+          <span>pycm  documentation</span></a></h1>
+        <h2 class="heading"><span>pycm package documentation</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="contents.html">Contents</a>
+        </p>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="pycm-package">
-<h1>pycm package<a class="headerlink" href="#pycm-package" title="Permalink to this headline">¶</a></h1>
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="pycm-package-documentation">
+<h1><code class="docutils literal notranslate"><span class="pre">pycm</span></code> package documentation<a class="headerlink" href="#pycm-package-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -58,23 +59,25 @@
 <span id="pycm-album-module"></span><h2>pycm.album module<a class="headerlink" href="#module-pycm.album" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="pycm.album.metadata">
-<code class="sig-prename descclassname">pycm.album.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.album.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the album metadata endpoint given the chartmetric
 id.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/album/:id">https://api.chartmetric.com/api/album/:id</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric.com entity ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dictionary of album metadata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric.com entity ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dictionary of album metadata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.album.playlists">
-<code class="sig-prename descclassname">pycm.album.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">start_date</em>, <em class="sig-param">end_date=None</em>, <em class="sig-param">stype='spotify'</em>, <em class="sig-param">status='current'</em>, <em class="sig-param">indie=False</em>, <em class="sig-param">limit=100</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.playlists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.album.</code><code class="descname">playlists</code><span class="sig-paren">(</span><em>cmid</em>, <em>start_date</em>, <em>end_date=None</em>, <em>stype='spotify'</em>, <em>status='current'</em>, <em>indie=False</em>, <em>limit=100</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.playlists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the album playlist placement API endpoint.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/:streamingType/:status/playlists">https://api.chartmetric.com/api/album/:id/:streamingType/:status/playlists</a>
 :param cmid:        string chartmetric.com entity ID
@@ -88,14 +91,17 @@ id.</p>
 
 <dl class="function">
 <dt id="pycm.album.tunefind">
-<code class="sig-prename descclassname">pycm.album.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.tunefind" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.album.</code><code class="descname">tunefind</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.album.tunefind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the album tunefind stats endpoint given the chartmetric id.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/tunefind">https://api.chartmetric.com/api/album/:id/tunefind</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric.com entity ID</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric.com entity ID</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -103,143 +109,164 @@ id.</p>
 <span id="pycm-artist-module"></span><h2>pycm.artist module<a class="headerlink" href="#module-pycm.artist" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="pycm.artist.albums">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.albums" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">albums</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.albums" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/albums">https://api.chartmetric.com/api/artist/:id/albums</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of artist metatdata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of artist metatdata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.fanmetrics">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">fanmetrics</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">start_date</em>, <em class="sig-param">dsrc='instagram'</em>, <em class="sig-param">valueCol='followers'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.fanmetrics" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">fanmetrics</code><span class="sig-paren">(</span><em>cmid</em>, <em>start_date</em>, <em>dsrc='instagram'</em>, <em>valueCol='followers'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.fanmetrics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric API for artist fanmetrics.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmid</strong> – string chartmetric artist id</p></li>
-<li><p><strong>start_date</strong> – string ISO date %Y-%m-%d</p></li>
-<li><p><strong>dsrc</strong> – string data source
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cmid</strong> – string chartmetric artist id</li>
+<li><strong>start_date</strong> – string ISO date %Y-%m-%d</li>
+<li><strong>dsrc</strong> – string data source
 spotify, facebook, twitter, instagram, youtube,
 wikipedia, bandsintown, soundcloud,
 facebook_fans_by_country, or
-facebook_storytellers_by_country</p></li>
+facebook_storytellers_by_country</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/stat/:source">https://api.chartmetric.com/api/artist/:id/stat/:source</a></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.listening">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">listening</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">start_date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.listening" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">listening</code><span class="sig-paren">(</span><em>cmid</em>, <em>start_date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.listening" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/spWherePeopleListenInsights">https://api.chartmetric.com/api/artist/:id/spWherePeopleListenInsights</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of artist metatdata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of artist metatdata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.metadata">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id">https://api.chartmetric.com/api/artist/:id</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of artist metatdata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of artist metatdata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.playlists">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">dsrc</em>, <em class="sig-param">start_date</em>, <em class="sig-param">status='past'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.playlists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">playlists</code><span class="sig-paren">(</span><em>cmid</em>, <em>dsrc</em>, <em>start_date</em>, <em>status='past'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.playlists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist playlist data.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/:type/:status/playlists">https://api.chartmetric.com/api/artist/:id/:type/:status/playlists</a>
 :param cmid:        string chartmetric artist id
 :param start_date:  string ISO date %Y-%m-%d
 :param dsrc:        string data source ‘spotify’, ‘applemusic’, or ‘deezer’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>no one knows-&gt; it’s chartmetric’s API</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">no one knows-&gt; it’s chartmetric’s API</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.related">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">related</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">limit=100</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.related" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">related</code><span class="sig-paren">(</span><em>cmid</em>, <em>limit=100</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.related" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/relatedartists">https://api.chartmetric.com/api/artist/:id/relatedartists</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of related artists</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of related artists</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.tracks">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.tracks" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">tracks</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.tracks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/tracks">https://api.chartmetric.com/api/artist/:id/tracks</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of artist metatdata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of artist metatdata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.tunefind">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.tunefind" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">tunefind</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.tunefind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.com API for artist metadata.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/tunefind">https://api.chartmetric.com/api/artist/:id/tunefind</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of artist metatdata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of artist metatdata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.artist.urls">
-<code class="sig-prename descclassname">pycm.artist.</code><code class="sig-name descname">urls</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.urls" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.artist.</code><code class="descname">urls</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.artist.urls" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the artist url endpoint given the chartmetric ID and return
 the streaming/social service URLs.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/urls">https://api.chartmetric.com/api/artist/:id/urls</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric artist ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict of platform urls for artist</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric artist ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dict of platform urls for artist</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -248,22 +275,22 @@ the streaming/social service URLs.</p>
 <p>from github.com/kennethreitz/background</p>
 <dl class="function">
 <dt id="pycm.background.callback">
-<code class="sig-prename descclassname">pycm.background.</code><code class="sig-name descname">callback</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.callback" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.background.</code><code class="descname">callback</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.callback" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.background.default_n">
-<code class="sig-prename descclassname">pycm.background.</code><code class="sig-name descname">default_n</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.default_n" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.background.</code><code class="descname">default_n</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.default_n" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.background.run">
-<code class="sig-prename descclassname">pycm.background.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.run" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.background.</code><code class="descname">run</code><span class="sig-paren">(</span><em>f</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.background.task">
-<code class="sig-prename descclassname">pycm.background.</code><code class="sig-name descname">task</code><span class="sig-paren">(</span><em class="sig-param">f</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.task" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.background.</code><code class="descname">task</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.background.task" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -273,136 +300,161 @@ the streaming/social service URLs.</p>
 <p>Utilities for the pycm api credentials interface.</p>
 <dl class="function">
 <dt id="pycm.credentials.Check">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">Check</code><span class="sig-paren">(</span><em class="sig-param">filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Check" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">Check</code><span class="sig-paren">(</span><em>filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check that the .credentials.json file is extant within the project
 root directory. Also sets the credentials filename statically.</p>
 <p>It is important that this causes failure as early in the client init
 phase as possible.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>boolean True if .credentials.json exists AND the
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">boolean True if .credentials.json exists AND the
 dictionary contains a non-empty string for the
-“refreshtoken” string, otherwise False.</p>
-</dd>
-</dl>
+“refreshtoken” string, otherwise False.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="pycm.credentials.CredentialsDir">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">CredentialsDir</code><a class="headerlink" href="#pycm.credentials.CredentialsDir" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">CredentialsDir</code><a class="headerlink" href="#pycm.credentials.CredentialsDir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the credentials filepath (directory + filename.json)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filepath</strong> – string filepath e.g. /home/user/.credentials.json</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>string filepath</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> – string filepath e.g. /home/user/.credentials.json</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string filepath</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.DefaultCredentials">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">DefaultCredentials</code><span class="sig-paren">(</span><em class="sig-param">refreshtoken</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.DefaultCredentials" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">DefaultCredentials</code><span class="sig-paren">(</span><em>refreshtoken</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.DefaultCredentials" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set and save the a default (only refreshtoken)
 .credentials.json file in the project directory or
 in a custom credentials directory, if set.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>refreshtoken</strong> – string refreshtoken from
-chartmetric</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>refreshtoken</strong> – string refreshtoken from
+chartmetric</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.FetchAccessToken">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">FetchAccessToken</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.FetchAccessToken" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">FetchAccessToken</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.FetchAccessToken" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the refreshtoken to fetch the access and other credentials
 from chartmetric.io.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Request object in dictionary form with keys:
-token, expires_in, refresh_token, and scope</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Request object in dictionary form with keys:
+token, expires_in, refresh_token, and scope</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.Filename">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">Filename</code><span class="sig-paren">(</span><em class="sig-param">filename='.credentials.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Filename" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">Filename</code><span class="sig-paren">(</span><em>filename='.credentials.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the given filename.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – string filename w/extension</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>string given filename w/extension</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – string filename w/extension</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string given filename w/extension</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.Load">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">Load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Load" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">Load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the .credentials.json file from the project root directory
 and return the credentials dictionary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dict w/keys: token, scope, expires_in, refreshtoken</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dict w/keys: token, scope, expires_in, refreshtoken</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.PeriodicUpdate">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">PeriodicUpdate</code><span class="sig-paren">(</span><em class="sig-param">TTL_seconds=3600</em>, <em class="sig-param">repeat=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.PeriodicUpdate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">PeriodicUpdate</code><span class="sig-paren">(</span><em>TTL_seconds=3600</em>, <em>repeat=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.PeriodicUpdate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper method to take a TTL variable, wait, and call
 UpdateCredentials. Current chartmetric api documentation (Feb-2019)
 indicates a credential refresh is required every 3600 seconds.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>TTL_seconds</strong> – integer seconds to wait between refreshes</p></li>
-<li><p><strong>repeat</strong> – integer loops to repeat; -1 = inf</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>TTL_seconds</strong> – integer seconds to wait between refreshes</li>
+<li><strong>repeat</strong> – integer loops to repeat; -1 = inf</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.ProjectRootDir">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">ProjectRootDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.ProjectRootDir" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">ProjectRootDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.ProjectRootDir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return path to root directory of project with trailing slash.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>string path with trailing /</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string path with trailing /</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.TTLwait">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">TTLwait</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.TTLwait" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">TTLwait</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.TTLwait" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.credentials.Update">
-<code class="sig-prename descclassname">pycm.credentials.</code><code class="sig-name descname">Update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Update" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials.</code><code class="descname">Update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.Update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the .credentials.json file in the project root directory
 to GET the token, lifetime, and scope attributes and subsequently
 update the .credentials.json file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -425,7 +477,7 @@ the api queries; here it is the actual representative TTL count since
 our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use.</p>
 <dl class="function">
 <dt id="pycm.credentials_manager.UpdateCredentials">
-<code class="sig-prename descclassname">pycm.credentials_manager.</code><code class="sig-name descname">UpdateCredentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials_manager.UpdateCredentials" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.credentials_manager.</code><code class="descname">UpdateCredentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials_manager.UpdateCredentials" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -433,33 +485,37 @@ our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use
 <span id="pycm-curator-module"></span><h2>pycm.curator module<a class="headerlink" href="#module-pycm.curator" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="pycm.curator.lists">
-<code class="sig-prename descclassname">pycm.curator.</code><code class="sig-name descname">lists</code><span class="sig-paren">(</span><em class="sig-param">stype</em>, <em class="sig-param">limit=100</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">indie=False</em>, <em class="sig-param">social=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.lists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.curator.</code><code class="descname">lists</code><span class="sig-paren">(</span><em>stype</em>, <em>limit=100</em>, <em>offset=0</em>, <em>indie=False</em>, <em>social=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.lists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.io API curator endpoint.</p>
 <p><a class="reference external" href="https://api.chartmetric.io/api/curator/:streamingType/lists">https://api.chartmetric.io/api/curator/:streamingType/lists</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</p></li>
-<li><p><strong>limit</strong> – integer number to return</p></li>
-<li><p><strong>offset</strong> – integer offset entries to be returned</p></li>
-<li><p><strong>indie</strong> – boolean True to return non-label</p></li>
-<li><p><strong>social</strong> – boolean True to return social url data</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</li>
+<li><strong>limit</strong> – integer number to return</li>
+<li><strong>offset</strong> – integer offset entries to be returned</li>
+<li><strong>indie</strong> – boolean True to return non-label</li>
+<li><strong>social</strong> – boolean True to return social url data</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of dictionary playlist curator data</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of dictionary playlist curator data</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.curator.metadata">
-<code class="sig-prename descclassname">pycm.curator.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.curator.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.metadata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.curator.playlists">
-<code class="sig-prename descclassname">pycm.curator.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.playlists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.curator.</code><code class="descname">playlists</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.playlists" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -467,98 +523,118 @@ our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use
 <span id="pycm-playlist-module"></span><h2>pycm.playlist module<a class="headerlink" href="#module-pycm.playlist" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="pycm.playlist.evolution">
-<code class="sig-prename descclassname">pycm.playlist.</code><code class="sig-name descname">evolution</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">byType</em>, <em class="sig-param">start_date</em>, <em class="sig-param">end_date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.evolution" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.playlist.</code><code class="descname">evolution</code><span class="sig-paren">(</span><em>cmid</em>, <em>byType</em>, <em>start_date</em>, <em>end_date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.evolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.io API playlist/evolution endpoint</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmid</strong> – string chartmetric {byType} ID</p></li>
-<li><p><strong>byType</strong> – string ‘artist’, ‘track’, ‘album’</p></li>
-<li><p><strong>start_date</strong> – string ISO beginning date %Y-%m-%d</p></li>
-<li><p><strong>end_date</strong> – string ISO ending date %Y-%m-%d</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmid</strong> – string chartmetric {byType} ID</li>
+<li><strong>byType</strong> – string ‘artist’, ‘track’, ‘album’</li>
+<li><strong>start_date</strong> – string ISO beginning date %Y-%m-%d</li>
+<li><strong>end_date</strong> – string ISO ending date %Y-%m-%d</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.playlist.lists">
-<code class="sig-prename descclassname">pycm.playlist.</code><code class="sig-name descname">lists</code><span class="sig-paren">(</span><em class="sig-param">stype='spotify'</em>, <em class="sig-param">sort='followers'</em>, <em class="sig-param">country='US'</em>, <em class="sig-param">limit=100</em>, <em class="sig-param">offset=0</em>, <em class="sig-param">indie=False</em>, <em class="sig-param">daysAgo=7</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.lists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.playlist.</code><code class="descname">lists</code><span class="sig-paren">(</span><em>stype='spotify'</em>, <em>sort='followers'</em>, <em>country='US'</em>, <em>limit=100</em>, <em>offset=0</em>, <em>indie=False</em>, <em>daysAgo=7</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.lists" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>NOTE</strong></p>
 <p>Documentation for this endpoint is wrong. The exact given exemplar
 returns a 400 BAD_REQUEST -&gt; need to strategize how to fix in the
 short run.</p>
 <p>Query the chartmetri.io API playlist charts endpoint</p>
 <p><a class="reference external" href="https://api.chartmetric.io/api/playlist/:streamingType/lists">https://api.chartmetric.io/api/playlist/:streamingType/lists</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</p></li>
-<li><p><strong>sort</strong> – string ‘followers’or ‘last_updated’</p></li>
-<li><p><strong>country</strong> – string country code</p></li>
-<li><p><strong>limit</strong> – integer limit number of queries</p></li>
-<li><p><strong>offset</strong> – offset of entries to be returned</p></li>
-<li><p><strong>indie</strong> – boolean True to return indie playlists</p></li>
-<li><p><strong>daysAgo</strong> – integer how many days ago (?? -&gt; docs are …)</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</li>
+<li><strong>sort</strong> – string ‘followers’or ‘last_updated’</li>
+<li><strong>country</strong> – string country code</li>
+<li><strong>limit</strong> – integer limit number of queries</li>
+<li><strong>offset</strong> – offset of entries to be returned</li>
+<li><strong>indie</strong> – boolean True to return indie playlists</li>
+<li><strong>daysAgo</strong> – integer how many days ago (?? -&gt; docs are …)</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict?</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict?</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.playlist.metadata">
-<code class="sig-prename descclassname">pycm.playlist.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.playlist.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.io API playlist metatdata endpoint</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmid</strong> – string chartmetric playlist ID</p></li>
-<li><p><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cmid</strong> – string chartmetric playlist ID</li>
+<li><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.playlist.snapshot">
-<code class="sig-prename descclassname">pycm.playlist.</code><code class="sig-name descname">snapshot</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">stype</em>, <em class="sig-param">date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.snapshot" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.playlist.</code><code class="descname">snapshot</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em>, <em>date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.snapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.io API playlist/snapshot endpoint</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmid</strong> – string chartmetric playlist ID</p></li>
-<li><p><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</p></li>
-<li><p><strong>date</strong> – string date in ISO format %Y-%m-%d</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmid</strong> – string chartmetric playlist ID</li>
+<li><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</li>
+<li><strong>date</strong> – string date in ISO format %Y-%m-%d</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.playlist.tracks">
-<code class="sig-prename descclassname">pycm.playlist.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">stype</em>, <em class="sig-param">span='current'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.tracks" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.playlist.</code><code class="descname">tracks</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em>, <em>span='current'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.tracks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the chartmetric.io API playlist/current endpoint</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cmid</strong> – string chartmetric track ID</p></li>
-<li><p><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</p></li>
-<li><p><strong>span</strong> – string ‘past’ or ‘current’</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cmid</strong> – string chartmetric track ID</li>
+<li><strong>stype</strong> – string ‘spotify’, ‘applemusic’, or ‘deezer’</li>
+<li><strong>span</strong> – string ‘past’ or ‘current’</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -566,23 +642,25 @@ short run.</p>
 <span id="pycm-track-module"></span><h2>pycm.track module<a class="headerlink" href="#module-pycm.track" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="pycm.track.metadata">
-<code class="sig-prename descclassname">pycm.track.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.metadata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.track.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the track metadata endpoint given the chartmetric
 id.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/track/:id">https://api.chartmetric.com/api/track/:id</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric.com entity ID</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dictionary of track metadata</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric.com entity ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dictionary of track metadata</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.track.playlists">
-<code class="sig-prename descclassname">pycm.track.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">date</em>, <em class="sig-param">status='current'</em>, <em class="sig-param">indie=False</em>, <em class="sig-param">limit=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.playlists" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.track.</code><code class="descname">playlists</code><span class="sig-paren">(</span><em>cmid</em>, <em>date</em>, <em>status='current'</em>, <em>indie=False</em>, <em>limit=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.playlists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the track playlist placement API endpoint.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/:streamingType/:status/playlists">https://api.chartmetric.com/api/track/:id/:streamingType/:status/playlists</a>
 :param cmid:        string chartmetric.com entity ID
@@ -595,14 +673,17 @@ id.</p>
 
 <dl class="function">
 <dt id="pycm.track.tunefind">
-<code class="sig-prename descclassname">pycm.track.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param">cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.tunefind" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.track.</code><code class="descname">tunefind</code><span class="sig-paren">(</span><em>cmid</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.track.tunefind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query the track tunefind stats endpoint given the chartmetric id.</p>
 <p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/tunefind">https://api.chartmetric.com/api/track/:id/tunefind</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cmid</strong> – string chartmetric.com entity ID</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmid</strong> – string chartmetric.com entity ID</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -612,84 +693,97 @@ id.</p>
 <p>Utilities for the pycm api interface.</p>
 <dl class="function">
 <dt id="pycm.utilities.BaseURL">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">BaseURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.BaseURL" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">BaseURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.BaseURL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="pycm.utilities.FindProcess">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">FindProcess</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.FindProcess" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">FindProcess</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.FindProcess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of processes matching given name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – string process name</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of items matching process ‘name’</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – string process name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of items matching process ‘name’</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.utilities.ProjectRootDir">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">ProjectRootDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.ProjectRootDir" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">ProjectRootDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.ProjectRootDir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return path to root directory of project with trailing slash.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>string path with trailing /</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">string path with trailing /</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.utilities.RequestData">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">RequestData</code><span class="sig-paren">(</span><em class="sig-param">urlhandle</em>, <em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.RequestData" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">RequestData</code><span class="sig-paren">(</span><em>urlhandle</em>, <em>params</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.RequestData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build chartmetric data object and call requests.get with
 constructed data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>urlhandle</strong> – string additional url after base
-<em>with a leading</em> and <em>without ending slash</em></p></li>
-<li><p><strong>params</strong> – dictionary of keyword data to send in the
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>urlhandle</strong> – string additional url after base
+<em>with a leading</em> and <em>without ending slash</em></li>
+<li><strong>params</strong> – dictionary of keyword data to send in the
 query string, specific to the particular
-api endpoint</p></li>
+api endpoint</li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dictionary with keys url, headers,
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dictionary with keys url, headers,
 and params</p>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.utilities.RequestGet">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">RequestGet</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.RequestGet" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">RequestGet</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.RequestGet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method to call requests.get with data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> – dictionary with at least the following
-key:value pairs: url, headers, params</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dictionary of request data</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> – dictionary with at least the following
+key:value pairs: url, headers, params</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">dictionary of request data</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="pycm.utilities.TTLwait">
-<code class="sig-prename descclassname">pycm.utilities.</code><code class="sig-name descname">TTLwait</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.TTLwait" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pycm.utilities.</code><code class="descname">TTLwait</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.utilities.TTLwait" title="Permalink to this definition">¶</a></dt>
 <dd><p>Utility waiting function for the credentials.PeriodicUpdate
 method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> – function PeriodicUpdate from the credentials.py module</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>credentials.PeriodicUpdate method instantiation</p>
-</dd>
-</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> – function PeriodicUpdate from the credentials.py module</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">credentials.PeriodicUpdate method instantiation</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -699,69 +793,18 @@ method.</p>
 </div>
 
 
-          </div>
-          
-        </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">pycm</a></h1>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="contents.html">Contents</a>
+        </p>
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pycm.charts.html">pycm.charts package</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2019, MusicFox, Inc., Jason R. Stevens, Richard Shu, Sherry Yu.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/pycm.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, MusicFox, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    </div>
   </body>
 </html>
