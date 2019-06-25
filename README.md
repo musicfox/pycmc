@@ -1,7 +1,9 @@
 # pycm
 A Python interface for the`chartmetric.io` API.  
 
+## Usage
 
+`$ pip install --no-cache-dir git+ssh://git@gitlab.com/musicfox/pycm`
 
 ## Setup
 
