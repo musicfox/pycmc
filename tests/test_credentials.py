@@ -12,7 +12,7 @@ import pycm.credentials as credentials
 
 @pytest.fixture
 def filepath(projpath):
-    return f"{projpath}/tests/.credentials.json"
+    return os.path.join(projpath, ".credentials.json")
 
 @pytest.fixture
 def projpath(path=None):
@@ -20,12 +20,15 @@ def projpath(path=None):
         if path[-1] != '/': # add trailing slash
             path += '/'
         return path
-    return utilities.ProjectRootDir()
+    return os.path.join(
+        os.environ.get("HOME"),
+        ".pycm",
+    )
 
 @pytest.fixture
-def credential(projpath):
+def credential(filepath):
     # load credentials
-    with open(f"{projpath}/.credentials.json") as fp:
+    with open(filepath) as fp:
         credential = json.load(fp)
     return credential
 
@@ -50,8 +53,8 @@ def credentials_response(credential):
 def test_CredentialsFilename():
     assert credentials.Filename() == '.credentials.json'
 
-def test_CheckCredentials():
-    assert credentials.Check() == True
+def test_CheckCredentials(filepath):
+    assert credentials.Check(filepath) == True
 
 def test_LoadCredentials(credential):
     assert credential == credentials.Load()
@@ -86,17 +89,21 @@ def test_PeriodicCredentials():
 
 def test_CredentialsDir(filepath):
     test = credentials.CredentialsDir
-    assert test != filepath
+    assert test != os.path.join(os.getcwd(), '.credentials.json') 
     credentials.CredentialsDir = filepath
     test2 = credentials.CredentialsDir
     assert test2 == filepath
 
 def test_DefaultCredentials(filepath, ):
-    projfilepath = f"{credentials.ProjectRootDir()}/{credentials.Filename()}"
+    projfilepath = os.path.join(
+        os.environ.get("HOME"),
+        ".pycm",
+        ".credentials.json"
+    )
     credentials.CredentialsDir = projfilepath
     orig = credentials.Load()
-    # change the dir
-    credentials.CredentialsDir = filepath
+    # change the dir to execution path
+    credentials.CredentialsDir = os.path.join(os.getcwd(), ".credentials.json")
     credentials.DefaultCredentials('fake token')
     bad = credentials.Load()
 
