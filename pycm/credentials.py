@@ -107,6 +107,7 @@ def Update():
     :returns:       None
     """
     cust_dir = isinstance(CredentialsDir, type(str()))
+    print(f"Custom directory {CredentialsDir}")
     filename = ProjectRootDir() + Filename()\
         if not cust_dir else CredentialsDir
 

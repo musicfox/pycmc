@@ -1,4 +1,12 @@
 from . import credentials
+
+# set the creds dir to HOME
+
+import os
+
+credentials.CredentialsDir = os.path.join(
+    os.environ.get("HOME"), ".pycm", ".credentials.json"
+)
 from . import credentials_manager
 from .charts import (
     youtube, applemusic, spotify, shazam, soundcloud, beatport,
