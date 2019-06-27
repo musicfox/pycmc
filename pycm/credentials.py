@@ -172,7 +172,7 @@ def Check(filepath=None):
 def FetchAccessToken():
     """
     Use the refreshtoken to fetch the access and other credentials
-    from chartmetric.io.
+    from chartmetric.com.
 
     :returns:       Request object in dictionary form with keys:
                     token, expires_in, refresh_token, and scope

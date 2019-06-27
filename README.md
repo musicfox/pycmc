@@ -1,5 +1,5 @@
 # pycm
-A Python interface for the`chartmetric.io` API.  
+A Python interface for the`chartmetric.com` API.  
 
 ## Usage
 
@@ -65,7 +65,7 @@ contains the following modules:
 - `utilities`
 
 Each module above provides (most) methods for a specific endpoint
-to the chartmetric.io API, (mostly) labelled as their GET endpoints.  
+to the chartmetric.com API, (mostly) labelled as their GET endpoints.  
 
 For example,
 ```{Python}

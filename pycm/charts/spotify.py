@@ -1,6 +1,6 @@
 """
 Defines methods for obtaining Spotify chart data from the 
-chartmetric.io API.
+chartmetric.com API.
 """
 import requests
 import json

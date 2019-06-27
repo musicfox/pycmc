@@ -30,7 +30,7 @@ def test_tunefind():
 def test_playlists(dates):
     """
     Unfortunately CM's exemplar is incorrect here...
-    https://api.chartmetric.io/apidoc/#api-Track-GetCurrentPlaylistsByTracks
+    https://api.chartmetric.com/apidoc/#api-Track-GetCurrentPlaylistsByTracks
     """
     # playlist placement
     #test = pycm.track.playlists('3308',

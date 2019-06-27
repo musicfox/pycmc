@@ -13,7 +13,7 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'pycm'
-DESCRIPTION = 'A Python interface for the chartmetric.io API.'
+DESCRIPTION = 'A Python interface for the chartmetric.com API.'
 URL = 'https://github.com/thinkjrs/pycm'
 EMAIL = 'jason@thinkjrs.org'
 AUTHOR = 'Jason R. Stevens, CFA'

@@ -11,7 +11,7 @@ def lists(stype='spotify', sort='followers', country='US', limit=100, offset=0, 
 
     Query the chartmetri.io API playlist charts endpoint
 
-    https://api.chartmetric.io/api/playlist/:streamingType/lists
+    https://api.chartmetric.com/api/playlist/:streamingType/lists
 
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
     :param sort:        string 'followers'or 'last_updated'
@@ -37,7 +37,7 @@ def lists(stype='spotify', sort='followers', country='US', limit=100, offset=0, 
 
 def metadata(cmid, stype):
     """
-    Query the chartmetric.io API playlist metatdata endpoint
+    Query the chartmetric.com API playlist metatdata endpoint
 
     :param cmid:        string chartmetric playlist ID
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
@@ -49,7 +49,7 @@ def metadata(cmid, stype):
 
 def snapshot(cmid, stype, date):
     """
-    Query the chartmetric.io API playlist/snapshot endpoint
+    Query the chartmetric.com API playlist/snapshot endpoint
 
     :param cmid:        string chartmetric playlist ID
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
@@ -66,7 +66,7 @@ def snapshot(cmid, stype, date):
 
 def tracks(cmid, stype, span='current'):
     """
-    Query the chartmetric.io API playlist/current endpoint
+    Query the chartmetric.com API playlist/current endpoint
 
     :param cmid:        string chartmetric track ID
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
@@ -81,7 +81,7 @@ def tracks(cmid, stype, span='current'):
 
 def evolution(cmid, byType, start_date, end_date):
     """
-    Query the chartmetric.io API playlist/evolution endpoint
+    Query the chartmetric.com API playlist/evolution endpoint
 
     :param cmid:        string chartmetric {byType} ID
     :param byType:      string 'artist', 'track', 'album'

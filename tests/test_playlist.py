@@ -23,7 +23,7 @@ def dta():
 
 def test_lists():
     """
-    chartmetric.io endpoint error -> the exact given url as "ok"
+    chartmetric.com endpoint error -> the exact given url as "ok"
     does not work...obviously this test isn't going to pass
     """
 #    test = pycm.playlist.lists('spotify', )

@@ -5,9 +5,9 @@ import json
 
 def lists(stype, limit=100, offset=0, indie=False, social=True):
     """
-    Query the chartmetric.io API curator endpoint.
+    Query the chartmetric.com API curator endpoint.
 
-    https://api.chartmetric.io/api/curator/:streamingType/lists
+    https://api.chartmetric.com/api/curator/:streamingType/lists
 
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
     :param limit:       integer number to return
