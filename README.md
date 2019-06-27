@@ -5,6 +5,11 @@ A Python interface for the`chartmetric.io` API.
 
 `$ pip install --no-cache-dir git+ssh://git@gitlab.com/musicfox/pycm`
 
+**NOTE:**
+
+*This assumes you have `.credentials.json` inside a `.pycm` subdirectory
+of your $HOME env variable.*
+
 ## Setup
 
 ### as a `git` `submodule`
