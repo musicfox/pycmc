@@ -11,6 +11,7 @@ import time
 from datetime import datetime
 import requests
 
+
 @property
 def CredentialsDir(filepath):
     """
@@ -21,6 +22,7 @@ def CredentialsDir(filepath):
     :returns:               string filepath
     """
     return filepath
+
 
 def DefaultCredentials(refreshtoken):
     """
@@ -34,29 +36,36 @@ def DefaultCredentials(refreshtoken):
     :returns:                   None
     """
     cust_dir = isinstance(CredentialsDir, type(str()))
-    filepath = f"{ProjectRootDir()}/{Filename()}"\
-        if not cust_dir else CredentialsDir
+    filepath = (
+        f"{ProjectRootDir()}/{Filename()}" if not cust_dir else CredentialsDir
+    )
 
     # extract path from filepath and make the dir, if not extant
-    clean = lambda p: str(p.parts[:-1]).replace("'", '').\
-            replace(",",'').replace("(", "").replace(")", "").\
-            replace(" ", '/')[1:] # first two chars //
+    clean = (
+        lambda p: str(p.parts[:-1])
+        .replace("'", "")
+        .replace(",", "")
+        .replace("(", "")
+        .replace(")", "")
+        .replace(" ", "/")[1:]
+    )  # first two chars //
 
     fpath = clean(Path(filepath))
     os.makedirs(fpath, exist_ok=True)
-    
+
     # check that the token isn't already present
-    if not os.path.exists(filepath): # create the empty file
+    if not os.path.exists(filepath):  # create the empty file
         creds = {
-            "token":"",
-            "scope":"",
-            "expires_in":"",
+            "token": "",
+            "scope": "",
+            "expires_in": "",
             "refreshtoken": refreshtoken,
-        } 
-        with open(filepath, 'w') as fp:
+        }
+        with open(filepath, "w") as fp:
             json.dump(creds, fp)
-        if not os.path.exists(filepath): # nothing works w/o auth
-            raise                        # so break exec early
+        if not os.path.exists(filepath):  # nothing works w/o auth
+            raise  # so break exec early
+
 
 def ProjectRootDir():
     """
@@ -66,6 +75,7 @@ def ProjectRootDir():
     """
     return f"{Path(__file__).parent.parent}/"
 
+
 def TTLwait(func,):
     @wraps(func)
     def wrapper(*args, **kwds):
@@ -74,6 +84,7 @@ def TTLwait(func,):
         return func(*args, **kwds)
 
     return wrapper
+
 
 @TTLwait
 def PeriodicUpdate(TTL_seconds=3600, repeat=None):
@@ -98,6 +109,7 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     else:  # run once, in TTL_seconds seconds
         Update()
 
+
 def Update():
     """
     Use the .credentials.json file in the project root directory
@@ -108,8 +120,9 @@ def Update():
     """
     cust_dir = isinstance(CredentialsDir, type(str()))
     print(f"Custom directory {CredentialsDir}")
-    filename = ProjectRootDir() + Filename()\
-        if not cust_dir else CredentialsDir
+    filename = (
+        ProjectRootDir() + Filename() if not cust_dir else CredentialsDir
+    )
 
     # load .credentials.json
     credentials = Load()
@@ -134,8 +147,9 @@ def Load():
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
     cust_dir = isinstance(CredentialsDir, type(str()))
-    filepath = ProjectRootDir() + Filename()\
-        if not cust_dir else CredentialsDir
+    filepath = (
+        ProjectRootDir() + Filename() if not cust_dir else CredentialsDir
+    )
 
     if Check(filepath):  # exists and has valid refresh so load it
         with open(filepath, "r") as fp:
@@ -161,7 +175,7 @@ def Check(filepath=None):
     if not os.path.exists(filepath):
         print(f"Bad path: {filepath} @ {datetime.now()}")
         return False
-        #raise FileNotFoundError
+        # raise FileNotFoundError
     with open(filepath) as fp:
         credentials = json.load(fp)
     if credentials["refreshtoken"] != "":
@@ -197,5 +211,3 @@ def Filename(filename=".credentials.json"):
     :returns:               string given filename w/extension
     """
     return filename
-
-

@@ -1,7 +1,16 @@
-#import pycm.utilities as utilities
+# import pycm.utilities as utilities
 from . import utilities
 
-def lists(stype='spotify', sort='followers', country='US', limit=100, offset=0, indie=False, daysAgo=7):
+
+def lists(
+    stype="spotify",
+    sort="followers",
+    country="US",
+    limit=100,
+    offset=0,
+    indie=False,
+    daysAgo=7,
+):
     """
     **NOTE**
 
@@ -23,17 +32,18 @@ def lists(stype='spotify', sort='followers', country='US', limit=100, offset=0, 
 
     :returns:           dict?
     """
-    indie = 'true' if indie else 'false'
+    indie = "true" if indie else "false"
     urlhandle = f"/playlist/{stype}/lists"
     params = {
-        'daysAgo': daysAgo,
-        'indie': indie,
-        'limit': limit,
-        'offset': offset,
-        'sortColumn': sort,
+        "daysAgo": daysAgo,
+        "indie": indie,
+        "limit": limit,
+        "offset": offset,
+        "sortColumn": sort,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
+
 
 def metadata(cmid, stype):
     """
@@ -47,6 +57,7 @@ def metadata(cmid, stype):
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
+
 def snapshot(cmid, stype, date):
     """
     Query the chartmetric.com API playlist/snapshot endpoint
@@ -56,15 +67,14 @@ def snapshot(cmid, stype, date):
     :param date:        string date in ISO format %Y-%m-%d
 
     :returns:           list
-    """ 
+    """
     urlhandle = f"/playlist/{stype}/{cmid}/snapshot"
-    params = {
-        'date': date,
-    }
+    params = {"date": date}
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
-def tracks(cmid, stype, span='current'):
+
+def tracks(cmid, stype, span="current"):
     """
     Query the chartmetric.com API playlist/current endpoint
 
@@ -79,6 +89,7 @@ def tracks(cmid, stype, span='current'):
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
+
 def evolution(cmid, byType, start_date, end_date):
     """
     Query the chartmetric.com API playlist/evolution endpoint
@@ -90,13 +101,8 @@ def evolution(cmid, byType, start_date, end_date):
 
     :returns:           list
     """
-    stype = 'spotify' # only one listed in docs...
+    stype = "spotify"  # only one listed in docs...
     urlhandle = f"/playlist/{stype}/by/{byType}/{cmid}/evolution"
-    params = {
-        'since': start_date,
-        'until': end_date,
-    }
+    params = {"since": start_date, "until": end_date}
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
-
-

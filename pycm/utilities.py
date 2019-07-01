@@ -13,6 +13,7 @@ import psutil
 from importlib import reload
 from . import credentials_manager
 
+
 def TTLwait(func,):
     """
     Utility waiting function for the credentials.PeriodicUpdate
@@ -32,6 +33,7 @@ def TTLwait(func,):
         return func(*args, **kwds)
 
     return wrapper
+
 
 def ProjectRootDir():
     """
@@ -58,6 +60,7 @@ def FindProcess(name):
 def BaseURL():
     return f"https://api.chartmetric.com/api"
 
+
 def RequestData(urlhandle, params):
     """
     Build chartmetric data object and call requests.get with 
@@ -80,6 +83,7 @@ def RequestData(urlhandle, params):
         "params": params,
     }
 
+
 def RequestGet(data):
     """
     Method to call requests.get with data.
@@ -94,4 +98,4 @@ def RequestGet(data):
     )
     if not response.ok:  # raise internal exception if bad response
         response.raise_for_status()
-    return json.loads(response.text)['obj']
+    return json.loads(response.text)["obj"]

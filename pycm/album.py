@@ -1,5 +1,7 @@
-#import pycm.utilities as utilities
+# import pycm.utilities as utilities
 from . import utilities
+
+
 def metadata(cmid):
     """
     Query the album metadata endpoint given the chartmetric
@@ -13,8 +15,9 @@ def metadata(cmid):
     """
 
     urlhandle = f"/album/{cmid}"
-    data = utilities.RequestData(urlhandle, params = None)
+    data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
+
 
 def tunefind(cmid):
     """
@@ -25,12 +28,19 @@ def tunefind(cmid):
     :param cmid:        string chartmetric.com entity ID
     """
     urlhandle = f"/album/{cmid}/tunefind"
-    data = utilities.RequestData(urlhandle, params = None)
+    data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 
 
-
-def playlists(cmid, start_date, end_date=None, stype='spotify', status='current', indie=False, limit=100,):
+def playlists(
+    cmid,
+    start_date,
+    end_date=None,
+    stype="spotify",
+    status="current",
+    indie=False,
+    limit=100,
+):
     """
     Query the album playlist placement API endpoint.
 
@@ -45,10 +55,10 @@ def playlists(cmid, start_date, end_date=None, stype='spotify', status='current'
     """
     urlhandle = f"/album/{cmid}/{stype}/{status}/playlists"
     params = {
-        'since': start_date,
-        'until': end_date,
-        'limit': limit,
-        'offset': 0,
+        "since": start_date,
+        "until": end_date,
+        "limit": limit,
+        "offset": 0,
     }
-    data = utilities.RequestData(urlhandle, params = params)
+    data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)

@@ -1,7 +1,8 @@
-#import pycm.utilities as utilities
+# import pycm.utilities as utilities
 from . import utilities
 
-def fanmetrics(cmid, start_date, dsrc='instagram', valueCol='followers', ):
+
+def fanmetrics(cmid, start_date, dsrc="instagram", valueCol="followers"):
     """
     Query the chartmetric API for artist fanmetrics.
 
@@ -16,9 +17,7 @@ def fanmetrics(cmid, start_date, dsrc='instagram', valueCol='followers', ):
     https://api.chartmetric.com/api/artist/:id/stat/:source
     """
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
-    params = {
-        'since': start_date,
-    }
+    params = {"since": start_date}
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -33,9 +32,7 @@ def listening(cmid, start_date):
     :returns:           dict of artist metatdata
     """
     urlhandle = f"/artist/{cmid}/where-people-listen"
-    params = {
-        'since': start_date,
-    }
+    params = {"since": start_date}
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -96,9 +93,9 @@ def related(cmid, limit=100):
     """
     urlhandle = f"/artist/{cmid}/relatedartists"
     params = None
-   # {
-   #     'limit': limit,
-   # }
+    # {
+    #     'limit': limit,
+    # }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -118,7 +115,7 @@ def metadata(cmid):
     return utilities.RequestGet(data)
 
 
-def playlists(cmid, dsrc, start_date, status='past'):
+def playlists(cmid, dsrc, start_date, status="past"):
     """
     Query the chartmetric.com API for artist playlist data.
 
@@ -131,11 +128,12 @@ def playlists(cmid, dsrc, start_date, status='past'):
     """
     urlhandle = f"/artist/{cmid}/{dsrc}/{status}/playlists"
     params = {
-        'since': start_date,
-        #'indie': False, 
+        "since": start_date,
+        #'indie': False,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
+
 
 def urls(cmid):
     """
@@ -151,4 +149,3 @@ def urls(cmid):
     params = None
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
-
