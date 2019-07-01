@@ -134,3 +134,7 @@ def test_youtube_tracks():
 #    assert len(test) == 200
 #    assert test[0]['name'] != ''
 #    assert test[0]['id'] != ''
+
+def test_qq_insights():
+    test = pycm.charts.qq.insights('2019-02-15')
+    assert isinstance(test, type(list()))
