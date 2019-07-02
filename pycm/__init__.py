@@ -24,6 +24,7 @@ from . import artist
 from . import utilities
 from . import curator
 from . import playlist
+from . import chart_cleaners
 
 # from .
 # from .
