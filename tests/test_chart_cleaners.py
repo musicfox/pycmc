@@ -1,6 +1,37 @@
 import pandas as pd
 import numpy as np
+import pytest
+import pycm 
 
+
+@pytest.fixture
+def platform():
+    """
+    Return a list of all the chart endpoint keys. 
+    """
+    return ['youtube', 'itunes', 'spotify', 'apple', 'shazam']
+
+@pytest.fixture
+def resultdfs(platforms):
+    """
+    Return a dictionary of endpoint:resultdf DataFrames.
+    """
+    dfs = dict()
+    for platform in platforms:
+        if platform == 'apple':
+            res = pcym.charts.applemusic.tracks('2019-01-01')
+        if platform == 'spotify':
+            res = pcym.charts.spotify.tracks('2019-01-01')
+        if platform == 'itunes':
+            res = pycm.charts.itunes.tracks('2019-01-01')
+        if platform == 'shazam':
+            res = pycm.charts.shazam.tracks('2019-01-01')
+        if platform == 'youtube':
+            res = pycm.charts.youtube.tracks('2019-01-01')
+        dfs[platform] = res
+    return dfs
+     
+@pytest.fixture
 def test_chartmetric_keys(res, platform):
     """
     Given a list of dictionaries of raw Chartmetric pulls, and a string indicating the 
