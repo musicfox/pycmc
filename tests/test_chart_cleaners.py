@@ -5,42 +5,51 @@ import pycm
 
 
 @pytest.fixture
-def platform():
+def platforms():
     """
     Return a list of all the chart endpoint keys. 
     """
-    return ['youtube', 'itunes', 'spotify', 'apple', 'shazam']
+    return ['youtube', 'itunes', 'spotify', 'applemusic', 'shazam']
 
 @pytest.fixture
-def resultdfs(platforms):
-    """
-    Return a dictionary of endpoint:resultdf DataFrames.
-    """
-    dfs = dict()
-    for platform in platforms:
-        if platform == 'apple':
-            res = pcym.charts.applemusic.tracks('2019-01-01')
-        if platform == 'spotify':
-            res = pcym.charts.spotify.tracks('2019-01-01')
-        if platform == 'itunes':
-            res = pycm.charts.itunes.tracks('2019-01-01')
-        if platform == 'shazam':
-            res = pycm.charts.shazam.tracks('2019-01-01')
-        if platform == 'youtube':
-            res = pycm.charts.youtube.tracks('2019-01-01')
-        dfs[platform] = res
-    return dfs
-     
+def date():
+    return '2019-01-10'
+
 @pytest.fixture
-def test_chartmetric_keys(res, platform):
+def cm_raw(platforms, date):
     """
-    Given a list of dictionaries of raw Chartmetric pulls, and a string indicating the 
-    music platform, tests if the dictionaries within the list contain all the expected
-    data fields as keys.
-    
-    :params res:                a list of dictionaries
-    :params platform:           a string indicating the platform,
-                                including youtube, applemusic, itunes, spotify and shazam  
+    Return a dictionary of endpoint: cm_dict dictionaries.
+    """
+    raw_dicts = dict()
+    for platform in platforms:
+        if platform == 'applemusic':
+            res = pycm.charts.applemusic.tracks(date)
+        if platform == 'spotify':
+            res = pycm.charts.spotify.tracks(date)
+        if platform == 'itunes':
+            res = pycm.charts.itunes.tracks(date)
+        if platform == 'shazam':
+            res = pycm.charts.shazam.tracks(date)
+        if platform == 'youtube':
+            res = pycm.charts.youtube.tracks(date)
+        raw_dicts[platform] = res
+    return raw_dicts
+
+@pytest.fixture
+def parsed_df(cm_raw, date):
+    """
+    Return a dictionary of endpoint: parsed_df DataFrames.
+    """
+    parsed_data = dict()
+    for plat, raw in cm_raw.items():
+        parsed = pycm.chart_cleaners.parse_charts(raw, date)
+        parsed_data[plat] = parsed
+    return parsed_data
+
+
+def test_cm_raw_keys(cm_raw):
+    """
+    Test if the dictionaries within the list of raw cm pulls contain all the expected data fields as keys.
     """
     youtube_keys = ['added_at', 'artist_covers', 'artist_images', 'artist_name', 'artist_names',
                     'cm_artist', 'cm_track', 'code2s', 'id', 'image_url', 'isrc', 'name',
@@ -82,42 +91,39 @@ def test_chartmetric_keys(res, platform):
                     'spotify_artist_ids', 'spotify_artist_names', 'spotify_duration_ms',
                     'spotify_popularity', 'spotify_track_ids', 'time_on_chart', 'track_genre']
 
-    try:
-        assert len(res) > 0
-        keys_map = {
-            'youtube': youtube_keys,
-            'spotify': spotify_keys,
-            'shazam': shazam_keys,
-            'applemusic': apple_keys,
-            'itunes': itunes_keys
-        }
+    for plat, res in cm_raw.items():  
+        try:
+            assert len(res) > 0
+            keys_map = {
+                'youtube': youtube_keys,
+                'spotify': spotify_keys,
+                'shazam': shazam_keys,
+                'applemusic': apple_keys,
+                'itunes': itunes_keys
+            }
 
-        tot_test = len(res)
-        err_count = 0
+            tot_test = len(res)
+            err_count = 0
 
-        for each in res:
-            try:
-                assert set(each.keys()) == set(keys_map[platform])
-            except AssertionError:
-                err_count += 1
-                print("Assertion Error!")
-                print(f"Keys not expected for cm_track {each['cm_track']}-> {set(each.keys()) - set(keys_map[platform])}")
-                print(f"Keys not present for cm_track {each['cm_track']} -> {set(keys_map[platform]) - set(each.keys())}")
-                print("===========")
+            for each in res:
+                try:
+                    assert set(each.keys()) == set(keys_map[plat])
+                except AssertionError:
+                    err_count += 1
+                    print("Assertion Error!")
+                    print(f"Keys not expected for cm_track {each['cm_track']}-> {set(each.keys()) - set(keys_map[plat])}")
+                    print(f"Keys not present for cm_track {each['cm_track']} -> {set(keys_map[plat]) - set(each.keys())}")
+                    print("===========")
 
-        print(f"Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
+            print(f"Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
 
-    except AssertionError:
-        print("Invalid input for testing: empty list.")    
+        except AssertionError:
+            print("Invalid input for testing: empty list.")    
 
-def test_parse_columns(res, platform):
+
+def test_parse_charts(cm_raw):
     """
-    Given a DataFrame of parsed charts, result of `parse_charts`, and a string indicating the 
-    music platform, tests if the given DataFrame contains all the expected data fields.
-    
-    :params res:                a DataFrame of parsed chart data
-    :params platform:           a string indicating the platform,
-                                including youtube, applemusic, itunes, spotify and shazam    
+    Test if the parsed DataFrame contains all the expected data fields.
     """
     youtube_keys = ['added_at', 'artist_covers_1', 'artist_images_1', 'artist_name',
                     'artist_names_1', 'cm_artist_1', 'cm_track', 'code2s_1', 'id',
@@ -173,21 +179,33 @@ def test_parse_columns(res, platform):
         'itunes': itunes_keys
     }
 
-    tot_test = len(data_field_map[platform])
-    err_count = 0
-
-    for k in data_field_map[platform]:
+    for plat, raw in cm_raw.items():
         try:
-            assert k in res.columns
+            assert len(raw) > 0
+            parsed = pycm.chart_cleaners.parse_charts(raw, date)
         except AssertionError:
-            err_count += 1
-            print("Assertion Error!")
-            print(f"Column not present in parsed data -> {k}")
-            print("===========")
+            print(f"Empty list for platform {plat}, date {date}")
+    
+        tot_test = len(data_field_map[plat])
+        err_count = 0
 
-    print(f"Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
+        for k in data_field_map[plat]:
+            try:
+                assert k in parsed.columns
+            except AssertionError:
+                err_count += 1
+                print("Assertion Error!")
+                print(f"Column not present in parsed data -> {k}")
+                print("===========")
 
-def test_parse_types(res, platform):
+        print(f"{plat}, {date} -> Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
+
+
+def test_type_cast(parsed_df):
+    """
+    Test if the type-casted DataFrame has data fields with expected types. 
+    """
+
     youtube_types = {
         'added_at': type(pd.to_datetime('2019-01-01')),
         'artist_covers_1': type(str()),
@@ -378,24 +396,31 @@ def test_parse_types(res, platform):
         'itunes': itunes_types
     }
 
-    tot_test = 0
-    err_count = 0
+    for plat, parsed in parsed_df.items():
+        try:
+            assert parsed is not None
+            casted = pycm.chart_cleaners.type_cast(parsed)
+        except AssertionError:
+            print(f"Empty DataFrame for platform {plat}")
 
-    for i in range(len(res)):
-        track = res.iloc[i]
-        for k in type_map[platform].keys():
-            try:
-                assert k in track.index
+        tot_test = 0
+        err_count = 0
+
+        for i in range(len(casted)):
+            track = casted.iloc[i]
+            for k in type_map[plat].keys():
                 try:
-                    tot_test += 1
-                    assert type(track[k]) == type_map[platform][k]
+                    assert k in track.index
+                    try:
+                        tot_test += 1
+                        assert type(track[k]) == type_map[plat][k]
+                    except AssertionError:
+                        err_count += 1
+                        print(f"{track['cm_track']}, column: {k} -> expected {type_map[plat][k]}, got {type(track[k])}")
+
                 except AssertionError:
-                    err_count += 1
-                    print(f"Assertion error at cm_track: {track['cm_track']}, column: {k} -> expected {type_map[platform][k]}, got {type(track[k])}")
+                    print(f"{track['cm_track']}, column: {k} -> key not found or nan encountered.")
 
-            except AssertionError:
-                print(f"Invalid input at cm_track: {track['cm_track']}, column: {k} -> key not found or nan encountered.")
-
-    print(f"Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
-
-
+        print(f"{plat}, {date} -> Total occurrence of errors: {err_count}. Error rate: {err_count/tot_test}.")
+        
+    

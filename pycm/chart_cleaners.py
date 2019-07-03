@@ -278,7 +278,7 @@ def parse_charts(res, date=None):
         assert isinstance(res, type(list()))
         assert len(res) > 0
     except AssertionError:
-        print(f"Incorrect data for date {date}: not a list or empty list")
+        print(f"Not a list or empty list for {date}: ")
         return None
     data = []
 
@@ -370,10 +370,10 @@ def type_cast(parsed):
         if 'itunes_album_id_1' in parsed.columns:
             composer_cols = findall_columns('^composer')
             parsed.loc[:, composer_cols] = fix_nan_str(composer_cols)
-            itunes_album_id_cols = findall_columns('^itunes_album_id')
-            parsed.loc[:, itunes_album_id_cols] = parsed[itunes_album_id_cols].astype(float)
-            itunes_album_ids_cols = findall_columns('^itunes_album_ids')
-            parsed.loc[:, itunes_album_ids_cols] = parsed[itunes_album_ids_cols].astype(float)
+            itunes_album_id_cols = findall_columns('^itunes_album_id') # cast `id` and `ids` together
+            parsed.loc[:, itunes_album_id_cols] = parsed[itunes_album_id_cols].replace('', np.nan).astype(float)
+            # itunes_album_ids_cols = findall_columns('^itunes_album_ids')
+            # parsed.loc[:, itunes_album_ids_cols] = parsed[itunes_album_ids_cols].astype(float)
             itunes_artist_id_cols = findall_columns('^itunes_artist_id')
             parsed.loc[:, itunes_artist_id_cols] = parsed[itunes_artist_id_cols].astype(float)
             itunes_track_ids_cols = findall_columns('^itunes_track_ids')
