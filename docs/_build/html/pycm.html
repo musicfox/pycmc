@@ -317,22 +317,6 @@ dictionary contains a non-empty string for the
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="pycm.credentials.CredentialsDir">
-<code class="descclassname">pycm.credentials.</code><code class="descname">CredentialsDir</code><a class="headerlink" href="#pycm.credentials.CredentialsDir" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the credentials filepath (directory + filename.json)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> – string filepath e.g. /home/user/.credentials.json</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">string filepath</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="function">
 <dt id="pycm.credentials.DefaultCredentials">
 <code class="descclassname">pycm.credentials.</code><code class="descname">DefaultCredentials</code><span class="sig-paren">(</span><em>refreshtoken</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.DefaultCredentials" title="Permalink to this definition">¶</a></dt>
@@ -356,7 +340,7 @@ chartmetric</td>
 <dt id="pycm.credentials.FetchAccessToken">
 <code class="descclassname">pycm.credentials.</code><code class="descname">FetchAccessToken</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycm.credentials.FetchAccessToken" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the refreshtoken to fetch the access and other credentials
-from chartmetric.io.</p>
+from chartmetric.com.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -486,8 +470,8 @@ our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use
 <dl class="function">
 <dt id="pycm.curator.lists">
 <code class="descclassname">pycm.curator.</code><code class="descname">lists</code><span class="sig-paren">(</span><em>stype</em>, <em>limit=100</em>, <em>offset=0</em>, <em>indie=False</em>, <em>social=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.curator.lists" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query the chartmetric.io API curator endpoint.</p>
-<p><a class="reference external" href="https://api.chartmetric.io/api/curator/:streamingType/lists">https://api.chartmetric.io/api/curator/:streamingType/lists</a></p>
+<dd><p>Query the chartmetric.com API curator endpoint.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/curator/:streamingType/lists">https://api.chartmetric.com/api/curator/:streamingType/lists</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -524,7 +508,7 @@ our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use
 <dl class="function">
 <dt id="pycm.playlist.evolution">
 <code class="descclassname">pycm.playlist.</code><code class="descname">evolution</code><span class="sig-paren">(</span><em>cmid</em>, <em>byType</em>, <em>start_date</em>, <em>end_date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.evolution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query the chartmetric.io API playlist/evolution endpoint</p>
+<dd><p>Query the chartmetric.com API playlist/evolution endpoint</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -552,7 +536,7 @@ our last refresh. <strong>Don’t forget to str(expires_in)</strong> for API use
 returns a 400 BAD_REQUEST -&gt; need to strategize how to fix in the
 short run.</p>
 <p>Query the chartmetri.io API playlist charts endpoint</p>
-<p><a class="reference external" href="https://api.chartmetric.io/api/playlist/:streamingType/lists">https://api.chartmetric.io/api/playlist/:streamingType/lists</a></p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/:streamingType/lists">https://api.chartmetric.com/api/playlist/:streamingType/lists</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -578,7 +562,7 @@ short run.</p>
 <dl class="function">
 <dt id="pycm.playlist.metadata">
 <code class="descclassname">pycm.playlist.</code><code class="descname">metadata</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query the chartmetric.io API playlist metatdata endpoint</p>
+<dd><p>Query the chartmetric.com API playlist metatdata endpoint</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -596,7 +580,7 @@ short run.</p>
 <dl class="function">
 <dt id="pycm.playlist.snapshot">
 <code class="descclassname">pycm.playlist.</code><code class="descname">snapshot</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em>, <em>date</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.snapshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query the chartmetric.io API playlist/snapshot endpoint</p>
+<dd><p>Query the chartmetric.com API playlist/snapshot endpoint</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -618,7 +602,7 @@ short run.</p>
 <dl class="function">
 <dt id="pycm.playlist.tracks">
 <code class="descclassname">pycm.playlist.</code><code class="descname">tracks</code><span class="sig-paren">(</span><em>cmid</em>, <em>stype</em>, <em>span='current'</em><span class="sig-paren">)</span><a class="headerlink" href="#pycm.playlist.tracks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Query the chartmetric.io API playlist/current endpoint</p>
+<dd><p>Query the chartmetric.com API playlist/current endpoint</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
