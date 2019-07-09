@@ -3,20 +3,18 @@ from itertools import repeat
 import pandas as pd
 import numpy as np
 
+
 def get_composers(res): 
     """
     :param res:        string of composer names for each track within charts
     
     :returns:          dictionary of composer name values and composer_{num} keys
     """
-    if res is not None:
+    if res != None:
         res = res.replace(", Jr", " Jr")
-        composers = [
-            name.strip() for names in res.split(", ") for name in names.split(" & ") 
-        ]
+        composers = [name.strip() for first_split in res.split(', ') for name in first_split.split(' % ')]
         return {f"composer_{i + 1}": name for i, name in enumerate(composers)}
-    else:
-        return {"composer_1": None}
+    return {"composer_1": None}
 
 def get_labels(res):
     """
@@ -24,14 +22,10 @@ def get_labels(res):
     
     :returns:          dictionary of record label values and label_{num} keys
     """
-    if res is not None:
-
-        labels = [
-            label.strip() for elem in res for label in elem.split("/")
-        ]
+    if res != None:
+        labels = [label.strip() for each_labels in res for label in each_labels if label != None]
         return {f"album_label_{i + 1}": name for i, name in enumerate(labels)}
-    else:
-        return {"album_label_1": None}
+    return {"album_label_1": None}
 
 def extract_rank_stats(stats):
     """
@@ -44,6 +38,7 @@ def extract_rank_stats(stats):
     rank_stats = {'rank_today': last['rank']}
     if 'plays' in last.keys():
         rank_stats['plays_today'] = last['plays']
+
     for i, r in enumerate(stats[-2::-1]):
         rank_stats[f'rank_{i+1}d_ago'] = r['rank']
         if 'plays' in r.keys():
@@ -64,7 +59,7 @@ def parse_track(res, date):
     # define a key checker
     kc = lambda k: res[k] if k in res.keys() else None
     # define a list extender
-    expand = lambda k: {f"{k}_{i + 1}": name for i, name in enumerate(res[k])} if res[k] is not None else {f"{k}_1":None}
+    expand = lambda k: {f"{k}_{i + 1}": name for i, name in enumerate(res[k])} if res[k] != None else {f"{k}_1":None}
 
     # common data fields
     parsed = {
