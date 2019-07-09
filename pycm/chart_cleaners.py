@@ -19,12 +19,15 @@ def get_composers(res):
 def get_labels(res):
     """
     :param res:        list of string of album record labels for each track within charts
+                       ['Universal/Warner Bros.', 'None']
     
     :returns:          dictionary of record label values and label_{num} keys
     """
     if res != None:
-        labels = [label.strip() for each_labels in res for label in each_labels if label != None]
-        return {f"album_label_{i + 1}": name for i, name in enumerate(labels)}
+        filter_none = [each for each in res if each != None if each != 'None']
+        joined_str = '/'.join(filter_none)
+        labels = [label.strip() for label in joined_str.split('/') if label != None]
+        return {f"album_label_{i + 1}": name for i, name in enumerate(labels)} if labels != None else {"album_label_1": None}
     return {"album_label_1": None}
 
 def extract_rank_stats(stats):
@@ -140,7 +143,8 @@ def parse_track(res, date):
         try:
             assert len(track_genres) <= 10
         except AssertionError:
-            print(f"Assertion Warning: too many genres ({len(track_genres)}) for cm_track: {res['cm_track']}")
+            # print(f"Assertion Warning: too many genres ({len(track_genres)}) for cm_track: {res['cm_track']}")
+            pass
 
         parsed_not_u2b.update(track_genres)
 
