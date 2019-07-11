@@ -63,7 +63,19 @@ def playlists(
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
 
+
 def charts(stype, cmid, start_date, end_date=None):
+    """
+    Query the charts for the given album of a selected streamer type. 
+
+    https://api.chartmetric.com/api/album/:id/:type/charts
+    :params stype:          string streaming platform 'applemusic', 'itunes' or 'amazon'
+    :params cmid:           chartmetric album id
+    :params start_date:     string start data in ISO format
+    :params end_date:       string end date in ISO format
+
+    :return:                list of dictionaries containing the charts of the given album
+    """
     urlhandle = f"/album/{cmid}/{stype}/charts"
     params = {
         "since": start_date,
@@ -72,5 +84,19 @@ def charts(stype, cmid, start_date, end_date=None):
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
 
-def 
+def get_album_ids(stype, type_id):
+    """
+    Query all the album ids given a specific id type.
+
+    https://api.chartmetric.com/api/album/:type/:id/get-ids
+    :params stype: string of the type of id requesting 'chartmetric', 'upc', 'spotify', 'itunes' and 'deezer'
+    :params type_id: specific type id
+    
+    :return: list of dictionaries with various types of id
+
+    """
+
+    urlhandle = f"/album/{stype}/{type_id}/get-ids"
+    data = utilities.RequestData(urlhandle, params=None)
+    return utilities.RequestGet(data)
 
