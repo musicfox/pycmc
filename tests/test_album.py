@@ -76,12 +76,14 @@ def test_playlists(dates):
     assert len(test) > 0
 
 def test_charts():
+    # 403 Client Error: Forbidden for url
     test = pycm.album.charts('itunes', 1119543, '2018-01-01')
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 def test_get_album_ids():
-    test = pycm.album.get_album_ids('spotify', 2)
+    # test fails with empty list returned
+    test = pycm.album.get_album_ids('chartmetric', 0)
     assert isinstance(test, type(list()))
     assert len(test) > 0
 

@@ -90,17 +90,16 @@ def get_album_ids(stype, type_id):
 
     https://api.chartmetric.com/api/album/:type/:id/get-ids
     :params stype: string of the type of id requesting 'chartmetric', 'upc', 'spotify', 'itunes' and 'deezer'
-    :params type_id: specific type id
+    :params type_id: specific type id <- I have no idea what this is
     
     :return: list of dictionaries with various types of id
     """
-
     urlhandle = f"/album/{stype}/{type_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 
 
-def stats(cmid, stype, start_date, end_date=None):
+def stats(cmid, stype, start_date=None, end_date=None):
     """
     Query the statistics from the given streaming platform (popularity for Spotify).
 
