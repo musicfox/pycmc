@@ -82,7 +82,7 @@ def charts(stype, cmid, start_date, end_date=None):
         "until": end_date,
     }
     data = utilities.RequestData(urlhandle, params=params)
-    return utilities.RequestGet(data)
+    return utilities.RequestGet(data)['data']
 
 def get_album_ids(stype, type_id):
     """
@@ -93,10 +93,44 @@ def get_album_ids(stype, type_id):
     :params type_id: specific type id
     
     :return: list of dictionaries with various types of id
-
     """
 
     urlhandle = f"/album/{stype}/{type_id}/get-ids"
+    data = utilities.RequestData(urlhandle, params=None)
+    return utilities.RequestGet(data)
+
+
+def stats(cmid, stype, start_date, end_date=None):
+    """
+    Query the statistics from the given streaming platform (popularity for Spotify).
+
+    https://api.chartmetric.com/api/album/:id/:platform/stats
+    :params cmid: Chartmetric album id
+    :params stype: string streaming platform type 'spotify'
+    :params start_date: string of start date in ISO format
+    :params end_date: string of end date in ISO format
+
+    :return: list of dictionaries of the statistics of an album on a streaming platform
+    """
+    urlhandle = f"/album/{cmid}/{stype}/stats"
+    params = {
+        "since": start_date,
+        "until": end_date,
+    }
+    data = utilities.RequestData(urlhandle, params=params)
+    return utilities.RequestGet(data)
+
+
+def tracks(cmid):
+    """
+    Query the tracks included in a given album.
+
+    https://api.chartmetric.com/api/album/:id/tracks
+    :params cmid: Chartmetric album id
+   
+    :return: list of dictionaries of the tracks in an album
+    """
+    urlhandle = f"/album/{cmid}/tracks"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 

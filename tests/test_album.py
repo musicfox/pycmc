@@ -94,6 +94,3 @@ def test_tracks():
     test = pycm.album.tracks(1119543)
     assert isinstance(test, type(list()))
     assert len(test) > 0
-
-
-
