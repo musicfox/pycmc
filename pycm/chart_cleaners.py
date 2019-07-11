@@ -63,37 +63,40 @@ def parse_track(res, date):
     kc = lambda k: res[k] if k in res.keys() else None
     # define a list extender
     expand = lambda k: {f"{k}_{i + 1}": name for i, name in enumerate(res[k])} if res[k] != None else {f"{k}_1":None}
+    # define a list extender with key check
+    kc_expand = lambda k: expand(k) if k in res.keys() else {f"{k}_1":None}
 
     # common data fields
     parsed = {
         'date': date,
-        'added_at': res['added_at'],
-        'cm_track': res['cm_track'],
-        'id': kc('id') if 'raw_data' not in res.keys() else res['raw_data']['id'],
-        'image_url': res['image_url'],
+        'added_at': kc('added_at'),
+        'cm_track': kc('cm_track'),
+        'image_url': kc('image_url'),
         'isrc': kc('isrc'),
-        'name': res['name'],
-        'peak_date': res['peak_date'],
-        'peak_rank': res['peak_rank'],
-        'pre_rank': res['pre_rank'],
-        'time_on_chart': res['time_on_chart']
+        'name': kc('name'),
+        'peak_date': kc('peak_date'),
+        'peak_rank': kc('peak_rank'),
+        'pre_rank': kc('pre_rank'),
+        'time_on_chart': kc('time_on_chart')
         }
 
-    if 'artist_covers' in res.keys():
-        covers = expand('artist_covers')
-        parsed.update(covers)
-    if 'artist_images' in res.keys():
-        images = expand('artist_images')
-        parsed.update(images)
-    if 'artist_names' in res.keys():
-        names = expand('artist_names')
-        parsed.update(names)
-    if 'cm_artist' in res.keys():
-        cm_artist = expand('cm_artist')
-        parsed.update(cm_artist)
-    if 'code2s' in res.keys():
-        code2s = expand('code2s')
-        parsed.update(code2s)
+    None_tag = True
+    if 'id' in res.keys():
+        parsed['id'] = res['id']
+        None_tag = False
+    elif kc('raw_data') != None:
+        if 'id' in res['raw_data'].keys():
+            parsed['id'] = res['raw_data']['id']
+            None_tag = False
+    if None_tag:
+        parsed['id'] = None
+        
+
+    common_fields = ['artist_covers', 'artist_images', 'artist_names', 'cm_artist', 'code2s']
+    for each in common_fields:
+        expanded_dict = kc_expand(each)
+        parsed.update(expanded_dict)
+
     if 'rankStats' in res.keys() and len(res['rankStats']) > 0:
         rank_stats = extract_rank_stats(res['rankStats'])
         parsed.update(rank_stats)
@@ -101,51 +104,48 @@ def parse_track(res, date):
     # special treatment for YouTube
     if 'youtube_track_id' in res.keys():
         parsed_youtube = {
-            'artist_name': res['artist_name'],
-            'position': res['position'],
-            'view_count': res['view_count'],
-            'youtube_artist': res['youtube_artist'] if 'youtube_artist' in res.keys() else None,
-            'youtube_track_id': res['youtube_track_id'],
-            'percent_views_change': res['raw_data']['percent_views_change']
+            'artist_name': kc('artist_name'),
+            'position': kc('position'),
+            'view_count': kc('view_count'),
+            'youtube_artist': kc('youtube_artist'),
+            'youtube_track_id': kc('youtube_track_id')
         }
-        if 'youtube_artist_ids' in res.keys():
-            u2b_artist_ids = expand('youtube_artist_ids')
-            parsed_youtube.update(u2b_artist_ids)
-        if 'youtube_artist_names' in res.keys():
-            u2b_artist_names = expand('youtube_artist_names')
-            parsed_youtube.update(u2b_artist_names)
-        if 'youtube_track_ids' in res.keys():
-            u2b_track_ids = expand('youtube_track_ids')
-            parsed_youtube.update(u2b_track_ids)
+        
+        None_tag = True
+        if kc('raw_data') != None:
+            if 'percent_views_change' in res['raw_data'].keys():
+                parsed_youtube['percent_views_change'] = res['raw_data']['percent_views_change']
+                None_tag = False
+        if None_tag:
+            parsed_youtube['percent_views_change'] = None
+
+        youtube_fields = ['youtube_artist_ids', 'youtube_artist_names', 'youtube_track_ids']
+        for each in youtube_fields:
+            expanded_dict = kc_expand(each)
+            parsed_youtube.update(expanded_dict)
 
         parsed.update(parsed_youtube)
     else:
         # common items except for YouTube
         parsed_not_u2b = {
-            'code2': res['code2'].strip(),
-            'rank': res['rank']
+            'code2': res['code2'].strip() if 'code2' in res.keys() else None,
+            'rank': kc('rank')
         }
-        album_ids = expand('album_ids')
-        parsed_not_u2b.update(album_ids)
-        album_label = get_labels(res['album_label'])
-        parsed_not_u2b.update(album_label)
-        album_names = expand('album_names')
-        parsed_not_u2b.update(album_names)
-        album_upc = expand('album_upc')
-        parsed_not_u2b.update(album_upc)
-        release_dates = expand('release_dates')
-        parsed_not_u2b.update(release_dates)
+        not_u2b_fields = ['album_ids', 'album_label', 'album_names', 'album_upc', 'release_dates']
+        for each in not_u2b_fields:
+            expanded_dict = kc_expand(each)
+            parsed_not_u2b.update(expanded_dict)
+
         track_genres = {
             f"track_genre_{i + 1}": genre for i, genre in enumerate(
                         list(set(res['track_genre'].replace(",Music", "").replace(",", "/").split("/")))
                     )
-        } if res['track_genre'] is not None else {'track_genre_1':None}
+        } if res['track_genre'] != None else {'track_genre_1':None}
         try:
             assert len(track_genres) <= 10
         except AssertionError:
             # print(f"Assertion Warning: too many genres ({len(track_genres)}) for cm_track: {res['cm_track']}")
             pass
-
         parsed_not_u2b.update(track_genres)
 
         parsed.update(parsed_not_u2b)
@@ -154,21 +154,18 @@ def parse_track(res, date):
         if 'itunes_album_id' in res.keys():
             composers = get_composers(res['composer_name'])
             parsed.update(composers)
-            itunes_album_id = expand('itunes_album_id')
-            parsed.update(itunes_album_id)
-            itunes_album_ids = expand('itunes_album_ids')
-            parsed.update(itunes_album_ids)
-            itunes_artist_ids = expand('itunes_artist_ids')
-            parsed.update(itunes_artist_ids)
-            itunes_artist_names = expand('itunes_artist_names')
-            parsed.update(itunes_artist_names)
-            itunes_track_ids = expand('itunes_track_ids')
-            parsed.update(itunes_track_ids)
-            storefronts = expand('storefronts')
-            parsed.update(storefronts)
+
+            apple_fields = [
+                'itunes_album_id', 'itunes_album_ids', 'itunes_artist_ids',
+                'itunes_artist_names', 'itunes_track_ids', 'storefronts'
+                ]
+            for each in apple_fields:
+                expanded_dict = kc_expand(each)
+                parsed.update(expanded_dict)
+
             if 'itunes' in res.keys():
                 # common for AppleMusic and iTunes
-                parsed['itunes'] = res['itunes']
+                parsed['itunes'] = kc('itunes')
                 if 'country' in res.keys():
                     parsed['country'] = res['country'].strip()
                 if 'genre' in res.keys():
@@ -176,32 +173,31 @@ def parse_track(res, date):
             else:
                 # special items for Shazam
                 parsed_shazam = {
-                    'city': res['city'],
-                    'itunes_id': res['itunes_id'],
-                    'num_of_shazams': res['num_of_shazams'],
-                    'shazam_track_id': res['shazam_track_id']
+                    'city': kc('city'),
+                    'itunes_id': kc('itunes_id'),
+                    'num_of_shazams': kc('num_of_shazams'),
+                    'shazam_track_id': kc('shazam_track_id')
                 }
                 parsed.update(parsed_shazam)
         else:
             # special treatment for Spotify
             parsed_spotify = {
-                'chart_name': res['chart_name'],
-                'chart_type': res['chart_type'],
-                'current_plays': res['current_plays'],
-                'duration': res['duration'],
-                'spotify': res['spotify'],
-                'spotify_album_id': res['spotify_album_id'],
-                'spotify_duration_ms': res['spotify_duration_ms'],
-                'spotify_popularity': res['spotify_popularity']
+                'chart_name': kc('chart_name'),
+                'chart_type': kc('chart_type'),
+                'current_plays': kc('current_plays'),
+                'duration': kc('duration'),
+                'spotify': kc('spotify'),
+                'spotify_album_id': kc('spotify_album_id'),
+                'spotify_duration_ms': kc('spotify_duration_ms'),
+                'spotify_popularity': kc('spotify_popularity')
             }
-            spotify_album_ids = expand('spotify_album_ids')
-            parsed_spotify.update(spotify_album_ids)
-            spotify_artist_ids = expand('spotify_artist_ids')
-            parsed_spotify.update(spotify_artist_ids)
-            spotify_artist_names = expand('spotify_artist_names')
-            parsed_spotify.update(spotify_artist_names)
-            spotify_track_ids = expand('spotify_track_ids')
-            parsed_spotify.update(spotify_track_ids)
+            spotify_fields = [
+                'spotify_album_ids', 'spotify_artist_ids',
+                'spotify_artist_names', 'spotify_track_ids'
+                ]
+            for each in spotify_fields:
+                expanded_dict = kc_expand(each)
+                parsed_spotify.update(expanded_dict)
 
             parsed.update(parsed_spotify)
 
