@@ -62,3 +62,15 @@ def playlists(
     }
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
+
+def charts(stype, cmid, start_date, end_date=None):
+    urlhandle = f"/album/{cmid}/{stype}/charts"
+    params = {
+        "since": start_date,
+        "until": end_date,
+    }
+    data = utilities.RequestData(urlhandle, params=params)
+    return utilities.RequestGet(data)
+
+def 
+
