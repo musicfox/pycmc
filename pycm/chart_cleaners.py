@@ -175,35 +175,32 @@ def parse_track(res, date):
             expanded_dict = kc_expand(data_field)
             parsed_not_u2b.update(expanded_dict)
 
-        track_genres = (
-            {
-                f"track_genre_{i + 1}": genre
-                for i, genre in enumerate(
-                    list(
-                        set(
-                            res["track_genre"]
-                            .replace(",Music", "")
-                            .replace(",", "/")
-                            .split("/")
-                        )
-                    )
+        None_tag = True
+        if kc("track_genre") != None:
+            genres_list = list(
+                set(
+                    res["track_genre"]
+                    .replace(",Music", "")
+                    .replace(",", "/")
+                    .split("/")
                 )
-            }
-            if res["track_genre"] != None
-            else {"track_genre_1": None}
-        )
-        try:
-            assert len(track_genres) <= 10
-        except AssertionError:
-            # print(f"Assertion Warning: too many genres ({len(track_genres)}) for cm_track: {res['cm_track']}")
-            pass
+            )
+            if len(genres_list):
+                track_genres = {
+                    f"track_genre_{i + 1}": genre
+                    for i, genre in enumerate(genres_list)
+                }
+                None_tag = False
+        if None_tag:
+            track_genres = {"track_genre_1": None}
+
         parsed_not_u2b.update(track_genres)
 
         parsed.update(parsed_not_u2b)
 
         # common items for AppleMusic, iTunes and Shazam
         if "itunes_album_id" in res.keys():
-            composers = get_composers(res["composer_name"])
+            composers = get_composers(kc("composer_name"))
             parsed.update(composers)
 
             apple_fields = [
