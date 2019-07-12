@@ -82,8 +82,7 @@ def test_charts():
     assert len(test) > 0
 
 def test_get_album_ids():
-    # test fails with empty list returned
-    test = pycm.album.get_album_ids('chartmetric', 0)
+    test = pycm.album.get_album_ids('chartmetric', 1119543)
     assert isinstance(test, type(list()))
     assert len(test) > 0
 

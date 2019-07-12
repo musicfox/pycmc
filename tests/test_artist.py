@@ -13,17 +13,12 @@ def projpath(path=None):
 def dates():
     return {'start': '2018-03-01', 'end': '2018-03-03'}
 
-@pytest.fixture
-def cpp_stats():
-    return
-
 def test_fanmetrics(dates):
     test = pycm.artist.fanmetrics('3380', dates['start'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
 
 def test_listening(dates):
-
     test = pycm.artist.listening('3380', dates['start'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
@@ -64,13 +59,13 @@ def test_urls():
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
-def test_cpp_data(cpp_stats):
-    test = pycm.artist.cpp_data('3380', cpp_stats)
+def test_cpp_data():
+    test = pycm.artist.cpp_data('3380', 'rank')
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 def test_charts():
-    test = pycm.artist.charts('spotify_viral_daily', '3380')
+    test = pycm.artist.charts('spotify_viral_daily', '3380', '2018-01-01')
     assert isinstance(test, type(list()))
     assert len(test) > 0
     

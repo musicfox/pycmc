@@ -84,17 +84,18 @@ def charts(stype, cmid, start_date, end_date=None):
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)['data']
 
-def get_album_ids(stype, type_id):
+def get_album_ids(id_type, specific_id):
     """
     Query all the album ids given a specific id type.
 
     https://api.chartmetric.com/api/album/:type/:id/get-ids
-    :params stype: string of the type of id requesting 'chartmetric', 'upc', 'spotify', 'itunes' and 'deezer'
-    :params type_id: specific type id <- I have no idea what this is
+    :params id_type:        string of the type of id requesting
+                            'chartmetric', 'upc', 'spotify', 'itunes', 'deezer'
+    :params specific_id:    specific id corresponding to the id_type
     
-    :return: list of dictionaries with various types of id
+    :return:                list of dictionaries with various types of id
     """
-    urlhandle = f"/album/{stype}/{type_id}/get-ids"
+    urlhandle = f"/album/{id_type}/{specific_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 
