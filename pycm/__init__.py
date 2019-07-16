@@ -7,7 +7,9 @@ import os
 credentials.CredentialsDir = os.path.join(
     os.environ.get("HOME"), ".pycm", ".credentials.json"
 )
+
 from . import credentials_manager
+
 from .charts import (
     youtube,
     applemusic,
@@ -22,6 +24,7 @@ from .charts import (
     amazon,
     qq
 )
+
 from . import track
 from . import album
 from . import artist
@@ -31,29 +34,3 @@ from . import playlist
 from . import chart_cleaners
 from . import recommendation
 from . import search_engine
-
-# from .
-# from .
-# from .
-# from .
-# from .
-# from .
-# from .
-# from .
-#
-# import pycm.charts.applemusic
-# import pycm.charts.beatport
-# import pycm.charts.itunes
-# import pycm.charts.shazam
-# import pycm.charts.soundcloud
-# import pycm.charts.spotify
-# import pycm.charts.youtube
-#
-# import pycm.track
-# import pycm.album
-# import pycm.artist
-#
-# import pycm.utilities
-# import pycm.background
-# import pycm.curator
-# import pycm.playlist
