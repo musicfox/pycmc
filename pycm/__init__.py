@@ -17,6 +17,10 @@ from .charts import (
     beatport,
     itunes,
     youtube,
+    deezer,
+    cm_score,
+    amazon,
+    qq
 )
 from . import track
 from . import album
@@ -25,6 +29,8 @@ from . import utilities
 from . import curator
 from . import playlist
 from . import chart_cleaners
+from . import recommendation
+from . import search_engine
 
 # from .
 # from .

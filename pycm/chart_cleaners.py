@@ -175,35 +175,32 @@ def parse_track(res, date):
             expanded_dict = kc_expand(data_field)
             parsed_not_u2b.update(expanded_dict)
 
-        track_genres = (
-            {
-                f"track_genre_{i + 1}": genre
-                for i, genre in enumerate(
-                    list(
-                        set(
-                            res["track_genre"]
-                            .replace(",Music", "")
-                            .replace(",", "/")
-                            .split("/")
-                        )
-                    )
+        None_tag = True
+        if kc("track_genre") != None:
+            genres_list = list(
+                set(
+                    res["track_genre"]
+                    .replace(",Music", "")
+                    .replace(",", "/")
+                    .split("/")
                 )
-            }
-            if res["track_genre"] != None
-            else {"track_genre_1": None}
-        )
-        try:
-            assert len(track_genres) <= 10
-        except AssertionError:
-            # print(f"Assertion Warning: too many genres ({len(track_genres)}) for cm_track: {res['cm_track']}")
-            pass
+            )
+            if len(genres_list):
+                track_genres = {
+                    f"track_genre_{i + 1}": genre
+                    for i, genre in enumerate(genres_list)
+                }
+                None_tag = False
+        if None_tag:
+            track_genres = {"track_genre_1": None}
+
         parsed_not_u2b.update(track_genres)
 
         parsed.update(parsed_not_u2b)
 
         # common items for AppleMusic, iTunes and Shazam
         if "itunes_album_id" in res.keys():
-            composers = get_composers(res["composer_name"])
+            composers = get_composers(kc("composer_name"))
             parsed.update(composers)
 
             apple_fields = [
@@ -350,12 +347,14 @@ def type_cast(parsed):
     Change the data type of certain columns of the cleaned DataFrame.
 
     """
-    fix_nan_str = lambda col: parsed[col].fillna(value="").astype(str)
+    fix_nan_str = lambda col: parsed.loc[:, col].fillna(value="").astype(str)
+
     str_to_date = (
         lambda d: pd.to_datetime(d[:10], errors="coerce")
         if isinstance(d, str)
         else d
     )
+
     findall_columns = lambda col: parsed.filter(regex=col).columns
 
     # common data fields
@@ -460,7 +459,10 @@ def type_cast(parsed):
 
             if "itunes" in parsed.columns:
                 # common for AppleMusic and iTunes
-                parsed.loc[:, "itunes"] = parsed.loc[:, "itunes"].astype(int)
+
+                parsed.loc[:, 'itunes'] = fix_nan_str('itunes') # just cast to str to prevent breaks
+                # parsed.loc[:, "itunes"] = parsed.loc[:, "itunes"].astype(int)
+
                 if "country" in parsed.columns:
                     parsed.loc[:, "country"] = fix_nan_str("country")
                 if "genre" in parsed.columns:
@@ -469,13 +471,18 @@ def type_cast(parsed):
             else:
                 # special items for Shazam
                 parsed.loc[:, "city"] = fix_nan_str("city")
-                parsed.loc[:, "itunes_id"] = parsed["itunes_id"].astype(int)
+
+                parsed.loc[:, 'itunes_id'] = fix_nan_str('itunes_id')
+                # parsed.loc[:, "itunes_id"] = parsed["itunes_id"].astype(int)
+
                 parsed.loc[:, "num_of_shazams"] = parsed[
                     "num_of_shazams"
                 ].astype(float)
-                parsed.loc[:, "shazam_track_id"] = parsed[
-                    "shazam_track_id"
-                ].astype(int)
+
+                parsed.loc[:, "shazam_track_id"] = fix_nan_str('shazam_track_id')
+                # parsed.loc[:, "shazam_track_id"] = parsed[
+                #     "shazam_track_id"
+                # ].astype(int)
         else:
             # special treatment for Spotify
             parsed.loc[:, "chart_name"] = fix_nan_str("chart_name")
@@ -484,7 +491,10 @@ def type_cast(parsed):
                 float
             )
             parsed.loc[:, "duration"] = fix_nan_str("duration")
-            parsed.loc[:, "spotify"] = parsed["spotify"].astype(int)
+
+            parsed.loc[:, "spotify"] = fix_nan_str('spotify')
+            # parsed.loc[:, "spotify"] = parsed["spotify"].astype(int)
+
             parsed.loc[:, "spotify_album_id"] = fix_nan_str("spotify_album_id")
             parsed.loc[:, "spotify_duration_ms"] = parsed[
                 "spotify_duration_ms"

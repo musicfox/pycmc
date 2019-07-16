@@ -19,7 +19,6 @@ def test_fanmetrics(dates):
     assert len(test.keys()) > 0
 
 def test_listening(dates):
-
     test = pycm.artist.listening('3380', dates['start'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
@@ -59,3 +58,24 @@ def test_urls():
     test = pycm.artist.urls('3380',) 
     assert isinstance(test, type(list()))
     assert len(test) > 0
+
+def test_cpp_data():
+    test = pycm.artist.cpp_data('3380', 'rank')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+def test_charts():
+    test = pycm.artist.charts('spotify_viral_daily', '3380', '2018-01-01')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+    
+def test_get_artists():
+    test = pycm.artist.get_artists('sp_monthly_listeners', 5000, 10000)
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+def test_get_artist_ids():
+    test = pycm.artist.get_artist_ids('spotify', 1)
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+

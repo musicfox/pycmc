@@ -9,20 +9,18 @@ Usage:
 >>> qq.insights('2019-01-01') # who knows what you get back!
 
 """
-import requests
-import json
 from .. import utilities
 
 qq_music_url = f"/charts/qq"
 
-def insights(date,):
+def insights(date):
     """
     Query the charts/qq/ endpoint for the
     given date.
 
     :param date:        string date in ISO format %Y-%m-%y
 
-    :returns:           list of dictionary of QQ music chart data
+    :returns:           list of dictionary of QQ music data insights
     """
     urlhandle = f"{qq_music_url}/"
     params = {
