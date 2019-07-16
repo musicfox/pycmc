@@ -10,6 +10,7 @@ dependencies:
   - jupyter
   - psutil
   - coverage
+  - pandas
   - pip
   - pip:
     - white
