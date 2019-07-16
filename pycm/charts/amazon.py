@@ -1,0 +1,66 @@
+from .. import utilities
+
+amazon_charts_url = f"/charts/amazon"
+
+def tracks(date, track_type, genre):
+    """
+    Query the charts/amazon/tracks endpoint for the
+    given date.
+
+    :param date:        string date in ISO format %Y-%m-%y
+    :param track_type:  string track type,
+                        taking 'popular_track' or 'new_track'
+    :param genre:       string genre, taking one of the following
+                        {'All Genres', 'Pop', 'Rock', 'Dance', 
+                        'Latino' 'K-Pop', 'Singer/Songwriter', 
+                        'Hip-Hop/Rap', 'Jazz', 'Electronic', 
+                        'R&B/Soul', 'Blues', 'Country', 'Reggae', 
+                        'Classical', 'Alternative', 'World', 
+                        'Disney', 'J-Pop', 'Christian & Gospel', 
+                        'Easy Listening', 'Children's Music', 
+                        'Fitness & Workout', 'Soundtrack'}
+
+    :returns:           list of dictionary of amazon tracks
+                        chart data
+    """
+    urlhandle = f"{amazon_charts_url}/tracks"
+    params = {
+        'type': track_type,
+        'date': date,
+        'genre': genre,
+    }
+        
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)['data']
+
+
+def albums(date, album_type, genre):
+    """
+    Query the charts/amazon/albums endpoint for the
+    given date.
+
+    :param date:        string date in ISO format %Y-%m-%y
+    :param track_type:  string album type,
+                        taking 'popular_album' or 'new_album'
+    :param genre:       string genre, taking one of the following
+                        {'All Genres', 'Pop', 'Rock', 'Dance', 
+                        'Latino' 'K-Pop', 'Singer/Songwriter', 
+                        'Hip-Hop/Rap', 'Jazz', 'Electronic', 
+                        'R&B/Soul', 'Blues', 'Country', 'Reggae', 
+                        'Classical', 'Alternative', 'World', 
+                        'Disney', 'J-Pop', 'Christian & Gospel', 
+                        'Easy Listening', 'Children's Music', 
+                        'Fitness & Workout', 'Soundtrack'}
+
+    :returns:           list of dictionary of amazon tracks
+                        chart data
+    """
+    urlhandle = f"{amazon_charts_url}/albums"
+    params = {
+        'type': album_type,
+        'date': date,
+        'genre': genre,
+    }
+        
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)['data']
