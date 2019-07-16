@@ -38,3 +38,23 @@ def test_playlists(dates):
     #                            dates['end']) # Khalid - Angels
     #assert isinstance(test, type(list()))
     #assert len(test) > 0
+
+# def test_playlist_snapshot():
+#     test = pycm.track.playlist_snapshot('2019-07-01' ,'22782681', 'applemusic', 'US')
+#     assert isinstance(test, type(list()))
+#     assert len(test) > 0
+
+def test_charts():
+    test = pycm.track.charts('spotify_top_weekly', '22960734', '2019-06-01')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+def test_get_track_ids():
+    test = pycm.track.get_track_ids('chartmetric', '22782681')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+def test_stats():
+    test = pycm.track.stats('22960734', 'spotify')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
