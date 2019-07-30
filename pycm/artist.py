@@ -206,7 +206,7 @@ def get_artist_ids(id_type, specific_id):
                               'chartmetric', 'spotify', 'itunes', 'deezer'
     :params specific_id:      specific ID corresponding to the id_type
     """
-    urlhandle = f"/artist/{id_type}/{specific_id}/charts"
+    urlhandle = f"/artist/{id_type}/{specific_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 
