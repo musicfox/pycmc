@@ -142,7 +142,7 @@ def test_youtube_tracks():
 
 def test_qq_insights():
     # fails because of empty return
-    test = pycm.charts.qq.insights('2019-07-10')
+    test = pycm.charts.qq.insights('2019-05-02')
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
