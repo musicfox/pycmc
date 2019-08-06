@@ -31,23 +31,69 @@ def tunefind(cmid):
     return utilities.RequestGet(data)
 
 
-def playlists(cmid, date, status="current", indie=False, limit=1000):
+def playlists(
+    cmid,
+    platform, 
+    status='current', 
+    start_date=None,
+    end_date=None,
+    indie=False,
+    limit=1000,
+    offset=0
+    ):
     """
-    Query the track playlist placement API endpoint.
+    Query the playlists containing the given track.
 
-    https://api.chartmetric.com/api/track/:id/:streamingType/:status/playlists
-    :param cmid:        string chartmetric.com entity ID
-    :param start_date:  string ISO date
-    :param end_date:    string ISO date
-    :param status:      string 'current' or 'past'
-    :param indie:       Boolean true if playlist created by major labels
-    :param limit:       number of entries to be returned
+    https://api.chartmetric.com/api/track/:id/:platform/:status/playlists
+
+    :param cmid:        string CM track ID
+    :param platform:    string 'spotify', 'applemusic', 'deezer', 'amazon'
+    :param status:      string 'past' or 'current'
+    :param start_date:  string ISO start date
+    :param end_date:    string ISO end date
+    :param indie:       bool, False for playlist curated by major label
+    :param limit:       int number of entries to be returned
+    :param offset:      int offset of entries, use this to recursively acquire
+
+    :return:            list of dictionaries of playlists data
     """
-    stype = "spotify"  # 'applemusic', 'deezer'
-    urlhandle = f"/track/{cmid}/{stype}/playlists/snapshot"
-    params = {"date": date, "offset": 0, "limit": 1000}
+    urlhandle = f"/track/{cmid}/{platform}/{status}/playlists"
+    params = {
+        'since': start_date,
+        'until': end_date,
+        'indie': indie,
+        'limit': limit,
+        'offset': offset,
+    }
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
+
+
+def playlist_snapshot(cmid, platform, date, storefront='US', limit=100, offset=0):
+    """
+    Query the snapshot of playlists containing the given track on a given date.
+
+    https://api.chartmetric.com/api/track/:id/:platform/playlists/snapshot
+
+    :param cmid:        string CM track ID
+    :param platform:    string 'spotify', 'applemusic', 'deezer'
+    :param date:        string ISO date
+    :param storefront:  string for querying applemusic
+    :param limit:       int number of entries to be returned
+    :param offset:      int offset of entries, use this to recursively acquire
+
+    :return:            list of dictionaries of playlists data
+    """
+    urlhandle = f"/track/{cmid}/{platform}/playlists/snapshot"
+    params = {
+        'date': date,
+        'storefront': storefront,
+        'limit': limit,
+        'offset': offset,
+    }
+    data = utilities.RequestData(urlhandle, params=params)
+    return utilities.RequestGet(data)
+
 
 def charts(chart_type, cm_track_id, start_date, end_date=None):
     """
