@@ -9,7 +9,6 @@ def lists(
     limit=100,
     offset=0,
     indie=False,
-    daysAgo=7,
 ):
     """
     **NOTE**
@@ -28,14 +27,12 @@ def lists(
     :param limit:       integer limit number of queries
     :param offset:      offset of entries to be returned
     :param indie:       boolean True to return indie playlists
-    :param daysAgo:     integer how many days ago (?? -> docs are ...)
 
-    :returns:           dict?
+    :returns:           list of dicts of playlists
     """
     indie = "true" if indie else "false"
     urlhandle = f"/playlist/{stype}/lists"
     params = {
-        "daysAgo": daysAgo,
         "indie": indie,
         "limit": limit,
         "offset": offset,
@@ -51,6 +48,8 @@ def metadata(cmid, stype):
 
     :param cmid:        string chartmetric playlist ID
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
+
+    :return:             dictionary of playlist metadata
     """
     urlhandle = f"/playlist/{stype}/{cmid}"
     params = None
@@ -82,7 +81,7 @@ def tracks(cmid, stype, span="current"):
     :param stype:       string 'spotify', 'applemusic', or 'deezer'
     :param span:        string 'past' or 'current'
 
-    :returns:           list
+    :returns:           list of dicts of tracks
     """
     urlhandle = f"/playlist/{stype}/{cmid}/{span}/tracks"
     params = None
@@ -90,19 +89,20 @@ def tracks(cmid, stype, span="current"):
     return utilities.RequestGet(data)
 
 
-def evolution(cmid, byType, start_date, end_date):
+def evolution(cmid, byType):
     """
     Query the chartmetric.com API playlist/evolution endpoint
 
     :param cmid:        string chartmetric {byType} ID
     :param byType:      string 'artist', 'track', 'album'
-    :param start_date:  string ISO beginning date %Y-%m-%d
-    :param end_date:    string ISO ending date %Y-%m-%d
 
-    :returns:           list
+    :returns:           nested dict, keys being
+                        'playlistDataPerDate' (dicts indexed by dates),
+                        'statsDataPlot' (list of lists)
+                        and 'playlistDataPlot' (list of lists)
     """
     stype = "spotify"  # only one listed in docs...
-    urlhandle = f"/playlist/{stype}/by/{byType}/{cmid}/evolution"
-    params = {"since": start_date, "until": end_date}
+    urlhandle = f"/playlist/{stype}/{byType}/{cmid}/evolution"
+    params = None
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
