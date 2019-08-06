@@ -11,12 +11,6 @@ def lists(
     indie=False,
 ):
     """
-    **NOTE**
-
-    Documentation for this endpoint is wrong. The exact given exemplar
-    returns a 400 BAD_REQUEST -> need to strategize how to fix in the 
-    short run.
-
     Query the chartmetri.io API playlist charts endpoint
 
     https://api.chartmetric.com/api/playlist/:streamingType/lists
