@@ -57,10 +57,7 @@ def test_evolution(dates):
     """
     This endpoint is breaking upstream. 04-22-2019.
     """
-    test = pycm.playlist.evolution(439,
-                                   'artist',
-                                   dates['start'],
-                                   dates['end'])
+    test = pycm.playlist.evolution(439, 'artist')
 
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
