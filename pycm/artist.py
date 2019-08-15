@@ -82,20 +82,20 @@ def tracks(cmid):
     return utilities.RequestGet(data)
 
 
-def related(cmid, limit=100):
+def related(cmid, limit=50):
     """
     Query the chartmetric.com API for artist metadata.
 
     https://api.chartmetric.com/api/artist/:id/relatedartists
 
     :param cmid:        string chartmetric artist ID
+    :param limit:       int number of entries to be returned
     :returns:           list of related artists
     """
     urlhandle = f"/artist/{cmid}/relatedartists"
-    params = None
-    # {
-    #     'limit': limit,
-    # }
+    params = {
+        'limit': limit,
+    }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -171,7 +171,7 @@ def cpp_data(cmid, cpp_stat, start_date=None, end_date=None):
     return utilities.RequestGet(data)
 
 
-def charts(chart_type, cmid, start_date, end_date=None, offset=0):
+def charts(chart_type, cmid, start_date, end_date=None):
     """
     Query the charts for the artist on the given type of chart.
 
@@ -185,13 +185,11 @@ def charts(chart_type, cmid, start_date, end_date=None, offset=0):
     :params cmid:           Chartmetric artist ID
     :params start_date:     string of start data in ISO format
     :params end_date:       string of end date in ISO format
-    :params offset:         number of offsets to shift the timeframe
     """
     urlhandle = f"/artist/{cmid}/{chart_type}/charts"
     params = {
         'since': start_date,
         'until': end_date,
-        "offset": offset
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)['data']
