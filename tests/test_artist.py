@@ -65,7 +65,7 @@ def test_cpp_data():
     assert len(test) > 0
 
 def test_charts():
-    test = pycm.artist.charts('spotify_viral_daily', '3380', '2018-01-01')
+    test = pycm.artist.charts('spotify_viral_daily', '1220', '2019-01-01')
     assert isinstance(test, type(list()))
     assert len(test) > 0
     
@@ -75,7 +75,7 @@ def test_get_artists():
     assert len(test) > 0
 
 def test_get_artist_ids():
-    test = pycm.artist.get_artist_ids('spotify', 1)
+    test = pycm.artist.get_artist_ids('chartmetric', 4031)
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
