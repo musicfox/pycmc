@@ -38,7 +38,7 @@ def playlists(
     start_date=None,
     end_date=None,
     indie=False,
-    limit=1000,
+    limit=100,
     offset=0
     ):
     """
@@ -69,7 +69,7 @@ def playlists(
     return utilities.RequestGet(data)
 
 
-def playlist_snapshot(cmid, platform, date, storefront='US', limit=100, offset=0):
+def playlist_snapshot(cmid, platform, date, limit=100, offset=0):
     """
     Query the snapshot of playlists containing the given track on a given date.
 
@@ -78,7 +78,6 @@ def playlist_snapshot(cmid, platform, date, storefront='US', limit=100, offset=0
     :param cmid:        string CM track ID
     :param platform:    string 'spotify', 'applemusic', 'deezer'
     :param date:        string ISO date
-    :param storefront:  string for querying applemusic
     :param limit:       int number of entries to be returned
     :param offset:      int offset of entries, use this to recursively acquire
 
@@ -87,7 +86,6 @@ def playlist_snapshot(cmid, platform, date, storefront='US', limit=100, offset=0
     urlhandle = f"/track/{cmid}/{platform}/playlists/snapshot"
     params = {
         'date': date,
-        'storefront': storefront,
         'limit': limit,
         'offset': offset,
     }
