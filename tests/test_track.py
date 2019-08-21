@@ -29,20 +29,17 @@ def test_tunefind():
 
 def test_playlists(dates):
     """
-    Unfortunately CM's exemplar is incorrect here...
-    https://api.chartmetric.com/apidoc/#api-Track-GetCurrentPlaylistsByTracks
-    """
-    # playlist placement
-    #test = pycm.track.playlists('3308',
-    #                            dates['start'],
-    #                            dates['end']) # Khalid - Angels
-    #assert isinstance(test, type(list()))
-    #assert len(test) > 0
+    If breaking see [issue 15](https://gitlab.com/musicfox/pycm/issues/15).
 
-# def test_playlist_snapshot():
-#     test = pycm.track.playlist_snapshot('2019-07-01' ,'22782681', 'applemusic', 'US')
-#     assert isinstance(test, type(list()))
-#     assert len(test) > 0
+    """
+    test = pycm.track.playlists('17919855', 'spotify')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+def test_playlist_snapshot():
+    test = pycm.track.playlist_snapshot('22782681', 'spotify', '2019-08-01')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 def test_charts():
     test = pycm.track.charts('spotify_top_weekly', '22960734', '2019-06-01')
