@@ -29,8 +29,8 @@ def test_tunefind():
 
 def test_playlists(dates):
     """
-    Unfortunately CM's exemplar is incorrect here...
-    https://api.chartmetric.com/apidoc/#api-Track-GetCurrentPlaylistsByTracks
+    If breaking see [issue 15](https://gitlab.com/musicfox/pycm/issues/15).
+
     """
     test = pycm.track.playlists('17919855', 'spotify')
     assert isinstance(test, type(list()))
