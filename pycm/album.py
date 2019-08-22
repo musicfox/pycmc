@@ -1,4 +1,3 @@
-# import pycm.utilities as utilities
 from . import utilities
 
 
@@ -14,7 +13,7 @@ def charts(stype, cmid, start_date, end_date=None):
     :param start_date:      string start data in ISO format
     :param end_date:        string end date in ISO format
 
-    :return:                list of dictionaries containing the charts of
+    :return:                list of dictionaries of the chart for
                             the given album
     """
     urlhandle = f"/album/{cmid}/{stype}/charts"
@@ -28,7 +27,7 @@ def charts(stype, cmid, start_date, end_date=None):
 
 def get_album_ids(id_type, specific_id):
     """
-    Query all the album ids given a specific ID type.
+    Query all the related album IDs given a specific ID type.
 
     https://api.chartmetric.com/api/album/:type/:id/get-ids
 
@@ -49,7 +48,7 @@ def metadata(cmid):
     
     https://api.chartmetric.com/api/album/:id
 
-    :param cmid:        string chartmetric.com album ID
+    :param cmid:        string or int Chartmetric album ID
 
     :returns:           dictionary of album metadata
     """
@@ -72,7 +71,7 @@ def playlists(
 
     https://api.chartmetric.com/api/album/:id/:platform/:status/playlists
 
-    :param cmid:        string chartmetric.com entity ID
+    :param cmid:        string or int Chartmetric album ID
     :param start_date:  string ISO date
     :param end_date:    string ISO date
     :param stype:       string streaming platform, choose from
@@ -80,6 +79,8 @@ def playlists(
     :param status:      string 'current' or 'past'
     :param indie:       Boolean true if playlist created by major labels
     :param limit:       number of entries to be returned
+
+    :return:            list of dictionaries of playlists for the album
     """
     urlhandle = f"/album/{cmid}/{stype}/{status}/playlists"
     params = {
@@ -92,32 +93,20 @@ def playlists(
     return utilities.RequestGet(data)
 
 
-def tunefind(cmid):
-    """
-    Query the album tunefind stats endpoint given the chartmetric id.
-
-    https://api.chartmetric.com/api/album/:id/tunefind
-
-    :param cmid:        string chartmetric.com entity ID
-
-    :return:            list of dictionaries
-    """
-    urlhandle = f"/album/{cmid}/tunefind"
-    data = utilities.RequestData(urlhandle, params=None)
-    return utilities.RequestGet(data)
-
-
 def stats(cmid, stype, start_date=None, end_date=None):
     """
-    Query the statistics from the given streaming platform (popularity for Spotify).
+    Query the statistics from the given streaming platform,
+    specifically popularity for Spotify.
 
     https://api.chartmetric.com/api/album/:id/:platform/stats
-    :params cmid: Chartmetric album id
-    :params stype: string streaming platform type 'spotify'
-    :params start_date: string of start date in ISO format
-    :params end_date: string of end date in ISO format
+    
+    :param cmid:        string or int Chartmetric album ID
+    :param stype:       string streaming platform type, only 'spotify'
+    :param start_date:  string of start date in ISO format
+    :param end_date:    string of end date in ISO format
 
-    :return: list of dictionaries of the statistics of an album on a streaming platform
+    :return:            list of dictionaries of the statistics
+                        for an album on a streaming platform
     """
     urlhandle = f"/album/{cmid}/{stype}/stats"
     params = {
@@ -133,11 +122,28 @@ def tracks(cmid):
     Query the tracks included in a given album.
 
     https://api.chartmetric.com/api/album/:id/tracks
-    :params cmid: Chartmetric album id
+
+    :params cmid:   string or int Chartmetric album ID
    
-    :return: list of dictionaries of the tracks in an album
+    :return:        list of dictionaries of the tracks in an album
     """
     urlhandle = f"/album/{cmid}/tracks"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
+
+
+def tunefind(cmid):
+    """
+    Query the album tunefind stats given the Chartmetric ID.
+
+    https://api.chartmetric.com/api/album/:id/tunefind
+
+    :param cmid:    string or int Chartmetric album ID
+
+    :return:        list of dictionaries of tunefind stats
+    """
+    urlhandle = f"/album/{cmid}/tunefind"
+    data = utilities.RequestData(urlhandle, params=None)
+    return utilities.RequestGet(data)
+
 
