@@ -3,12 +3,13 @@ from . import utilities
 
 def albums(cmid):
     """
-    Query the chartmetric.com API for artist metadata.
+    Get the albums for the artist given CMID.
 
     https://api.chartmetric.com/api/artist/:id/albums
 
-    :param cmid:        string chartmetric artist ID
-    :returns:           dict of artist metatdata
+    :param cmid:    string or int Chartmetric artist ID
+
+    :return:        dictionary of artist metatdata
     """
     urlhandle = f"/artist/{cmid}/albums"
     params = None
@@ -18,13 +19,18 @@ def albums(cmid):
 
 def cpp_data(cmid, cpp_stat, start_date=None, end_date=None):
     """
-    Query the historical CPP data for the given artist.
+    Get the historical CPP data for the given artist.
 
     https://api.chartmetric.com/api/artist/:id/cpp
-    :params cmid: Chartmetric artist ID
-    :params cpp_stat: string CPP statistic 'rank', 'score'
-    :params start_date: string of start data in ISO format
-    :params end_date: string of end date in ISO format
+
+    :params cmid:           string or int Chartmetric artist ID
+    :params cpp_stat:       string CPP statistic to pull, 
+                            choose from 'rank', 'score'
+    :params start_date:     string of start data in ISO format
+    :params end_date:       string of end date in ISO format
+
+    :return:                list of dictionaries with the specific 
+                            CPP statistics for the given artist
     """
     urlhandle = f"/artist/{cmid}/cpp"
     params = {
@@ -38,18 +44,22 @@ def cpp_data(cmid, cpp_stat, start_date=None, end_date=None):
 
 def charts(chart_type, cmid, start_date, end_date=None):
     """
-    Query the charts for the artist on the given type of chart.
+    Get the given type of charts for the artist.
 
     https://api.chartmetric.com/api/artist/:id/:type/charts
-    :params chart_type:     string of the following
+
+    :params chart_type:     string type of charts to pull, choose from
                             'spotify_viral_daily', 'spotify_viral_weekly',
                             'spotify_top_daily', 'spotify_top_weekly',
                             'applemusic_top', 'applemusic_daily',
                             'applemusic_albums', 'itunes_top',
                             'itunes_albums', 'shazam', 'beatport'
-    :params cmid:           Chartmetric artist ID
+    :params cmid:           string or int Chartmetric artist ID
     :params start_date:     string of start data in ISO format
     :params end_date:       string of end date in ISO format
+
+    :return:                list of dictionaries of specific type of 
+                            charts for the given artist
     """
     urlhandle = f"/artist/{cmid}/{chart_type}/charts"
     params = {
@@ -62,17 +72,23 @@ def charts(chart_type, cmid, start_date, end_date=None):
 
 def fanmetrics(cmid, start_date, dsrc="instagram", valueCol="followers"):
     """
-    Query the chartmetric API for artist fanmetrics.
-
-    :param cmid:        string chartmetric artist id
-    :param start_date:  string ISO date %Y-%m-%d
-    :param dsrc:        string data source
-                        spotify, facebook, twitter, instagram, youtube,
-			wikipedia, bandsintown, soundcloud,
-			facebook_fans_by_country, or
-			facebook_storytellers_by_country 
+    Query the Chartmetric API for artist fan metrics.
 
     https://api.chartmetric.com/api/artist/:id/stat/:source
+
+    :param cmid:        string or int Chartmetric artist ID
+    :param start_date:  string ISO date %Y-%m-%d
+    :param dsrc:        string data source, choose from
+                        'spotify', 'facebook', 'twitter', 'instagram',
+                        'youtube', 'wikipedia', 'bandsintown', 'soundcloud',
+			            'facebook_fans_by_country',
+			            'facebook_storytellers_by_country' 
+    :param valueCol:    string specific data field returned, choose from
+                        'followers', 'popularity', 'listeners',
+                        'talks', 'subscribers'
+
+    :return:            nested dict, {valueCol: [fanmetrics]},
+                        fanmetrics are dictionaries of time-series stats
     """
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
     params = {"since": start_date}
@@ -82,12 +98,13 @@ def fanmetrics(cmid, start_date, dsrc="instagram", valueCol="followers"):
 
 def get_artist_ids(id_type, specific_id):
     """
-    Query all the linked artist IDs.
+    Get all the linked artist IDs using a given type of ID.
 
     https://api.chartmetric.com/api/artist/:type/:id/get-ids
-    :params id_type:          string indicating the type of input id
-                              'chartmetric', 'spotify', 'itunes', 'deezer'
-    :params specific_id:      specific ID corresponding to the id_type
+
+    :params id_type:        string indicating the type of input ID, choose from
+                            'chartmetric', 'spotify', 'itunes', 'deezer'
+    :params specific_id:    specific ID corresponding to the id_type
     """
     urlhandle = f"/artist/{id_type}/{specific_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
@@ -96,23 +113,26 @@ def get_artist_ids(id_type, specific_id):
 
 def get_artists(filter_field, min_thres, max_thres, offset=0):
     """
-    Query the list of artist IDs filtered by given metrics.
+    Get the statistics of artists filtered by given metrics.
 
     https://api.chartmetric.com/api/artist/:type/list
-    :params id_type:        string indicating the field for filtering
-                            'sp_monthly_listeners' (spotify monthly listeners),
-                            'sp_followers' (spotify followers),
-                            'sp_popularity' (spotify popularity),
-                            'sp_listeners_to_followers_ratio',
-                            'fs_likes' (Facebook fan count),
-                            'fs_talks' (Facebook people talking about count),
-                            'ycs_views' (Youtube channel views),
-                            'ycs_subscribers' (Youtube channel subscribers),
-                            'ws_views' (Wikipedia pages views),
-                            'ss_followers' (Soundcloud followers)
-    :params min:            minimum threshold for filtering
-    :params max:            maximum threshold for filtering
-    :params offset:         number of offsets to shift the timeframe
+
+    :params id_type:    string indicating the field for filtering,
+                        'sp_monthly_listeners' (spotify monthly listeners),
+                        'sp_followers' (spotify followers),
+                        'sp_popularity' (spotify popularity),
+                        'sp_listeners_to_followers_ratio',
+                        'fs_likes' (Facebook fan count),
+                        'fs_talks' (Facebook people talking about count),
+                        'ycs_views' (Youtube channel views),
+                        'ycs_subscribers' (Youtube channel subscribers),
+                        'ws_views' (Wikipedia pages views),
+                        'ss_followers' (Soundcloud followers)
+    :params min:        minimum threshold for filtering
+    :params max:        maximum threshold for filtering
+    :params offset:     number of offsets to shift the timeframe
+
+    :return:            list of dictionaries of the filtered artists
     """
     urlhandle = f"/artist/{filter_field}/list"
     params = {
@@ -126,12 +146,13 @@ def get_artists(filter_field, min_thres, max_thres, offset=0):
 
 def metadata(cmid):
     """
-    Query the chartmetric.com API for artist metadata.
+    Query the CHartmetric API for artist metadata.
 
     https://api.chartmetric.com/api/artist/:id
 
-    :param cmid:        string chartmetric artist ID
-    :returns:           dict of artist metatdata
+    :param cmid:    string or int Chartmetric artist ID
+
+    :return:        dictionary of artist metatdata
     """
     urlhandle = f"/artist/{cmid}"
     params = None
@@ -141,19 +162,24 @@ def metadata(cmid):
 
 def playlists(cmid, dsrc, start_date, status="past"):
     """
-    Query the chartmetric.com API for artist playlist data.
+    Get the playlists containing the artist on the
+    specific streaming platform.
 
     https://api.chartmetric.com/api/artist/:id/:type/:status/playlists
-    :param cmid:        string chartmetric artist id
-    :param start_date:  string ISO date %Y-%m-%d
-    :param dsrc:        string data source 'spotify', 'applemusic', or 'deezer'
 
-    :returns:           no one knows-> it's chartmetric's API
+    :param cmid:        string or int Chartmetric artist ID
+    :param dsrc:        string data source, choose from
+                        'spotify', 'applemusic', or 'deezer'
+    :param start_date:  string ISO date %Y-%m-%d
+    :param status:      string indicating status of pulled playlists,
+                        either 'current' or 'past'
+    
+    :return:            list of dictionaries of playlists on the data source
+                        for the given artist
     """
     urlhandle = f"/artist/{cmid}/{dsrc}/{status}/playlists"
     params = {
         "since": start_date,
-        #'indie': False,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
@@ -161,13 +187,14 @@ def playlists(cmid, dsrc, start_date, status="past"):
 
 def related(cmid, limit=50):
     """
-    Query the chartmetric.com API for artist metadata.
+    Get the related artists for the given artist.
 
     https://api.chartmetric.com/api/artist/:id/relatedartists
 
-    :param cmid:        string chartmetric artist ID
-    :param limit:       int number of entries to be returned
-    :returns:           list of related artists
+    :param cmid:    string or int Chartmetric artist ID
+    :param limit:   int number of entries to be returned
+
+    :return:        list of related artists
     """
     urlhandle = f"/artist/{cmid}/relatedartists"
     params = {
@@ -179,13 +206,14 @@ def related(cmid, limit=50):
 
 def urls(cmid):
     """
-    Query the artist url endpoint given the chartmetric ID and return
-    the streaming/social service URLs.
+    Query the artist URL endpoint given the chartmetric ID and return
+    the streaming/social/service URLs.
 
     https://api.chartmetric.com/api/artist/:id/urls
 
-    :param cmid:        string chartmetric artist ID 
-    :returns:           dict of platform urls for artist
+    :param cmid:    string or int Chartmetric artist ID 
+    
+    :return:        dictionary of various URLs for the artist
     """
     urlhandle = f"/artist/{cmid}/urls"
     params = None
@@ -195,12 +223,13 @@ def urls(cmid):
 
 def tracks(cmid):
     """
-    Query the chartmetric.com API for artist metadata.
+    Get the tracks for the given artist.
 
     https://api.chartmetric.com/api/artist/:id/tracks
 
-    :param cmid:        string chartmetric artist ID
-    :returns:           dict of artist metatdata
+    :param cmid:    string or int chartmetric artist ID
+    
+    :return:        list of dictionaries of the artist's tracks
     """
     urlhandle = f"/artist/{cmid}/tracks"
     params = None
@@ -210,12 +239,14 @@ def tracks(cmid):
 
 def tunefind(cmid):
     """
-    Query the chartmetric.com API for artist metadata.
+    Query the Chartmetric API for artist tunefind data.
 
     https://api.chartmetric.com/api/artist/:id/tunefind
 
-    :param cmid:        string chartmetric artist ID
-    :returns:           dict of artist metatdata
+    :param cmid:    string or int Chartmetric artist ID
+    
+    :return:        list of dictionaries of tunefind data
+                    for the given artist
     """
     urlhandle = f"/artist/{cmid}/tunefind"
     params = None
@@ -225,12 +256,13 @@ def tunefind(cmid):
 
 def listening(cmid, start_date):
     """
-    Query the chartmetric.com API for artist metadata.
+    Query the Chartmetric API for Spotify's WherePeopleListen stats.
 
-    https://api.chartmetric.com/api/artist/:id/spWherePeopleListenInsights
+    https://api.chartmetric.com/api/artist/:id/where-people-listen
 
-    :param cmid:        string chartmetric artist ID
-    :returns:           dict of artist metatdata
+    :param cmid:    string or int chartmetric artist ID
+
+    :return:        dictionary of top listening cities with stats
     """
     urlhandle = f"/artist/{cmid}/where-people-listen"
     params = {"since": start_date}
