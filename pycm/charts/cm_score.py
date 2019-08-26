@@ -16,7 +16,7 @@ def tracks(cm_track_id, chart_type, start_date, end_date=None):
     :param start_date:      string date in ISO format %Y-%m-%d
     :param end_date:        string date in ISO format %Y-%m-%d, default today
 
-    :returns:               list of dictionary of CM scores for the track
+    :return:                list of dictionary of CM scores for the track
     """
     urlhandle = f"/charts/track/{cm_track_id}/{chart_type}/cm-score"
     params = {
@@ -43,7 +43,7 @@ def artists(cm_artist_id, chart_type, start_date, end_date=None):
     :param start_date:      string date in ISO format %Y-%m-%d
     :param end_date:        string date in ISO format %Y-%m-%d, default today
 
-    :returns:               list of dictionary of CM scores for the artist
+    :return:                list of dictionary of CM scores for the artist
     """
     urlhandle = f"/charts/artist/{cm_artist_id}/{chart_type}/cm-score"
     params = {
@@ -70,7 +70,7 @@ def albums(cm_album_id, chart_type, start_date, end_date=None):
     :param start_date:      string date in ISO format %Y-%m-%d
     :param end_date:        string date in ISO format %Y-%m-%d, default today
 
-    :returns:               list of dictionary of CM scores for the album
+    :return:                list of dictionary of CM scores for the album
     """
     urlhandle = f"/charts/album/{cm_album_id}/{chart_type}/cm-score"
     params = {
