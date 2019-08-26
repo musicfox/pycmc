@@ -50,7 +50,7 @@ def metadata(cmid):
 
     :param cmid:        string or int Chartmetric album ID
 
-    :returns:           dictionary of album metadata
+    :return:            dictionary of album metadata
     """
     urlhandle = f"/album/{cmid}"
     data = utilities.RequestData(urlhandle, params=None)
