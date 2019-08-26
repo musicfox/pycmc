@@ -102,9 +102,11 @@ def get_artist_ids(id_type, specific_id):
 
     https://api.chartmetric.com/api/artist/:type/:id/get-ids
 
-    :params id_type:        string indicating the type of input ID, choose from
+    :param id_type:         string type of input ID, choose from
                             'chartmetric', 'spotify', 'itunes', 'deezer'
-    :params specific_id:    specific ID corresponding to the id_type
+    :param specific_id:     specific ID corresponding to the id_type
+
+    :return:                list of dictionaries of linked artist IDs
     """
     urlhandle = f"/artist/{id_type}/{specific_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
@@ -128,8 +130,8 @@ def get_artists(filter_field, min_thres, max_thres, offset=0):
                         'ycs_subscribers' (Youtube channel subscribers),
                         'ws_views' (Wikipedia pages views),
                         'ss_followers' (Soundcloud followers)
-    :params min:        minimum threshold for filtering
-    :params max:        maximum threshold for filtering
+    :params min_thres:  minimum threshold for filtering
+    :params max_thres:  maximum threshold for filtering
     :params offset:     number of offsets to shift the timeframe
 
     :return:            list of dictionaries of the filtered artists
@@ -260,9 +262,10 @@ def listening(cmid, start_date):
 
     https://api.chartmetric.com/api/artist/:id/where-people-listen
 
-    :param cmid:    string or int chartmetric artist ID
+    :param cmid:            string or int chartmetric artist ID
+    :param start_date:      string ISO start date for stats
 
-    :return:        dictionary of top listening cities with stats
+    :return:                dictionary of top listening cities with stats
     """
     urlhandle = f"/artist/{cmid}/where-people-listen"
     params = {"since": start_date}
