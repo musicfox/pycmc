@@ -11,7 +11,7 @@ def tracks(date):
 
     :param date:        string date in ISO format %Y-%m-%d
 
-    :returns:           list of dictionary of tracks on Beatport charts
+    :return:            list of dictionary of tracks on Beatport charts
     """
     urlhandle = f"{beatport_charts_url}"
     params = {
