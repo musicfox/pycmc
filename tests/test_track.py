@@ -11,11 +11,6 @@ def projpath(path=None):
     return utilities.ProjectRootDir()
 
 
-@pytest.fixture
-def dates():
-    return {'start': '2018-03-01', 'end': '2018-03-03'}
-
-
 def test_charts():
     test = pycm.track.charts('spotify_top_weekly', '22960734', '2019-06-01')
     assert isinstance(test, type(list()))
@@ -42,11 +37,7 @@ def test_playlist_snapshot():
     assert len(test) > 0
 
 
-def test_playlists(dates):
-    """
-    If breaking see [issue 15](https://gitlab.com/musicfox/pycm/issues/15).
-
-    """
+def test_playlists():
     test = pycm.track.playlists('17919855', 'spotify')
     assert isinstance(test, type(list()))
     assert len(test) > 0
@@ -62,5 +53,3 @@ def test_tunefind():
     test = pycm.track.tunefind('15678739') # Khalid - Angels
     assert isinstance(test, type(list()))
     assert len(test) > 0
-#    assert test['name'] is not ''
-#    assert test['artists'][0]['name'] is not ''
