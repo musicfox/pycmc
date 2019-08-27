@@ -71,7 +71,7 @@ def RequestData(urlhandle, params):
     
     :param params:          dictionary of keyword data to send in the
                             query string, specific to the particular 
-    			    api endpoint
+    			            api endpoint
     
     :returns:               dictionary with keys url, headers,
                             and params
