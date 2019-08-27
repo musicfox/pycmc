@@ -115,7 +115,6 @@ def test_itunes_videos():
 
 
 def test_qq_insights():
-    # fails because of empty return
     test = pycm.charts.qq.insights('2019-05-02')
     assert isinstance(test, type(list()))
     assert len(test) > 0
@@ -128,8 +127,6 @@ def test_shazam_tracks():
     assert len(test) == 200
     assert test[0]['rank'] != ''
     assert test[0]['shazam_track_id'] != ''
-    # not joking: API only returns the Shazam ID of the track
-    # no name or anything
 
 
 def test_shazam_cities():
@@ -148,9 +145,6 @@ def test_soundcloud_tracks():
 
 
 def test_spotify_tracks():
-    """
-    Endpoint as listedn on docs is broken
-    """
     test = pycm.charts.spotify.tracks('2019-02-15')
     assert isinstance(test, type(list()))
     assert len(test) > 0
