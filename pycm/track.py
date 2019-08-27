@@ -3,20 +3,22 @@ from . import utilities
 
 def charts(chart_type, cm_track_id, start_date, end_date=None):
     """
-    Query the charts containing this given track.
+    Get the charts of certain type containing this given track
+    since a specified start date.
 
     https://api.chartmetric.com/api/track/:id/:type/charts
-    :param chart_type:  string type of chart,
+
+    :param chart_type:  string type of chart, choose from
                         'spotify_viral_daily', 'spotify_viral_weekly', 
                         'spotify_top_daily', 'spotify_top_weekly', 
                         'applemusic_top', 'applemusic_daily', 
                         'applemusic_albums', 'itunes_top', 'amazon', 
                         'itunes_albums', 'shazam', 'beatport'
-    :param cm_track_id: Chartmetric track ID
+    :param cm_track_id: string or int Chartmetric track ID
     :param start_date:  string ISO date
     :param end_date:    string ISO date
 
-    :returns:           list of dictionaries of the charts data
+    :return:            list of dictionaries of the charts data
     """
     
     urlhandle = f"/track/{cm_track_id}/{chart_type}/charts"
@@ -29,18 +31,19 @@ def charts(chart_type, cm_track_id, start_date, end_date=None):
 
 def get_track_ids(id_type, matching_id):
     """
-    Query all related track IDs for a given track by a specific ID.
-    For some tracks, there might be multiple corresponding Spotify and iTunes IDs.
+    Get all related track IDs for a given track by a specific ID.
+    There can be multiple corresponding Spotify and iTunes IDs
+    for some tracks.
 
     https://api.chartmetric.com/api/track/:type/:id/get-ids
+
     :param id_type:     string type of track ID,
                         'chartmetric' (for cm_track), 'isrc',
                         'spotify', 'itunes'
     :param matching_id: specific track ID that matches the type
 
-    :returns:           list of dictionaries of the related track IDs
+    :return:            list of dictionaries of the related track IDs
     """
-    
     urlhandle = f"/track/{id_type}/{matching_id}/get-ids"
     
     data = utilities.RequestData(urlhandle, params=None)
@@ -49,14 +52,13 @@ def get_track_ids(id_type, matching_id):
 
 def metadata(cmid):
     """
-    Query the track metadata endpoint given the chartmetric
-    id. 
+    Get the metadata for the track given CMID. 
     
     https://api.chartmetric.com/api/track/:id
 
-    :param cmid:        string chartmetric.com entity ID
+    :param cmid:        string or int Chartmetric track ID
 
-    :returns:           dictionary of track metadata
+    :return:            dictionary of track metadata
     """
     urlhandle = f"/track/{cmid}"
     data = utilities.RequestData(urlhandle, params=None)
@@ -65,15 +67,17 @@ def metadata(cmid):
 
 def playlist_snapshot(cmid, platform, date, limit=100, offset=0):
     """
-    Query the snapshot of playlists containing the given track on a given date.
+    Get the snapshot of playlists on the platform containing the track
+    for a given date.
 
     https://api.chartmetric.com/api/track/:id/:platform/playlists/snapshot
 
-    :param cmid:        string CM track ID
+    :param cmid:        string or int Chartmetric track ID
     :param platform:    string 'spotify', 'applemusic', 'deezer'
     :param date:        string ISO date
-    :param limit:       int number of entries to be returned
-    :param offset:      int offset of entries, use this to recursively acquire
+    :param limit:       int number of entries to be returned,
+                        maximum acceptable is 100
+    :param offset:      int offset of entries to be returned
 
     :return:            list of dictionaries of playlists data
     """
@@ -98,17 +102,19 @@ def playlists(
     offset=0
     ):
     """
-    Query the playlists containing the given track.
+    Get the current or past playlists containing the track
+    on the given streaming platform.    
 
     https://api.chartmetric.com/api/track/:id/:platform/:status/playlists
 
-    :param cmid:        string CM track ID
+    :param cmid:        string or int Chartmetric track ID
     :param platform:    string 'spotify', 'applemusic', 'deezer', 'amazon'
     :param status:      string 'past' or 'current'
     :param start_date:  string ISO start date
-    :param end_date:    string ISO end date
+    :param end_date:    string ISO end date, default today
     :param indie:       bool, False for playlist curated by major label
-    :param limit:       int number of entries to be returned
+    :param limit:       int number of entries to be returned,
+                        maximum acceptable is 100
     :param offset:      int offset of entries, use this to recursively acquire
 
     :return:            list of dictionaries of playlists data
@@ -127,18 +133,21 @@ def playlists(
 
 def stats(cm_track_id, platform, start_date=None, end_date=None):
     """
-    Query the stats for the given track on the specified platform.
+    Get the value time-series for the given track on the given platform.
+    Specifically, get popularity for Spotify, views for YouTube and
+    count for Shazam.
 
     https://api.chartmetric.com/api/track/:id/:platform/stats
-    :param cm_track_id: Chartmetric track ID
+
+    :param cm_track_id: string or int Chartmetric track ID
     :param platform:    string of streaming platform,
                         'spotify', 'youtube', 'shazam'
     :param start_date:  string date in ISO format
-    :param end_date:    string date in ISO format
+    :param end_date:    string date in ISO format, default is today
 
-    :returns:           list of dictionaries of the track stats
+    :returns:           list of dictionaries of the track 
+                        value stats time-series
     """
-    
     urlhandle = f"/track/{cm_track_id}/{platform}/stats"
     params=dict()
     if start_date != None:
@@ -151,11 +160,13 @@ def stats(cm_track_id, platform, start_date=None, end_date=None):
 
 def tunefind(cmid):
     """
-    Query the track tunefind stats endpoint given the chartmetric id.
+    Get the Tunefind stats given the track.
 
     https://api.chartmetric.com/api/track/:id/tunefind
 
-    :param cmid:        string chartmetric.com entity ID
+    :param cmid:        string or int Chartmetric track ID
+
+    :return:            list of dictionaries of Tunefind data
     """
     urlhandle = f"/track/{cmid}/tunefind"
     data = utilities.RequestData(urlhandle, params=None)
