@@ -26,7 +26,7 @@ def CredentialsDir(filepath):
 
 def DefaultCredentials(refreshtoken):
     """
-    Set and save the a default (only refreshtoken)
+    Set and save the default (only refreshtoken)
     .credentials.json file in the project directory or
     in a custom credentials directory, if set.
 
