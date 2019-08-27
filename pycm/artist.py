@@ -194,9 +194,10 @@ def related(cmid, limit=50):
     https://api.chartmetric.com/api/artist/:id/relatedartists
 
     :param cmid:    string or int Chartmetric artist ID
-    :param limit:   int number of entries to be returned
+    :param limit:   int number of entries to be returned,
+                    maximum acceptable is 50
 
-    :return:        list of related artists
+    :return:        list of dictionaries of related artists
     """
     urlhandle = f"/artist/{cmid}/relatedartists"
     params = {

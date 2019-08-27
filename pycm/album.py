@@ -78,7 +78,8 @@ def playlists(
                         'spotify, 'applemusic', or 'deezer'
     :param status:      string 'current' or 'past'
     :param indie:       Boolean true if playlist created by major labels
-    :param limit:       number of entries to be returned
+    :param limit:       int number of entries to be returned,
+                        maximum acceptable is 100
 
     :return:            list of dictionaries of playlists for the album
     """
