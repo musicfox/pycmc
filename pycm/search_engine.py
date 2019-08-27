@@ -3,7 +3,7 @@ from . import utilities
 
 def search(query, limit=None, offset=None):
     """
-    Search tracks, albums, artists, curators, playlists
+    Search the tracks, albums, artists, curators and playlists 
     with one single query.
 
     https://api.chartmetric.com/api/search
