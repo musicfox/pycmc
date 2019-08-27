@@ -111,7 +111,7 @@ def test_itunes_videos():
     assert len(test) > 100
     assert len(test) < 201
     assert test[0]['name'] != ''
-    #assert test[0]['id'] != ''
+    assert test[0]['id'] != ''
 
 
 def test_qq_insights():
@@ -160,46 +160,45 @@ def test_spotify_tracks():
 
 
 def test_spotify_freshfind():
-#    test = cm.SpotifyFreshFind('2019-01-15')
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0 apparently not working?
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
-    pass
+    test = pycm.charts.spotify.freshfind('2019-01-15')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
 
 
 def test_youtube_trends():
     test = pycm.charts.youtube.videos('2019-02-15')
     assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
+    assert len(test) > 0
+    assert len(test) == 200
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
 
 
 def test_youtube_videos():
     test = pycm.charts.youtube.videos('2019-02-15')
     assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
+    assert len(test) > 0
+    assert len(test) == 200
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
 
 
 def test_youtube_artists():
     test = pycm.charts.youtube.artists('2019-02-15')
     assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
+    assert len(test) > 0
+    assert len(test) == 200
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
     
 
 def test_youtube_tracks():
     test = pycm.charts.youtube.tracks('2019-02-15')
-    #assert isinstance(test, type(list()))
-#    assert len(test) > 0
-#    assert len(test) == 200
-#    assert test[0]['name'] != ''
-#    assert test[0]['id'] != ''
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+    assert len(test) == 200
+    assert test[0]['name'] != ''
+    assert test[0]['id'] != ''
 
