@@ -3,6 +3,8 @@ import json
 import pycm.credentials_manager as cm
 import pycm.utilities as utilities
 from pycm import credentials as creds
+
+
 @pytest.fixture
 def projpath(path=None):
     if path is not None:
@@ -11,11 +13,13 @@ def projpath(path=None):
         return path
     return utilities.ProjectRootDir()
 
+
 @pytest.fixture
 def cred(projpath):
     with open('.credentials.json', 'r') as fp:
         result = json.loads(fp.read())
     return creds.Load()
+
 
 def test_global_vars(cred):
     """
@@ -32,6 +36,7 @@ def test_global_vars(cred):
     assert cm.refreshtoken == cred['refreshtoken']
     assert cm.expires_in == cred['expires_in']
     assert cm.scope == cred['scope']
+
 
 def test_UpdateCredentials(cred):
     # update so that credentials fixture is stale
