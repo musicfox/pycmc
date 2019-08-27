@@ -26,17 +26,6 @@ def dta():
     return {'cmid':'179228', 'stype':'spotify'}
 
 
-def test_lists():
-    """
-    chartmetric.com endpoint error -> the exact given url as "ok"
-    does not work...obviously this test isn't going to pass
-    """
-#    test = pycm.playlist.lists('spotify', )
-#    assert isinstance(test, type(list()))
-#    assert len(test) > 0
-pass
-
-
 def test_metadata(dta):
     """
     This endpoint is breaking upstream. 04-22-2019.
@@ -44,6 +33,26 @@ def test_metadata(dta):
     test = pycm.playlist.metadata(dta['cmid'], dta['stype'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
+
+
+def test_evolution(dates):
+    """
+    This endpoint is breaking upstream. 04-22-2019.
+    """
+    test = pycm.playlist.evolution(439, 'artist')
+
+    assert isinstance(test, type(dict()))
+    assert len(test.keys()) > 0
+
+
+def test_lists():
+    """
+    chartmetric.com endpoint error -> the exact given url as "ok"
+    does not work...obviously this test isn't going to pass
+    """
+    test = pycm.playlist.lists('spotify', )
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 
 def test_snapshot(dta, dates):
@@ -59,12 +68,3 @@ def test_tracks(dta):
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
-
-def test_evolution(dates):
-    """
-    This endpoint is breaking upstream. 04-22-2019.
-    """
-    test = pycm.playlist.evolution(439, 'artist')
-
-    assert isinstance(test, type(dict()))
-    assert len(test.keys()) > 0
