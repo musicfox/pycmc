@@ -10,9 +10,11 @@ import time
 import pycm.utilities as utilities
 import pycm.credentials as credentials
 
+
 @pytest.fixture
 def filepath(projpath):
     return os.path.join(projpath, ".credentials.json")
+
 
 @pytest.fixture
 def projpath(path=None):
@@ -25,12 +27,14 @@ def projpath(path=None):
         ".pycm",
     )
 
+
 @pytest.fixture
 def credential(filepath):
     # load credentials
     with open(filepath) as fp:
         credential = json.load(fp)
     return credential
+
 
 @pytest.fixture
 def credentials_response(credential):
@@ -50,14 +54,18 @@ def credentials_response(credential):
         response.raise_for_status()
     return response.text
  
+ 
 def test_CredentialsFilename():
     assert credentials.Filename() == '.credentials.json'
+
 
 def test_CheckCredentials(filepath):
     assert credentials.Check(filepath) == True
 
+
 def test_LoadCredentials(credential):
     assert credential == credentials.Load()
+
 
 def test_FetchAccessToken(credentials_response):
     # bad response will throw within FetchAccessToken (and will raise
@@ -65,6 +73,7 @@ def test_FetchAccessToken(credentials_response):
     assert credentials_response is not None
     assert credentials_response != ''
     assert credentials.Load()['refreshtoken'] == credentials.FetchAccessToken()['refresh_token']
+
 
 def test_UpdateCredentials():
     credentials.Update()
@@ -74,6 +83,7 @@ def test_UpdateCredentials():
     assert credentials.Load()['scope'] != ''
     assert credentials.Load()['token'] != ''
     assert credentials.Load()['expires_in'] != ''
+
 
 def test_PeriodicCredentials():
     credentials.Update()
@@ -87,12 +97,14 @@ def test_PeriodicCredentials():
     new = credentials.Load()
     assert new['token'] != stale['token']
 
+
 def test_CredentialsDir(filepath):
     test = credentials.CredentialsDir
     assert test != os.path.join(os.getcwd(), '.credentials.json') 
     credentials.CredentialsDir = filepath
     test2 = credentials.CredentialsDir
     assert test2 == filepath
+
 
 def test_DefaultCredentials(filepath, ):
     projfilepath = os.path.join(
