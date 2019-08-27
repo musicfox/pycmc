@@ -6,6 +6,7 @@ https://cm-test-node-api.herokuapp.com/apidoc/#api-Playlist-GetPlaylistMetadata
 import pytest
 import pycm
 
+
 @pytest.fixture
 def projpath(path=None):
     if path is not None:
@@ -14,12 +15,16 @@ def projpath(path=None):
         return path
     return utilities.ProjectRootDir()
 
+
 @pytest.fixture
 def dates():
     return {'start': '2018-03-01', 'end': '2018-03-03'}
+
+    
 @pytest.fixture
 def dta():
     return {'cmid':'179228', 'stype':'spotify'}
+
 
 def test_lists():
     """
@@ -31,6 +36,7 @@ def test_lists():
 #    assert len(test) > 0
 pass
 
+
 def test_metadata(dta):
     """
     This endpoint is breaking upstream. 04-22-2019.
@@ -38,6 +44,7 @@ def test_metadata(dta):
     test = pycm.playlist.metadata(dta['cmid'], dta['stype'])
     assert isinstance(test, type(dict()))
     assert len(test.keys()) > 0
+
 
 def test_snapshot(dta, dates):
     test = pycm.playlist.snapshot(dta['cmid'] ,
