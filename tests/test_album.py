@@ -1,9 +1,8 @@
 import pytest
 import pycm
 import pandas as pd
-import requests.exceptions as exceptions
-
-#.HTTPError as HTTPError
+from requests.exceptions import HTTPError
+ 
 
 @pytest.fixture
 def projpath(path=None):
@@ -13,9 +12,11 @@ def projpath(path=None):
         return path
     return utilities.ProjectRootDir()
 
+
 @pytest.fixture
 def dates():
     return {'start': '2018-03-01', 'end': '2018-03-03'}
+
 
 @pytest.fixture
 def srkeys():
@@ -24,6 +25,18 @@ def srkeys():
         'name',
         'release_date', 
     ]
+
+
+def test_charts():
+    test = pycm.album.charts('itunes', 179448, '2019-01-01')
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+
+def test_get_album_ids():
+    test = pycm.album.get_album_ids('chartmetric', 1119543)
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
 
 
 def test_metadata(srkeys):
@@ -47,12 +60,9 @@ def test_metadata(srkeys):
     )
     # alt test examples, alt tests ~ weird stuff
     try:
-        # alt test
-        #assert [1, 2, ] == [3, 4]
-
         test = pycm.album.metadata('Michael Jackson')
 
-    except exceptions.HTTPError as err:
+    except HTTPError as err:
         print(
         f"pycm.album.metadata -> {err}")
     try:
@@ -61,37 +71,29 @@ def test_metadata(srkeys):
         )
         assert isinstance(test['id'], type(3))
 
-    except exceptions.HTTPError as err:
+    except HTTPError as err:
         print(f"pycm.album.metadata -> {err}")
 
-def test_tunefind():
-    test = pycm.album.tunefind('1119543')
-    assert isinstance(test, type(list()))
-    assert len(test) > 0
 
 def test_playlists(dates):
-    # playlist placement
     test = pycm.album.playlists('1119543', dates['start'], )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
-def test_charts():
-    # 403 Client Error: Forbidden for url
-    test = pycm.album.charts('itunes', 179448, '2019-01-01')
-    assert isinstance(test, type(list()))
-    assert len(test) > 0
-
-def test_get_album_ids():
-    test = pycm.album.get_album_ids('chartmetric', 1119543)
-    assert isinstance(test, type(list()))
-    assert len(test) > 0
 
 def test_stats():
     test = pycm.album.stats(1119543, 'spotify')
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
+
 def test_tracks():
     test = pycm.album.tracks(1119543)
+    assert isinstance(test, type(list()))
+    assert len(test) > 0
+
+
+def test_tunefind():
+    test = pycm.album.tunefind('1119543')
     assert isinstance(test, type(list()))
     assert len(test) > 0
