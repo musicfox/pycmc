@@ -9,18 +9,20 @@ def similar_playlists(
     limit=None):
 
     """
-    Request similar playlists from chartmetric.
+    Get the similar playlists for the given playlist on the given platform.
+
     https://api.chartmetric.com/api/playlist/:platform/:id/similarplaylists
 
-    :param cm_playlist_id: Chartmetric playlist ID
-    :param platform:       string streaming platform type,
-                           'spotify', 'applemusic' or 'deezer'
-    :params storefront:    Apple Music storefront
-    :params indie:         Boolean for whether playlist curated 
-                           by major labels (Spotify only)
-    :params limit:         the number of entries to be returned  
+    :param cm_playlist_id:  string or int Chartmetric playlist ID
+    :param platform:        string streaming platform type, choose from
+                            'spotify', 'applemusic' or 'deezer'
+    :params storefront:     string storefront, required for AppleMusic
+    :params indie:          Boolean for whether playlist curated 
+                            by major labels (Spotify only)
+    :params limit:          int number of entries to be returned, default 9,
+                            maximum acceptable input is 100 (gets 99 back)
 
-    :returns:              list of dictionaries containing similar playlists
+    :returns:               list of dictionaries of similar playlists
     """
     urlhandle = f"/playlist/{platform}/{cm_playlist_id}/similarplaylists"
     params = dict()
