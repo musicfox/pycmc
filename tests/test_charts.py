@@ -61,22 +61,41 @@ def test_beatport_tracks():
 
 
 def test_cm_score_tracks():
-    # fails because of empty return
-    test = pycm.charts.cm_score.tracks('22960734', 'applemusic-genre', '2019-06-01')
+    """
+    This fails because of empty return.
+    """
+    test = pycm.charts.cm_score.tracks(
+        '22960734', 
+        'applemusic-genre', 
+        '2019-06-01'
+        )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 
 def test_cm_score_artists():
-    # fails because of 400 Client Error
-    test = pycm.charts.cm_score.artists('3648', 'itunes-albums', '2019-06-01')
+    """
+    This fails because of 400 Client Error.
+    Likely due to 'itunes-albums' as chart_type.
+    """
+    test = pycm.charts.cm_score.artists(
+        '3648',
+        'itunes-albums',
+        '2019-06-01'
+        )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 
 def test_cm_score_albums():
-    # fails because of empty return
-    test = pycm.charts.cm_score.albums('2757004', 'spotify-viral', '2019-06-01')
+    """
+    This fails because of empty return.
+    """
+    test = pycm.charts.cm_score.albums(
+        '2757004', 
+        'spotify-viral', 
+        '2019-06-01'
+        )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
@@ -111,7 +130,7 @@ def test_itunes_videos():
     assert len(test) > 100
     assert len(test) < 201
     assert test[0]['name'] != ''
-    assert test[0]['id'] != ''
+    assert test[0]['itunes_music_video'] != ''
 
 
 def test_qq_insights():
@@ -154,7 +173,7 @@ def test_spotify_tracks():
 
 
 def test_spotify_freshfind():
-    test = pycm.charts.spotify.freshfind('2019-01-15')
+    test = pycm.charts.spotify.freshfind('2019-01-10')
     assert isinstance(test, type(list()))
     assert len(test) > 0
     assert test[0]['name'] != ''
@@ -162,37 +181,37 @@ def test_spotify_freshfind():
 
 
 def test_youtube_trends():
-    test = pycm.charts.youtube.videos('2019-02-15')
+    test = pycm.charts.youtube.videos('2019-02-14')
     assert isinstance(test, type(list()))
     assert len(test) > 0
-    assert len(test) == 200
+    assert len(test) == 100
     assert test[0]['name'] != ''
     assert test[0]['id'] != ''
 
 
 def test_youtube_videos():
-    test = pycm.charts.youtube.videos('2019-02-15')
+    test = pycm.charts.youtube.videos('2019-02-14')
     assert isinstance(test, type(list()))
     assert len(test) > 0
-    assert len(test) == 200
+    assert len(test) == 100
     assert test[0]['name'] != ''
     assert test[0]['id'] != ''
 
 
 def test_youtube_artists():
-    test = pycm.charts.youtube.artists('2019-02-15')
+    test = pycm.charts.youtube.artists('2019-02-14')
     assert isinstance(test, type(list()))
     assert len(test) > 0
-    assert len(test) == 200
+    assert len(test) == 100
     assert test[0]['name'] != ''
-    assert test[0]['id'] != ''
+    assert test[0]['youtube_artist'] != ''
     
 
 def test_youtube_tracks():
-    test = pycm.charts.youtube.tracks('2019-02-15')
+    test = pycm.charts.youtube.tracks('2019-02-14')
     assert isinstance(test, type(list()))
     assert len(test) > 0
-    assert len(test) == 200
+    assert len(test) == 100
     assert test[0]['name'] != ''
     assert test[0]['id'] != ''
 
