@@ -38,10 +38,12 @@ def freshfind(date):
     """
     Get the tracks from the Spotify Freshfind chart
     for the given date.
+    Data available ONLY on Thursdays.
 
     https://api.chartmetric.com/api/charts/spotify/freshfind
 
-    :param date:        string date in ISO format %Y-%m-%d
+    :param date:        string date in ISO format %Y-%m-%d,
+                        only Thursdays
 
     :return:            list of dictionary of tracks on Spotify Freshfind
     """
