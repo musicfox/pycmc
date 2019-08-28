@@ -5,7 +5,7 @@ beatport_charts_url = f"/charts/beatport"
 def tracks(date):
     """
     Query the charts/beatport/tracks endpoint for the given date.
-    Data available ONLY on Fridays.
+    Data available on Fridays.
 
     https://api.chartmetric.com/api/charts/beatport
 
