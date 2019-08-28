@@ -86,7 +86,7 @@ def extract_rank_stats(stats):
 def parse_track(res, date):
     """
     Parse the api query result of a single track within a chart 
-    into a better structured one-row DataFrame, regardless of
+    into a cleaned and structured one-row DataFrame, regardless of
     what stream service it is from.
     
     :param res:     dictionary containing a track within a chart for
