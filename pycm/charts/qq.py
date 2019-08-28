@@ -15,7 +15,7 @@ qq_music_url = f"/charts/qq"
 def insights(date):
     """
     Get the top tracks on QQ music chart for the given date.
-    Data ONLY available on Thursdays.
+    Data available on Thursdays.
 
     https://api.chartmetric.com/api/charts/qq/
 
