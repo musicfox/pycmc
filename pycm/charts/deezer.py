@@ -4,13 +4,14 @@ deezer_music_url = f"/charts/deezer"
 
 def insights(date, country='US'):
     """
-    Query the charts/deezer/ endpoint for the
-    given date.
+    Get the top 100 Deezer chart tracks for the given date
 
-    :param date:        string date in ISO format %Y-%m-%y
+    https://api.chartmetric.com/api/charts/deezer/
+
+    :param date:        string date in ISO format %Y-%m-%d
     :param country:     string country code
 
-    :returns:           list of dictionary of Deezer music data insights
+    :return:            list of dictionary of tracks on Deezer chart
     """
     urlhandle = f"{deezer_music_url}/"
     params = {

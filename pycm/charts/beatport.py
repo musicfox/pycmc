@@ -2,15 +2,16 @@ from .. import utilities
 
 beatport_charts_url = f"/charts/beatport"
 
-def tracks(date,):
+def tracks(date):
     """
-    Query the charts/beatport/tracks endpoint for the
-    given date.
+    Query the charts/beatport/tracks endpoint for the given date.
+    Data available on Fridays.
 
-    :param date:        string date in ISO format %Y-%m-%y
+    https://api.chartmetric.com/api/charts/beatport
 
-    :returns:           list of dictionary of Soundcloud
-                        chart data
+    :param date:        string date in ISO format %Y-%m-%d
+
+    :return:            list of dictionary of tracks on Beatport charts
     """
     urlhandle = f"{beatport_charts_url}"
     params = {

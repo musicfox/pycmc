@@ -10,12 +10,16 @@ spotify_charts_url = f"/charts/spotify"
 
 def tracks(date, country="US", viral=False):
     """
-    Query the charts/spotify/tracks endpoint for the
-    given date.
+    Get the top 200 tracks on Spotify chart for the given date.
 
-    :param date:        string date in ISO format %Y-%m-%y
+    https://api.chartmetric.com/api/charts/spotify
 
-    :returns:           list of dictionary of spotify chart data
+    :param date:        string date in ISO format %Y-%m-%d
+    :param country:     string two-letter country code
+    :param viral:       if True return tracks from Spotify viral chart, 
+                        otherwise return those from regional chart
+
+    :return:            list of dictionary of tracks on Spotify chart
     """
 
     urlhandle = f"{spotify_charts_url}"
@@ -30,14 +34,18 @@ def tracks(date, country="US", viral=False):
     return utilities.RequestGet(data)['data']
 
 
-def freshfind(date,):
+def freshfind(date):
     """
-    Query the charts/spotify/freshfind endpoint for the
-    given date.
+    Get the tracks from the Spotify Freshfind chart
+    for the given date.
+    Data available ONLY on Thursdays.
 
-    :param date:        string date in ISO format %Y-%m-%y
+    https://api.chartmetric.com/api/charts/spotify/freshfind
 
-    :returns:           list of dictionary of spotify chart data
+    :param date:        string date in ISO format %Y-%m-%d,
+                        only Thursdays
+
+    :return:            list of dictionary of tracks on Spotify Freshfind
     """
     urlhandle = f"{spotify_charts_url}/freshfind"
     params = {
@@ -45,4 +53,4 @@ def freshfind(date,):
     }
 
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)

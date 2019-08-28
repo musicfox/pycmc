@@ -2,17 +2,20 @@ from . import utilities
 
 
 def search(query, limit=None, offset=None):
-
     """
-    Search tracks, albums, artists, curators, playlists with one single query. 
-    https://api.chartmetric.com/api/playlist/:platform/:id/similarplaylists
+    Search the tracks, albums, artists, curators and playlists 
+    with one single query.
 
-    :param query:          string of search query, can be URLs
-    :params limit:         the number of entries to be returned, default 10 
-    :params offset:        the offset of entries to be returned, default 0
+    https://api.chartmetric.com/api/search
 
-    :returns:              dictionary of results, keys being the following
-                           'artists', 'playlists', 'tracks', 'curators' and 'albums'
+    :param query:       string of search query, can be URLs
+    :params limit:      int number of entries returned, default 10 
+    :params offset:     int offset of entries returned, default 0
+
+    :returns:           dictionary of results, keys include 
+                        'artists', 'playlists', 'tracks',
+                        'curators', 'albums', 'labels',
+                        'stations' and 'cities'
     """
     urlhandle = f"/search"
     params = {
