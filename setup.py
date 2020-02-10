@@ -14,11 +14,11 @@ from setuptools import find_packages, setup, Command
 # Package meta-data.
 NAME = 'pycm'
 DESCRIPTION = 'A Python interface for the chartmetric.com API.'
-URL = 'https://github.com/thinkjrs/pycm'
-EMAIL = 'jason@thinkjrs.org'
-AUTHOR = 'Jason R. Stevens, CFA'
+URL = 'https://github.com/musicfox/pycm'
+EMAIL = 'dev@musicfox.io'
+AUTHOR = 'Jason R. Stevens, CFA | Musicfox Inc.'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.02'
+VERSION = '0.0.01'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
