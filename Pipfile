@@ -23,7 +23,6 @@ fake-useragent = "*"
 greenlet = "*"
 idna = "*"
 inflection = "*"
-ipython = "*"
 jedi = "*"
 jsonschema = "*"
 lxml = "*"
@@ -67,6 +66,8 @@ PyYAML = "*"
 user_agent = "*"
 
 [dev-packages]
+pandas = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.7"
