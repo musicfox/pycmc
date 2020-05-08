@@ -1,4 +1,6 @@
 from . import utilities
+import datetime
+import logging
 
 
 def charts(stype, cmid, start_date, end_date=None):
@@ -16,10 +18,17 @@ def charts(stype, cmid, start_date, end_date=None):
     :return:                list of dictionaries of the chart for
                             the given album
     """
+    logging.warning(
+        f"This is known to have authentication issues when "
+        f"(we suspect) dates as given are invalid. You may experience "
+        f"intermittent HTTPErrors (403). Adjust dates as necessary to fix."
+    )
+    strDateToday = lambda: str(datetime.datetime.today()).split(' ')[0]
+
     urlhandle = f"/album/{cmid}/{stype}/charts"
     params = {
         "since": start_date,
-        "until": end_date,
+        "until": end_date if isinstance(end_date, str) else strDateToday(),
     }
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)['data']
