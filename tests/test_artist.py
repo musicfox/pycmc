@@ -1,5 +1,6 @@
 import pytest
 import pycm
+import datetime
 
 
 @pytest.fixture
@@ -13,8 +14,10 @@ def projpath(path=None):
 
 @pytest.fixture
 def dates():
-    return {'start': '2018-03-01', 'end': '2018-03-03'}
-
+    return dict(
+        start = '2019-03-01', 
+        end = str(datetime.datetime.today()).split(' ')[0],
+    )
 
 def test_albums():
     test = pycm.artist.albums('3380',) 
@@ -35,9 +38,49 @@ def test_charts():
     
 
 def test_fanmetrics(dates):
+    dsrcObj = dict(
+        spotify='followers',
+        bandsintown='followers',
+        instagram='followers',
+        twitter='followers',
+        soundcloud='followers',
+        wikipedia='views',
+        youtube_channel='subscribers',
+        #youtube_artist='views', broken as of 2020-04-30
+    )
+
     test = pycm.artist.fanmetrics('3380', dates['start'])
     assert isinstance(test, type(dict()))
-    assert len(test.keys()) > 0
+    assert len(test.keys())
+    test = pycm.artist.fanmetrics('3380', dates['start'], dsrc='spotify')
+    assert isinstance(test, type(dict()))
+    assert len(test.keys())
+#   broken upstream as of 2020-04-30
+#    test = pycm.artist.fanmetrics('3380', dates['start'], dsrc='youtube')
+#    assert isinstance(test, type(dict()))
+#    assert len(test.keys())
+    test = pycm.artist.fanmetrics('3380', dates['start'], dsrc='facebook')
+    assert isinstance(test, type(dict()))
+    assert len(test.keys())
+    test = pycm.artist.fanmetrics('3380', dates['start'], dsrc='deezer')
+    assert isinstance(test, type(dict()))
+    assert len(test.keys())
+    for dsrc, valueCol in dsrcObj.items():
+        test = pycm.artist.fanmetrics('3380', dates['start'], dates['end'], dsrc, valueCol)
+        assert isinstance(test, type(dict()))
+        assert len(test.keys())
+    # do it again with new data
+    dsrcObj = dict(
+        youtube_channel='views',
+        spotify='popularity',
+        facebook='likes',
+   )
+    for dsrc, valueCol in dsrcObj.items():
+        test = pycm.artist.fanmetrics('3380', dates['start'], dates['end'], dsrc, valueCol)
+        assert isinstance(test, type(dict()))
+        assert len(test.keys())
+
+
 
 
 def test_get_artist_ids():
