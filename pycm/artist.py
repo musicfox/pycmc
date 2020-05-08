@@ -1,4 +1,5 @@
 from . import utilities
+import datetime
 
 
 def albums(cmid):
@@ -70,7 +71,13 @@ def charts(chart_type, cmid, start_date, end_date=None):
     return utilities.RequestGet(data)['data']
 
 
-def fanmetrics(cmid, start_date, dsrc="instagram", valueCol="followers"):
+def fanmetrics(
+    cmid,
+    start_date,
+    end_date="today",
+    dsrc="instagram",
+    valueCol=None
+):
     """
     Query the Chartmetric API for artist fan metrics.
 
@@ -80,18 +87,42 @@ def fanmetrics(cmid, start_date, dsrc="instagram", valueCol="followers"):
     :param start_date:  string ISO date %Y-%m-%d
     :param dsrc:        string data source, choose from
                         'spotify', 'facebook', 'twitter', 'instagram',
-                        'youtube', 'wikipedia', 'bandsintown', 'soundcloud',
-			            'facebook_fans_by_country',
-			            'facebook_storytellers_by_country' 
-    :param valueCol:    string specific data field returned, choose from
+                        'youtube_channel', 'wikipedia', 
+                        'bandsintown', 'soundcloud',
+                        
+                        Valid keys/fields from 
+                            api.chartmetric.com/apidoc/#api-Artist-GetArtistorStat
+
+                        spotify - followers, popularity, listeners
+                        deezer - fans
+                        facebook - likes, talks (This data might be outdated)
+                        twitter - followers
+                        youtube_channel - subscribers, views, comments, 
+                            videos (this refers to the artist channel only)
+                        youtube_artist - views (this includes artist channel
+                            and all other videos featuring artist music)
+                        instagram - followers
+                        wikipedia - views
+                        bandsintown - followers
+                        soundcloud - followers
+
+    :param valueCol:    None or string specific data field returned, choose from
                         'followers', 'popularity', 'listeners',
                         'talks', 'subscribers'
 
     :return:            nested dict, {valueCol: [fanmetrics]},
                         fanmetrics are dictionaries of time-series stats
     """
+    if end_date == 'today':
+        # date w/o timestamp
+        end_date = str(datetime.datetime.today()).split(' ')[0]
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
-    params = {"since": start_date}
+    params = dict(
+        since=start_date,
+        until=end_date,
+    )
+    if valueCol is not None:
+        params['field'] = valueCol
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
