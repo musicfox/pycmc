@@ -26,10 +26,8 @@ steps:
           python -m pytest -v"
           
         waitFor: ['Install Berglas']
-        dir: '${_APP_DIR}'
 
 # Use the defaults below which can be changed at the command line
 substitutions:
     _BUCKET_ID_SECRETS: musicfox-python-chartmetric-client-secrets
     _VAR1: CMCREDENTIALS 
-    _APP_DIR: /
