@@ -3,25 +3,28 @@ from .. import utilities
 
 def tracks(cm_track_id, chart_type, start_date, end_date=None):
     """
+    # `tracks`
+
     Gets the Chartmetric Score for tracks given the CM track ID.
 
     https://api.chartmetric.com/api/charts/track/:type_id/:chart_type/cm-score
-
-    :param cm_track_id:     Chartmetric track ID
-    :param chart_type:      string chart type, choose from
-                            'spotify-top', 'spotify-viral',
-                            'applemusic-genre', 'applemusic-daily', 
-                            'applemusic-albums' 'itunes', 
-                            'itunes-albums', 'shazam'
-    :param start_date:      string date in ISO format %Y-%m-%d
-    :param end_date:        string date in ISO format %Y-%m-%d, default today
-
-    :return:                list of dictionary of CM scores for the track
+    ### Parameters
+    - `cm_track_id`:     Chartmetric track ID
+    - `chart_type`:      string chart type
+      - Choose from:
+    'spotify-top', 'spotify-viral',
+    'applemusic-genre', 'applemusic-daily', 
+    'applemusic-albums' 'itunes', 
+    'itunes-albums', 'shazam'
+    - `start_date`:      string date in ISO format %Y-%m-%d
+    - `end_date`:        string date in ISO format %Y-%m-%d, default today
+    ### Returns
+    - `list[dict]`       list of dictionary of CM scores for the track
     """
     urlhandle = f"/charts/track/{cm_track_id}/{chart_type}/cm-score"
     params = {
         'since': start_date,
-        'until': end_date
+        'until': end_date if end_date else utilities.strDateToday(),
     }
         
     data = utilities.RequestData(urlhandle, params)
@@ -48,7 +51,7 @@ def artists(cm_artist_id, chart_type, start_date, end_date=None):
     urlhandle = f"/charts/artist/{cm_artist_id}/{chart_type}/cm-score"
     params = {
         'since': start_date,
-        'until': end_date
+        'until': end_date if end_date else utilities.strDateToday(),
     }
         
     data = utilities.RequestData(urlhandle, params)
@@ -75,7 +78,7 @@ def albums(cm_album_id, chart_type, start_date, end_date=None):
     urlhandle = f"/charts/album/{cm_album_id}/{chart_type}/cm-score"
     params = {
         'since': start_date,
-        'until': end_date
+        'until': end_date if end_date else utilities.strDateToday(),
     }
         
     data = utilities.RequestData(urlhandle, params)
