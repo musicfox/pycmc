@@ -16,6 +16,8 @@ changes required
 import pytest
 import os
 import pycm
+import json
+
 
 @pytest.fixture(autouse=True) # run automatically prior to tests
 def pythonpath(monkeypatch):
@@ -23,8 +25,18 @@ def pythonpath(monkeypatch):
     try:
         project_path = os.environ['HOME'] + handle
         monkeypatch.setenv('PYTHONPATH', project_path) 
+        monkeypatch.setenv('CMCREDENTIALS', os.environ.get('CMCREDENTIALS'))
     except KeyError as err:
         print(f"$HOME not present -> {err}")
         raise
 
+@pytest.fixture(scope='module')
+def credvar():
+    return "CMCREDENTIALS"
 
+@pytest.fixture(scope='module')
+def credential(credvar):
+    # load credentials
+    return json.loads(os.environ.get(credvar))
+
+if not os.environ.get("CMCREDENTIALS"): raise KeyError("CMCREDENTIALS environment variable not set.")
