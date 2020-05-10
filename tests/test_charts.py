@@ -190,7 +190,7 @@ def test_youtube_trends():
 
 
 def test_youtube_videos():
-    test = pycm.charts.youtube.videos('2019-02-14')
+    test = pycm.charts.youtube.videos('2019-02-21')
     assert isinstance(test, type(list()))
     assert len(test) > 0
     assert len(test) == 100
@@ -199,16 +199,16 @@ def test_youtube_videos():
 
 
 def test_youtube_artists():
-    test = pycm.charts.youtube.artists('2019-02-14')
+    test = pycm.charts.youtube.artists('2019-02-21')
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]['name'] != ''
     assert test[0]['youtube_artist'] != ''
     
 
 def test_youtube_tracks():
-    test = pycm.charts.youtube.tracks('2019-02-14')
+    test = pycm.charts.youtube.tracks('2019-02-21')
     assert isinstance(test, type(list()))
     assert len(test) > 0
     assert len(test) == 100
