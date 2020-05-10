@@ -23,7 +23,7 @@ def evolution(cmid, byType):
     """
     Get the playlist evolution stats, given artist, album or track CMID.
 
-    https://api.chartmetric.com/api/playlist/:platform/:type/:id/evolution
+    https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
 
     :param cmid:        string Chartmetric {byType} ID
     :param byType:      string type of evolution stats requested,
@@ -34,8 +34,7 @@ def evolution(cmid, byType):
                         'statsDataPlot' (list of lists)
                         and 'playlistDataPlot' (list of lists)
     """
-    stype = "spotify"  # only one listed in docs...
-    urlhandle = f"/playlist/{stype}/{byType}/{cmid}/evolution"
+    urlhandle = f"/playlist/by/{byType}/{cmid}/playlist-evolution"
     params = None
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
