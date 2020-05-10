@@ -12,6 +12,7 @@ import requests
 import psutil
 from importlib import reload
 from . import credentials_manager
+import datetime
 
 
 def TTLwait(func,):
@@ -99,3 +100,19 @@ def RequestGet(data):
     if not response.ok:  # raise internal exception if bad response
         response.raise_for_status()
     return json.loads(response.text)["obj"]
+
+def strDateToday():
+    """
+    # `strDateToday`
+    Simple method to return the string date of today as given by the datetime
+    module.
+
+    Specifically, a string is returned in ISO Year-Month-Day format.
+
+    ## Parameters
+    None
+
+    ## Return
+    `str`
+    """
+    return str(datetime.datetime.today()).split(' ')[0]
