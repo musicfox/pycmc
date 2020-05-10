@@ -146,8 +146,10 @@ def Check():
                     dictionary contains a non-empty string for the
                     "refreshtoken" string, otherwise False.
     """
-
-    credentials = json.loads(os.environ.get(Varname()))
+    try:
+        credentials = json.loads(os.environ.get(Varname()))
+    except json.decoder.JSONDecodeError as jderr:
+        logging.warning(f"CMCREDENTIALS not found in Check. {datetime.now()}.")
     if not credentials:
         # this will throw
         DefaultCredentials()

@@ -19,17 +19,13 @@ import pycm
 import json
 
 
-@pytest.fixture(autouse=True) # run automatically prior to tests
-def pythonpath(monkeypatch):
-    handle = f"/Repos/pycm"
-    try:
-        project_path = os.environ['HOME'] + handle
-        monkeypatch.setenv('PYTHONPATH', project_path) 
-        monkeypatch.setenv('CMCREDENTIALS', os.environ.get('CMCREDENTIALS'))
-    except KeyError as err:
-        print(f"$HOME not present -> {err}")
-        raise
-
+#@pytest.fixture(autouse=True) # run automatically prior to tests
+#def pythonpath(monkeypatch):
+#    handle = f"/Repos/pycm"
+#    try:
+#        project_path = os.environ['HOME'] + handle
+#        monkeypatch.setenv('PYTHONPATH', project_path) 
+#     
 @pytest.fixture(scope='module')
 def credvar():
     return "CMCREDENTIALS"
