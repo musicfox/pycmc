@@ -10,7 +10,7 @@ steps:
         id: 'Install Berglas'
         env:
         - '${_VAR1}=berglas://${_BUCKET_ID_SECRETS}/${_VAR1}?destination=/workspace/${_VAR1}'
-    
+
         args: ["exec", "--", "/bin/sh"]
     
     # using the secrets from above, build and run the test suite
@@ -24,8 +24,9 @@ steps:
           build-essential libssl-dev libffi-dev libpq-dev python3-dev && \
           rm -rf /var/lib/apt/lists/* && \
           export ${_VAR1}=$(cat /workspace/${_VAR1}) && \
+          echo ${_VAR1} && \
           pip install -r requirements.txt && \
-          python -m pytest -v"
+          pytest -v"
           
         waitFor: ['Install Berglas']
 
