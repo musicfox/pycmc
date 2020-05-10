@@ -27,15 +27,6 @@ def projpath(path=None):
         ".pycm",
     )
 
-
-@pytest.fixture
-def credential(filepath):
-    # load credentials
-    with open(filepath) as fp:
-        credential = json.load(fp)
-    return credential
-
-
 @pytest.fixture
 def credentials_response(credential):
     """
@@ -58,9 +49,11 @@ def credentials_response(credential):
 def test_CredentialsFilename():
     assert credentials.Filename() == '.credentials.json'
 
+def test_CredentialsVariableName():
+    assert credentials.Varname() == 'CMCREDENTIALS'
 
-def test_CheckCredentials(filepath):
-    assert credentials.Check(filepath) == True
+def test_CheckCredentials():
+    assert credentials.Check() == True
 
 
 def test_LoadCredentials(credential):
@@ -80,14 +73,10 @@ def test_UpdateCredentials():
     # assert os.path.exists(utilities.ProjectRootDir()
     #            + credentials.Filename()
     #        )
-    homedir = os.environ.get('HOME')
-    assert os.path.exists(
-            os.path.join(homedir, '.pycm', credentials.Filename())
-    )
     assert credentials.Load()['scope'] != ''
     assert credentials.Load()['token'] != ''
     assert credentials.Load()['expires_in'] != ''
-
+    assert credentials.Load()['refreshtoken'] != ''
 
 def test_PeriodicCredentials():
     credentials.Update()
@@ -111,25 +100,9 @@ def test_CredentialsDir(filepath):
 
 
 def test_DefaultCredentials(filepath, ):
-    projfilepath = os.path.join(
-        os.environ.get("HOME"),
-        ".pycm",
-        ".credentials.json"
-    )
-    credentials.CredentialsDir = projfilepath
     orig = credentials.Load()
     # change the dir to execution path
-    credentials.CredentialsDir = os.path.join(os.getcwd(), ".credentials.json")
-    credentials.DefaultCredentials('fake token')
-    bad = credentials.Load()
-
-    assert os.path.exists(filepath)
-    assert orig != bad
-    assert bad['refreshtoken'] == 'fake token'
-    assert len(bad.keys()) == 4
-
-    # reset creds
-    credentials.CredentialsDir = projfilepath
- 
-    # fail the test if we're not normal...
-    assert credentials.Load()['refreshtoken'] != 'fake token'
+    try:
+        credentials.DefaultCredentials('fake token')
+    except KeyError as kerr:
+        assert "CMCREDENTIALS" in kerr

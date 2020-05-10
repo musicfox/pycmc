@@ -12,6 +12,7 @@ from datetime import datetime
 import requests
 import logging
 
+
 @property
 def CredentialsDir(filepath):
     """
@@ -26,33 +27,27 @@ def CredentialsDir(filepath):
 
 def DefaultCredentials(refreshtoken: str) -> None:
     """
-    TODO Rewrite DefaultCredentials docstring
-    TODO Add logger warning to non-extant token
-    Set and save the default (only refreshtoken)
-    .credentials.json file in the project directory or
-    in a custom credentials directory, if set.
+    # `DefaultCredentials`
 
-    :param refreshtoken:        string refreshtoken from 
-                                chartmetric
+    Set the default (only refreshtoken)
+    into the CMCREDENTIALS environment variable, warn the user and raise
+    a `KeyError` exception.
 
-    :returns:                   None
+    ### Parameters
+    - `refreshtoken`: the refresh token queried from the Chartmetric API
 
-    # `DefaultCredentials(refreshtoken)`
-    Set and save the default (only refreshtoken)
-    credentials into the CMCREDENTIALS environment variable.
     """
-    credvar = 'CMCREDENTIALS'
     # check that the token isn't already present
-    if not os.environ.get(credvar):  # create the empty credentials if not extant
+    if not os.environ.get(Varname()):  # create the empty credentials if not extant
         creds = {
             "token": "",
             "scope": "",
             "expires_in": "",
             "refreshtoken": refreshtoken,
         }
-        os.environ[credvar] = f"{json.dump(creds, fp)}"
+        os.environ[Varname()] = json.dumps(creds)
         logging.warning(f"CMCREDENTIALS environment variable not set -> credentials.DefaultCredentials: {datetime.now()}.")
-        raise RuntimeError("Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details."
+        raise KeyError("Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details.")
         # Break exec early as api credentials are not set.
 
 
@@ -101,7 +96,7 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
         Update()
 
 
-def Update():
+def Update() -> None:
     """
     TODO Rewrite the Update docstring
     Use the .credentials.json file in the project root directory
@@ -110,52 +105,36 @@ def Update():
 
     :returns:       None
     """
-    cust_dir = isinstance(CredentialsDir, type(str()))
-    print(f"Custom directory {CredentialsDir}")
-    filename = (
-        ProjectRootDir() + Filename() if not cust_dir else CredentialsDir
-    )
-
     # load .credentials.json
     credentials = Load()
     # get new ones
     fetched = FetchAccessToken()
-
     # set em and forget em, for the TTL length
     credentials["token"] = fetched["token"]
     credentials["scope"] = fetched["scope"]
     credentials["expires_in"] = fetched["expires_in"]
     credentials["refreshtoken"] = fetched["refresh_token"]
 
-    # TODO The following open func in Update should call a setCredentialsEnvironment method
-    # instead of writing to disk
-    with open(filename, "w") as fp:
-        json.dump(credentials, fp)
-
+    #with open(filename, "w") as fp:
+    #    json.dump(credentials, fp)
+    os.environ[Varname()] = json.dumps(credentials)
+    logging.info(f"Fetched and updated new Chartmetric credentials @ {datetime.now()}")
 
 def Load():
     """
-    TODO Load the current contents of the env variable CMCREDENTIALS in Load
     TODO Rewrite the Load docstring
     Load the .credentials.json file from the project root directory
     and return the credentials dictionary.
     
     :returns:       dict w/keys: token, scope, expires_in, refreshtoken
     """
-    cust_dir = isinstance(CredentialsDir, type(str()))
-    filepath = (
-        ProjectRootDir() + Filename() if not cust_dir else CredentialsDir
-    )
-
-    if Check(filepath):  # exists and has valid refresh so load it
-        with open(filepath, "r") as fp:
-            f = json.load(fp)
-            return f
+    if Check():  # exists and has valid refresh so load it
+        credentials = json.loads(os.environ.get(Varname()))
+        return credentials
 
 
-def Check(filepath=None):
+def Check():
     """
-    TODO Set to check the env variable CMCREDENTIALS in Check
     TODO Rewrite Check docstring
     Check that the .credentials.json file is extant within the project
     root directory. Also sets the credentials filename statically.
@@ -167,15 +146,12 @@ def Check(filepath=None):
                     dictionary contains a non-empty string for the
                     "refreshtoken" string, otherwise False.
     """
-    if filepath is None:
-        filepath = f"{ProjectRootDir()}/{Filename()}"
-    # import and check that refreshtoken value is a non-empty string
-    if not os.path.exists(filepath):
-        print(f"Bad path: {filepath} @ {datetime.now()}")
+
+    credentials = json.loads(os.environ.get(Varname()))
+    if not credentials:
+        # this will throw
+        DefaultCredentials()
         return False
-        # raise FileNotFoundError
-    with open(filepath) as fp:
-        credentials = json.load(fp)
     if credentials["refreshtoken"] != "":
         return True
     return False
@@ -188,7 +164,6 @@ def FetchAccessToken():
     Use the refreshtoken to fetch the access and other credentials
     from chartmetric.com.
 
-    ## Params
 
     ## Returns       
     - A Python Requests response object in dictionary form with keys:
@@ -198,7 +173,7 @@ def FetchAccessToken():
         - `scope`.
 
     ### Notes
-    - Raises for non-200 response.
+    - Raises for any non-200 response. See the Requests library documentation.
     """
     authURL = "https://api.chartmetric.com/api/token"
     headers = {"Content-Type": "application/json"}
@@ -220,3 +195,21 @@ def Filename(filename=".credentials.json"):
     :returns:               string given filename w/extension
     """
     return filename
+
+
+def Filename(filename=".credentials.json"):
+    """
+    Return the given filename.
+
+    :param filename:        string filename w/extension
+
+    :returns:               string given filename w/extension
+    """
+    return filename
+
+def Varname() -> str:
+    """
+    # `Varname`
+    Return the set charmetric credentials environment variable name.
+    """
+    return "CMCREDENTIALS"

@@ -21,7 +21,7 @@ def cred(projpath):
     return creds.Load()
 
 
-def test_global_vars(cred):
+def test_global_vars(credential):
     """
     token will be different (as designed) when project
     is running outside of running an individual test runner.
@@ -32,16 +32,16 @@ def test_global_vars(cred):
     intended functionality (we call credentials.Update() within
     credentials_manager so the fixture here *should* be stale.
     """
-    assert cm.token != cred['token'] # see above, may fail
-    assert cm.refreshtoken == cred['refreshtoken']
-    assert cm.expires_in == cred['expires_in']
-    assert cm.scope == cred['scope']
+    assert cm.token != credential['token'] # see above, may fail
+    assert cm.refreshtoken == credential['refreshtoken']
+    assert cm.expires_in == credential['expires_in']
+    assert cm.scope == credential['scope']
 
 
-def test_UpdateCredentials(cred):
+def test_UpdateCredentials(credential):
     # update so that credentials fixture is stale
     cm.UpdateCredentials()
-    assert cm.token != cred['token']
-    assert cm.refreshtoken == cred['refreshtoken']
+    assert cm.token != credential['token']
+    assert cm.refreshtoken == credential['refreshtoken']
     assert cm.expires_in > 0 # will throw if type non numeric or 0
     assert cm.scope == 'api'
