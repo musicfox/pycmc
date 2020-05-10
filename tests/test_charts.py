@@ -66,11 +66,11 @@ def test_cm_score_tracks():
     """
     test = pycm.charts.cm_score.tracks(
         '22960734', 
-        'applemusic-genre', 
+        'spotify-top', 
         '2019-06-01'
-        )
+    )
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
 def test_cm_score_artists():
@@ -79,12 +79,12 @@ def test_cm_score_artists():
     Likely due to 'itunes-albums' as chart_type.
     """
     test = pycm.charts.cm_score.artists(
-        '3648',
-        'itunes-albums',
+        '4904',
+        'spotify-top',
         '2019-06-01'
-        )
+    )
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
 def test_cm_score_albums():
@@ -93,11 +93,11 @@ def test_cm_score_albums():
     """
     test = pycm.charts.cm_score.albums(
         '2757004', 
-        'spotify-viral', 
+        'spotify-top', 
         '2019-06-01'
-        )
+    )
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
 def test_deezer_insights():
