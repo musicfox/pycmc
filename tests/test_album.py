@@ -28,7 +28,7 @@ def srkeys():
 
 
 def test_charts():
-    test = pycm.album.charts('itunes', 179448, '2019-01-01')
+    test = pycm.album.charts('amazon', 3533190, '2019-02-02', '2019-03-03')
     assert isinstance(test, type(list()))
     assert len(test) > 0
 

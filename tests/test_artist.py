@@ -32,9 +32,9 @@ def test_cpp_data():
 
 
 def test_charts():
-    test = pycm.artist.charts('spotify_viral_daily', '1220', '2019-01-01')
-    assert isinstance(test, type(list()))
-    assert len(test) > 0
+    test = pycm.artist.charts('spotify_top_daily', '4904', '2020-01-01')
+    assert isinstance(test, list)
+    assert len(test)
     
 
 def test_fanmetrics(dates):
