@@ -10,7 +10,7 @@ import json
 import time
 from datetime import datetime
 import requests
-
+import logging
 
 @property
 def CredentialsDir(filepath):
@@ -24,8 +24,10 @@ def CredentialsDir(filepath):
     return filepath
 
 
-def DefaultCredentials(refreshtoken):
+def DefaultCredentials(refreshtoken: str) -> None:
     """
+    TODO Rewrite DefaultCredentials docstring
+    TODO Add logger warning to non-extant token
     Set and save the default (only refreshtoken)
     .credentials.json file in the project directory or
     in a custom credentials directory, if set.
@@ -34,41 +36,29 @@ def DefaultCredentials(refreshtoken):
                                 chartmetric
 
     :returns:                   None
+
+    # `DefaultCredentials(refreshtoken)`
+    Set and save the default (only refreshtoken)
+    credentials into the CMCREDENTIALS environment variable.
     """
-    cust_dir = isinstance(CredentialsDir, type(str()))
-    filepath = (
-        f"{ProjectRootDir()}/{Filename()}" if not cust_dir else CredentialsDir
-    )
-
-    # extract path from filepath and make the dir, if not extant
-    clean = (
-        lambda p: str(p.parts[:-1])
-        .replace("'", "")
-        .replace(",", "")
-        .replace("(", "")
-        .replace(")", "")
-        .replace(" ", "/")[1:]
-    )  # first two chars //
-
-    fpath = clean(Path(filepath))
-    os.makedirs(fpath, exist_ok=True)
-
+    credvar = 'CMCREDENTIALS'
     # check that the token isn't already present
-    if not os.path.exists(filepath):  # create the empty file
+    if not os.environ.get(credvar):  # create the empty credentials if not extant
         creds = {
             "token": "",
             "scope": "",
             "expires_in": "",
             "refreshtoken": refreshtoken,
         }
-        with open(filepath, "w") as fp:
-            json.dump(creds, fp)
-        if not os.path.exists(filepath):  # nothing works w/o auth
-            raise  # so break exec early
+        os.environ[credvar] = f"{json.dump(creds, fp)}"
+        logging.warning(f"CMCREDENTIALS environment variable not set -> credentials.DefaultCredentials: {datetime.now()}.")
+        raise RuntimeError("Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details."
+        # Break exec early as api credentials are not set.
 
 
 def ProjectRootDir():
     """
+    TODO Rewrite ProjectRootDir doctstring
     Return path to root directory of project with trailing slash.
     
     :returns:       string path with trailing /
@@ -89,6 +79,7 @@ def TTLwait(func,):
 @TTLwait
 def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     """
+    TODO Rewrite PeriodicUpdate docstring
     Wrapper method to take a TTL variable, wait, and call
     UpdateCredentials. Current chartmetric api documentation (Feb-2019)
     indicates a credential refresh is required every 3600 seconds.
@@ -112,6 +103,7 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
 
 def Update():
     """
+    TODO Rewrite the Update docstring
     Use the .credentials.json file in the project root directory
     to GET the token, lifetime, and scope attributes and subsequently
     update the .credentials.json file.
@@ -135,12 +127,16 @@ def Update():
     credentials["expires_in"] = fetched["expires_in"]
     credentials["refreshtoken"] = fetched["refresh_token"]
 
+    # TODO The following open func in Update should call a setCredentialsEnvironment method
+    # instead of writing to disk
     with open(filename, "w") as fp:
         json.dump(credentials, fp)
 
 
 def Load():
     """
+    TODO Load the current contents of the env variable CMCREDENTIALS in Load
+    TODO Rewrite the Load docstring
     Load the .credentials.json file from the project root directory
     and return the credentials dictionary.
     
@@ -159,6 +155,8 @@ def Load():
 
 def Check(filepath=None):
     """
+    TODO Set to check the env variable CMCREDENTIALS in Check
+    TODO Rewrite Check docstring
     Check that the .credentials.json file is extant within the project
     root directory. Also sets the credentials filename statically.
 
@@ -185,11 +183,22 @@ def Check(filepath=None):
 
 def FetchAccessToken():
     """
+    # `FetchAccessToken`
+
     Use the refreshtoken to fetch the access and other credentials
     from chartmetric.com.
 
-    :returns:       Request object in dictionary form with keys:
-                    token, expires_in, refresh_token, and scope
+    ## Params
+
+    ## Returns       
+    - A Python Requests response object in dictionary form with keys:
+        - `token`,
+        - `expires_in`,
+        - `refresh_token`,
+        - `scope`.
+
+    ### Notes
+    - Raises for non-200 response.
     """
     authURL = "https://api.chartmetric.com/api/token"
     headers = {"Content-Type": "application/json"}
