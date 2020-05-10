@@ -65,7 +65,7 @@ def charts(chart_type, cmid, start_date, end_date=None):
     urlhandle = f"/artist/{cmid}/{chart_type}/charts"
     params = {
         'since': start_date,
-        'until': end_date,
+        'until': end_date if end_date else utilities.strDateToday(),
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)['data']
