@@ -1,6 +1,7 @@
 import pytest
 import pycm
 import pandas as pd
+import datetime
 from requests.exceptions import HTTPError
  
 
@@ -55,8 +56,7 @@ def test_metadata(srkeys):
     # standard
     assert isinstance(test['release_date'], type("str"))
     assert isinstance(
-        pd.to_datetime(test['release_date']), 
-        type(pd.datetime(2017,1,1))
+        pd.to_datetime(test['release_date']), datetime.datetime
     )
     # alt test examples, alt tests ~ weird stuff
     try:
