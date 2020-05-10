@@ -1,0 +1,40 @@
+# cloudbuild.yaml
+# 
+# This is the Musicfox Python Chartmetric Client test runner on Google
+# Cloud Build.
+#
+steps:
+    # pull the berglas container and write the secrets to temporary files 
+    # under /workspace
+      - name: gcr.io/berglas/berglas
+        id: 'Install Berglas'
+        env:
+        - '${_VAR1}=berglas://${_BUCKET_ID_SECRETS}/${_VAR1}?destination=/workspace/${_VAR1}'
+    
+        args: ["exec", "--", "/bin/sh"]
+    
+    # using the secrets from above, build and run the test suite
+      - name: 'python:3.7-slim'
+        id: 'Run Unit Tests'
+        entrypoint: '/bin/bash'
+        args: 
+          - "-c"
+          - "\
+          rm -rf /var/lib/apt/lists/* && \
+          cat /workspace/${_VAR1} > .credentials.json && \ 
+          pip install -r requirements.txt && \
+          python -m pytest -v"
+          
+        waitFor: ['Install Berglas']
+        dir: '${_APP_DIR}'
+
+# Use the defaults below which can be changed at the command line
+substitutions:
+    _BUCKET_ID_SECRETS: musicfox-python-chartmetric-client-secrets
+    _VAR1: CMCREDENTIALS 
+    _APP_DIR: /
+  
+  # The images we'll push here
+  images: [
+    'gcr.io/$PROJECT_ID/${_IMAGE_NAME}'
+  ]
