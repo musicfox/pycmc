@@ -62,15 +62,18 @@ def TTLwait(func,):
 @TTLwait
 def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     """
-    TODO Rewrite PeriodicUpdate docstring
+    # `PeriodicUpdate`
+
     Wrapper method to take a TTL variable, wait, and call
     UpdateCredentials. Current chartmetric api documentation (Feb-2019)
     indicates a credential refresh is required every 3600 seconds.
 
-    :param TTL_seconds:     integer seconds to wait between refreshes
-    :param repeat:          integer loops to repeat; -1 = inf 
+    ## Parameters
+    - `TTL_seconds`     integer seconds to wait between refreshes
+    - `repeat`          _default_: `None`; integer loops to repeat; -1 = inf 
 
-    :returns:               None
+    ## Returns
+    - `None`
     """
     if repeat is not None and repeat > 0:
         counter = 0
@@ -86,12 +89,14 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
 
 def Update() -> None:
     """
-    TODO Rewrite the Update docstring
-    Use the .credentials.json file in the project root directory
-    to GET the token, lifetime, and scope attributes and subsequently
-    update the .credentials.json file.
+    # `Update`
 
-    :returns:       None
+    Use the `CMCREDENTIALS` environment variable to make a HTTP
+    GET request for the token, lifetime, and scope attributes and subsequently
+    update the `CMCREDENTIALS` environment variable. 
+
+    ## Returns
+    - `None`
     """
     # load .credentials.json
     credentials = Load()
@@ -103,21 +108,25 @@ def Update() -> None:
     credentials["expires_in"] = fetched["expires_in"]
     credentials["refreshtoken"] = fetched["refresh_token"]
 
-    # with open(filename, "w") as fp:
-    #    json.dump(credentials, fp)
     os.environ[Varname()] = json.dumps(credentials)
-    logging.info(
+    logging.debug(
         f"Fetched and updated new Chartmetric credentials @ {datetime.now()}"
     )
 
 
 def Load():
     """
-    TODO Rewrite the Load docstring
-    Load the .credentials.json file from the project root directory
+    # `Load`
+    Load the credentials from the environment
     and return the credentials dictionary.
-    
-    :returns:       dict w/keys: token, scope, expires_in, refreshtoken
+
+    ## Returns 
+    - `dict` of keys: 
+      - `token`,
+      - `scope`,
+      - `expires_in`,
+      - `refreshtoken`.
+
     """
     if Check():  # exists and has valid refresh so load it
         credentials = json.loads(os.environ.get(Varname()))
@@ -126,16 +135,18 @@ def Load():
 
 def Check():
     """
-    TODO Rewrite Check docstring
-    Check that the .credentials.json file is extant within the project
-    root directory. Also sets the credentials filename statically.
+    # `Check` 
+    Check that the `CMCREDENTIALS` environment variable is extant within the 
+    environment.
 
     It is important that this causes failure as early in the client init
-    phase as possible.
+    phase as possible. `DefaultCredentials` will throw if a `refreshtoken` is
+    unavailable.
 
-    :returns:       boolean True if .credentials.json exists AND the
+    ## Returns
+    - `boolean` `True` if `CMCREDENTIALS` exists AND the
                     dictionary contains a non-empty string for the
-                    "refreshtoken" string, otherwise False.
+                    `refreshtoken` string, otherwise False.
     """
     try:
         credentials = json.loads(os.environ.get(Varname()))
