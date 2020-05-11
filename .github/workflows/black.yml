@@ -10,4 +10,4 @@ jobs:
       - name: Black Code Formatter
         uses: lgeiger/black-action@master
         with:
-          args: ". -l 79 --check"
+          args: "pycm/* -l 79 --check"
