@@ -64,9 +64,9 @@ pyOpenSSL = "*"
 PySocks = "*"
 PyYAML = "*"
 user_agent = "*"
+pandas = "*"
 
 [dev-packages]
-pandas = "*"
 ipython = "*"
 
 [requires]
