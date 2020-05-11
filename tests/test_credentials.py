@@ -12,22 +12,6 @@ import pycm.credentials as credentials
 
 
 @pytest.fixture
-def filepath(projpath):
-    return os.path.join(projpath, ".credentials.json")
-
-
-@pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != '/': # add trailing slash
-            path += '/'
-        return path
-    return os.path.join(
-        os.environ.get("HOME"),
-        ".pycm",
-    )
-
-@pytest.fixture
 def credentials_response(credential):
     """
     Make a request to the charmetric api for the access token and
@@ -91,15 +75,8 @@ def test_PeriodicCredentials():
     assert new['token'] != stale['token']
 
 
-def test_CredentialsDir(filepath):
-    test = credentials.CredentialsDir
-    assert test != os.path.join(os.getcwd(), '.credentials.json') 
-    credentials.CredentialsDir = filepath
-    test2 = credentials.CredentialsDir
-    assert test2 == filepath
 
-
-def test_DefaultCredentials(filepath, ):
+def test_DefaultCredentials():
     orig = credentials.Load()
     # change the dir to execution path
     try:

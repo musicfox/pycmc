@@ -13,18 +13,6 @@ import requests
 import logging
 
 
-@property
-def CredentialsDir(filepath):
-    """
-    Set the credentials filepath (directory + filename.json)
-
-    :param filepath:        string filepath e.g. /home/user/.credentials.json
-
-    :returns:               string filepath
-    """
-    return filepath
-
-
 def DefaultCredentials(refreshtoken: str) -> None:
     """
     # `DefaultCredentials`
@@ -49,16 +37,6 @@ def DefaultCredentials(refreshtoken: str) -> None:
         logging.warning(f"CMCREDENTIALS environment variable not set -> credentials.DefaultCredentials: {datetime.now()}.")
         raise KeyError("Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details.")
         # Break exec early as api credentials are not set.
-
-
-def ProjectRootDir():
-    """
-    TODO Rewrite ProjectRootDir doctstring
-    Return path to root directory of project with trailing slash.
-    
-    :returns:       string path with trailing /
-    """
-    return f"{Path(__file__).parent.parent}/"
 
 
 def TTLwait(func,):
@@ -150,10 +128,9 @@ def Check():
         credentials = json.loads(os.environ.get(Varname()))
     except json.decoder.JSONDecodeError as jderr:
         logging.warning(f"CMCREDENTIALS not found in Check. {datetime.now()}.")
-    if not credentials:
-        # this will throw
         DefaultCredentials()
         return False
+
     if credentials["refreshtoken"] != "":
         return True
     return False
@@ -186,28 +163,6 @@ def FetchAccessToken():
     if not response.ok:  # raise if issue
         response.raise_for_status()
     return json.loads(response.text)
-
-
-def Filename(filename=".credentials.json"):
-    """
-    Return the given filename.
-
-    :param filename:        string filename w/extension
-
-    :returns:               string given filename w/extension
-    """
-    return filename
-
-
-def Filename(filename=".credentials.json"):
-    """
-    Return the given filename.
-
-    :param filename:        string filename w/extension
-
-    :returns:               string given filename w/extension
-    """
-    return filename
 
 def Varname() -> str:
     """
