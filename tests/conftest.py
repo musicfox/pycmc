@@ -8,6 +8,7 @@ import pytest
 import os
 import pycm
 import json
+import datetime
 
 
 @pytest.fixture(scope="module")
@@ -28,3 +29,11 @@ if not os.environ.get("CMCREDENTIALS"):
 @pytest.fixture(scope="function")
 def slowRoll():
     time.sleep(1.2)
+
+@pytest.fixture(scope="module")
+def todayStr():
+    return str(datetime.datetime.now()).split(' ')[0]
+
+@pytest.fixture(scope="module")
+def timestampStr():
+    return str(datetime.datetime.now()).split(' ')[1]

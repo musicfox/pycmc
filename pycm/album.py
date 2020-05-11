@@ -18,7 +18,7 @@ def charts(stype, cmid, start_date, end_date=None):
     :return:                list of dictionaries of the chart for
                             the given album
     """
-    logging.warning(
+    logging.info(
         f"This is known to have authentication issues when "
         f"(we suspect) dates as given are invalid. You may experience "
         f"intermittent HTTPErrors (403). Adjust dates as necessary to fix."

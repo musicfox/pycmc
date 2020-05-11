@@ -1,4 +1,5 @@
 # pycm
+[![codecov](https://codecov.io/gh/musicfox/pycm/branch/develop/graph/badge.svg?token=COEMV82GV9)](https://codecov.io/gh/musicfox/pycm)
 A Python interface for the`chartmetric.com` API.  
 
 ## Usage

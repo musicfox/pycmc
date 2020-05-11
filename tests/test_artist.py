@@ -1,6 +1,7 @@
 import pytest
 import pycm
 import datetime
+import time
 
 
 @pytest.fixture
@@ -66,6 +67,7 @@ def test_fanmetrics(dates):
     assert isinstance(test, type(dict()))
     assert len(test.keys())
     for dsrc, valueCol in dsrcObj.items():
+        time.sleep(1.5)
         test = pycm.artist.fanmetrics(
             "3380", dates["start"], dates["end"], dsrc, valueCol
         )
