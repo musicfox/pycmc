@@ -4,10 +4,6 @@ from . import credentials
 
 import os
 
-credentials.CredentialsDir = os.path.join(
-    os.environ.get("HOME"), ".pycm", ".credentials.json"
-)
-
 from . import credentials_manager
 
 from .charts import (
