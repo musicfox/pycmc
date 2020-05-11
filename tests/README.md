@@ -16,5 +16,4 @@ Where `filename` is the name of your `.py` file containing `functionname`.
 
 ### `conftest.py` - `py.test` configuration
 
-Make sure to edit the conftest file as per the instructions within. **Note:**
-leave the same-name file in the project root (not in `tests`) alone and empty.
+Add your configuration as needed in this file.
