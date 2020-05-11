@@ -2,7 +2,7 @@
 documentation:
     - README.md
     - docs/*
-    - *.md
+    - ./*.md
 
 test:
     - tests/*
