@@ -1,4 +1,4 @@
 [run]
 omit = tests/*
 [tool:pytest]
-addopts --cov-config=.coveragerc --cov=pycm --cov-report html
+addopts = --cov-config=.coveragerc --cov=pycm --cov-report html
