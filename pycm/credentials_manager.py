@@ -1,29 +1,27 @@
 """
-credentials_manager.py
+# `credentials_manager`
 
 Credential manager for pycm. Load, store (globally), and
 automagically update credentials given response TTL seconds.
 
-Usage:
-
+## Usage:
+```python
 >>> import credential_manager as cm
 >>> print(cm.token)
 >>> print(cm.refreshtoken)
 >>> print(cm.expires_in) # gives actual seconds to expiry as integer
 >>> print(cm.scope)
-
-Note:
-
-expires_in global variable here IS NOT a string, as is required for 
-the api queries; here it is the actual representative TTL count since
-our last refresh. **Don't forget to str(expires_in)** for API use.
+```
+> Note:
+>
+> The `expires_in` global variable here IS NOT a string, as is required for 
+> the api queries; here it is the actual representative TTL count since
+> our last refresh. **Don't forget to str(expires_in)** for API use.
 """
 
 import time
 import os
 
-# import pycm.credentials as credentials
-# import pycm.background as background
 from . import credentials
 from . import background
 

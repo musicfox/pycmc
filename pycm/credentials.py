@@ -1,7 +1,11 @@
 """
-credentials.py
+# `credentials`
 
 Utilities for the pycm api credentials interface.
+
+## Usage
+
+See `credentials_manager` for usage details. 
 """
 from functools import wraps
 from pathlib import Path
