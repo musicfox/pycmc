@@ -2,6 +2,7 @@ from .. import utilities
 
 amazon_charts_url = f"/charts/amazon"
 
+
 def tracks(date, track_type, genre):
     """
     Query the charts/amazon/tracks endpoint for the given date.
@@ -25,13 +26,13 @@ def tracks(date, track_type, genre):
     """
     urlhandle = f"{amazon_charts_url}/tracks"
     params = {
-        'type': track_type,
-        'date': date,
-        'genre': genre,
+        "type": track_type,
+        "date": date,
+        "genre": genre,
     }
-        
+
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def albums(date, album_type, genre):
@@ -57,10 +58,10 @@ def albums(date, album_type, genre):
     """
     urlhandle = f"{amazon_charts_url}/albums"
     params = {
-        'type': album_type,
-        'date': date,
-        'genre': genre,
+        "type": album_type,
+        "date": date,
+        "genre": genre,
     }
-        
+
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

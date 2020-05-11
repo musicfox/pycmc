@@ -8,6 +8,7 @@ from .. import utilities
 
 spotify_charts_url = f"/charts/spotify"
 
+
 def tracks(date, country="US", viral=False):
     """
     Get the top 200 tracks on Spotify chart for the given date.
@@ -24,14 +25,14 @@ def tracks(date, country="US", viral=False):
 
     urlhandle = f"{spotify_charts_url}"
     params = {
-        'date': date,
-        'country_code': country,
-        'type': 'viral' if viral else 'regional',
-        'interval': 'daily',
-        'offset': 0,
+        "date": date,
+        "country_code": country,
+        "type": "viral" if viral else "regional",
+        "interval": "daily",
+        "offset": 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def freshfind(date):

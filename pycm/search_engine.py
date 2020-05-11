@@ -18,13 +18,11 @@ def search(query, limit=None, offset=None):
                         'stations' and 'cities'
     """
     urlhandle = f"/search"
-    params = {
-        'q': query
-    }
+    params = {"q": query}
     if limit != None:
-        params['limit'] = limit
+        params["limit"] = limit
     if offset != None:
-        params['offset'] = offset
-        
+        params["offset"] = offset
+
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)

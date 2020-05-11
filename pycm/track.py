@@ -20,13 +20,13 @@ def charts(chart_type, cm_track_id, start_date, end_date=None):
 
     :return:            list of dictionaries of the charts data
     """
-    
+
     urlhandle = f"/track/{cm_track_id}/{chart_type}/charts"
     params = {"since": start_date}
     if end_date != None:
-        params['until'] = end_date
+        params["until"] = end_date
     data = utilities.RequestData(urlhandle, params=params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def get_track_ids(id_type, matching_id):
@@ -45,7 +45,7 @@ def get_track_ids(id_type, matching_id):
     :return:            list of dictionaries of the related track IDs
     """
     urlhandle = f"/track/{id_type}/{matching_id}/get-ids"
-    
+
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
 
@@ -83,9 +83,9 @@ def playlist_snapshot(cmid, platform, date, limit=100, offset=0):
     """
     urlhandle = f"/track/{cmid}/{platform}/playlists/snapshot"
     params = {
-        'date': date,
-        'limit': limit,
-        'offset': offset,
+        "date": date,
+        "limit": limit,
+        "offset": offset,
     }
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
@@ -93,14 +93,14 @@ def playlist_snapshot(cmid, platform, date, limit=100, offset=0):
 
 def playlists(
     cmid,
-    platform, 
-    status='current', 
+    platform,
+    status="current",
     start_date=None,
     end_date=None,
     indie=False,
     limit=100,
-    offset=0
-    ):
+    offset=0,
+):
     """
     Get the current or past playlists containing the track
     on the given streaming platform.    
@@ -121,11 +121,11 @@ def playlists(
     """
     urlhandle = f"/track/{cmid}/{platform}/{status}/playlists"
     params = {
-        'since': start_date,
-        'until': end_date,
-        'indie': indie,
-        'limit': limit,
-        'offset': offset,
+        "since": start_date,
+        "until": end_date,
+        "indie": indie,
+        "limit": limit,
+        "offset": offset,
     }
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
@@ -149,11 +149,11 @@ def stats(cm_track_id, platform, start_date=None, end_date=None):
                         value stats time-series
     """
     urlhandle = f"/track/{cm_track_id}/{platform}/stats"
-    params=dict()
+    params = dict()
     if start_date != None:
-        params['since'] = start_date
+        params["since"] = start_date
     if end_date != None:
-        params['until'] = end_date
+        params["until"] = end_date
     data = utilities.RequestData(urlhandle, params=params)
     return utilities.RequestGet(data)
 
@@ -171,4 +171,3 @@ def tunefind(cmid):
     urlhandle = f"/track/{cmid}/tunefind"
     data = utilities.RequestData(urlhandle, params=None)
     return utilities.RequestGet(data)
-

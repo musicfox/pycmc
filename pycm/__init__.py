@@ -18,7 +18,7 @@ from .charts import (
     deezer,
     cm_score,
     amazon,
-    qq
+    qq,
 )
 
 from . import track

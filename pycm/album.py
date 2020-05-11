@@ -23,15 +23,17 @@ def charts(stype, cmid, start_date, end_date=None):
         f"(we suspect) dates as given are invalid. You may experience "
         f"intermittent HTTPErrors (403). Adjust dates as necessary to fix."
     )
-    #strDateToday = lambda: str(datetime.datetime.today()).split(' ')[0]
+    # strDateToday = lambda: str(datetime.datetime.today()).split(' ')[0]
 
     urlhandle = f"/album/{cmid}/{stype}/charts"
     params = {
         "since": start_date,
-        "until": end_date if isinstance(end_date, str) else utilities.strDateToday(),
+        "until": end_date
+        if isinstance(end_date, str)
+        else utilities.strDateToday(),
     }
     data = utilities.RequestData(urlhandle, params=params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def get_album_ids(id_type, specific_id):

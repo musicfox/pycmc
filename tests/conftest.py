@@ -19,20 +19,23 @@ import pycm
 import json
 
 
-#@pytest.fixture(autouse=True) # run automatically prior to tests
-#def pythonpath(monkeypatch):
+# @pytest.fixture(autouse=True) # run automatically prior to tests
+# def pythonpath(monkeypatch):
 #    handle = f"/Repos/pycm"
 #    try:
 #        project_path = os.environ['HOME'] + handle
-#        monkeypatch.setenv('PYTHONPATH', project_path) 
-#     
-@pytest.fixture(scope='module')
+#        monkeypatch.setenv('PYTHONPATH', project_path)
+#
+@pytest.fixture(scope="module")
 def credvar():
     return "CMCREDENTIALS"
 
-@pytest.fixture(scope='module')
+
+@pytest.fixture(scope="module")
 def credential(credvar):
     # load credentials
     return json.loads(os.environ.get(credvar))
 
-if not os.environ.get("CMCREDENTIALS"): raise KeyError("CMCREDENTIALS environment variable not set.")
+
+if not os.environ.get("CMCREDENTIALS"):
+    raise KeyError("CMCREDENTIALS environment variable not set.")

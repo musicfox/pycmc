@@ -30,7 +30,9 @@ def DefaultCredentials(refreshtoken: str) -> None:
 
     """
     # check that the token isn't already present
-    if not os.environ.get(Varname()):  # create the empty credentials if not extant
+    if not os.environ.get(
+        Varname()
+    ):  # create the empty credentials if not extant
         creds = {
             "token": "",
             "scope": "",
@@ -38,8 +40,12 @@ def DefaultCredentials(refreshtoken: str) -> None:
             "refreshtoken": refreshtoken,
         }
         os.environ[Varname()] = json.dumps(creds)
-        logging.warning(f"CMCREDENTIALS environment variable not set -> credentials.DefaultCredentials: {datetime.now()}.")
-        raise KeyError("Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details.")
+        logging.warning(
+            f"CMCREDENTIALS environment variable not set -> credentials.DefaultCredentials: {datetime.now()}."
+        )
+        raise KeyError(
+            "Chartmetric credentials environment varialbe is unset. Setting a default. Please see the documentation for more details."
+        )
         # Break exec early as api credentials are not set.
 
 
@@ -97,10 +103,13 @@ def Update() -> None:
     credentials["expires_in"] = fetched["expires_in"]
     credentials["refreshtoken"] = fetched["refresh_token"]
 
-    #with open(filename, "w") as fp:
+    # with open(filename, "w") as fp:
     #    json.dump(credentials, fp)
     os.environ[Varname()] = json.dumps(credentials)
-    logging.info(f"Fetched and updated new Chartmetric credentials @ {datetime.now()}")
+    logging.info(
+        f"Fetched and updated new Chartmetric credentials @ {datetime.now()}"
+    )
+
 
 def Load():
     """
@@ -167,6 +176,7 @@ def FetchAccessToken():
     if not response.ok:  # raise if issue
         response.raise_for_status()
     return json.loads(response.text)
+
 
 def Varname() -> str:
     """

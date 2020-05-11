@@ -36,8 +36,8 @@ def cpp_data(cmid, cpp_stat, start_date=None, end_date=None):
     urlhandle = f"/artist/{cmid}/cpp"
     params = {
         "stat": cpp_stat,
-        'since': start_date,
-        'until': end_date,
+        "since": start_date,
+        "until": end_date,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
@@ -64,19 +64,15 @@ def charts(chart_type, cmid, start_date, end_date=None):
     """
     urlhandle = f"/artist/{cmid}/{chart_type}/charts"
     params = {
-        'since': start_date,
-        'until': end_date if end_date else utilities.strDateToday(),
+        "since": start_date,
+        "until": end_date if end_date else utilities.strDateToday(),
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def fanmetrics(
-    cmid,
-    start_date,
-    end_date="today",
-    dsrc="instagram",
-    valueCol=None
+    cmid, start_date, end_date="today", dsrc="instagram", valueCol=None
 ):
     """
     Query the Chartmetric API for artist fan metrics.
@@ -113,16 +109,13 @@ def fanmetrics(
     :return:            nested dict, {valueCol: [fanmetrics]},
                         fanmetrics are dictionaries of time-series stats
     """
-    if end_date == 'today':
+    if end_date == "today":
         # date w/o timestamp
-        end_date = str(datetime.datetime.today()).split(' ')[0]
+        end_date = str(datetime.datetime.today()).split(" ")[0]
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
-    params = dict(
-        since=start_date,
-        until=end_date,
-    )
+    params = dict(since=start_date, until=end_date,)
     if valueCol is not None:
-        params['field'] = valueCol
+        params["field"] = valueCol
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -168,13 +161,9 @@ def get_artists(filter_field, min_thres, max_thres, offset=0):
     :return:            list of dictionaries of the filtered artists
     """
     urlhandle = f"/artist/{filter_field}/list"
-    params = {
-        'min': min_thres, 
-        'max': max_thres,
-        'offset': offset
-    }
+    params = {"min": min_thres, "max": max_thres, "offset": offset}
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def metadata(cmid):
@@ -232,7 +221,7 @@ def related(cmid, limit=50):
     """
     urlhandle = f"/artist/{cmid}/relatedartists"
     params = {
-        'limit': limit,
+        "limit": limit,
     }
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)

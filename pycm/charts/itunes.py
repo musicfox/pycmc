@@ -1,4 +1,5 @@
 from .. import utilities
+
 itunes_charts_url = f"/charts/itunes"
 
 
@@ -16,13 +17,13 @@ def albums(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/albums"
     params = {
-        'country_code': country,
-        'date': date,
-        'genre': 'All Genres',
-        'offset': 0,
+        "country_code": country,
+        "date": date,
+        "genre": "All Genres",
+        "offset": 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def tracks(date, country="US"):
@@ -39,13 +40,13 @@ def tracks(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/tracks"
     params = {
-        'country_code': country,
-        'date': date,
-        'genre': 'All Genres',
-        'offset': 0,
+        "country_code": country,
+        "date": date,
+        "genre": "All Genres",
+        "offset": 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def videos(date, country="US"):
@@ -62,11 +63,9 @@ def videos(date, country="US"):
     """
     urlhandle = f"{itunes_charts_url}/videos"
     params = {
-        'country_code': country,
-        'date': date,
-        'offset': 0,
+        "country_code": country,
+        "date": date,
+        "offset": 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
-
-
+    return utilities.RequestGet(data)["data"]

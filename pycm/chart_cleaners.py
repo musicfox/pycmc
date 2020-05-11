@@ -19,10 +19,7 @@ def get_composers(res):
             for first_split in res.split(", ")
             for name in first_split.split(" % ")
         ]
-        return {
-            f"composer_{i + 1}": name
-            for i, name in enumerate(composers)
-            }
+        return {f"composer_{i + 1}": name for i, name in enumerate(composers)}
     return {"composer_1": None}
 
 
@@ -45,14 +42,10 @@ def get_labels(res):
         ]
         joined_str = "/".join(filter_none)
         labels = [
-            label.strip() for label in joined_str.split("/")
-            if label != None
+            label.strip() for label in joined_str.split("/") if label != None
         ]
         return (
-            {
-                f"album_label_{i + 1}": label
-                for i, label in enumerate(labels)
-                }
+            {f"album_label_{i + 1}": label for i, label in enumerate(labels)}
             if labels != None
             else {"album_label_1": None}
         )
@@ -492,9 +485,9 @@ def type_cast(parsed):
             if "itunes" in parsed.columns:
                 # common for AppleMusic and iTunes
 
-                parsed.loc[:, 'itunes'] = fix_nan_str(
-                    'itunes'
-                    )# cast to str to prevent breaking
+                parsed.loc[:, "itunes"] = fix_nan_str(
+                    "itunes"
+                )  # cast to str to prevent breaking
 
                 if "country" in parsed.columns:
                     parsed.loc[:, "country"] = fix_nan_str("country")
@@ -505,13 +498,15 @@ def type_cast(parsed):
                 # special items for Shazam
                 parsed.loc[:, "city"] = fix_nan_str("city")
 
-                parsed.loc[:, 'itunes_id'] = fix_nan_str('itunes_id')
+                parsed.loc[:, "itunes_id"] = fix_nan_str("itunes_id")
 
                 parsed.loc[:, "num_of_shazams"] = parsed[
                     "num_of_shazams"
                 ].astype(float)
 
-                parsed.loc[:, "shazam_track_id"] = fix_nan_str('shazam_track_id')
+                parsed.loc[:, "shazam_track_id"] = fix_nan_str(
+                    "shazam_track_id"
+                )
         else:
             # special treatment for Spotify
             parsed.loc[:, "chart_name"] = fix_nan_str("chart_name")
@@ -521,7 +516,7 @@ def type_cast(parsed):
             )
             parsed.loc[:, "duration"] = fix_nan_str("duration")
 
-            parsed.loc[:, "spotify"] = fix_nan_str('spotify')
+            parsed.loc[:, "spotify"] = fix_nan_str("spotify")
 
             parsed.loc[:, "spotify_album_id"] = fix_nan_str("spotify_album_id")
             parsed.loc[:, "spotify_duration_ms"] = parsed[

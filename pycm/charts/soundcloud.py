@@ -1,6 +1,7 @@
-from .. import utilities 
+from .. import utilities
 
 soundcloud_charts_url = f"/charts/soundcloud"
+
 
 def tracks(date, country="US", kind="top", genre="all-music"):
     """
@@ -25,4 +26,4 @@ def tracks(date, country="US", kind="top", genre="all-music"):
         "genre": genre,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

@@ -65,10 +65,14 @@ def UpdateCredentials():
     expires_in = newdata["expires_in"]
     scope = newdata["scope"]
 
+
 @background.task
 def TimedLoop():
     while True:
-        sleep(3000)  # api calls can be inconsistent so using conservative 3000 vs 3600
+        sleep(
+            3000
+        )  # api calls can be inconsistent so using conservative 3000 vs 3600
         UpdateCredentials()
+
 
 TimedLoop()

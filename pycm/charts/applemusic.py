@@ -2,7 +2,8 @@ from .. import utilities
 
 charts_apple_music_url = f"/charts/applemusic"
 
-def tracks(date, country='US', genre="All Genres"):
+
+def tracks(date, country="US", genre="All Genres"):
     """
     Query the charts/applemusic/tracks endpoint for the given date.
 
@@ -23,7 +24,7 @@ def tracks(date, country='US', genre="All Genres"):
     }
     urlhandle = f"{charts_apple_music_url}/tracks"
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]
 
 
 def albums(date, country="US", genre="All Genres"):
@@ -44,8 +45,8 @@ def albums(date, country="US", genre="All Genres"):
         "country_code": country,
         "genre": genre,
     }
-    data = utilities.RequestData(urlhandle, params) 
-    return utilities.RequestGet(data)['data']
+    data = utilities.RequestData(urlhandle, params)
+    return utilities.RequestGet(data)["data"]
 
 
 def videos(date, country="US", genre="All Genres"):
@@ -67,4 +68,4 @@ def videos(date, country="US", genre="All Genres"):
         "genre": genre,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

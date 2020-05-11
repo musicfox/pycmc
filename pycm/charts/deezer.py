@@ -2,7 +2,8 @@ from .. import utilities
 
 deezer_music_url = f"/charts/deezer"
 
-def insights(date, country='US'):
+
+def insights(date, country="US"):
     """
     Get the top 100 Deezer chart tracks for the given date
 
@@ -20,4 +21,4 @@ def insights(date, country='US'):
     }
 
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

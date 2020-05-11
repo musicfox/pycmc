@@ -12,6 +12,7 @@ from .. import utilities
 
 qq_music_url = f"/charts/qq"
 
+
 def insights(date):
     """
     Get the top tracks on QQ music chart for the given date.
@@ -29,4 +30,4 @@ def insights(date):
     }
 
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

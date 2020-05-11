@@ -101,6 +101,7 @@ def RequestGet(data):
         response.raise_for_status()
     return json.loads(response.text)["obj"]
 
+
 def strDateToday():
     """
     # `strDateToday`
@@ -115,4 +116,4 @@ def strDateToday():
     ## Return
     `str`
     """
-    return str(datetime.datetime.today()).split(' ')[0]
+    return str(datetime.datetime.today()).split(" ")[0]

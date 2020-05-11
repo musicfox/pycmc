@@ -2,6 +2,7 @@ from .. import utilities
 
 beatport_charts_url = f"/charts/beatport"
 
+
 def tracks(date):
     """
     Query the charts/beatport/tracks endpoint for the given date.
@@ -15,9 +16,9 @@ def tracks(date):
     """
     urlhandle = f"{beatport_charts_url}"
     params = {
-        'date': date,
-        'genre': 'top-100',
-        'offset': 0,
+        "date": date,
+        "genre": "top-100",
+        "offset": 0,
     }
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)['data']
+    return utilities.RequestGet(data)["data"]

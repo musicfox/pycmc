@@ -23,10 +23,10 @@ def tracks(cm_track_id, chart_type, start_date, end_date=None):
     """
     urlhandle = f"/charts/track/{cm_track_id}/{chart_type}/cm-score"
     params = {
-        'since': start_date,
-        'until': end_date if end_date else utilities.strDateToday(),
+        "since": start_date,
+        "until": end_date if end_date else utilities.strDateToday(),
     }
-        
+
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -50,10 +50,10 @@ def artists(cm_artist_id, chart_type, start_date, end_date=None):
     """
     urlhandle = f"/charts/artist/{cm_artist_id}/{chart_type}/cm-score"
     params = {
-        'since': start_date,
-        'until': end_date if end_date else utilities.strDateToday(),
+        "since": start_date,
+        "until": end_date if end_date else utilities.strDateToday(),
     }
-        
+
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
 
@@ -77,9 +77,9 @@ def albums(cm_album_id, chart_type, start_date, end_date=None):
     """
     urlhandle = f"/charts/album/{cm_album_id}/{chart_type}/cm-score"
     params = {
-        'since': start_date,
-        'until': end_date if end_date else utilities.strDateToday(),
+        "since": start_date,
+        "until": end_date if end_date else utilities.strDateToday(),
     }
-        
+
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)

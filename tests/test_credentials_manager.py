@@ -8,15 +8,15 @@ from pycm import credentials as creds
 @pytest.fixture
 def projpath(path=None):
     if path is not None:
-        if path[-1] != '/': # add trailing slash
-            path += '/'
+        if path[-1] != "/":  # add trailing slash
+            path += "/"
         return path
     return utilities.ProjectRootDir()
 
 
 @pytest.fixture
 def cred(projpath):
-    with open('.credentials.json', 'r') as fp:
+    with open(".credentials.json", "r") as fp:
         result = json.loads(fp.read())
     return creds.Load()
 
@@ -32,16 +32,16 @@ def test_global_vars(credential):
     intended functionality (we call credentials.Update() within
     credentials_manager so the fixture here *should* be stale.
     """
-    assert cm.token != credential['token'] # see above, may fail
-    assert cm.refreshtoken == credential['refreshtoken']
-    assert cm.expires_in == credential['expires_in']
-    assert cm.scope == credential['scope']
+    assert cm.token != credential["token"]  # see above, may fail
+    assert cm.refreshtoken == credential["refreshtoken"]
+    assert cm.expires_in == credential["expires_in"]
+    assert cm.scope == credential["scope"]
 
 
 def test_UpdateCredentials(credential):
     # update so that credentials fixture is stale
     cm.UpdateCredentials()
-    assert cm.token != credential['token']
-    assert cm.refreshtoken == credential['refreshtoken']
-    assert cm.expires_in > 0 # will throw if type non numeric or 0
-    assert cm.scope == 'api'
+    assert cm.token != credential["token"]
+    assert cm.refreshtoken == credential["refreshtoken"]
+    assert cm.expires_in > 0  # will throw if type non numeric or 0
+    assert cm.scope == "api"
