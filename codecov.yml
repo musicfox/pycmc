@@ -1,0 +1,5 @@
+codecov:
+    token: e90e8eba-a9f4-44de-a8f1-49a780d35174
+ignore:
+    - "tests"
+    - "dist"
