@@ -1,5 +1,5 @@
 """
-Unit tests for credentials.py within pycm.
+# Unit tests for credentials.py within pycm.
 """
 import pytest
 import json
@@ -29,10 +29,6 @@ def credentials_response(credential):
         response.raise_for_status()
     return response.text
  
- 
-def test_CredentialsFilename():
-    assert credentials.Filename() == '.credentials.json'
-
 def test_CredentialsVariableName():
     assert credentials.Varname() == 'CMCREDENTIALS'
 
