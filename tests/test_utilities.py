@@ -35,3 +35,12 @@ def test_FindProcess():
 
 def test_BaseURL():
     assert utilities.BaseURL() == "https://api.chartmetric.com/api"
+
+def test_strDateToday(todayStr):
+    assert todayStr == utilities.strDateToday()
+    try:
+        # strDateToday doesn't take anything, so this should
+        # throw
+        assert todayStr == utilities.strDateToday('something')
+    except Exception as err:
+        assert isinstance(err, TypeError)
