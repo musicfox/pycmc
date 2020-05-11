@@ -1,0 +1,28 @@
+# The github labeling workflow bot
+documentation:
+    - README.md
+    - docs/*
+    - *.md
+
+test:
+    - tests/*
+
+packaging:
+    - setup.py
+    - requirements.txt
+    - pycm.egg-info
+    - MANIFEST.in
+    - Pipfile.lock
+    - dist/*
+
+build:
+    - cloudbuild.yaml 
+    - Dockerfile
+
+client-dev:
+    - pycm/*
+
+license:
+    - LICENSE
+
+
