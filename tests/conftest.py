@@ -24,6 +24,7 @@ def credential(credvar):
 if not os.environ.get("CMCREDENTIALS"):
     raise KeyError("CMCREDENTIALS environment variable not set.")
 
-@pytest.fixture(scope='function')
+
+@pytest.fixture(scope="function")
 def slowRoll():
     time.sleep(1.2)
