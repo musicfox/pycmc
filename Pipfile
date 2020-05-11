@@ -65,6 +65,7 @@ PySocks = "*"
 PyYAML = "*"
 user_agent = "*"
 pandas = "*"
+pytest-cov = "*"
 
 [dev-packages]
 ipython = "*"

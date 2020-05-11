@@ -11,7 +11,8 @@ cffi==1.14.0
 chardet==3.0.4
 click==7.1.2
 clickclick==1.2.2
-connexion==2.7.0
+connexion==2018.0.dev1
+coverage==5.1
 cryptography==2.9.2
 cssselect==1.1.0
 decorator==4.4.2
@@ -24,10 +25,10 @@ inflection==0.4.0
 ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.17.0
-jinja2==2.11.2
-jsonschema==3.2.0
+jinja2==3.0.0a1
+jsonschema==2.6.0
 lxml==4.5.0
-markupsafe==1.1.1
+markupsafe==2.0.0a1
 more-itertools==8.2.0
 msgpack==1.0.0
 neovim==0.3.1
@@ -49,11 +50,11 @@ pyee==7.0.1
 pygments==2.6.1
 pynvim==0.4.1
 pyopenssl==19.1.0
-pyparsing==2.4.7
+pyparsing==3.0.0a1
 pyppeteer==0.2.2
 pyquery==1.4.1
-pyrsistent==0.16.0
 pysocks==1.7.1
+pytest-cov==2.8.1
 pytest==5.4.2
 python-dateutil==2.8.1
 pytz==2020.1
