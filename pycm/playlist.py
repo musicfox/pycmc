@@ -3,15 +3,18 @@ from . import utilities
 
 def metadata(cmid, stype):
     """
+    # `metadata`
     Get the metadata for the playlist on streaming platform given CMID.
 
     https://api.chartmetric.com/api/playlist/:platform/:id
 
-    :param cmid:        string or int Chartmetric playlist ID
-    :param stype:       string streaming platform, choose from
+    ## Parameters
+    - `cmid`:        string or int Chartmetric playlist ID
+    - `stype`:       string streaming platform, choose from
                         'spotify', 'applemusic', or 'deezer'
 
-    :return:            dictionary of playlist metadata
+    ## Returns            
+    dictionary of playlist metadata
     """
     urlhandle = f"/playlist/{stype}/{cmid}"
     params = None
@@ -21,15 +24,18 @@ def metadata(cmid, stype):
 
 def evolution(cmid, byType):
     """
+    # `evolution`
     Get the playlist evolution stats, given artist, album or track CMID.
 
     https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
 
-    :param cmid:        string Chartmetric {byType} ID
-    :param byType:      string type of evolution stats requested,
+    #Parameters
+    - `cmid`:        string Chartmetric {byType} ID
+    - `byType`:      string type of evolution stats requested,
                         choose from 'artist', 'track', 'album'
 
-    :return:            nested dict, keys being
+    ## Returns            
+    nested dict, keys being
                         'playlistDataPerDate' (dicts indexed by dates),
                         'statsDataPlot' (list of lists)
                         and 'playlistDataPlot' (list of lists)
@@ -49,21 +55,24 @@ def lists(
     indie=False,
 ):
     """
+    #lists
     Get the list of playlists, given the streaming platform.
 
     https://api.chartmetric.com/api/playlist/:streamingType/lists
 
-    :param stype:       string streaming platform, choose from
+    ## Parameters
+    - `stype`:       string streaming platform, choose from
                         'spotify', 'applemusic', 'deezer' or 'amazon'
-    :param sort:        string column to sort the playlists by,
+    - `sort`:        string column to sort the playlists by,
                         e.g. 'followers', 'last_updated'
-    :param country:     string country code
-    :param limit:       int number of playlists to return,
+    - `country`:     string country code
+    - `limit`:       int number of playlists to return,
                         maximum acceptable is 100
-    :param offset:      offset of entries to be returned
-    :param indie:       boolean True to return indie playlists
+    - `offset`:      offset of entries to be returned
+    - `indie`:       boolean True to return indie playlists
 
-    :return:            list of dicts of playlists
+    ## Returns            
+    list of dicts of playlists
     """
     indie = "true" if indie else "false"
     urlhandle = f"/playlist/{stype}/lists"
@@ -79,18 +88,20 @@ def lists(
 
 def snapshot(cmid, stype, date):
     """
+    # `snapshot`
     Get the snapshot of all tracks in a playlist given CMID
     on a given streaming platform for a given date.
 
     https://api.chartmetric.com/api/playlist/:platform/:id/snapshot
 
-    :param cmid:        string or int Chartmetric playlist ID
-    :param stype:       string streaming platform, choose from
+    ## Parameters
+    - `cmid`:        string or int Chartmetric playlist ID
+    - `stype`:       string streaming platform, choose from
                         'spotify', 'applemusic', 'deezer' or 'amazon'
-    :param date:        string date in ISO format %Y-%m-%d
+    - `date`:        string date in ISO format %Y-%m-%d
 
-    :return:            list of dictionaries of
-                        tracks contained in the playlist
+    ## Returns
+    list of dictionaries of tracks contained in the playlist
     """
     urlhandle = f"/playlist/{stype}/{cmid}/snapshot"
     params = {"date": date}
@@ -100,18 +111,20 @@ def snapshot(cmid, stype, date):
 
 def tracks(cmid, stype, span="current"):
     """
+    # `tracks`
     Get the current or past tracks contained in a playlist given CMID
     on a given streaming platform.
 
     https://api.chartmetric.com/api/playlist/:platform/:id/:span/tracks
 
-    :param cmid:        string or int Chartmetric playlist ID
-    :param stype:       string streaming platform, choose from
+    ## Parameters
+    - `cmid`:        string or int Chartmetric playlist ID
+    - `stype`:       string streaming platform, choose from
                         'spotify', 'applemusic', 'deezer' or 'amazon'
-    :param span:        string 'past' or 'current'
+    - `span`:        string 'past' or 'current'
 
-    :return:            list of dictionaries of
-                        tracks contained in the playlist
+    ## Returns
+    list of dictionaries of tracks contained in the playlist
     """
     urlhandle = f"/playlist/{stype}/{cmid}/{span}/tracks"
     params = None
