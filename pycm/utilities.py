@@ -120,11 +120,7 @@ def strDateToday():
     return str(datetime.datetime.today()).split(" ")[0]
 
 
-def strWeekday(
-    date: str,
-    target: int,
-    after: bool=False,
-) -> str:
+def strWeekday(date: str, target: int, after: bool = False,) -> str:
     """
     # `strWeekday`
     Given a ISO string `date` return the nearest `target` weekday.
@@ -139,7 +135,7 @@ def strWeekday(
     dtdate = pd.to_datetime(date)
     if datetime.datetime.weekday(dtdate) != target:
         if not after:
-            date = str(dtdate - pd.offsets.Week(weekday=target)).split(' ')[0]
+            date = str(dtdate - pd.offsets.Week(weekday=target)).split(" ")[0]
         else:
-            date = str(dtdate + pd.offsets.Week(weekday=target)).split(' ')[0]
+            date = str(dtdate + pd.offsets.Week(weekday=target)).split(" ")[0]
     return date

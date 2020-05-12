@@ -3,6 +3,7 @@ from .. import utilities
 APPLE_MUSIC_CHARTS_URL = f"/charts/applemusic"
 FRIDAY = 4
 
+
 def tracks(date, country="US", genre="All Genres"):
     """
     Query the charts/applemusic/tracks endpoint for the given date.

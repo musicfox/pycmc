@@ -6,7 +6,8 @@ import pandas as pd
 
 
 YOUTUBE_CHARTS_URL = f"/charts/youtube"
-THURSDAY = 3 # datetime lib convention
+THURSDAY = 3  # datetime lib convention
+
 
 def trends(date, country="US"):
     """

@@ -13,6 +13,7 @@ from .. import utilities
 QQ_CHARTS_URL = f"/charts/qq"
 THURSDAY = 3
 
+
 def insights(date):
     """
     Get the top tracks on QQ music chart for the given date.

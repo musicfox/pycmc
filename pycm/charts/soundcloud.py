@@ -3,6 +3,7 @@ from .. import utilities
 SOUNDCLOUD_CHARTS_URL = f"/charts/soundcloud"
 FRIDAY = 4
 
+
 def tracks(date, country="US", kind="top", genre="all-music"):
     """
     Get the top 200 tracks on SoundCloud chart for the given date.

@@ -3,6 +3,7 @@ from .. import utilities
 BEATPORT_CHARTS_URL = f"/charts/beatport"
 FRIDAY = 4
 
+
 def tracks(date):
     """
     Query the charts/beatport/tracks endpoint for the given date.
