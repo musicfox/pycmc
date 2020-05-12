@@ -6,11 +6,13 @@ import json
 
 def lists(stype, limit=100, offset=0, indie=False, social=True):
     """
+    # `lists`
     Get the chart of curators on the given streaming platfrorm.
 
     https://api.chartmetric.com/api/curator/:platform/lists
 
-    :param stype:       string streaming platform, choose from
+    ##Parameters
+    - `stype`:       string streaming platform, choose from
                         'spotify', 'applemusic', or 'deezer'
     :param limit:       int number of entries returned,
                         maximum acceptable is 100
