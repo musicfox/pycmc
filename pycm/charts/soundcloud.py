@@ -1,7 +1,7 @@
 from .. import utilities
 
-soundcloud_charts_url = f"/charts/soundcloud"
-
+SOUNDCLOUD_CHARTS_URL = f"/charts/soundcloud"
+FRIDAY = 4
 
 def tracks(date, country="US", kind="top", genre="all-music"):
     """
@@ -18,10 +18,10 @@ def tracks(date, country="US", kind="top", genre="all-music"):
     :return:            list of dictionary of tracks on 
                         SoundCloud chart
     """
-    urlhandle = f"{soundcloud_charts_url}"
+    urlhandle = f"{SOUNDCLOUD_CHARTS_URL}"
     params = {
         "country_code": country,
-        "date": date,
+        "date": utilities.strWeekday(date, FRIDAY),
         "kind": kind,
         "genre": genre,
     }

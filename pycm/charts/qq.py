@@ -10,8 +10,8 @@ Usage:
 """
 from .. import utilities
 
-qq_music_url = f"/charts/qq"
-
+QQ_CHARTS_URL = f"/charts/qq"
+THURSDAY = 3
 
 def insights(date):
     """
@@ -24,9 +24,9 @@ def insights(date):
 
     :return:            list of dictionary of tracks on QQ music chart
     """
-    urlhandle = f"{qq_music_url}/"
+    urlhandle = f"{QQ_CHARTS_URL}/"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY,),
     }
 
     data = utilities.RequestData(urlhandle, params)

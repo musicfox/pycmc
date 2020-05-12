@@ -1,7 +1,7 @@
 from .. import utilities
 
-charts_apple_music_url = f"/charts/applemusic"
-
+APPLE_MUSIC_CHARTS_URL = f"/charts/applemusic"
+FRIDAY = 4
 
 def tracks(date, country="US", genre="All Genres"):
     """
@@ -22,7 +22,7 @@ def tracks(date, country="US", genre="All Genres"):
         "type": "daily",
         "offset": 0,
     }
-    urlhandle = f"{charts_apple_music_url}/tracks"
+    urlhandle = f"{APPLE_MUSIC_CHARTS_URL}/tracks"
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)["data"]
 
@@ -39,7 +39,7 @@ def albums(date, country="US", genre="All Genres"):
 
     :return:            list of dictionary of albums on AppleMusic charts
     """
-    urlhandle = f"{charts_apple_music_url}/albums"
+    urlhandle = f"{APPLE_MUSIC_CHARTS_URL}/albums"
     params = {
         "date": date,
         "country_code": country,
@@ -61,7 +61,7 @@ def videos(date, country="US", genre="All Genres"):
 
     :return:            list of dictionary of videos on AppleMusic charts
     """
-    urlhandle = f"{charts_apple_music_url}/videos"
+    urlhandle = f"{APPLE_MUSIC_CHARTS_URL}/videos"
     params = {
         "date": date,
         "country_code": country,
