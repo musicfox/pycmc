@@ -35,5 +35,9 @@ def todayStr():
     return str(datetime.datetime.now()).split(' ')[0]
 
 @pytest.fixture(scope="module")
+def dates(todayStr):
+    return dict(start='2019-06-01', end=todayStr)
+
+@pytest.fixture(scope="module")
 def timestampStr():
     return str(datetime.datetime.now()).split(' ')[1]
