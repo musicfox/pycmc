@@ -17,11 +17,15 @@ import datetime
 
 def TTLwait(func,):
     """
+    # `TTLwait`
     Utility waiting function for the credentials.PeriodicUpdate
     method.
     
-    :param func:    function PeriodicUpdate from the credentials.py module 
-    :returns:       credentials.PeriodicUpdate method instantiation
+    ## Parameters
+    - `func`:    function PeriodicUpdate from the credentials.py module 
+    
+    ## Returns       
+    credentials.PeriodicUpdate method instantiation
     """
 
     @wraps(func)
@@ -38,20 +42,25 @@ def TTLwait(func,):
 
 def ProjectRootDir():
     """
+    # `ProjectRootDir`
     Return path to root directory of project with trailing slash.
     
-    :returns:       string path with trailing /
+    ## Returns       
+    string path with trailing /
     """
     return f"{Path(__file__).parent.parent}/"
 
 
 def FindProcess(name):
     """
+    # `FindProcess`
     Return a list of processes matching given name.
 
-    :param name:        string process name
+    ## Parameters
+    - `name`:        string process name
     
-    :returns:           list of items matching process 'name'
+    ## Returns           
+    list of items matching process 'name'
     """
     it = psutil.process_iter(attrs=["name"])
     result = [p for p in it if p.info["name"] == name]
@@ -64,17 +73,19 @@ def BaseURL():
 
 def RequestData(urlhandle, params):
     """
+    # `RequestData`
     Build chartmetric data object and call requests.get with 
     constructed data.
     
-    :param urlhandle:       string additional url after base
+    ## Parameters
+    - `urlhandle`:       string additional url after base
                             *with a leading* and *without ending slash*
     
-    :param params:          dictionary of keyword data to send in the
+    - `params`:          dictionary of keyword data to send in the
                             query string, specific to the particular 
     			            api endpoint
     
-    :returns:               dictionary with keys url, headers,
+    ## Returns               dictionary with keys url, headers,
                             and params
     """
     reload(credentials_manager)
@@ -87,12 +98,15 @@ def RequestData(urlhandle, params):
 
 def RequestGet(data):
     """
+    # `RequestGet`
     Method to call requests.get with data.
 
-    :param data:        dictionary with at least the following 
+    ## Parameters
+    - `data`:        dictionary with at least the following 
                         key:value pairs: url, headers, params
     
-    :returns:           dictionary of request data 
+    ## Returns           
+    dictionary of request data 
     """
     response = requests.get(
         data["url"], headers=data["headers"], params=data["params"]
