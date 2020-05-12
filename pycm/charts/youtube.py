@@ -1,9 +1,12 @@
 import requests
 import json
+import datetime
 from .. import utilities
+import pandas as pd
 
-youtube_charts_url = f"/charts/youtube"
 
+YOUTUBE_CHARTS_URL = f"/charts/youtube"
+THURSDAY = 3 # datetime lib convention
 
 def trends(date, country="US"):
     """
@@ -17,9 +20,9 @@ def trends(date, country="US"):
 
     :return:            list of dictionary of trends of YouTube chart
     """
-    urlhandle = f"{youtube_charts_url}/trends"
+    urlhandle = f"{YOUTUBE_CHARTS_URL}/trends"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY),
         "country_code": country,
         "offset": 0,
     }
@@ -39,9 +42,9 @@ def videos(date, country="US"):
 
     :return:            list of dictionary of videos of YouTube chart
     """
-    urlhandle = f"{youtube_charts_url}/videos"
+    urlhandle = f"{YOUTUBE_CHARTS_URL}/videos"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY),
         "country_code": country,
         "offset": 0,
     }
@@ -61,9 +64,9 @@ def artists(date, country="US"):
 
     :return:            list of dictionary of artists of YouTube chart
     """
-    urlhandle = f"{youtube_charts_url}/artists"
+    urlhandle = f"{YOUTUBE_CHARTS_URL}/artists"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY),
         "country_code": country,
         "offset": 0,
     }
@@ -83,9 +86,9 @@ def tracks(date, country="US"):
 
     :return:            list of dictionary of tracks of YouTube chart
     """
-    urlhandle = f"{youtube_charts_url}/tracks"
+    urlhandle = f"{YOUTUBE_CHARTS_URL}/tracks"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY),
         "country_code": country,
         "offset": 0,
     }
