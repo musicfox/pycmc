@@ -22,7 +22,7 @@ def test_metadata():
     assert test["artists"][0]["name"] is not ""
 
 
-def test_playlist_snapshot():
+def test_playlist_snapshot(dates):
     test = pycm.track.playlist_snapshot("22782681", "spotify", dates["start"])
     assert isinstance(test, type(list()))
     assert len(test)
