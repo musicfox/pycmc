@@ -1,7 +1,7 @@
 from .. import utilities
 
-beatport_charts_url = f"/charts/beatport"
-
+BEATPORT_CHARTS_URL = f"/charts/beatport"
+FRIDAY = 4
 
 def tracks(date):
     """
@@ -14,9 +14,9 @@ def tracks(date):
 
     :return:            list of dictionary of tracks on Beatport charts
     """
-    urlhandle = f"{beatport_charts_url}"
+    urlhandle = f"{BEATPORT_CHARTS_URL}"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, FRIDAY),
         "genre": "top-100",
         "offset": 0,
     }
