@@ -13,6 +13,7 @@ import psutil
 from importlib import reload
 from . import credentials_manager
 import datetime
+import pandas as pd
 
 
 def TTLwait(func,):
@@ -117,3 +118,28 @@ def strDateToday():
     `str`
     """
     return str(datetime.datetime.today()).split(" ")[0]
+
+
+def strWeekday(
+    date: str,
+    target: int,
+    after: bool=False,
+) -> str:
+    """
+    # `strWeekday`
+    Given a ISO string `date` return the nearest `target` weekday.
+
+    ## Parameters
+    - `date`: The date around which the caller would like target searched.
+    - `target`: Weekday number as in the `datetime` Standard Library Module
+
+    ## Returns
+    The ISO YYYY-MM-DD string representation of the nearest given weekday.
+    """
+    dtdate = pd.to_datetime(date)
+    if datetime.datetime.weekday(dtdate) != target:
+        if not after:
+            date = str(dtdate - pd.offsets.Week(weekday=target)).split(' ')[0]
+        else:
+            date = str(dtdate + pd.offsets.Week(weekday=target)).split(' ')[0]
+    return date
