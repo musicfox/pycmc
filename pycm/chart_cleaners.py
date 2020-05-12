@@ -6,11 +6,14 @@ import numpy as np
 
 def get_composers(res):
     """
+    # `gt_composer`
     Get the composers for the given track.
 
-    :param res:     string composer names for each track within charts
+    ## Parameters
+    - `res`:     string composer names for each track within charts
     
-    :return:        dictionary of composers {composer_num: composer_name}
+    ## Returns
+    dictionary of composers {composer_num: composer_name}
     """
     if res != None:
         res = res.replace(", Jr", " Jr")
@@ -25,13 +28,15 @@ def get_composers(res):
 
 def get_labels(res):
     """
+    # `get_labels`
     Get the record labels for the given track.
 
-    :param res:     list of string of album record labels, e.g.
+    ## Parameters
+    - `res`:     list of string of album record labels, e.g.
                     ['Universal/Warner Bros.', 'None']
     
-    :return:        dictionary of record label,
-                    {'album_label_{num}': label_name}
+    ## Returns        
+    dictionary of record label, {'album_label_{num}': label_name}
     """
     if res != None:
         filter_none = [
@@ -54,14 +59,16 @@ def get_labels(res):
 
 def extract_rank_stats(stats):
     """
+    # `extract_rank_stats`
     Extract the rank and number of plays of past days. 
 
-    :param stats:   list of rankStats for each track within charts, 
+    ## Parameters
+    - `stats`:   list of rankStats for each track within charts, 
                     each element being a dictionary containing the
                     ranks (and plays if available) of previous days
 
-    :return:        dictionary of previous day ranks (and plays if available),
-                    {'ranks_{day}s_ago': ranks, 'plays_{day}s_ago': plays}
+    ## Returns        
+    dictionary of previous day ranks (and plays if available), {'ranks_{day}s_ago': ranks, 'plays_{day}s_ago': plays}
 
     """
     last = stats[-1]
@@ -78,15 +85,18 @@ def extract_rank_stats(stats):
 
 def parse_track(res, date):
     """
+    # `parse_track`
     Parse the api query result of a single track within a chart 
     into a cleaned and structured one-row DataFrame, regardless of
     what stream service it is from.
     
-    :param res:     dictionary containing a track within a chart for
+    ## Parameters
+    - `res`:     dictionary containing a track within a chart for
                     a given date
-    :param date:    string date in ISO format
+    - `date`:    string date in ISO format
 
-    :return:        DataFrame with one row and multiple data fields
+    ## Returns
+    DataFrame with one row and multiple data fields
     """
     # define a key checker
     kc = lambda k: res[k] if k in res.keys() else None
@@ -272,16 +282,19 @@ def parse_track(res, date):
 
 def parse_charts(res, date=None):
     """
+    # `parse_charts`
     Manipulate the result (res) of any track api query into a coherent 
     dataframe. This takes the actual query result of xxx.chart(date),
     using a tuple of the query and the date. The res param should
     include a list of dictionaries representing each track on the chart.
     
-    :param res:     list of dictionaries of track api query 
+    ## Parameters
+    - `res`:     list of dictionaries of track api query 
                     results for a single date 
-    :param date:    string date in ISO format
+    - `date`:    string date in ISO format
     
-    :return:        Pandas DataFrame with the following columns:
+    ## Returns
+    Pandas DataFrame with the following columns:
                     For YouTube chart input:
                     ['added_at', 'artist_covers_{i}', 'artist_images_{i}',
                     'artist_name', 'artist_names_{i}', 'cm_artist_{i}', 
@@ -368,11 +381,14 @@ def parse_charts(res, date=None):
 
 def type_cast(parsed):
     """
+    # `type_cast`
     Change the data type of certain columns of the cleaned DataFrame.
 
-    :param parsed:      DataFrame of parsed chart with all the tracks
+    ## Parameters
+    - `parsed`:      DataFrame of parsed chart with all the tracks
 
-    :return:            DataFrame that's parsed and type-casted
+    ## Returns            
+    DataFrame that's parsed and type-casted
     """
     fix_nan_str = lambda col: parsed.loc[:, col].fillna(value="").astype(str)
 
