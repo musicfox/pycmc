@@ -6,7 +6,9 @@ import requests
 import json
 from .. import utilities
 
-spotify_charts_url = f"/charts/spotify"
+
+THURSDAY = 3
+SPOTIFY_CHARTS_URL = f"/charts/spotify"
 
 
 def tracks(date, country="US", viral=False):
@@ -23,7 +25,7 @@ def tracks(date, country="US", viral=False):
     :return:            list of dictionary of tracks on Spotify chart
     """
 
-    urlhandle = f"{spotify_charts_url}"
+    urlhandle = f"{SPOTIFY_CHARTS_URL}"
     params = {
         "date": date,
         "country_code": country,
@@ -48,9 +50,9 @@ def freshfind(date):
 
     :return:            list of dictionary of tracks on Spotify Freshfind
     """
-    urlhandle = f"{spotify_charts_url}/freshfind"
+    urlhandle = f"{SPOTIFY_CHARTS_URL}/freshfind"
     params = {
-        "date": date,
+        "date": utilities.strWeekday(date, THURSDAY),
     }
 
     data = utilities.RequestData(urlhandle, params)

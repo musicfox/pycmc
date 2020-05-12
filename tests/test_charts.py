@@ -143,7 +143,7 @@ def test_soundcloud_tracks(dates):
     From the Chartmetric documentation,
     > This data is updated weekly only (on Fridays).
     """
-    test = pycm.charts.soundcloud.tracks(start_date=dates["start"])
+    test = pycm.charts.soundcloud.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 90 
@@ -152,7 +152,7 @@ def test_soundcloud_tracks(dates):
 
 
 def test_spotify_tracks(dates):
-    test = pycm.charts.spotify.tracks(start_date=dates["start"])
+    test = pycm.charts.spotify.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 150 
@@ -161,7 +161,7 @@ def test_spotify_tracks(dates):
 
 
 def test_spotify_freshfind(dates):
-    test = pycm.charts.spotify.freshfind(start_date=dates["start"])
+    test = pycm.charts.spotify.freshfind(dates["start"])
     assert isinstance(test, list) 
     assert len(test)
     assert test[0]["name"] != ""
@@ -175,7 +175,7 @@ def test_youtube_trends(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.videos(start_date=dates["start"])
+    test = pycm.charts.youtube.videos(dates["start"])
     assert isinstance(test, list) 
     assert len(test) > 90 
     assert test[0]["name"] != ""
@@ -189,7 +189,7 @@ def test_youtube_videos(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.videos(start_date=dates["start"])
+    test = pycm.charts.youtube.videos(dates["start"])
     assert isinstance(test, list) 
     assert len(test) > 90 
     assert test[0]["name"] != ""
@@ -203,7 +203,7 @@ def test_youtube_artists(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.artists(start_date=dates["start"])
+    test = pycm.charts.youtube.artists(dates["start"])
     assert isinstance(test, list) 
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -218,7 +218,7 @@ def test_youtube_tracks(dates):
 
     """
     
-    test = pycm.charts.youtube.tracks(start_date=dates["start"])
+    test = pycm.charts.youtube.tracks(dates["start"])
     assert isinstance(test, list) 
     assert len(test) > 90
     assert test[0]["name"] != ""
