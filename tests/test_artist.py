@@ -4,22 +4,6 @@ import datetime
 import time
 
 
-@pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != "/":  # add trailing slash
-            path += "/"
-        return path
-    return utilities.ProjectRootDir()
-
-
-@pytest.fixture
-def dates():
-    return dict(
-        start="2019-03-01", end=str(datetime.datetime.today()).split(" ")[0],
-    )
-
-
 def test_albums():
     test = pycm.artist.albums("3380",)
     assert isinstance(test, type(list()))
@@ -32,8 +16,8 @@ def test_cpp_data():
     assert len(test) > 0
 
 
-def test_charts():
-    test = pycm.artist.charts("spotify_top_daily", "4904", "2020-01-01")
+def test_charts(dates):
+    test = pycm.artist.charts("spotify_top_daily", "4904", dates["start"])
     assert isinstance(test, list)
     assert len(test)
 

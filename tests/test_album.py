@@ -7,20 +7,6 @@ import logging
 
 
 @pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != "/":  # add trailing slash
-            path += "/"
-        return path
-    return utilities.ProjectRootDir()
-
-
-@pytest.fixture
-def dates():
-    return {"start": "2018-03-01", "end": "2018-03-03"}
-
-
-@pytest.fixture
 def requestkeys():
     return [
         "id",
@@ -29,8 +15,8 @@ def requestkeys():
     ]
 
 
-def test_charts():
-    test = pycm.album.charts("amazon", 3533190, "2019-02-02", "2019-03-03")
+def test_charts(dates):
+    test = pycm.album.charts("amazon", 3533190, dates["start"], dates["end"])
     assert isinstance(test, list)
     assert len(test)
 
@@ -77,13 +63,13 @@ def test_playlists(dates):
 
 def test_stats():
     test = pycm.album.stats(1119543, "spotify")
-    assert isinstance(test, list) 
+    assert isinstance(test, list)
     assert len(test)
 
 
 def test_tracks():
     test = pycm.album.tracks(1119543)
-    assert isinstance(test, list) 
+    assert isinstance(test, list)
     assert len(test)
 
 

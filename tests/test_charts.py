@@ -3,58 +3,49 @@ import pycm
 from pycm import utilities
 
 
-@pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != "/":  # add trailing slash
-            path += "/"
-        return path
-    return utilities.ProjectRootDir()
-
-
-def test_amazon_tracks():
+def test_amazon_tracks(dates):
     test = pycm.charts.amazon.tracks(
-        "2019-02-15", "popular_track", "All Genres"
+        dates["start"], "popular_track", "All Genres"
     )
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
-def test_amazon_albums():
-    test = pycm.charts.amazon.albums("2019-06-15", "new_album", "All Genres")
+def test_amazon_albums(dates):
+    test = pycm.charts.amazon.albums(dates["start"], "new_album", "All Genres")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
-def test_applemusic_tracks():
-    test = pycm.charts.applemusic.tracks("2019-02-15", "US")
+def test_applemusic_tracks(dates):
+    test = pycm.charts.applemusic.tracks(dates["start"], "US")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_applemusic_albums():
-    test = pycm.charts.applemusic.albums("2019-02-15", "US")
+def test_applemusic_albums(dates):
+    test = pycm.charts.applemusic.albums(dates["start"], "US")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 99
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_applemusic_videos():
-    test = pycm.charts.applemusic.videos("2019-02-15", "US")
+def test_applemusic_videos(dates):
+    test = pycm.charts.applemusic.videos(dates["start"], "US")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_beatport_tracks():
-    test = pycm.charts.beatport.tracks("2019-02-15")
+def test_beatport_tracks(dates):
+    test = pycm.charts.beatport.tracks(dates["start"])
     assert isinstance(test, type(list()))
     assert len(test) > 50
     assert len(test) < 200
@@ -62,7 +53,7 @@ def test_beatport_tracks():
     assert test[0]["id"] != ""
 
 
-def test_cm_score_tracks():
+def test_cm_score_tracks(dates):
     """
     This fails because of empty return.
     """
@@ -71,7 +62,7 @@ def test_cm_score_tracks():
     assert len(test)
 
 
-def test_cm_score_artists():
+def test_cm_score_artists(dates):
     """
     This fails because of 400 Client Error.
     Likely due to 'itunes-albums' as chart_type.
@@ -81,7 +72,7 @@ def test_cm_score_artists():
     assert len(test)
 
 
-def test_cm_score_albums():
+def test_cm_score_albums(dates):
     """
     This fails because of empty return.
     """
@@ -90,23 +81,14 @@ def test_cm_score_albums():
     assert len(test)
 
 
-def test_deezer_insights():
-    test = pycm.charts.deezer.insights("2019-06-15", "US")
+def test_deezer_insights(dates):
+    test = pycm.charts.deezer.insights(dates["start"], "US")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
-def test_itunes_albums():
-    test = pycm.charts.itunes.albums("2019-02-15")
-    assert isinstance(test, type(list()))
-    assert len(test) > 100
-    assert len(test) < 201
-    assert test[0]["name"] != ""
-    assert test[0]["id"] != ""
-
-
-def test_itunes_tracks():
-    test = pycm.charts.itunes.tracks("2019-02-15")
+def test_itunes_albums(dates):
+    test = pycm.charts.itunes.albums(dates["start"])
     assert isinstance(test, type(list()))
     assert len(test) > 100
     assert len(test) < 201
@@ -114,8 +96,17 @@ def test_itunes_tracks():
     assert test[0]["id"] != ""
 
 
-def test_itunes_videos():
-    test = pycm.charts.itunes.videos("2019-02-15")
+def test_itunes_tracks(dates):
+    test = pycm.charts.itunes.tracks(dates["start"])
+    assert isinstance(test, type(list()))
+    assert len(test) > 100
+    assert len(test) < 201
+    assert test[0]["name"] != ""
+    assert test[0]["id"] != ""
+
+
+def test_itunes_videos(dates):
+    test = pycm.charts.itunes.videos(dates["start"])
     assert isinstance(test, type(list()))
     assert len(test) > 100
     assert len(test) < 201
@@ -123,73 +114,73 @@ def test_itunes_videos():
     assert test[0]["itunes_music_video"] != ""
 
 
-def test_qq_insights():
-    test = pycm.charts.qq.insights("2019-05-02")
+def test_qq_insights(dates):
+    test = pycm.charts.qq.insights(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
-def test_shazam_tracks():
-    test = pycm.charts.shazam.tracks("2019-02-15")
+def test_shazam_tracks(dates):
+    test = pycm.charts.shazam.tracks(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 200
     assert test[0]["rank"] != ""
     assert test[0]["shazam_track_id"] != ""
 
 
-def test_shazam_cities():
+def test_shazam_cities(dates):
     test = pycm.charts.shazam.cities("US")
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
 
 
-def test_soundcloud_tracks():
-    test = pycm.charts.soundcloud.tracks("2019-02-15")
+def test_soundcloud_tracks(dates):
+    test = pycm.charts.soundcloud.tracks(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_spotify_tracks():
-    test = pycm.charts.spotify.tracks("2019-02-15")
+def test_spotify_tracks(dates):
+    test = pycm.charts.spotify.tracks(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 200
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_spotify_freshfind():
-    test = pycm.charts.spotify.freshfind("2019-01-10")
+def test_spotify_freshfind(dates):
+    test = pycm.charts.spotify.freshfind(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_youtube_trends():
-    test = pycm.charts.youtube.videos("2019-02-14")
+def test_youtube_trends(dates):
+    test = pycm.charts.youtube.videos(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_youtube_videos():
-    test = pycm.charts.youtube.videos("2019-02-21")
+def test_youtube_videos(dates):
+    test = pycm.charts.youtube.videos(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
 
 
-def test_youtube_artists():
-    test = pycm.charts.youtube.artists("2019-02-21")
+def test_youtube_artists(dates):
+    test = pycm.charts.youtube.artists(dates["start"])
     assert isinstance(test, type(list()))
     assert len(test)
     assert len(test) == 100
@@ -197,10 +188,10 @@ def test_youtube_artists():
     assert test[0]["youtube_artist"] != ""
 
 
-def test_youtube_tracks():
-    test = pycm.charts.youtube.tracks("2019-02-21")
+def test_youtube_tracks(dates):
+    test = pycm.charts.youtube.tracks(dates["start"])
     assert isinstance(test, type(list()))
-    assert len(test) > 0
+    assert len(test)
     assert len(test) == 100
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""

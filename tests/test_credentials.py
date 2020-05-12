@@ -57,9 +57,7 @@ def test_FetchAccessToken(credentials_response):
 
 def test_UpdateCredentials():
     credentials.Update()
-    # assert os.path.exists(utilities.ProjectRootDir()
-    #            + credentials.Filename()
-    #        )
+
     assert credentials.Load()["scope"] != ""
     assert credentials.Load()["token"] != ""
     assert credentials.Load()["expires_in"] != ""

@@ -2,23 +2,6 @@ import pytest
 import json
 import pycm.credentials_manager as cm
 import pycm.utilities as utilities
-from pycm import credentials as creds
-
-
-@pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != "/":  # add trailing slash
-            path += "/"
-        return path
-    return utilities.ProjectRootDir()
-
-
-@pytest.fixture
-def cred(projpath):
-    with open(".credentials.json", "r") as fp:
-        result = json.loads(fp.read())
-    return creds.Load()
 
 
 def test_global_vars(credential):

@@ -2,20 +2,7 @@
 Unit tests for __ within the pycm module.
 """
 import pytest
-import json
-import sys
-import os
-import requests
 import pycm.utilities as utilities
-
-
-@pytest.fixture
-def projpath(path=None):
-    if path is not None:
-        if path[-1] != "/":  # add trailing slash
-            path += "/"
-        return path
-    return utilities.ProjectRootDir()
 
 
 def test_projectrootdir():
@@ -36,11 +23,12 @@ def test_FindProcess():
 def test_BaseURL():
     assert utilities.BaseURL() == "https://api.chartmetric.com/api"
 
+
 def test_strDateToday(todayStr):
     assert todayStr == utilities.strDateToday()
     try:
         # strDateToday doesn't take anything, so this should
         # throw
-        assert todayStr == utilities.strDateToday('something')
+        assert todayStr == utilities.strDateToday("something")
     except Exception as err:
         assert isinstance(err, TypeError)

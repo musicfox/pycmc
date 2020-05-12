@@ -2,7 +2,7 @@ import pytest
 import pycm
 from pycm import utilities
 
-
+# TODO Refactor the search test below.
 @pytest.fixture
 def sr_keys():
     return ["artists", "playlists", "tracks", "curators", "albums"]
