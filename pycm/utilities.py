@@ -131,7 +131,7 @@ def strWeekday(
 
     ## Parameters
     - `date`: The date around which the caller would like target searched.
-    - `target`: Weekday number as in the `datetime` Standard Library Module
+    - `target`: Weekday number as in the `datetime` Standard Library Module.
 
     ## Returns
     The ISO YYYY-MM-DD string representation of the nearest given weekday.
