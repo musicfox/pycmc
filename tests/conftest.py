@@ -49,7 +49,7 @@ def todayStr():
 
 @pytest.fixture(scope="module")
 def dates(todayStr):
-    return dict(start="2019-06-01", end=todayStr)
+    return dict(start="2020-01-01", end=todayStr)
 
 
 @pytest.fixture(scope="module")

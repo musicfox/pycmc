@@ -38,7 +38,7 @@ def test_applemusic_videos(dates):
     assert isinstance(test, list) 
     assert len(test) > 90
     assert test[0]["name"] != ""
-    assert test[0]["id"] != ""
+    # assert test[0]["id"] != ""
 
 
 def test_beatport_tracks(dates):
