@@ -5,14 +5,16 @@ shazam_charts_url = f"/charts/shazam"
 
 def tracks(date, country="US", city=None):
     """
+    # `tracks`
     Get the top 200 tracks on Shazam chart for the given date.
 
     https://api.chartmetric.com/api/charts/shazam
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string country code, e.g. 'US'
 
-    :return:            list of dictionary of tracks on Shazam chart
+    ## Returns            
+    list of dictionary of tracks on Shazam chart
     """
     urlhandle = f"{shazam_charts_url}"
     params = {
@@ -29,14 +31,17 @@ def tracks(date, country="US", city=None):
 
 def cities(country="US"):
     """
+    # `cities`
     Get the list of available cities for a given country
     for use in city level filtering.
 
     https://api.chartmetric.com/api/charts/shazam/:country_code/cities
 
-    :param country:     string country code, e.g. 'US'
+    ## Parameters
+    - `country`:     string country code, e.g. 'US'
 
-    :return:            list of available cities for a given country
+    ## Return            
+    list of available cities for a given country
     """
     urlhandle = f"{shazam_charts_url}/{country}/cities"
     data = utilities.RequestData(urlhandle, params=None)
