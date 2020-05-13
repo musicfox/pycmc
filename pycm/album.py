@@ -5,18 +5,20 @@ import logging
 
 def charts(stype, cmid, start_date, end_date=None):
     """
+    # 'charts'
     Query the charts for the given album of a selected streamer type. 
 
     https://api.chartmetric.com/api/album/:id/:type/charts
     
-    :param stype:           string streaming platform, choose from
-                            'applemusic', 'itunes' or 'amazon'
-    :param cmid:            string or int chartmetric album ID
-    :param start_date:      string start data in ISO format
-    :param end_date:        string end date in ISO format
+    ## Parameters
+    - `stype`:           string streaming platform, choose from
+                        'applemusic', 'itunes' or 'amazon'
+    - `cmid`:            string or int chartmetric album ID
+    - `start_date`:      string start data in ISO format
+    - `end_date`:        string end date in ISO format
 
-    :return:                list of dictionaries of the chart for
-                            the given album
+    ## Returns              
+    A list of dictionaries of the chart for the given album
     """
     logging.info(
         f"This is known to have authentication issues when "
@@ -38,15 +40,18 @@ def charts(stype, cmid, start_date, end_date=None):
 
 def get_album_ids(id_type, specific_id):
     """
+    # `get_album_ids`
     Query all the related album IDs given a specific ID type.
 
     https://api.chartmetric.com/api/album/:type/:id/get-ids
 
-    :param id_type:         string of the type of ID, choose from
-                            'chartmetric', 'upc', 'spotify', 'itunes', 'deezer'
-    :param specific_id:     specific ID corresponding to the id_type
+    ##Parameters
+    - `id_type`:         string of the type of ID, choose from
+                         'chartmetric', 'upc', 'spotify', 'itunes', 'deezer'
+    - `specific_id`:     specific ID corresponding to the id_type
     
-    :return:                list of dictionaries with various types of ID
+    ## Returns
+    list of dictionaries with various types of ID
     """
     urlhandle = f"/album/{id_type}/{specific_id}/get-ids"
     data = utilities.RequestData(urlhandle, params=None)
@@ -55,13 +60,16 @@ def get_album_ids(id_type, specific_id):
 
 def metadata(cmid):
     """
+    # `metadata`
     Query the album metadata endpoint given the chartmetric ID. 
     
     https://api.chartmetric.com/api/album/:id
 
-    :param cmid:        string or int Chartmetric album ID
+    ##Parameters
+    - `cmid`:        string or int Chartmetric album ID
 
-    :return:            dictionary of album metadata
+    ## Returns            
+    dictionary of album metadata
     """
     urlhandle = f"/album/{cmid}"
     data = utilities.RequestData(urlhandle, params=None)
@@ -78,21 +86,22 @@ def playlists(
     limit=100,
 ):
     """
+    # `playlists`
     Query the album playlist placement API endpoint.
 
     https://api.chartmetric.com/api/album/:id/:platform/:status/playlists
 
-    :param cmid:        string or int Chartmetric album ID
-    :param start_date:  string ISO date
-    :param end_date:    string ISO date
-    :param stype:       string streaming platform, choose from
-                        'spotify, 'applemusic', or 'deezer'
-    :param status:      string 'current' or 'past'
-    :param indie:       Boolean true if playlist created by major labels
-    :param limit:       int number of entries to be returned,
-                        maximum acceptable is 100
+    ## Parameters
+    - `cmid`:        string or int Chartmetric album ID
+    - `start_date`:  string ISO date
+    - `end_date`:    string ISO date
+    - `stype`:       string streaming platform, choose from 'spotify, 'applemusic', or 'deezer'
+    - `status`:      string 'current' or 'past'
+    - `indie`:       Boolean true if playlist created by major labels
+    - `limit`:       int number of entries to be returned, maximum acceptable is 100
 
-    :return:            list of dictionaries of playlists for the album
+    ## Returns
+    list of dictionaries of playlists for the album
     """
     urlhandle = f"/album/{cmid}/{stype}/{status}/playlists"
     params = {
@@ -107,18 +116,20 @@ def playlists(
 
 def stats(cmid, stype, start_date=None, end_date=None):
     """
+    # `stats`
     Query the statistics from the given streaming platform,
     specifically popularity for Spotify.
 
     https://api.chartmetric.com/api/album/:id/:platform/stats
     
-    :param cmid:        string or int Chartmetric album ID
-    :param stype:       string streaming platform type, only 'spotify'
-    :param start_date:  string of start date in ISO format
-    :param end_date:    string of end date in ISO format
+    ## Parameters
+    - `cmid`:        string or int Chartmetric album ID
+    - `stype`:       string streaming platform type, only 'spotify'
+    - `start_date`:  string of start date in ISO format
+    - `end_date`:    string of end date in ISO format
 
-    :return:            list of dictionaries of the statistics
-                        for an album on a streaming platform
+    ## Returns
+    list of dictionaries of the statistics for an album on a streaming platform
     """
     urlhandle = f"/album/{cmid}/{stype}/stats"
     params = {
@@ -131,13 +142,16 @@ def stats(cmid, stype, start_date=None, end_date=None):
 
 def tracks(cmid):
     """
+    # `tracks`
     Query the tracks included in a given album.
 
     https://api.chartmetric.com/api/album/:id/tracks
 
-    :params cmid:   string or int Chartmetric album ID
+    ## Parametrs
+    - `cmid`:   string or int Chartmetric album ID
    
-    :return:        list of dictionaries of the tracks in an album
+    ## Returns
+    list of dictionaries of the tracks in an album
     """
     urlhandle = f"/album/{cmid}/tracks"
     data = utilities.RequestData(urlhandle, params=None)
@@ -146,13 +160,16 @@ def tracks(cmid):
 
 def tunefind(cmid):
     """
+    # `tunefind`
     Query the album tunefind stats given the Chartmetric ID.
 
     https://api.chartmetric.com/api/album/:id/tunefind
 
-    :param cmid:    string or int Chartmetric album ID
+    ## Parameters
+    - `cmid`:    string or int Chartmetric album ID
 
-    :return:        list of dictionaries of tunefind stats
+    ## Returns
+    list of dictionaries of tunefind stats
     """
     urlhandle = f"/album/{cmid}/tunefind"
     data = utilities.RequestData(urlhandle, params=None)

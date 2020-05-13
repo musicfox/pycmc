@@ -25,7 +25,7 @@ def DefaultCredentials(refreshtoken: str) -> None:
     into the CMCREDENTIALS environment variable, warn the user and raise
     a `KeyError` exception.
 
-    ### Parameters
+    ## Parameters
     - `refreshtoken`: the refresh token queried from the Chartmetric API
 
     """
