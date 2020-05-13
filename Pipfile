@@ -13,6 +13,8 @@ pytest-cov = "*"
 ipython = "*"
 black = "*"
 pipenv-setup = "*"
+recommonmark = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.7"
