@@ -5,15 +5,18 @@ charts_apple_music_url = f"/charts/applemusic"
 
 def tracks(date, country="US", genre="All Genres"):
     """
+    # `tracks`
     Query the charts/applemusic/tracks endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/tracks
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
-    :genre:             string genre (see CM docs)
+    ## Parameters
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string country code, e.g. 'US'
+    - `genre`:             string genre (see CM docs)
 
-    :return:            list of dictionary of tracks on AppleMusic charts
+    ## Returns            
+    list of dictionary of tracks on AppleMusic charts
     """
     params = {
         "date": date,
@@ -29,15 +32,18 @@ def tracks(date, country="US", genre="All Genres"):
 
 def albums(date, country="US", genre="All Genres"):
     """
+    # `albums`
     Query the charts/applemusic/albums endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/albums
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
-    :genre:             string genre (see CM docs)
+    ## Parameters
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string country code, e.g. 'US'
+    - `genre`:             string genre (see CM docs)
 
-    :return:            list of dictionary of albums on AppleMusic charts
+    ## Returns            
+    list of dictionary of albums on AppleMusic charts
     """
     urlhandle = f"{charts_apple_music_url}/albums"
     params = {
@@ -51,15 +57,18 @@ def albums(date, country="US", genre="All Genres"):
 
 def videos(date, country="US", genre="All Genres"):
     """
+    # `videos`
     Query the charts/applemusic/videos endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/videos
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
-    :genre:             string genre (see CM docs)
+    ## Parameters
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string country code, e.g. 'US'
+    - `genre`:             string genre (see CM docs)
 
-    :return:            list of dictionary of videos on AppleMusic charts
+    ## Returns
+    list of dictionary of videos on AppleMusic charts
     """
     urlhandle = f"{charts_apple_music_url}/videos"
     params = {
