@@ -70,6 +70,7 @@ pytest-cov = "*"
 [dev-packages]
 ipython = "*"
 black = "*"
+pipenv-setup = "*"
 
 [requires]
 python_version = "3.7"
