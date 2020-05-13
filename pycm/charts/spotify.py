@@ -11,16 +11,18 @@ spotify_charts_url = f"/charts/spotify"
 
 def tracks(date, country="US", viral=False):
     """
+    # `tracks`
     Get the top 200 tracks on Spotify chart for the given date.
 
     https://api.chartmetric.com/api/charts/spotify
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string two-letter country code
-    :param viral:       if True return tracks from Spotify viral chart, 
-                        otherwise return those from regional chart
+    ## Parameters
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string two-letter country code
+    - `viral`:       if True return tracks from Spotify viral chart, otherwise return those from regional chart
 
-    :return:            list of dictionary of tracks on Spotify chart
+    ## Returns            
+    list of dictionary of tracks on Spotify chart
     """
 
     urlhandle = f"{spotify_charts_url}"
@@ -37,16 +39,18 @@ def tracks(date, country="US", viral=False):
 
 def freshfind(date):
     """
+    # `freshfind`
     Get the tracks from the Spotify Freshfind chart
     for the given date.
     Data available ONLY on Thursdays.
 
     https://api.chartmetric.com/api/charts/spotify/freshfind
 
-    :param date:        string date in ISO format %Y-%m-%d,
-                        only Thursdays
+    ## Parameters
+    - `date`:        string date in ISO format %Y-%m-%d, only Thursdays
 
-    :return:            list of dictionary of tracks on Spotify Freshfind
+    ## Returns
+    list of dictionary of tracks on Spotify Freshfind
     """
     urlhandle = f"{spotify_charts_url}/freshfind"
     params = {
