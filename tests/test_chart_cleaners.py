@@ -7,20 +7,23 @@ import pycm
 @pytest.fixture
 def platforms():
     """
+    # `platforms`
     Return a list of all the chart endpoint keys. 
     """
     return ["youtube", "itunes", "spotify", "applemusic", "shazam"]
 
 
 @pytest.fixture
-def date(date):
+def date(dates):
     return dates["start"]
 
 
 @pytest.fixture
 def cm_raw(platforms, date):
     """
-    Return a dictionary of endpoint: cm_dict dictionaries.
+    # `cm_raw`
+
+    Pytest fixture to return a dictionary of endpoint: cm_dict dictionaries.
     """
     raw_dicts = dict()
     for platform in platforms:
@@ -39,9 +42,11 @@ def cm_raw(platforms, date):
 
 
 @pytest.fixture
-def parsed_df(cm_raw, date):
+def parsed_df(cm_raw, dates):
     """
-    Return a dictionary of endpoint: parsed_df DataFrames.
+    # `parsed_df`
+
+    Pytest fixture to return a dictionary of endpoint: parsed_df DataFrames.
     """
     parsed_data = dict()
     for plat, raw in cm_raw.items():
@@ -52,8 +57,11 @@ def parsed_df(cm_raw, date):
 
 def test_cm_raw_keys(cm_raw):
     """
+    # `test_cm_raw_keys`
+
     Test if the dictionaries within the list of raw CM pulls
     contain all the expected data fields as keys.
+
     """
     youtube_keys = [
         "added_at",
