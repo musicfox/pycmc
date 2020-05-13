@@ -18,9 +18,9 @@ sys.setrecursionlimit(1500)
 
 # -- Project information -----------------------------------------------------
 
-project = 'pycm'
-copyright = '2019, MusicFox, Inc.'
-author = 'Jason R. Stevens, CFA, Richard Shu, Sherry Yu'
+project = 'pycmc'
+copyright = '2020, MusicFox, Inc. | musicfox.io'
+author = 'Jason R. Stevens, CFA | Philip Muellerschoen | Richard Shu | Sherry Yu'
 
 
 # -- General configuration ---------------------------------------------------
@@ -33,6 +33,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'recommonmark',
     'sphinx.ext.autosummary',
+    'sphinx.ext.coverage',
+    'sphinx.ext.todo',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -67,3 +69,16 @@ html_static_path = ['_static']
 # -- Options for Syntax Highlighting -----------------------------------------
 pygments_style = 'colorful'
 
+# -- Markdown support --------------------------------------------------------
+# https://stackoverflow.com/a/56428123/5369706
+import commonmark
+
+def docstring(app, what, name, obj, options, lines):
+    md  = '\n'.join(lines)
+    ast = commonmark.Parser().parse(md)
+    rst = commonmark.ReStructuredTextRenderer().render(ast)
+    lines.clear()
+    lines += rst.splitlines()
+
+def setup(app):
+    app.connect('autodoc-process-docstring', docstring)
