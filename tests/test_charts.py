@@ -12,7 +12,9 @@ def test_amazon_tracks(dates):
 
 
 def test_amazon_albums(dates):
-    test = pycmc.charts.amazon.albums(dates["start"], "new_album", "All Genres")
+    test = pycmc.charts.amazon.albums(
+        dates["start"], "new_album", "All Genres"
+    )
     assert isinstance(test, list)
     assert len(test)
 
@@ -59,7 +61,9 @@ def test_cm_score_tracks(dates):
     """
     This fails because of empty return.
     """
-    test = pycmc.charts.cm_score.tracks("22960734", "spotify-top", "2019-06-01")
+    test = pycmc.charts.cm_score.tracks(
+        "22960734", "spotify-top", "2019-06-01"
+    )
     assert isinstance(test, list)
     assert len(test)
 
