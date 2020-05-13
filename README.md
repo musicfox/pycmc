@@ -1,4 +1,4 @@
-# `pycmc`
+# `pycmc` Python Chartmetric Client
 [![codecov](https://codecov.io/gh/musicfox/pycm/branch/develop/graph/badge.svg?token=COEMV82GV9)](https://codecov.io/gh/musicfox/pycm)
 
 A Python client for the Chartmetric API. Query artists, their music,
