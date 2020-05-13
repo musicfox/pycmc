@@ -15,6 +15,7 @@ black = "*"
 pipenv-setup = "*"
 recommonmark = "*"
 sphinx = "*"
+twine = "*"
 
 [requires]
 python_version = "3.7"
