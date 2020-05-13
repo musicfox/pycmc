@@ -1,8 +1,8 @@
 """
-Unit tests for __ within the pycm module.
+Unit tests for __ within the pycmc module.
 """
 import pytest
-import pycm.utilities as utilities
+import pycmc.utilities as utilities
 
 
 def test_projectrootdir():

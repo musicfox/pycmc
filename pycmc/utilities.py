@@ -1,7 +1,7 @@
 """
 utilities.py
 
-Utilities for the pycm api interface.
+Utilities for the pycmc api interface.
 """
 from functools import wraps
 from pathlib import Path

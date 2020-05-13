@@ -1,7 +1,7 @@
 import pytest
 import json
-import pycm.credentials_manager as cm
-import pycm.utilities as utilities
+import pycmc.credentials_manager as cm
+import pycmc.utilities as utilities
 
 
 def test_global_vars(credential):

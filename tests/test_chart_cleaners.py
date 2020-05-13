@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import pytest
-import pycm
+import pycmc
 
 
 @pytest.fixture
@@ -28,15 +28,15 @@ def cm_raw(platforms, date):
     raw_dicts = dict()
     for platform in platforms:
         if platform == "applemusic":
-            res = pycm.charts.applemusic.tracks(date)
+            res = pycmc.charts.applemusic.tracks(date)
         if platform == "spotify":
-            res = pycm.charts.spotify.tracks(date)
+            res = pycmc.charts.spotify.tracks(date)
         if platform == "itunes":
-            res = pycm.charts.itunes.tracks(date)
+            res = pycmc.charts.itunes.tracks(date)
         if platform == "shazam":
-            res = pycm.charts.shazam.tracks(date)
+            res = pycmc.charts.shazam.tracks(date)
         if platform == "youtube":
-            res = pycm.charts.youtube.tracks(date)
+            res = pycmc.charts.youtube.tracks(date)
         raw_dicts[platform] = res
     return raw_dicts
 
@@ -50,7 +50,7 @@ def parsed_df(cm_raw, dates):
     """
     parsed_data = dict()
     for plat, raw in cm_raw.items():
-        parsed = pycm.chart_cleaners.parse_charts(raw, date)
+        parsed = pycmc.chart_cleaners.parse_charts(raw, date)
         parsed_data[plat] = parsed
     return parsed_data
 
@@ -286,7 +286,7 @@ def test_parse_charts(cm_raw, keys):
     for plat, raw in cm_raw.items():
         try:
             assert len(raw) > 0
-            parsed = pycm.chart_cleaners.parse_charts(raw, date)
+            parsed = pycmc.chart_cleaners.parse_charts(raw, date)
         except AssertionError:
             print(f"Empty list for platform {plat}, date {date}")
 
@@ -316,7 +316,7 @@ def test_type_cast(parsed_df, types):
     for plat, parsed in parsed_df.items():
         try:
             assert parsed is not None
-            casted = pycm.chart_cleaners.type_cast(parsed)
+            casted = pycmc.chart_cleaners.type_cast(parsed)
         except AssertionError:
             print(f"Empty DataFrame for platform {plat}")
 

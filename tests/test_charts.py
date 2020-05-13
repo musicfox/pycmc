@@ -1,10 +1,10 @@
 import pytest
-import pycm
-from pycm import utilities
+import pycmc
+from pycmc import utilities
 
 
 def test_amazon_tracks(dates):
-    test = pycm.charts.amazon.tracks(
+    test = pycmc.charts.amazon.tracks(
         dates["start"], "popular_track", "All Genres"
     )
     assert isinstance(test, list)
@@ -12,13 +12,13 @@ def test_amazon_tracks(dates):
 
 
 def test_amazon_albums(dates):
-    test = pycm.charts.amazon.albums(dates["start"], "new_album", "All Genres")
+    test = pycmc.charts.amazon.albums(dates["start"], "new_album", "All Genres")
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_applemusic_tracks(dates):
-    test = pycm.charts.applemusic.tracks(dates["start"], "US")
+    test = pycmc.charts.applemusic.tracks(dates["start"], "US")
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -26,7 +26,7 @@ def test_applemusic_tracks(dates):
 
 
 def test_applemusic_albums(dates):
-    test = pycm.charts.applemusic.albums(dates["start"], "US")
+    test = pycmc.charts.applemusic.albums(dates["start"], "US")
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -34,7 +34,7 @@ def test_applemusic_albums(dates):
 
 
 def test_applemusic_videos(dates):
-    test = pycm.charts.applemusic.videos(dates["start"], "US")
+    test = pycmc.charts.applemusic.videos(dates["start"], "US")
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -48,7 +48,7 @@ def test_beatport_tracks(dates):
     From the Chartmetric documentation,
     > This data is updated weekly only (on Fridays).
     """
-    test = pycm.charts.beatport.tracks(dates["start"])
+    test = pycmc.charts.beatport.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test) < 200
     assert test[0]["name"] != ""
@@ -59,7 +59,7 @@ def test_cm_score_tracks(dates):
     """
     This fails because of empty return.
     """
-    test = pycm.charts.cm_score.tracks("22960734", "spotify-top", "2019-06-01")
+    test = pycmc.charts.cm_score.tracks("22960734", "spotify-top", "2019-06-01")
     assert isinstance(test, list)
     assert len(test)
 
@@ -69,7 +69,7 @@ def test_cm_score_artists(dates):
     This fails because of 400 Client Error.
     Likely due to 'itunes-albums' as chart_type.
     """
-    test = pycm.charts.cm_score.artists("4904", "spotify-top", "2019-06-01")
+    test = pycmc.charts.cm_score.artists("4904", "spotify-top", "2019-06-01")
     assert isinstance(test, list)
     assert len(test)
 
@@ -78,19 +78,19 @@ def test_cm_score_albums(dates):
     """
     This fails because of empty return.
     """
-    test = pycm.charts.cm_score.albums("2757004", "spotify-top", "2019-06-01")
+    test = pycmc.charts.cm_score.albums("2757004", "spotify-top", "2019-06-01")
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_deezer_insights(dates):
-    test = pycm.charts.deezer.insights(dates["start"], "US")
+    test = pycmc.charts.deezer.insights(dates["start"], "US")
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_itunes_albums(dates):
-    test = pycm.charts.itunes.albums(dates["start"])
+    test = pycmc.charts.itunes.albums(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -99,7 +99,7 @@ def test_itunes_albums(dates):
 
 
 def test_itunes_tracks(dates):
-    test = pycm.charts.itunes.tracks(dates["start"])
+    test = pycmc.charts.itunes.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -108,7 +108,7 @@ def test_itunes_tracks(dates):
 
 
 def test_itunes_videos(dates):
-    test = pycm.charts.itunes.videos(dates["start"])
+    test = pycmc.charts.itunes.videos(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -117,13 +117,13 @@ def test_itunes_videos(dates):
 
 
 def test_qq_insights(dates):
-    test = pycm.charts.qq.insights(dates["start"])
+    test = pycmc.charts.qq.insights(dates["start"])
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_shazam_tracks(dates):
-    test = pycm.charts.shazam.tracks(dates["start"])
+    test = pycmc.charts.shazam.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 150
@@ -132,7 +132,7 @@ def test_shazam_tracks(dates):
 
 
 def test_shazam_cities(dates):
-    test = pycm.charts.shazam.cities("US")
+    test = pycmc.charts.shazam.cities("US")
     assert isinstance(test, list)
     assert len(test)
 
@@ -143,7 +143,7 @@ def test_soundcloud_tracks(dates):
     From the Chartmetric documentation,
     > This data is updated weekly only (on Fridays).
     """
-    test = pycm.charts.soundcloud.tracks(dates["start"])
+    test = pycmc.charts.soundcloud.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 90
@@ -152,7 +152,7 @@ def test_soundcloud_tracks(dates):
 
 
 def test_spotify_tracks(dates):
-    test = pycm.charts.spotify.tracks(dates["start"])
+    test = pycmc.charts.spotify.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 150
@@ -161,7 +161,7 @@ def test_spotify_tracks(dates):
 
 
 def test_spotify_freshfind(dates):
-    test = pycm.charts.spotify.freshfind(dates["start"])
+    test = pycmc.charts.spotify.freshfind(dates["start"])
     assert isinstance(test, list)
     assert len(test)
     assert test[0]["name"] != ""
@@ -175,7 +175,7 @@ def test_youtube_trends(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.videos(dates["start"])
+    test = pycmc.charts.youtube.videos(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -189,7 +189,7 @@ def test_youtube_videos(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.videos(dates["start"])
+    test = pycmc.charts.youtube.videos(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -203,7 +203,7 @@ def test_youtube_artists(dates):
     > This data is updated weekly only (on Thursdays).
 
     """
-    test = pycm.charts.youtube.artists(dates["start"])
+    test = pycmc.charts.youtube.artists(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -218,7 +218,7 @@ def test_youtube_tracks(dates):
 
     """
 
-    test = pycm.charts.youtube.tracks(dates["start"])
+    test = pycmc.charts.youtube.tracks(dates["start"])
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""

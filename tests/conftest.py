@@ -6,7 +6,7 @@ The pytest test runner configuration file.
 """
 import pytest
 import os
-import pycm
+import pycmc
 import json
 import datetime
 import pandas as pd

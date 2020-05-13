@@ -1,7 +1,7 @@
 """
 # `credentials`
 
-Utilities for the pycm api credentials interface.
+Utilities for the pycmc api credentials interface.
 
 ## Usage
 
