@@ -95,7 +95,9 @@ def charts(chart_type, cmid, start_date, end_date=None):
     return utilities.RequestGet(data)["data"]
 
 
-def fanmetrics(cmid, start_date, end_date="today", dsrc="instagram", valueCol=None):
+def fanmetrics(
+    cmid, start_date, end_date="today", dsrc="instagram", valueCol=None
+):
     """
     Query the Chartmetric API for artist fan metrics.
 
