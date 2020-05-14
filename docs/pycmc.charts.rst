@@ -1,61 +1,55 @@
-pycm.charts package
-===================
-
-Submodules
-----------
-
-pycm.charts.applemusic module
+pycmc.charts.applemusic module
 -----------------------------
 
-.. automodule:: pycm.charts.applemusic
+.. automodule:: pycmc.charts.applemusic
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.beatport module
+pycmc.charts.beatport module
 ---------------------------
 
-.. automodule:: pycm.charts.beatport
+.. automodule:: pycmc.charts.beatport
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.itunes module
+pycmc.charts.itunes module
 -------------------------
 
-.. automodule:: pycm.charts.itunes
+.. automodule:: pycmc.charts.itunes
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.shazam module
+pycmc.charts.shazam module
 -------------------------
 
-.. automodule:: pycm.charts.shazam
+.. automodule:: pycmc.charts.shazam
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.soundcloud module
+pycmc.charts.soundcloud module
 -----------------------------
 
-.. automodule:: pycm.charts.soundcloud
+.. automodule:: pycmc.charts.soundcloud
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.spotify module
+pycmc.charts.spotify module
 --------------------------
 
-.. automodule:: pycm.charts.spotify
+.. automodule:: pycmc.charts.spotify
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.charts.youtube module
+pycmc.charts.youtube module
 --------------------------
 
-.. automodule:: pycm.charts.youtube
+.. automodule:: pycmc.charts.youtube
    :members:
    :undoc-members:
    :show-inheritance:
@@ -64,7 +58,7 @@ pycm.charts.youtube module
 Module contents
 ---------------
 
-.. automodule:: pycm.charts
+.. automodule:: pycmc.charts
    :members:
    :undoc-members:
    :show-inheritance:
