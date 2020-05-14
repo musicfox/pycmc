@@ -27,6 +27,4 @@ def serve_documentation(path = 'index.html'):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-else:
-    server = app.run()
+    app.run()
