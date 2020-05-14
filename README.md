@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/musicfox/pycm/branch/develop/graph/badge.svg?token=COEMV82GV9)](https://codecov.io/gh/musicfox/pycm)
 
 A Python client for the Chartmetric API. Query artists, their music,
-and where their fans listen.
+and where their fans listen, by [Musicfox](https://musicfox.io).
 
 And do it all in Python.
 
@@ -18,13 +18,14 @@ _or_
 ```python
 pipenv install pycmc
 ```
-> :warning: **You're not done yet; you'll need to set an authentication environment variable for queries.** 
+> &#9888; **You're not done yet; you'll need to set an authentication environment variable for queries.** 
+
 ## Quick start 
 If you're already setup with your environment variable, you can query Rihanna's metadata with a quick call to the `artist` module:
 
 ```python
 >>> import pycmc
->>> rihanna_metadata = pycmc.artists.metadata(cmid=2316)
+>>> rihanna_metadata = pycmc.artist.metadata(cmid=2316)
 ```
 
 Yep, it's that simple.
@@ -51,7 +52,7 @@ environment variable, `CMCREDENTIALS`, to equal your JSON authentication string 
     "refreshtoken":"your-chartmetric-token-here",
 }
 ```
-> :mag_right: _Be sure the above is a **string** when you set your environment variable._
+> 🔎 _Be sure the above is a **string** when you set your environment variable._
 
 #### How to set up `pycmc` authentication
 
