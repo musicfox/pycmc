@@ -19,8 +19,8 @@ sys.setrecursionlimit(1500)
 # -- Project information -----------------------------------------------------
 
 project = 'pycmc'
-copyright = '2020, MusicFox, Inc. | musicfox.io'
-author = 'Jason R. Stevens, CFA | Philip Muellerschoen | Richard Shu | Sherry Yu'
+copyright = '2020, Musicfox, Inc. | musicfox.io'
+author = 'Jason R. Stevens, CFA'
 
 
 # -- General configuration ---------------------------------------------------
@@ -51,12 +51,20 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_logo = 'logo-dark-text.png'
-html_favicon = 'favicon.ico'
-html_theme = 'haiku'
-#html_theme_options = {
-#    full_logo = "true" 
-#}
+html_logo = '_static/logo-dark-text.png'
+html_favicon = '_static/favicon.ico'
+html_theme = 'pydata_sphinx_theme'
+html_theme_options = {
+    "external_links": [
+        {"name": "Musicfox", "url": "https://musicfox.io"},
+    ],
+    "github_url": "https://github.com/musicfox/pycmc",
+    "twitter_url": "https://twitter.com/musicfoxinc",
+    "search_bar_text": "Search pycmc docs ...",
+}
+html_sidebars = {'**': ['util/searchbox.html', 'util/sidetoc.html', 'sourcelink.html', 'relations.html']}
+
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

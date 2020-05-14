@@ -1,84 +1,82 @@
-``pycm`` package documentation
+``pycmc`` documentation
 ===============================
 
-Subpackages
+pycmc.charts
 -----------
 
 .. toctree::
 
-   pycm.charts
+   pycmc.charts
 
-Submodules
-----------
 
-pycm.album module
+pycmc.album module
 -----------------
 
-.. automodule:: pycm.album
+.. automodule:: pycmc.album
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.artist module
+pycmc.artist module
 ------------------
 
-.. automodule:: pycm.artist
+.. automodule:: pycmc.artist
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.background module
+pycmc.background module
 ----------------------
 
-.. automodule:: pycm.background
+.. automodule:: pycmc.background
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.credentials module
+pycmc.credentials module
 -----------------------
 
-.. automodule:: pycm.credentials
+.. automodule:: pycmc.credentials
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.credentials\_manager module
+pycmc.credentials\_manager module
 --------------------------------
 
-.. automodule:: pycm.credentials_manager
+.. automodule:: pycmc.credentials_manager
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.curator module
+pycmc.curator module
 -------------------
 
-.. automodule:: pycm.curator
+.. automodule:: pycmc.curator
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.playlist module
+pycmc.playlist module
 --------------------
 
-.. automodule:: pycm.playlist
+.. automodule:: pycmc.playlist
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.track module
+pycmc.track module
 -----------------
 
-.. automodule:: pycm.track
+.. automodule:: pycmc.track
    :members:
    :undoc-members:
    :show-inheritance:
 
-pycm.utilities module
+pycmc.utilities module
 ---------------------
 
-.. automodule:: pycm.utilities
+.. automodule:: pycmc.utilities
    :members:
    :undoc-members:
    :show-inheritance:
@@ -87,7 +85,7 @@ pycm.utilities module
 Module contents
 ---------------
 
-.. automodule:: pycm
+.. automodule:: pycmc
    :members:
    :undoc-members:
    :show-inheritance:
