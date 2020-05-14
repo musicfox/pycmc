@@ -16,10 +16,15 @@ def trends(date, country="US"):
 
     https://api.chartmetric.com/api/charts/youtube/trends
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
+    **Parameters**
 
-    :return:            list of dictionary of trends of YouTube chart
+    - `date`:        string date in ISO format %Y-%m-%d
+
+    - `country`:     string country code, e.g. 'US'
+
+    **Returns**
+
+    A list of dictionaries of YouTube chart trends.
     """
     urlhandle = f"{YOUTUBE_CHARTS_URL}/trends"
     params = {
@@ -38,10 +43,14 @@ def videos(date, country="US"):
 
     https://api.chartmetric.com/api/charts/youtube/videos
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
+    **Parameters**
 
-    :return:            list of dictionary of videos of YouTube chart
+    - `date`:        string date in ISO format %Y-%m-%d
+    - `country`:     string country code, e.g. 'US'
+
+    **Returns**
+
+    A list of dictionary of videos of YouTube chart.
     """
     urlhandle = f"{YOUTUBE_CHARTS_URL}/videos"
     params = {
@@ -60,10 +69,14 @@ def artists(date, country="US"):
 
     https://api.chartmetric.com/api/charts/youtube/artists
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
+    **Parameters**
 
-    :return:            list of dictionary of artists of YouTube chart
+    `date`:        string date in ISO format %Y-%m-%d
+    `country`:     string country code, e.g. 'US'
+
+    **Returns**
+
+    A list of dictionary of artists of YouTube charts.
     """
     urlhandle = f"{YOUTUBE_CHARTS_URL}/artists"
     params = {
@@ -82,10 +95,14 @@ def tracks(date, country="US"):
 
     https://api.chartmetric.com/api/charts/youtube/tracks
 
-    :param date:        string date in ISO format %Y-%m-%d
-    :param country:     string country code, e.g. 'US'
+    **Parameters**
 
-    :return:            list of dictionary of tracks of YouTube chart
+    `date`:        string date in ISO format %Y-%m-%d
+    `country`:     string country code, e.g. 'US'
+
+    **Returns**
+
+    A list of dictionary of tracks of YouTube charts.
     """
     urlhandle = f"{YOUTUBE_CHARTS_URL}/tracks"
     params = {

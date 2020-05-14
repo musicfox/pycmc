@@ -6,22 +6,26 @@ import json
 
 def lists(stype, limit=100, offset=0, indie=False, social=True):
     """
-    # `lists`
     Get the chart of curators on the given streaming platfrorm.
 
     https://api.chartmetric.com/api/curator/:platform/lists
 
-    ##Parameters
-    - `stype`:       string streaming platform, choose from
-                        'spotify', 'applemusic', or 'deezer'
-    :param limit:       int number of entries returned,
-                        maximum acceptable is 100
-    :param offset:      int offset of entries returned
-    :param indie:       boolean True to return the charts 
-                        not curated by major labels
-    :param social:      boolean True to return social url data
+    **Parameters**
 
-    :return:            list of dictionaries of curators
+    - `stype`:       string streaming platform, choose from
+    
+        'spotify', 'applemusic', or 'deezer'
+
+    - `limit`:       int number of entries returned; maximum acceptable is 100
+
+    - `offset`:      int offset of entries returned
+
+    - `indie`:       boolean True to return the charts not curated by major labels
+    - `social`:      boolean True to return social url data
+
+    **Returns**
+    
+    A Python list of dictionaries of curators.
     """
     indie = "true" if indie else "false"
     social = "true" if social else "false"
@@ -42,11 +46,17 @@ def metadata(cmid, stype):
 
     https://api.chartmetric.com/api/curator/:platform/:id/
 
-    :param cmid:        string or int Chartmetric curator ID
-    :param stype:       string streaming platform, choose from
-                        'spotify', 'applemusic', 'deezer'
+    **Parameters**
 
-    :return:            dictionary of curator metadata
+    - `cmid`:        string or int Chartmetric curator ID
+
+    - `stype`:       string streaming platform, choose from
+
+        'spotify', 'applemusic', 'deezer'
+
+    **Returns**
+
+    A dictionary of curator metadata.
     """
     urlhandle = f"/curator/{stype}/{cmid}"
     params = None
@@ -59,12 +69,18 @@ def playlists(cmid, stype):
     Get the playlists by the curator on the given streaming platform.
 
     https://api.chartmetric.com/api/curator/:platform/:id/playlists
+    
+    **Parameters**
 
-    :param cmid:        string or in Chartmetric curator ID
-    :param stype:       string streaming platform, choose from
-                        'spotify', 'applemusic', 'deezer'
+    - `cmid`:        string or in Chartmetric curator ID
 
-    :return:            list of dictionaries of playlist by the curator
+    - `stype`:       string streaming platform, choose from
+
+        'spotify', 'applemusic', 'deezer'
+
+    **Returns**
+
+    A Python list of dictionaries of playlist by the curator
     """
     urlhandle = f"/curator/{stype}/{cmid}/playlists"
     params = None

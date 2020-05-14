@@ -16,17 +16,18 @@ THURSDAY = 3
 
 def insights(date):
     """
-    # `insights`
     Get the top tracks on QQ music chart for the given date.
     Data available on Thursdays.
 
     https://api.chartmetric.com/api/charts/qq/
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
 
-    ## Returns            
-    list of dictionary of tracks on QQ music chart
+    **Returns**            
+
+    A list of dictionary of tracks on QQ music chart.
     """
     urlhandle = f"{QQ_CHARTS_URL}/"
     params = {

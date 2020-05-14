@@ -6,14 +6,15 @@ import numpy as np
 
 def get_composers(res):
     """
-    # `gt_composer`
     Get the composers for the given track.
 
-    ## Parameters
+    **Parameters**
+
     - `res`:     string composer names for each track within charts
     
-    ## Returns
-    dictionary of composers {composer_num: composer_name}
+    **Returns**
+
+    A dictionary of composers `{composer_num: composer_name}`.
     """
     if res != None:
         res = res.replace(", Jr", " Jr")
@@ -28,15 +29,16 @@ def get_composers(res):
 
 def get_labels(res):
     """
-    # `get_labels`
     Get the record labels for the given track.
 
-    ## Parameters
+    **Parameters**
+
     - `res`:     list of string of album record labels, e.g.
                     ['Universal/Warner Bros.', 'None']
     
-    ## Returns        
-    dictionary of record label, {'album_label_{num}': label_name}
+    **Returns**
+
+    A dictionary of record label, `{'album_label_{num}': label_name}`.
     """
     if res != None:
         filter_none = [
@@ -59,17 +61,17 @@ def get_labels(res):
 
 def extract_rank_stats(stats):
     """
-    # `extract_rank_stats`
     Extract the rank and number of plays of past days. 
 
-    ## Parameters
+    **Parameters**
+
     - `stats`:   list of rankStats for each track within charts, 
                     each element being a dictionary containing the
                     ranks (and plays if available) of previous days
 
-    ## Returns        
-    dictionary of previous day ranks (and plays if available), {'ranks_{day}s_ago': ranks, 'plays_{day}s_ago': plays}
+    **Returns**        
 
+    A dictionary of previous day ranks (and plays if available), `{'ranks_{day}s_ago': ranks, 'plays_{day}s_ago': plays}`.
     """
     last = stats[-1]
     rank_stats = {"rank_today": last["rank"]}
@@ -85,18 +87,21 @@ def extract_rank_stats(stats):
 
 def parse_track(res, date):
     """
-    # `parse_track`
     Parse the api query result of a single track within a chart 
     into a cleaned and structured one-row DataFrame, regardless of
     what stream service it is from.
     
-    ## Parameters
+    **Parameters**
+
     - `res`:     dictionary containing a track within a chart for
-                    a given date
+
+        a given date
+
     - `date`:    string date in ISO format
 
-    ## Returns
-    DataFrame with one row and multiple data fields
+    **Returns**
+
+    A Pandas DataFrame with one row and multiple data fields.
     """
     # define a key checker
     kc = lambda k: res[k] if k in res.keys() else None
@@ -282,83 +287,102 @@ def parse_track(res, date):
 
 def parse_charts(res, date=None):
     """
-    # `parse_charts`
     Manipulate the result (res) of any track api query into a coherent 
     dataframe. This takes the actual query result of xxx.chart(date),
     using a tuple of the query and the date. The res param should
     include a list of dictionaries representing each track on the chart.
     
-    ## Parameters
+    **Parameters**
+
     - `res`:     list of dictionaries of track api query 
-                    results for a single date 
+
+        results for a single date 
+
     - `date`:    string date in ISO format
     
-    ## Returns
+    **Returns**
+
     Pandas DataFrame with the following columns:
-                    For YouTube chart input:
-                    ['added_at', 'artist_covers_{i}', 'artist_images_{i}',
-                    'artist_name', 'artist_names_{i}', 'cm_artist_{i}', 
-                    'cm_track', 'code2s_{i}', 'id', 'image_url', 'isrc',
-                    'name', 'peak_date', 'peak_rank', 'position', 'pre_rank',
-                    'rank_{i}d_ago', 'rank_today', 'percent_views_change',
-                    'time_on_chart', 'view_count', 'youtube_artist',
-                    'youtube_artist_ids_{i}', 'youtube_artist_names_{i}',
-                    'youtube_track_id', 'youtube_track_ids_{i}']
+    
+    - For YouTube chart input:
 
-                    For Spotify chart input:
-                    ['added_at', 'album_ids_{i}', 'album_label_{i}',
-                    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
-                    'artist_images_{i}', 'artist_names_{i}', 'chart_name',
-                    'chart_type', 'cm_artist_{i}', 'cm_track', 'code2',
-                    'code2s_{i}', 'current_plays', 'duration', 'id',
-                    'image_url', 'isrc', 'name', 'peak_date', 'peak_rank',
-                    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
-                    'plays_{i}d_ago', 'plays_today', 'release_dates_{i}',
-                    'spotify', 'spotify_album_id', 'time_on_chart',
-                    'spotify_album_ids_{i}', 'spotify_artist_ids_{i}',
-                    'track_genre_{i}', 'spotify_artist_names_{i}',
-                    'spotify_duration_ms', 'spotify_popularity',
-                    'spotify_track_ids_{i}']
+    ```python
+    ['added_at', 'artist_covers_{i}', 'artist_images_{i}',
+    'artist_name', 'artist_names_{i}', 'cm_artist_{i}', 
+    'cm_track', 'code2s_{i}', 'id', 'image_url', 'isrc',
+    'name', 'peak_date', 'peak_rank', 'position', 'pre_rank',
+    'rank_{i}d_ago', 'rank_today', 'percent_views_change',
+    'time_on_chart', 'view_count', 'youtube_artist',
+    'youtube_artist_ids_{i}', 'youtube_artist_names_{i}',
+    'youtube_track_id', 'youtube_track_ids_{i}']
+    ```
 
-                    For AppleMusic chart input:
-                    ['added_at', 'album_ids_{i}', 'album_label_{i}',
-                    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
-                    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
-                    'cm_artist_{i}',  'code2', 'code2s_{i}','itunes', 
-                    'composer_{i}', 'country', 'id', 'image_url', 'isrc',
-                    'name', 'itunes_album_id_{i}', 'itunes_album_ids_{i}',
-                    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
-                    'itunes_track_ids_{i}', 'peak_date', 'peak_rank',
-                    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
-                    'release_dates_{i}', 'storefronts_{i}', 'time_on_chart',
-                    'track_genre_{i}']
+    - For Spotify chart input:
+    
+    ```python
+    ['added_at', 'album_ids_{i}', 'album_label_{i}',
+    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
+    'artist_images_{i}', 'artist_names_{i}', 'chart_name',
+    'chart_type', 'cm_artist_{i}', 'cm_track', 'code2',
+    'code2s_{i}', 'current_plays', 'duration', 'id',
+    'image_url', 'isrc', 'name', 'peak_date', 'peak_rank',
+    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
+    'plays_{i}d_ago', 'plays_today', 'release_dates_{i}',
+    'spotify', 'spotify_album_id', 'time_on_chart',
+    'spotify_album_ids_{i}', 'spotify_artist_ids_{i}',
+    'track_genre_{i}', 'spotify_artist_names_{i}',
+    'spotify_duration_ms', 'spotify_popularity',
+    'spotify_track_ids_{i}']
+    ```
 
-                    For iTunes chart input:    
-                    ['added_at', 'album_ids_{i}', 'album_label_{i}',
-                    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
-                    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
-                    'cm_artist_{i}', 'code2', 'code2s_{i}', 'genre', 
-                    'composer_{i}', 'id', 'image_url', 'isrc', 'itunes',
-                    'itunes_album_id_{i}', 'itunes_album_ids_{i}',
-                    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
-                    'itunes_track_ids_{i}', 'name', 'peak_date', 'peak_rank',
-                    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
-                    'release_dates_{i}', 'storefronts_{i}', 'time_on_chart',
-                    'track_genre_{i}']  
+    - For AppleMusic chart input:
+    
+    ```python
+    ['added_at', 'album_ids_{i}', 'album_label_{i}',
+    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
+    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
+    'cm_artist_{i}',  'code2', 'code2s_{i}','itunes', 
+    'composer_{i}', 'country', 'id', 'image_url', 'isrc',
+    'name', 'itunes_album_id_{i}', 'itunes_album_ids_{i}',
+    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
+    'itunes_track_ids_{i}', 'peak_date', 'peak_rank',
+    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
+    'release_dates_{i}', 'storefronts_{i}', 'time_on_chart',
+    'track_genre_{i}']
+    ```
 
-                    For Shazam chart input:
-                    ['added_at', 'album_ids_{i}', 'album_label_{i}',
-                    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
-                    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
-                    'city', 'cm_artist_{i}', 'code2', 'code2s_{i}',
-                    'composer_{i}', 'id', 'image_url', 'isrc',
-                    'itunes_album_id_{i}', 'itunes_album_ids_{i}',
-                    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
-                    'itunes_id', 'itunes_track_ids_{i}', 'name',
-                    'num_of_shazams', 'peak_date', 'peak_rank', 'pre_rank',
-                    'rank', 'rank_{i}d_ago', 'rank_today', 'release_dates_{i}',
-                    'shazam_track_id', 'storefronts_{i}', 'time_on_chart',
-                    'track_genre_{i}']    
+    - For iTunes chart input:    
+
+    ```python
+    ['added_at', 'album_ids_{i}', 'album_label_{i}',
+    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
+    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
+    'cm_artist_{i}', 'code2', 'code2s_{i}', 'genre', 
+    'composer_{i}', 'id', 'image_url', 'isrc', 'itunes',
+    'itunes_album_id_{i}', 'itunes_album_ids_{i}',
+    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
+    'itunes_track_ids_{i}', 'name', 'peak_date', 'peak_rank',
+    'pre_rank', 'rank', 'rank_{i}d_ago', 'rank_today',
+    'release_dates_{i}', 'storefronts_{i}', 'time_on_chart',
+    'track_genre_{i}']  
+    ```
+
+    - For Shazam chart input:
+    
+    ```python
+    ['added_at', 'album_ids_{i}', 'album_label_{i}',
+    'album_names_{i}', 'album_upc_{i}', 'artist_covers_{i}',
+    'artist_images_{i}', 'cm_track', 'artist_names_{i}',
+    'city', 'cm_artist_{i}', 'code2', 'code2s_{i}',
+    'composer_{i}', 'id', 'image_url', 'isrc',
+    'itunes_album_id_{i}', 'itunes_album_ids_{i}',
+    'itunes_artist_ids_{i}', 'itunes_artist_names_{i}',
+    'itunes_id', 'itunes_track_ids_{i}', 'name',
+    'num_of_shazams', 'peak_date', 'peak_rank', 'pre_rank',
+    'rank', 'rank_{i}d_ago', 'rank_today', 'release_dates_{i}',
+    'shazam_track_id', 'storefronts_{i}', 'time_on_chart',
+    'track_genre_{i}']    
+    ```
     """
     # first ensure we have a list as input...
     try:
@@ -381,14 +405,15 @@ def parse_charts(res, date=None):
 
 def type_cast(parsed):
     """
-    # `type_cast`
     Change the data type of certain columns of the cleaned DataFrame.
 
-    ## Parameters
+    **Parameters**
+
     - `parsed`:      DataFrame of parsed chart with all the tracks
 
-    ## Returns            
-    DataFrame that's parsed and type-casted
+    **Returns**            
+
+    A Pandas DataFrame that's parsed and type-casted.
     """
     fix_nan_str = lambda col: parsed.loc[:, col].fillna(value="").astype(str)
 

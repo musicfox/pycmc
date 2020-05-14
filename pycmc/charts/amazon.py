@@ -5,15 +5,18 @@ amazon_charts_url = f"/charts/amazon"
 
 def tracks(date, track_type, genre):
     """
-    # `tracks`
     Query the charts/amazon/tracks endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/amazon/tracks
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `track_type`:  string track type,
+
                         taking 'popular_track' or 'new_track'
+
     - `genre`:       string genre, taking one of the following
                         'All Genres', 'Pop', 'Rock', 'Dance', 
                         'Latino' 'K-Pop', 'Singer/Songwriter', 
@@ -24,7 +27,8 @@ def tracks(date, track_type, genre):
                         'Easy Listening', 'Children's Music', 
                         'Fitness & Workout', 'Soundtrack'
 
-    ## Returns            
+    **Returns**            
+
     list of dictionary of tracks on Amazon charts
     """
     urlhandle = f"{amazon_charts_url}/tracks"
@@ -40,12 +44,12 @@ def tracks(date, track_type, genre):
 
 def albums(date, album_type, genre):
     """
-    # `albums`
     Query the charts/amazon/albums endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/amazon/albums
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
     - `track_type`:  string album type,
                         taking 'popular_album' or 'new_album'
@@ -59,8 +63,9 @@ def albums(date, album_type, genre):
                         'Easy Listening', 'Children's Music', 
                         'Fitness & Workout', 'Soundtrack'
 
-    ## Returns
-    list of dictionary of albums on Amazon charts
+    **Returns**
+
+    A list of dictionary of albums on Amazon charts.
     """
     urlhandle = f"{amazon_charts_url}/albums"
     params = {

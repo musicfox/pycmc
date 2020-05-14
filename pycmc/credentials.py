@@ -3,7 +3,7 @@
 
 Utilities for the pycmc api credentials interface.
 
-## Usage
+##### Usage
 
 See `credentials_manager` for usage details. 
 """
@@ -19,13 +19,12 @@ import logging
 
 def DefaultCredentials(refreshtoken: str) -> None:
     """
-    # `DefaultCredentials`
-
     Set the default (only refreshtoken)
     into the CMCREDENTIALS environment variable, warn the user and raise
     a `KeyError` exception.
 
-    ## Parameters
+    **Parameters**
+
     - `refreshtoken`: the refresh token queried from the Chartmetric API
 
     """
@@ -62,17 +61,18 @@ def TTLwait(func,):
 @TTLwait
 def PeriodicUpdate(TTL_seconds=3600, repeat=None):
     """
-    # `PeriodicUpdate`
-
     Wrapper method to take a TTL variable, wait, and call
     UpdateCredentials. Current chartmetric api documentation (Feb-2019)
     indicates a credential refresh is required every 3600 seconds.
 
-    ## Parameters
+    **Parameters**
+
     - `TTL_seconds`     integer seconds to wait between refreshes
+
     - `repeat`          _default_: `None`; integer loops to repeat; -1 = inf 
 
-    ## Returns
+    **Returns**
+
     - `None`
     """
     if repeat is not None and repeat > 0:
@@ -89,13 +89,12 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
 
 def Update() -> None:
     """
-    # `Update`
-
     Use the `CMCREDENTIALS` environment variable to make a HTTP
     GET request for the token, lifetime, and scope attributes and subsequently
     update the `CMCREDENTIALS` environment variable. 
 
-    ## Returns
+    **Returns**
+
     - `None`
     """
     # load .credentials.json
@@ -116,11 +115,11 @@ def Update() -> None:
 
 def Load():
     """
-    # `Load`
     Load the credentials from the environment
     and return the credentials dictionary.
 
-    ## Returns 
+    **Returns** 
+
     - `dict` of keys: 
       - `token`,
       - `scope`,
@@ -135,7 +134,6 @@ def Load():
 
 def Check():
     """
-    # `Check` 
     Check that the `CMCREDENTIALS` environment variable is extant within the 
     environment.
 
@@ -143,10 +141,9 @@ def Check():
     phase as possible. `DefaultCredentials` will throw if a `refreshtoken` is
     unavailable.
 
-    ## Returns
-    - `boolean` `True` if `CMCREDENTIALS` exists AND the
-                    dictionary contains a non-empty string for the
-                    `refreshtoken` string, otherwise False.
+    **Returns**
+
+    - `boolean` `True` if `CMCREDENTIALS` exists AND the dictionary contains a non-empty string for the `refreshtoken` string, otherwise `False`.
     """
     try:
         credentials = json.loads(os.environ.get(Varname()))
@@ -162,21 +159,18 @@ def Check():
 
 def FetchAccessToken():
     """
-    # `FetchAccessToken`
-
     Use the refreshtoken to fetch the access and other credentials
     from chartmetric.com.
 
 
-    ## Returns       
+    **Returns**       
     - A Python Requests response object in dictionary form with keys:
         - `token`,
         - `expires_in`,
         - `refresh_token`,
         - `scope`.
 
-    ### Notes
-    - Raises for any non-200 response. See the Requests library documentation.
+        &#57938; Raises for any non-200 response. See the Requests library documentation.
     """
     authURL = "https://api.chartmetric.com/api/token"
     headers = {"Content-Type": "application/json"}
@@ -191,7 +185,8 @@ def FetchAccessToken():
 
 def Varname() -> str:
     """
-    # `Varname`
-    Return the set charmetric credentials environment variable name.
+    **Returns**
+
+    The set charmetric credentials environment variable name.
     """
     return "CMCREDENTIALS"

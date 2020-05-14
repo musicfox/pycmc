@@ -1,10 +1,12 @@
 """
-# `credentials_manager`
-
 Credential manager for pycm. Load, store (globally), and
 automagically update credentials given response TTL seconds.
 
-## Usage:
+> &#57938; You probably shouldn't do anything with this manually!
+> All you need to do is set your `CMCREDENTIALS` environment variable to
+> your JSON string of your Chartmetric API token.
+
+##### Usage:
 ```python
 >>> import credential_manager as cm
 >>> print(cm.token)
@@ -57,6 +59,9 @@ scope = _data["scope"]
 
 # run the loop until the program quits
 def UpdateCredentials():
+    """
+    TODO Write documentation here.
+    """
     global token, refreshtoken, expires_in, scope, _starttime
     credentials.Update()
     newdata = credentials.Load()
@@ -68,6 +73,9 @@ def UpdateCredentials():
 
 @background.task
 def TimedLoop():
+    """
+    TODO Write documentation here.
+    """
     while True:
         sleep(
             3000

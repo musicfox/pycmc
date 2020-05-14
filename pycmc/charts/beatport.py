@@ -6,17 +6,18 @@ FRIDAY = 4
 
 def tracks(date):
     """
-    # `tracks`
     Query the charts/beatport/tracks endpoint for the given date.
     Data available on Fridays.
 
     https://api.chartmetric.com/api/charts/beatport
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
 
-    ## Returns            
-    list of dictionary of tracks on Beatport charts
+    **Returns**            
+
+    A list of dictionary of tracks on Beatport charts.
     """
     urlhandle = f"{BEATPORT_CHARTS_URL}"
     params = {

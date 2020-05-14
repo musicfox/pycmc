@@ -6,17 +6,20 @@ FRIDAY = 4
 
 def tracks(date, country="US", genre="All Genres"):
     """
-    # `tracks`
     Query the charts/applemusic/tracks endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/tracks
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
+
     - `genre`:             string genre (see CM docs)
 
-    ## Returns            
+    **Returns**            
+
     list of dictionary of tracks on AppleMusic charts
     """
     params = {
@@ -33,18 +36,22 @@ def tracks(date, country="US", genre="All Genres"):
 
 def albums(date, country="US", genre="All Genres"):
     """
-    # `albums`
     Query the charts/applemusic/albums endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/albums
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
+
     - `genre`:             string genre (see CM docs)
 
-    ## Returns            
-    list of dictionary of albums on AppleMusic charts
+
+    **Returns**            
+
+    A list of dictionary of albums on AppleMusic charts.
     """
     urlhandle = f"{APPLE_MUSIC_CHARTS_URL}/albums"
     params = {
@@ -58,18 +65,21 @@ def albums(date, country="US", genre="All Genres"):
 
 def videos(date, country="US", genre="All Genres"):
     """
-    # `videos`
     Query the charts/applemusic/videos endpoint for the given date.
 
     https://api.chartmetric.com/api/charts/applemusic/videos
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
+
     - `genre`:             string genre (see CM docs)
 
-    ## Returns
-    list of dictionary of videos on AppleMusic charts
+    **Returns**
+
+    A list of dictionary of videos on AppleMusic charts.
     """
     urlhandle = f"{APPLE_MUSIC_CHARTS_URL}/videos"
     params = {

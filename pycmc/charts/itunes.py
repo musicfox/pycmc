@@ -5,17 +5,19 @@ itunes_charts_url = f"/charts/itunes"
 
 def albums(date, country="US"):
     """
-    # `albums`
     Get the top 200 albums on iTunes charts for the given date.
 
     https://api.chartmetric.com/api/charts/itunes/albums
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
 
-    ## Returns            
-    list of dictionary of albums data on iTunes charts
+    **Returns**            
+
+    A list of dictionary of albums data on iTunes charts.
     """
     urlhandle = f"{itunes_charts_url}/albums"
     params = {
@@ -30,17 +32,19 @@ def albums(date, country="US"):
 
 def tracks(date, country="US"):
     """
-    # `tracks`
     Get the top 200 tracks on itunes charts for the given date.
 
     https://api.chartmetric.com/api/charts/itunes/tracks
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
 
-    ## Returns            
-    list of dictionary of tracks data on iTunes charts
+    **Returns**            
+
+    A list of dictionary of tracks data on iTunes charts.
     """
     urlhandle = f"{itunes_charts_url}/tracks"
     params = {
@@ -55,17 +59,19 @@ def tracks(date, country="US"):
 
 def videos(date, country="US"):
     """
-    # `videos`
     Get the top 200 videos on iTunes chart for the given date.
 
     https://api.chartmetric.com/api/charts/itunes/videos
 
-    ## Parameters
+    **Parameters**
+
     - `date`:        string date in ISO format %Y-%m-%d
+
     - `country`:     string country code, e.g. 'US'
 
-    ## Returns            
-    list of dictionary of videos data on iTunes charts
+    **Returns**            
+
+    A list of dictionary of videos data on iTunes charts.
     """
     urlhandle = f"{itunes_charts_url}/videos"
     params = {

@@ -18,14 +18,15 @@ import pandas as pd
 
 def TTLwait(func,):
     """
-    # `TTLwait`
     Utility waiting function for the credentials.PeriodicUpdate
     method.
     
-    ## Parameters
+    **Parameters**
+
     - `func`:    function PeriodicUpdate from the credentials.py module 
     
-    ## Returns       
+    **Returns**       
+
     credentials.PeriodicUpdate method instantiation
     """
 
@@ -43,10 +44,10 @@ def TTLwait(func,):
 
 def ProjectRootDir():
     """
-    # `ProjectRootDir`
     Return path to root directory of project with trailing slash.
     
-    ## Returns       
+    **Returns**       
+
     string path with trailing /
     """
     return f"{Path(__file__).parent.parent}/"
@@ -54,13 +55,14 @@ def ProjectRootDir():
 
 def FindProcess(name):
     """
-    # `FindProcess`
     Return a list of processes matching given name.
 
-    ## Parameters
+    **Parameters**
+
     - `name`:        string process name
     
-    ## Returns           
+    **Returns**           
+
     list of items matching process 'name'
     """
     it = psutil.process_iter(attrs=["name"])
@@ -74,11 +76,11 @@ def BaseURL():
 
 def RequestData(urlhandle, params):
     """
-    # `RequestData`
     Build chartmetric data object and call requests.get with 
     constructed data.
     
-    ## Parameters
+    **Parameters**
+
     - `urlhandle`:       string additional url after base
                             *with a leading* and *without ending slash*
     
@@ -86,8 +88,9 @@ def RequestData(urlhandle, params):
                             query string, specific to the particular 
     			            api endpoint
     
-    ## Returns               dictionary with keys url, headers,
-                            and params
+    **Returns**
+    
+    A dictionary with keys url, headers and params.
     """
     reload(credentials_manager)
     return {
@@ -99,15 +102,17 @@ def RequestData(urlhandle, params):
 
 def RequestGet(data):
     """
-    # `RequestGet`
     Method to call requests.get with data.
 
-    ## Parameters
+    **Parameters**
+
     - `data`:        dictionary with at least the following 
-                        key:value pairs: url, headers, params
     
-    ## Returns           
-    dictionary of request data 
+        key:value pairs: url, headers, params
+    
+    **Returns**           
+
+    A dictionary of request data. 
     """
     response = requests.get(
         data["url"], headers=data["headers"], params=data["params"]
@@ -119,31 +124,34 @@ def RequestGet(data):
 
 def strDateToday():
     """
-    # `strDateToday`
     Simple method to return the string date of today as given by the datetime
     module.
 
     Specifically, a string is returned in ISO Year-Month-Day format.
 
-    ## Parameters
+    **Parameters**
+
     None
 
-    ## Return
-    `str`
+    **Returns**
+
+    A Python `str` representing the ISO date.
     """
     return str(datetime.datetime.today()).split(" ")[0]
 
 
 def strWeekday(date: str, target: int, after: bool = False,) -> str:
     """
-    # `strWeekday`
     Given a ISO string `date` return the nearest `target` weekday.
 
-    ## Parameters
+    **Parameters**
+
     - `date`: The date around which the caller would like target searched.
+
     - `target`: Weekday number as in the `datetime` Standard Library Module.
 
-    ## Returns
+    **Returns**
+
     The ISO YYYY-MM-DD string representation of the nearest given weekday.
     """
     dtdate = pd.to_datetime(date)
