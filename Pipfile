@@ -7,15 +7,17 @@ name = "pypi"
 requests = "*"
 psutil = "*"
 pandas = "*"
-pytest-cov = "*"
 
 [dev-packages]
+pytest-cov = "*"
+pytest = "*"
 ipython = "*"
 black = "*"
 pipenv-setup = "*"
 recommonmark = "*"
 sphinx = "*"
 twine = "*"
+pydata-sphinx-theme = "*"
 
 [requires]
 python_version = "3.7"
