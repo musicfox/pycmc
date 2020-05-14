@@ -1,86 +1,478 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>pycm &#8212; pycm  documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>pycmc &#8212; pycmc  documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
-  </head><body>
-      <div class="header" role="banner"><img class="rightlogo" src="_static/logo-dark-text.png" alt="Logo"/><h1 class="heading"><a href="index.html">
-          <span>pycm  documentation</span></a></h1>
-        <h2 class="heading"><span>pycm</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        <a class="uplink" href="contents.html">Contents</a>
-        </p>
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
-      </div>
-      <div class="content">
+    
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo-dark-text.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         
         
-  <div class="section" id="pycm">
-<h1>pycm<a class="headerlink" href="#pycm" title="Permalink to this headline">¶</a></h1>
+        <li class="nav-item ">
+            <a class="nav-link" href="pycmc.html">pycmc documentation</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://musicfox.io">Musicfox<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/musicfox/pycmc" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/musicfoxinc" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search pycmc docs ..." aria-label="Search pycmc docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-applemusic-module" class="nav-link">pycmc.charts.applemusic module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-beatport-module" class="nav-link">pycmc.charts.beatport module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-itunes-module" class="nav-link">pycmc.charts.itunes module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-shazam-module" class="nav-link">pycmc.charts.shazam module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-soundcloud-module" class="nav-link">pycmc.charts.soundcloud module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-spotify-module" class="nav-link">pycmc.charts.spotify module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts-youtube-module" class="nav-link">pycmc.charts.youtube module</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="pycmc">
+<h1>pycmc<a class="headerlink" href="#pycmc" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pycm.html"><code class="docutils literal notranslate"><span class="pre">pycm</span></code> package documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pycm.charts.html">pycm.charts package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.applemusic">pycm.charts.applemusic module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.beatport">pycm.charts.beatport module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.itunes">pycm.charts.itunes module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.shazam">pycm.charts.shazam module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.soundcloud">pycm.charts.soundcloud module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.spotify">pycm.charts.spotify module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts.youtube">pycm.charts.youtube module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pycm.charts.html#module-pycm.charts">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.html"><code class="docutils literal notranslate"><span class="pre">pycmc</span></code> documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-charts">pycmc.charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html">pycmc.charts.applemusic module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-beatport-module">pycmc.charts.beatport module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-itunes-module">pycmc.charts.itunes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-shazam-module">pycmc.charts.shazam module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-soundcloud-module">pycmc.charts.soundcloud module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-spotify-module">pycmc.charts.spotify module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-youtube-module">pycmc.charts.youtube module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.charts.html#module-pycmc.charts">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-album-module">pycmc.album module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-artist-module">pycmc.artist module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.html#pycm-artist">pycm.artist</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-background-module">pycmc.background module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-credentials-module">pycmc.credentials module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.html#credentials"><code class="docutils literal notranslate"><span class="pre">credentials</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pycmc.html#usage">Usage</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.album">pycm.album module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.artist">pycm.artist module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.background">pycm.background module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.credentials">pycm.credentials module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.credentials_manager">pycm.credentials_manager module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.curator">pycm.curator module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.playlist">pycm.playlist module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.track">pycm.track module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm.utilities">pycm.utilities module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pycm.html#module-pycm">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-credentials-manager-module">pycmc.credentials_manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pycmc.html#id1">Usage:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-curator-module">pycmc.curator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-playlist-module">pycmc.playlist module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-track-module">pycmc.track module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#pycmc-utilities-module">pycmc.utilities module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pycmc.html#module-pycmc">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<div class="section" id="pycmc-charts-applemusic-module">
+<h2>pycmc.charts.applemusic module<a class="headerlink" href="#pycmc-charts-applemusic-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.applemusic"></span><dl class="py function">
+<dt id="pycmc.charts.applemusic.albums">
+<code class="sig-prename descclassname">pycmc.charts.applemusic.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">genre</span><span class="o">=</span><span class="default_value">'All Genres'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.applemusic.albums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/applemusic/albums endpoint for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/applemusic/albums">https://api.chartmetric.com/api/charts/applemusic/albums</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genre</span></code>:             string genre (see CM docs)</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of albums on AppleMusic charts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.applemusic.tracks">
+<code class="sig-prename descclassname">pycmc.charts.applemusic.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">genre</span><span class="o">=</span><span class="default_value">'All Genres'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.applemusic.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/applemusic/tracks endpoint for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/applemusic/tracks">https://api.chartmetric.com/api/charts/applemusic/tracks</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genre</span></code>:             string genre (see CM docs)</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>list of dictionary of tracks on AppleMusic charts</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.applemusic.videos">
+<code class="sig-prename descclassname">pycmc.charts.applemusic.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">genre</span><span class="o">=</span><span class="default_value">'All Genres'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.applemusic.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/applemusic/videos endpoint for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/applemusic/videos">https://api.chartmetric.com/api/charts/applemusic/videos</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genre</span></code>:             string genre (see CM docs)</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of videos on AppleMusic charts.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-beatport-module">
+<h2>pycmc.charts.beatport module<a class="headerlink" href="#pycmc-charts-beatport-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.beatport"></span><dl class="py function">
+<dt id="pycmc.charts.beatport.tracks">
+<code class="sig-prename descclassname">pycmc.charts.beatport.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.beatport.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts/beatport/tracks endpoint for the given date.
+Data available on Fridays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/beatport">https://api.chartmetric.com/api/charts/beatport</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks on Beatport charts.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-itunes-module">
+<h2>pycmc.charts.itunes module<a class="headerlink" href="#pycmc-charts-itunes-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.itunes"></span><dl class="py function">
+<dt id="pycmc.charts.itunes.albums">
+<code class="sig-prename descclassname">pycmc.charts.itunes.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.itunes.albums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 albums on iTunes charts for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/itunes/albums">https://api.chartmetric.com/api/charts/itunes/albums</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of albums data on iTunes charts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.itunes.tracks">
+<code class="sig-prename descclassname">pycmc.charts.itunes.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.itunes.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 tracks on itunes charts for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/itunes/tracks">https://api.chartmetric.com/api/charts/itunes/tracks</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks data on iTunes charts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.itunes.videos">
+<code class="sig-prename descclassname">pycmc.charts.itunes.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.itunes.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 videos on iTunes chart for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/itunes/videos">https://api.chartmetric.com/api/charts/itunes/videos</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of videos data on iTunes charts.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-shazam-module">
+<h2>pycmc.charts.shazam module<a class="headerlink" href="#pycmc-charts-shazam-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.shazam"></span><dl class="py function">
+<dt id="pycmc.charts.shazam.cities">
+<code class="sig-prename descclassname">pycmc.charts.shazam.</code><code class="sig-name descname">cities</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.shazam.cities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of available cities for a given country
+for use in city level filtering.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/shazam/:country_code/cities">https://api.chartmetric.com/api/charts/shazam/:country_code/cities</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Returns*</p>
+<p>A list of available cities for a given country.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.shazam.tracks">
+<code class="sig-prename descclassname">pycmc.charts.shazam.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">city</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.shazam.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 tracks on Shazam chart for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/shazam">https://api.chartmetric.com/api/charts/shazam</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks on Shazam chart.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-soundcloud-module">
+<h2>pycmc.charts.soundcloud module<a class="headerlink" href="#pycmc-charts-soundcloud-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.soundcloud"></span><dl class="py function">
+<dt id="pycmc.charts.soundcloud.tracks">
+<code class="sig-prename descclassname">pycmc.charts.soundcloud.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'top'</span></em>, <em class="sig-param"><span class="n">genre</span><span class="o">=</span><span class="default_value">'all-music'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.soundcloud.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 tracks on SoundCloud chart for the given date.
+Data available ONLY on Fridays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/soundcloud">https://api.chartmetric.com/api/charts/soundcloud</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code>:        string ‘top’ or ‘trending’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">genre</span></code>:       string genre (see CM docs)</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks on SoundCloud chart.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-spotify-module">
+<h2>pycmc.charts.spotify module<a class="headerlink" href="#pycmc-charts-spotify-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.spotify"></span><p>Defines methods for obtaining Spotify chart data from the
+chartmetric.com API.</p>
+<dl class="py function">
+<dt id="pycmc.charts.spotify.freshfind">
+<code class="sig-prename descclassname">pycmc.charts.spotify.</code><code class="sig-name descname">freshfind</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.spotify.freshfind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tracks from the Spotify Freshfind chart
+for the given date.
+Data available ONLY on Thursdays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/spotify/freshfind">https://api.chartmetric.com/api/charts/spotify/freshfind</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d, only Thursdays</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks on Spotify Freshfind.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.spotify.tracks">
+<code class="sig-prename descclassname">pycmc.charts.spotify.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">viral</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.spotify.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 200 tracks on Spotify chart for the given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/spotify">https://api.chartmetric.com/api/charts/spotify</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string two-letter country code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">viral</span></code>:       if True return tracks from Spotify viral chart, otherwise return those from regional chart</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks on Spotify chart.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-charts-youtube-module">
+<h2>pycmc.charts.youtube module<a class="headerlink" href="#pycmc-charts-youtube-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.charts.youtube"></span><dl class="py function">
+<dt id="pycmc.charts.youtube.artists">
+<code class="sig-prename descclassname">pycmc.charts.youtube.</code><code class="sig-name descname">artists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.youtube.artists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 100 artists of YouTube chart.
+Data ONLY available on Thursdays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/youtube/artists">https://api.chartmetric.com/api/charts/youtube/artists</a></p>
+<p><strong>Parameters</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d
+<code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of artists of YouTube charts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.youtube.tracks">
+<code class="sig-prename descclassname">pycmc.charts.youtube.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.youtube.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 100 tracks of YouTube charts.
+Data ONLY available on Thursdays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/youtube/tracks">https://api.chartmetric.com/api/charts/youtube/tracks</a></p>
+<p><strong>Parameters</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d
+<code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of tracks of YouTube charts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.youtube.trends">
+<code class="sig-prename descclassname">pycmc.charts.youtube.</code><code class="sig-name descname">trends</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.youtube.trends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the trends of YouTube chart.
+Data ONLY available on Thursdays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/youtube/trends">https://api.chartmetric.com/api/charts/youtube/trends</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of YouTube chart trends.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.charts.youtube.videos">
+<code class="sig-prename descclassname">pycmc.charts.youtube.</code><code class="sig-name descname">videos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.charts.youtube.videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the top 100 videos of YouTube chart.
+Data ONLY available on Thursdays.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/charts/youtube/videos">https://api.chartmetric.com/api/charts/youtube/videos</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code, e.g. ‘US’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionary of videos of YouTube chart.</p>
+</dd></dl>
+
+</div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
-      
-        <p>
-        <a class="uplink" href="contents.html">Contents</a>
-        </p>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
 
       </div>
-
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, MusicFox, Inc..
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
+
+    <script src="_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Musicfox, Inc. | musicfox.io.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+    </p>
+  </div>
+</footer>
   </body>
 </html>

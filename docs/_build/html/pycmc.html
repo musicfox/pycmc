@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>pycmc documentation &#8212; pycmc  documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pycmc.charts.applemusic module" href="pycmc.charts.html" />
+    <link rel="prev" title="pycmc: Python Chartmetric Client Documentation" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo-dark-text.png" class="logo" alt="logo">
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">pycmc documentation</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://musicfox.io">Musicfox<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/musicfox/pycmc" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/musicfoxinc" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search pycmc docs ..." aria-label="Search pycmc docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+      
+        
+      
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-charts" class="nav-link">pycmc.charts</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-album-module" class="nav-link">pycmc.album module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-artist-module" class="nav-link">pycmc.artist module</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#pycm-artist" class="nav-link">pycm.artist</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-background-module" class="nav-link">pycmc.background module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-credentials-module" class="nav-link">pycmc.credentials module</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#credentials" class="nav-link">credentials</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#usage" class="nav-link">Usage</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-credentials-manager-module" class="nav-link">pycmc.credentials_manager module</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Usage:</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-curator-module" class="nav-link">pycmc.curator module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-playlist-module" class="nav-link">pycmc.playlist module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-track-module" class="nav-link">pycmc.track module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pycmc-utilities-module" class="nav-link">pycmc.utilities module</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-pycmc" class="nav-link">Module contents</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="pycmc-documentation">
+<h1><code class="docutils literal notranslate"><span class="pre">pycmc</span></code> documentation<a class="headerlink" href="#pycmc-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pycmc-charts">
+<h2>pycmc.charts<a class="headerlink" href="#pycmc-charts" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html">pycmc.charts.applemusic module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-beatport-module">pycmc.charts.beatport module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-itunes-module">pycmc.charts.itunes module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-shazam-module">pycmc.charts.shazam module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-soundcloud-module">pycmc.charts.soundcloud module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-spotify-module">pycmc.charts.spotify module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#pycmc-charts-youtube-module">pycmc.charts.youtube module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pycmc.charts.html#module-pycmc.charts">Module contents</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="pycmc-album-module">
+<h2>pycmc.album module<a class="headerlink" href="#pycmc-album-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.album"></span><dl class="py function">
+<dt id="pycmc.album.charts">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">charts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stype</span></em>, <em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.charts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the charts for the given album of a selected streamer type.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/:type/charts">https://api.chartmetric.com/api/album/:id/:type/charts</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:           string streaming platform, choose from</p></li>
+</ul>
+<p>‘applemusic’, ‘itunes’ or ‘amazon’
+* <code class="docutils literal notranslate"><span class="pre">cmid</span></code>:            string or int chartmetric album ID
+* <code class="docutils literal notranslate"><span class="pre">start_date</span></code>:      string start data in ISO format
+* <code class="docutils literal notranslate"><span class="pre">end_date</span></code>:        string end date in ISO format</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the chart for the given album.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.get_album_ids">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">get_album_ids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_type</span></em>, <em class="sig-param"><span class="n">specific_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.get_album_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query all the related album IDs given a specific ID type.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:type/:id/get-ids">https://api.chartmetric.com/api/album/:type/:id/get-ids</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_type</span></code>:         string of the type of ID, choose from</p></li>
+</ul>
+<p>‘chartmetric’, ‘upc’, ‘spotify’, ‘itunes’, ‘deezer’
+* <code class="docutils literal notranslate"><span class="pre">specific_id</span></code>:     specific ID corresponding to the id_type</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries with various types of ID.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.metadata">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the album metadata endpoint given the chartmetric ID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id">https://api.chartmetric.com/api/album/:id</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric album ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of album metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.playlists">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">stype</span><span class="o">=</span><span class="default_value">'spotify'</span></em>, <em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">'current'</span></em>, <em class="sig-param"><span class="n">indie</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.playlists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the album playlist placement API endpoint.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/:platform/:status/playlists">https://api.chartmetric.com/api/album/:id/:platform/:status/playlists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric album ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string ISO date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:    string ISO date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from ‘spotify, ‘applemusic’, or ‘deezer’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>:      string ‘current’ or ‘past’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indie</span></code>:       Boolean true if playlist created by major labels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:       int number of entries to be returned, maximum acceptable is 100</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of playlists for the album.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.stats">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">stats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em>, <em class="sig-param"><span class="n">start_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the statistics from the given streaming platform,
+specifically popularity for Spotify.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/:platform/stats">https://api.chartmetric.com/api/album/:id/:platform/stats</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric album ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform type, only ‘spotify’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string of start date in ISO format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:    string of end date in ISO format</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the statistics for an album on a streaming platform.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.tracks">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the tracks included in a given album.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/tracks">https://api.chartmetric.com/api/album/:id/tracks</a></p>
+<p><strong>Parametrs</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:   string or int Chartmetric album ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the tracks in an album.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.album.tunefind">
+<code class="sig-prename descclassname">pycmc.album.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.album.tunefind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the album tunefind stats given the Chartmetric ID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/album/:id/tunefind">https://api.chartmetric.com/api/album/:id/tunefind</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric album ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of tunefind stats.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-artist-module">
+<h2>pycmc.artist module<a class="headerlink" href="#pycmc-artist-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.artist"></span><div class="section" id="pycm-artist">
+<h3>pycm.artist<a class="headerlink" href="#pycm-artist" title="Permalink to this headline">¶</a></h3>
+<dl class="py function">
+<dt id="pycmc.artist.albums">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">albums</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.albums" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the albums for the artist given CMID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/albums">https://api.chartmetric.com/api/artist/:id/albums</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric artist ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of artist metatdata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.charts">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">charts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chart_type</span></em>, <em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.charts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the given type of charts for the artist.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/:type/charts">https://api.chartmetric.com/api/artist/:id/:type/charts</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chart_type</span></code>:     string type of charts to pull, choose from’spotify_viral_daily’, ‘spotify_viral_weekly’,</p></li>
+</ul>
+<p>‘spotify_top_daily’, ‘spotify_top_weekly’,
+‘applemusic_top’, ‘applemusic_daily’,
+‘applemusic_albums’, ‘itunes_top’,
+‘itunes_albums’, ‘shazam’, ‘beatport’
+* <code class="docutils literal notranslate"><span class="pre">cmid</span></code>:           string or int Chartmetric artist ID
+* <code class="docutils literal notranslate"><span class="pre">start_date</span></code>:     string of start data in ISO format
+* <code class="docutils literal notranslate"><span class="pre">end_date</span></code>:       string of end date in ISO format</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of specific type of charts for the given artist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.cpp_data">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">cpp_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">cpp_stat</span></em>, <em class="sig-param"><span class="n">start_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.cpp_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the historical CPP data for the given artist.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/cpp">https://api.chartmetric.com/api/artist/:id/cpp</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:           string or int Chartmetric artist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_stat</span></code>:       string CPP statistic to pull, choose from’rank’, ‘score’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:     string of start data in ISO format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:       string of end date in ISO format</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries with the specific CPP statistics for the given artist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.fanmetrics">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">fanmetrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">'today'</span></em>, <em class="sig-param"><span class="n">dsrc</span><span class="o">=</span><span class="default_value">'instagram'</span></em>, <em class="sig-param"><span class="n">valueCol</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.fanmetrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the Chartmetric API for artist fan metrics.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/stat/:source">https://api.chartmetric.com/api/artist/:id/stat/:source</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:       string or int Chartmetric artist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>: string ISO date %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:   string ISO date %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dsrc</span></code>:       string data source, choose from’spotify’, ‘facebook’, ‘twitter’, ‘instagram’,</p></li>
+</ul>
+<p>‘youtube_channel’, ‘wikipedia’,
+‘bandsintown’, ‘soundcloud’
+* <code class="docutils literal notranslate"><span class="pre">valueCol</span></code>:   None or string specific data field returned, choose from’followers’, ‘popularity’, ‘listeners’,
+‘talks’, ‘subscribers’</p>
+<p><strong>Returns</strong></p>
+<p>A nested dict, <code class="docutils literal notranslate"><span class="pre">{valueCol:</span> <span class="pre">[fanmetrics]}</span></code>.
+Fanmetrics are dictionaries of time-series statistics.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.get_artist_ids">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">get_artist_ids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_type</span></em>, <em class="sig-param"><span class="n">specific_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.get_artist_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the linked artist IDs using a given type of ID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:type/:id/get-ids">https://api.chartmetric.com/api/artist/:type/:id/get-ids</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_type</span></code>:         string type of input ID, choose fromchartmetric’, ‘spotify’, ‘itunes’, ‘deezer’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">specific_id</span></code>:     specific ID corresponding to the id_type</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of linked artist IDs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.get_artists">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">get_artists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filter_field</span></em>, <em class="sig-param"><span class="n">min_thres</span></em>, <em class="sig-param"><span class="n">max_thres</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.get_artists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the statistics of artists filtered by given metrics.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:type/list">https://api.chartmetric.com/api/artist/:type/list</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_type</span></code>:    string indicating the field for filtering,’sp_monthly_listeners’ (spotify monthly listeners),</p></li>
+</ul>
+<p>‘sp_followers’ (spotify followers),
+‘sp_popularity’ (spotify popularity),
+‘sp_listeners_to_followers_ratio’,
+‘fs_likes’ (Facebook fan count),
+‘fs_talks’ (Facebook people talking about count),
+‘ycs_views’ (Youtube channel views),
+‘ycs_subscribers’ (Youtube channel subscribers),
+‘ws_views’ (Wikipedia pages views),
+‘ss_followers’ (Soundcloud followers)
+* <code class="docutils literal notranslate"><span class="pre">min_thres</span></code>:  minimum threshold for filtering
+* <code class="docutils literal notranslate"><span class="pre">max_thres</span></code>:  maximum threshold for filtering
+* <code class="docutils literal notranslate"><span class="pre">offset</span></code>:     number of offsets to shift the timeframe</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the filtered artists.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.listening">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">listening</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">start_date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.listening" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the Chartmetric API for Spotify’s WherePeopleListen stats.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/where-people-listen">https://api.chartmetric.com/api/artist/:id/where-people-listen</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:            string or int chartmetric artist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:      string ISO start date for stats</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of top listening cities with stats.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.metadata">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the CHartmetric API for artist metadata.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id">https://api.chartmetric.com/api/artist/:id</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric artist ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of artist metatdata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.playlists">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">dsrc</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">'past'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.playlists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the playlists containing the artist on the
+specific streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/:type/:status/playlists">https://api.chartmetric.com/api/artist/:id/:type/:status/playlists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric artist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dsrc</span></code>:        string data source, choose from’spotify’, ‘applemusic’, or ‘deezer’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string ISO date %Y-%m-%d</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>:      string indicating status of pulled playlists,either ‘current’ or ‘past’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of playlists on the data source for the given artist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.related">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">related</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">50</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.related" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the related artists for the given artist.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/relatedartists">https://api.chartmetric.com/api/artist/:id/relatedartists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric artist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:   int number of entries to be returned,maximum acceptable is 50</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of related artists.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.tracks">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tracks for the given artist.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/tracks">https://api.chartmetric.com/api/artist/:id/tracks</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int chartmetric artist ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the artist’s tracks.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.tunefind">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.tunefind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the Chartmetric API for artist tunefind data.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/tunefind">https://api.chartmetric.com/api/artist/:id/tunefind</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric artist ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of tunefind data for the given artist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.artist.urls">
+<code class="sig-prename descclassname">pycmc.artist.</code><code class="sig-name descname">urls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.artist.urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the artist URL endpoint given the chartmetric ID and return
+the streaming/social/service URLs.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/artist/:id/urls">https://api.chartmetric.com/api/artist/:id/urls</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:    string or int Chartmetric artist ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of various URLs for the artist.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="pycmc-background-module">
+<h2>pycmc.background module<a class="headerlink" href="#pycmc-background-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.background"></span><p>from github.com/kennethreitz/background</p>
+<dl class="py function">
+<dt id="pycmc.background.callback">
+<code class="sig-prename descclassname">pycmc.background.</code><code class="sig-name descname">callback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.background.callback" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.background.default_n">
+<code class="sig-prename descclassname">pycmc.background.</code><code class="sig-name descname">default_n</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.background.default_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.background.run">
+<code class="sig-prename descclassname">pycmc.background.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.background.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.background.task">
+<code class="sig-prename descclassname">pycmc.background.</code><code class="sig-name descname">task</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.background.task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pycmc-credentials-module">
+<h2>pycmc.credentials module<a class="headerlink" href="#pycmc-credentials-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.credentials"></span><div class="section" id="credentials">
+<h3><code class="docutils literal notranslate"><span class="pre">credentials</span></code><a class="headerlink" href="#credentials" title="Permalink to this headline">¶</a></h3>
+<p>Utilities for the pycmc api credentials interface.</p>
+<div class="section" id="usage">
+<h4>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h4>
+<p>See <code class="docutils literal notranslate"><span class="pre">credentials_manager</span></code> for usage details.</p>
+<dl class="py function">
+<dt id="pycmc.credentials.Check">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">Check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials.Check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the <code class="docutils literal notranslate"><span class="pre">CMCREDENTIALS</span></code> environment variable is extant within the
+environment.</p>
+<p>It is important that this causes failure as early in the client init
+phase as possible. <code class="docutils literal notranslate"><span class="pre">DefaultCredentials</span></code> will throw if a <code class="docutils literal notranslate"><span class="pre">refreshtoken</span></code> is
+unavailable.</p>
+<p><strong>Returns</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">CMCREDENTIALS</span></code> exists AND the dictionary contains a non-empty string for the <code class="docutils literal notranslate"><span class="pre">refreshtoken</span></code> string, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.DefaultCredentials">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">DefaultCredentials</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">refreshtoken</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pycmc.credentials.DefaultCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default (only refreshtoken)
+into the CMCREDENTIALS environment variable, warn the user and raise
+a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> exception.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">refreshtoken</span></code>: the refresh token queried from the Chartmetric API</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.FetchAccessToken">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">FetchAccessToken</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials.FetchAccessToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the refreshtoken to fetch the access and other credentials
+from chartmetric.com.</p>
+<p><strong>Returns</strong></p>
+<ul class="simple">
+<li><p>A Python Requests response object in dictionary form with keys:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expires_in</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scope</span></code>.</p></li>
+</ul>
+<p> Raises for any non-200 response. See the Requests library documentation.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.Load">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">Load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials.Load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the credentials from the environment
+and return the credentials dictionary.</p>
+<p><strong>Returns</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> of keys:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scope</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expires_in</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refreshtoken</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.PeriodicUpdate">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">PeriodicUpdate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">TTL_seconds</span><span class="o">=</span><span class="default_value">3600</span></em>, <em class="sig-param"><span class="n">repeat</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials.PeriodicUpdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper method to take a TTL variable, wait, and call
+UpdateCredentials. Current chartmetric api documentation (Feb-2019)
+indicates a credential refresh is required every 3600 seconds.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TTL_seconds</span></code>     integer seconds to wait between refreshes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repeat</span></code>          <em>default</em>: <code class="docutils literal notranslate"><span class="pre">None</span></code>; integer loops to repeat; -1 = inf</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.TTLwait">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">TTLwait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials.TTLwait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.Update">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">Update</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#pycmc.credentials.Update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the <code class="docutils literal notranslate"><span class="pre">CMCREDENTIALS</span></code> environment variable to make a HTTP
+GET request for the token, lifetime, and scope attributes and subsequently
+update the <code class="docutils literal notranslate"><span class="pre">CMCREDENTIALS</span></code> environment variable.</p>
+<p><strong>Returns</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.credentials.Varname">
+<code class="sig-prename descclassname">pycmc.credentials.</code><code class="sig-name descname">Varname</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#pycmc.credentials.Varname" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Returns</strong></p>
+<p>The set charmetric credentials environment variable name.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="pycmc-credentials-manager-module">
+<h2>pycmc.credentials_manager module<a class="headerlink" href="#pycmc-credentials-manager-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.credentials_manager"></span><p>Credential manager for pycm. Load, store (globally), and
+automagically update credentials given response TTL seconds.</p>
+<blockquote>
+<div><p> You probably shouldn’t do anything with this manually!
+All you need to do is set your <code class="docutils literal notranslate"><span class="pre">CMCREDENTIALS</span></code> environment variable to
+your JSON string of your Chartmetric API token.</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h3>Usage:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">credential_manager</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">refreshtoken</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">expires_in</span><span class="p">)</span> <span class="c1"># gives actual seconds to expiry as integer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">scope</span><span class="p">)</span>
+
+<span class="go">Note:</span>
+
+<span class="go">The ``expires_in`` global variable here IS NOT a string, as is required for</span>
+<span class="go">the api queries; here it is the actual representative TTL count since</span>
+<span class="go">our last refresh. **Don&#39;t forget to str(expires_in)** for API use.</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt id="pycmc.credentials_manager.UpdateCredentials">
+<code class="sig-prename descclassname">pycmc.credentials_manager.</code><code class="sig-name descname">UpdateCredentials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.credentials_manager.UpdateCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO Write documentation here.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="pycmc-curator-module">
+<h2>pycmc.curator module<a class="headerlink" href="#pycmc-curator-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.curator"></span><dl class="py function">
+<dt id="pycmc.curator.lists">
+<code class="sig-prename descclassname">pycmc.curator.</code><code class="sig-name descname">lists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stype</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">indie</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">social</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.curator.lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the chart of curators on the given streaming platfrorm.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/curator/:platform/lists">https://api.chartmetric.com/api/curator/:platform/lists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, or ‘deezer’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:       int number of entries returned; maximum acceptable is 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>:      int offset of entries returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indie</span></code>:       boolean True to return the charts not curated by major labels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">social</span></code>:      boolean True to return social url data</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A Python list of dictionaries of curators.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.curator.metadata">
+<code class="sig-prename descclassname">pycmc.curator.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.curator.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the metadata for the curator on a given streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/curator/:platform/:id/">https://api.chartmetric.com/api/curator/:platform/:id/</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric curator ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, ‘deezer’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of curator metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.curator.playlists">
+<code class="sig-prename descclassname">pycmc.curator.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.curator.playlists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the playlists by the curator on the given streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/curator/:platform/:id/playlists">https://api.chartmetric.com/api/curator/:platform/:id/playlists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or in Chartmetric curator ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, ‘deezer’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A Python list of dictionaries of playlist by the curator</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-playlist-module">
+<h2>pycmc.playlist module<a class="headerlink" href="#pycmc-playlist-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.playlist"></span><dl class="py function">
+<dt id="pycmc.playlist.evolution">
+<code class="sig-prename descclassname">pycmc.playlist.</code><code class="sig-name descname">evolution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">byType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.playlist.evolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the playlist evolution stats, given artist, album or track CMID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution">https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string Chartmetric {byType} ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">byType</span></code>:      string type of evolution stats requested, choose from’artist’, ‘track’, ‘album’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A nested dict, keys being</p>
+<ul class="simple">
+<li><p>‘playlistDataPerDate’ (dicts indexed by dates),</p></li>
+<li><p>‘statsDataPlot’ (list of lists)</p></li>
+<li><p>‘playlistDataPlot’ (list of lists)</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.playlist.lists">
+<code class="sig-prename descclassname">pycmc.playlist.</code><code class="sig-name descname">lists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stype</span><span class="o">=</span><span class="default_value">'spotify'</span></em>, <em class="sig-param"><span class="n">sort</span><span class="o">=</span><span class="default_value">'followers'</span></em>, <em class="sig-param"><span class="n">country</span><span class="o">=</span><span class="default_value">'US'</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">indie</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.playlist.lists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of playlists, given the streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/:streamingType/lists">https://api.chartmetric.com/api/playlist/:streamingType/lists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, ‘deezer’ or ‘amazon’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort</span></code>:        string column to sort the playlists by, e.g. ‘followers’, ‘last_updated’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code>:     string country code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:       int number of playlists to return,maximum acceptable is 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>:      offset of entries to be returned</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indie</span></code>:       boolean True to return indie playlists</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dicts of playlists.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.playlist.metadata">
+<code class="sig-prename descclassname">pycmc.playlist.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.playlist.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the metadata for the playlist on streaming platform given CMID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/:platform/:id">https://api.chartmetric.com/api/playlist/:platform/:id</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric playlist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, or ‘deezer’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of playlist metadata.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.playlist.snapshot">
+<code class="sig-prename descclassname">pycmc.playlist.</code><code class="sig-name descname">snapshot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.playlist.snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the snapshot of all tracks in a playlist given CMID
+on a given streaming platform for a given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/:platform/:id/snapshot">https://api.chartmetric.com/api/playlist/:platform/:id/snapshot</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric playlist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, ‘deezer’ or ‘amazon’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string date in ISO format %Y-%m-%d</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of tracks contained in the playlist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.playlist.tracks">
+<code class="sig-prename descclassname">pycmc.playlist.</code><code class="sig-name descname">tracks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">stype</span></em>, <em class="sig-param"><span class="n">span</span><span class="o">=</span><span class="default_value">'current'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.playlist.tracks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current or past tracks contained in a playlist given CMID
+on a given streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/playlist/:platform/:id/:span/tracks">https://api.chartmetric.com/api/playlist/:platform/:id/:span/tracks</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric playlist ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stype</span></code>:       string streaming platform, choose from’spotify’, ‘applemusic’, ‘deezer’ or ‘amazon’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">span</span></code>:        string ‘past’ or ‘current’</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of tracks contained in the playlist.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-track-module">
+<h2>pycmc.track module<a class="headerlink" href="#pycmc-track-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.track"></span><dl class="py function">
+<dt id="pycmc.track.charts">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">charts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chart_type</span></em>, <em class="sig-param"><span class="n">cm_track_id</span></em>, <em class="sig-param"><span class="n">start_date</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.charts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the charts of certain type containing this given track
+since a specified start date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/:type/charts">https://api.chartmetric.com/api/track/:id/:type/charts</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chart_type</span></code>:  string type of chart, choose from’spotify_viral_daily’, ‘spotify_viral_weekly’,</p></li>
+</ul>
+<p>‘spotify_top_daily’, ‘spotify_top_weekly’,
+‘applemusic_top’, ‘applemusic_daily’,
+‘applemusic_albums’, ‘itunes_top’, ‘amazon’,
+‘itunes_albums’, ‘shazam’, ‘beatport’
+* <code class="docutils literal notranslate"><span class="pre">cm_track_id</span></code>: string or int Chartmetric track ID
+* <code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string ISO date
+* <code class="docutils literal notranslate"><span class="pre">end_date</span></code>:    string ISO date</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the charts data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.get_track_ids">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">get_track_ids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_type</span></em>, <em class="sig-param"><span class="n">matching_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.get_track_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all related track IDs for a given track by a specific ID.
+There can be multiple corresponding Spotify and iTunes IDs
+for some tracks.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:type/:id/get-ids">https://api.chartmetric.com/api/track/:type/:id/get-ids</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_type</span></code>:     string type of track ID,’chartmetric’ (for cm_track), ‘isrc’,</p></li>
+</ul>
+<p>‘spotify’, ‘itunes’
+* <code class="docutils literal notranslate"><span class="pre">matching_id</span></code>: specific track ID that matches the type</p>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the related track IDs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.metadata">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the metadata for the track given CMID.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id">https://api.chartmetric.com/api/track/:id</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric track ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>dictionary of track metadata</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.playlist_snapshot">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">playlist_snapshot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">platform</span></em>, <em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.playlist_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the snapshot of playlists on the platform containing the track
+for a given date.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/:platform/playlists/snapshot">https://api.chartmetric.com/api/track/:id/:platform/playlists/snapshot</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric track ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">platform</span></code>:    string ‘spotify’, ‘applemusic’, ‘deezer’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>:        string ISO date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:       int number of entries to be returned; maximum acceptable is 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>:      int offset of entries to be returned</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of playlists data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.playlists">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">playlists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em>, <em class="sig-param"><span class="n">platform</span></em>, <em class="sig-param"><span class="n">status</span><span class="o">=</span><span class="default_value">'current'</span></em>, <em class="sig-param"><span class="n">start_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">indie</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">offset</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.playlists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current or past playlists containing the track
+on the given streaming platform.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/:platform/:status/playlists">https://api.chartmetric.com/api/track/:id/:platform/:status/playlists</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric track ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">platform</span></code>:    string ‘spotify’, ‘applemusic’, ‘deezer’, ‘amazon’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>:      string ‘past’ or ‘current’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string ISO start date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:    string ISO end date, default today</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indie</span></code>:       bool, False for playlist curated by major label</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code>:       int number of entries to be returned; maximum acceptable is 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>:      int offset of entries, use this to recursively acquire</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of playlists data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.stats">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">stats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cm_track_id</span></em>, <em class="sig-param"><span class="n">platform</span></em>, <em class="sig-param"><span class="n">start_date</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">end_date</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value time-series for the given track on the given platform.
+Specifically, get popularity for Spotify, views for YouTube and
+count for Shazam.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/:platform/stats">https://api.chartmetric.com/api/track/:id/:platform/stats</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cm_track_id</span></code>: string or int Chartmetric track ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">platform</span></code>:    string of streaming platform, choose from’spotify’, ‘youtube’, ‘shazam’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_date</span></code>:  string date in ISO format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_date</span></code>:    string date in ISO format, default is today</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of the track value stats time-series.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.track.tunefind">
+<code class="sig-prename descclassname">pycmc.track.</code><code class="sig-name descname">tunefind</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.track.tunefind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the Tunefind stats given the track.</p>
+<p><a class="reference external" href="https://api.chartmetric.com/api/track/:id/tunefind">https://api.chartmetric.com/api/track/:id/tunefind</a></p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmid</span></code>:        string or int Chartmetric track ID</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A list of dictionaries of Tunefind data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pycmc-utilities-module">
+<h2>pycmc.utilities module<a class="headerlink" href="#pycmc-utilities-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-pycmc.utilities"></span><p>utilities.py</p>
+<p>Utilities for the pycmc api interface.</p>
+<dl class="py function">
+<dt id="pycmc.utilities.BaseURL">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">BaseURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.BaseURL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.FindProcess">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">FindProcess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.FindProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of processes matching given name.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>:        string process name</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>list of items matching process ‘name’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.ProjectRootDir">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">ProjectRootDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.ProjectRootDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return path to root directory of project with trailing slash.</p>
+<p><strong>Returns</strong></p>
+<p>string path with trailing /</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.RequestData">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">RequestData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">urlhandle</span></em>, <em class="sig-param"><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.RequestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build chartmetric data object and call requests.get with
+constructed data.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">urlhandle</span></code>:       string additional url after base</p></li>
+</ul>
+<p><em>with a leading</em> and <em>without ending slash</em>
+* <code class="docutils literal notranslate"><span class="pre">params</span></code>:          dictionary of keyword data to send in the
+query string, specific to the particular
+api endpoint</p>
+<p><strong>Returns</strong></p>
+<p>A dictionary with keys url, headers and params.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.RequestGet">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">RequestGet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.RequestGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to call requests.get with data.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>:        dictionary with at least the followingkey:value pairs: url, headers, params</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>A dictionary of request data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.TTLwait">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">TTLwait</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.TTLwait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility waiting function for the credentials.PeriodicUpdate
+method.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">func</span></code>:    function PeriodicUpdate from the credentials.py module</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>credentials.PeriodicUpdate method instantiation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.strDateToday">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">strDateToday</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pycmc.utilities.strDateToday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple method to return the string date of today as given by the datetime
+module.</p>
+<p>Specifically, a string is returned in ISO Year-Month-Day format.</p>
+<p><strong>Parameters</strong></p>
+<p>None</p>
+<p><strong>Returns</strong></p>
+<p>A Python <code class="docutils literal notranslate"><span class="pre">str</span></code> representing the ISO date.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="pycmc.utilities.strWeekday">
+<code class="sig-prename descclassname">pycmc.utilities.</code><code class="sig-name descname">strWeekday</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">date</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">target</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">after</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#pycmc.utilities.strWeekday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a ISO string <code class="docutils literal notranslate"><span class="pre">date</span></code> return the nearest <code class="docutils literal notranslate"><span class="pre">target</span></code> weekday.</p>
+<p><strong>Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code>: The date around which the caller would like target searched.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Weekday number as in the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> Standard Library Module.</p></li>
+</ul>
+<p><strong>Returns</strong></p>
+<p>The ISO YYYY-MM-DD string representation of the nearest given weekday.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pycmc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pycmc" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page"><code class="docutils literal notranslate"><span class="pre">pycmc</span></code>: Python Chartmetric Client Documentation</a>
+    <a class='right-next' id="next-link" href="pycmc.charts.html" title="next page">pycmc.charts.applemusic module</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Musicfox, Inc. | musicfox.io.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

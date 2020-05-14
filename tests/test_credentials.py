@@ -1,5 +1,5 @@
 """
-# Unit tests for credentials.py within pycm.
+# Unit tests for credentials.py within pycmc.
 """
 import pytest
 import json
@@ -7,8 +7,8 @@ import sys
 import os
 import requests
 import time
-import pycm.utilities as utilities
-import pycm.credentials as credentials
+import pycmc.utilities as utilities
+import pycmc.credentials as credentials
 
 
 @pytest.fixture

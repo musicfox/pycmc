@@ -1,5 +1,5 @@
 import pytest
-import pycm
+import pycmc
 import pandas as pd
 import datetime
 from requests.exceptions import HTTPError
@@ -16,19 +16,19 @@ def requestkeys():
 
 
 def test_charts(dates):
-    test = pycm.album.charts("amazon", 3533190, dates["start"], dates["end"])
+    test = pycmc.album.charts("amazon", 3533190, dates["start"], dates["end"])
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_get_album_ids():
-    test = pycm.album.get_album_ids("chartmetric", 1119543)
+    test = pycmc.album.get_album_ids("chartmetric", 1119543)
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_metadata(requestkeys):
-    test = pycm.album.metadata("1119543")
+    test = pycmc.album.metadata("1119543")
     assert isinstance(test, dict)
     assert len(test.keys())
 
@@ -41,39 +41,39 @@ def test_metadata(requestkeys):
     assert isinstance(pd.to_datetime(test["release_date"]), datetime.datetime)
     # alt test examples, alt tests ~ weird stuff
     try:
-        test = pycm.album.metadata("Michael Jackson")
+        test = pycmc.album.metadata("Michael Jackson")
         assert isinstance(test, dict)
         assert len(test.keys())
     except HTTPError as err:
-        logging.warning(f"pycm.album.metadata -> {err}")
+        logging.warning(f"pycmc.album.metadata -> {err}")
     try:
-        test = pycm.album.metadata("12394871234598762345")
+        test = pycmc.album.metadata("12394871234598762345")
         assert isinstance(test["id"], int)
         assert isinstance(test, dict)
         assert len(test.keys())
     except HTTPError as err:
-        logging.warning(f"pycm.album.metadata -> {err}")
+        logging.warning(f"pycmc.album.metadata -> {err}")
 
 
 def test_playlists(dates):
-    test = pycm.album.playlists("1119543", dates["start"],)
+    test = pycmc.album.playlists("1119543", dates["start"],)
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_stats():
-    test = pycm.album.stats(1119543, "spotify")
+    test = pycmc.album.stats(1119543, "spotify")
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_tracks():
-    test = pycm.album.tracks(1119543)
+    test = pycmc.album.tracks(1119543)
     assert isinstance(test, list)
     assert len(test)
 
 
 def test_tunefind():
-    test = pycm.album.tunefind("1119543")
+    test = pycmc.album.tunefind("1119543")
     assert isinstance(test, list)
     assert len(test)

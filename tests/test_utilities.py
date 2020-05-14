@@ -1,8 +1,8 @@
 """
-Unit tests for __ within the pycm module.
+Unit tests for __ within the pycmc module.
 """
 import pytest
-import pycm.utilities as utilities
+import pycmc.utilities as utilities
 
 
 def test_projectrootdir():
@@ -37,15 +37,20 @@ def test_strDateToday(todayStr):
 def test_strWeekday(todayStr):
     import datetime
     import pandas as pd
-    testtarget = datetime.datetime.weekday(pd.to_datetime(todayStr)) 
+
+    testtarget = datetime.datetime.weekday(pd.to_datetime(todayStr))
     assert todayStr == utilities.strWeekday(todayStr, target=testtarget)
 
-    aThursday = datetime.datetime.weekday(pd.to_datetime('2019-12-27')) - 1
+    aThursday = datetime.datetime.weekday(pd.to_datetime("2019-12-27")) - 1
     aSaturday = aThursday + 2
-    testThursday = '2019-12-26'
-    testSaturdayAfter = '2019-12-28'
-    testSaturdayBefore = '2019-12-21'
+    testThursday = "2019-12-26"
+    testSaturdayAfter = "2019-12-28"
+    testSaturdayBefore = "2019-12-21"
     # test for Thursday
-    assert testThursday == utilities.strWeekday('2019-12-27', aThursday)
-    assert testSaturdayBefore == utilities.strWeekday('2019-12-27', aSaturday, after=False)
-    assert testSaturdayAfter == utilities.strWeekday('2019-12-27', aSaturday, after=True)
+    assert testThursday == utilities.strWeekday("2019-12-27", aThursday)
+    assert testSaturdayBefore == utilities.strWeekday(
+        "2019-12-27", aSaturday, after=False
+    )
+    assert testSaturdayAfter == utilities.strWeekday(
+        "2019-12-27", aSaturday, after=True
+    )
