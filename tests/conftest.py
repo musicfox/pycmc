@@ -11,17 +11,17 @@ import json
 import datetime
 import pandas as pd
 import numpy as np
-
+import time
 
 # =============================================================================
 # Function-scoped fixtures.
 # These run on each test.
 # =============================================================================
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="function", autouse=True)
 def slowRoll():
     """Slow down the tests."""
-    time.sleep(1.2)
-
+    time.sleep(5)
+    yield
 
 # =============================================================================
 # Module-scoped fixtures.
