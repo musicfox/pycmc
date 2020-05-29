@@ -29,6 +29,7 @@ steps:
           
         waitFor: ['Install Berglas']
 
+timeout: 1200s 
 # Use the defaults below which can be changed at the command line
 substitutions:
     _BUCKET_ID_SECRETS: musicfox-python-chartmetric-client-secrets
