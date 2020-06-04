@@ -20,7 +20,7 @@ import time
 @pytest.fixture(scope="function", autouse=True)
 def slowRoll():
     """Slow down the tests."""
-    time.sleep(5)
+    time.sleep(6)
     yield
 
 # =============================================================================
