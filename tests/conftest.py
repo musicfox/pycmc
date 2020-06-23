@@ -23,6 +23,7 @@ def slowRoll():
     time.sleep(6)
     yield
 
+
 # =============================================================================
 # Module-scoped fixtures.
 # These run once for the test module.
