@@ -18,7 +18,7 @@ URL = "https://github.com/musicfox/pycmc"
 EMAIL = "dev@musicfox.io"
 AUTHOR = "Jason R. Stevens, CFA | Musicfox, Inc. | https://musicfox.io"
 REQUIRES_PYTHON = ">=3.8.0"
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
