@@ -1,3 +1,5 @@
+[![pycmc heading image from Musicfox](https://storage.googleapis.com/musicfox-github/pycmc-header.png)](https://pycmc.docs.musicfox.io)
+
 # `pycmc` Python Chartmetric Client
 
 [![codecov](https://codecov.io/gh/musicfox/pycm/branch/develop/graph/badge.svg?token=COEMV82GV9)](https://codecov.io/gh/musicfox/pycm)
