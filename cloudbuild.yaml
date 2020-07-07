@@ -14,7 +14,7 @@ steps:
         args: ["exec", "--", "/bin/sh"]
     
     # using the secrets from above, build and run the test suite
-      - name: 'python:3.7-slim'
+      - name: 'python:3.8-slim'
         id: 'Run Unit Tests'
         entrypoint: '/bin/bash'
         args: 
@@ -24,6 +24,7 @@ steps:
           build-essential libssl-dev libffi-dev && \
           rm -rf /var/lib/apt/lists/* && \
           export ${_VAR1}=$(cat /workspace/${_VAR1}) && \
+          pip install -r dev-requirements.txt && \
           pip install -r requirements.txt && \
           pytest -v"
           

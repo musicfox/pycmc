@@ -20,7 +20,7 @@ build:
     - Dockerfile
 
 client-dev:
-    - pycm/*
+    - pycmc/*
 
 license:
     - LICENSE
