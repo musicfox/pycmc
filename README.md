@@ -1,4 +1,5 @@
 # `pycmc` Python Chartmetric Client
+
 [![codecov](https://codecov.io/gh/musicfox/pycm/branch/develop/graph/badge.svg?token=COEMV82GV9)](https://codecov.io/gh/musicfox/pycm)
 
 A Python client for the Chartmetric API. Query artists, their music,
@@ -16,9 +17,11 @@ pip install pycmc
 ```
 _or_
 ```python
-pipenv install pycmc
+pipenv install pycmc==0.0.6 # latest release
 ```
-> &#9888; **You're not done yet; you'll need to set an authentication environment variable for queries.** 
+> Using [`Pipenv`](https://github.com/pypa/pipenv) we suggest pinning the version, unless you allow for pre-releases.
+And don't forget you need an API subscription and subsequently, auth keys for Chartmetric -- [see below](#authentication).
+> &#9888; **Remember: You're not done yet; you'll need to set an authentication environment variable for queries.** 
 
 ## Quick start 
 If you're already setup with your environment variable, you can query Rihanna's metadata with a quick call to the `artist` module:
@@ -130,10 +133,10 @@ We'd love to hear your feedback. Please use the Github for communication about `
 Please report bugs or problems in our [issues](https://github.com/musicfox/pycmc/issues) in the Github repository.
 
 ### &#127848; Feature Requests
-If you have an idea for a feature or suggestion, please open an issue the Github repository, linked herein. Please describe _what_ you're trying to
-accomplish and your idea to fix it with `pycmc`. 
+If you have an idea for a feature or suggestion, please open an issue the Github repository. Please describe _what_ you're trying to
+accomplish and your idea to fix it with `pycmc`. We'll work through next steps on our end, or together if you'd like to contribute. 
 
-## Contibutors
+## Contibutions to `pycmc`
 
 Contributions are quite welcome and it's very easy to get started.
 
