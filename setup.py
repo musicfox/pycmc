@@ -210,9 +210,11 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
+        "Development Status :: 3 - Alpha",
+        "Topic :: Scientific/Engineering :: Information Analysis"
     ],
     # $ setup.py publish support.
     cmdclass={"upload": UploadCommand,},
@@ -221,5 +223,7 @@ setup(
         "Bug Reports": "https://github.com/musicfox/pycmc/issues",
         "Source Code": "https://github.com/musicfox/pycmc",
         "Musicfox": "https://musicfox.io",
+        "Musicfox Fan.Booster": "https://fan.booster.musicfox.io",
+        "Musicfox Dev 🐦": "https://twitter.com/MusicfoxDev",
     },
 )
