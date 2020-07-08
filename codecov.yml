@@ -3,3 +3,6 @@ codecov:
 ignore:
     - "tests"
     - "dist"
+    - "docs"
+    - "build"
+    - "pycmc.egg-info"
