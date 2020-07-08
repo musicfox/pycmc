@@ -19,9 +19,11 @@ pip install pycmc
 ```
 _or_
 ```python
-pipenv install pycmc==0.0.6 # latest release
+pipenv install pycmc # latest release
 ```
-> Using [`Pipenv`](https://github.com/pypa/pipenv) we suggest pinning the version, unless you allow for pre-releases.
+> Using [`Pipenv`](https://github.com/pypa/pipenv) you may need to pin the version, unless you allow for pre-releases. We don't have a beta or alpha qualifier but view this software
+> as such. 
+
 And don't forget you need an API subscription and subsequently, auth keys for Chartmetric -- [see below](#authentication).
 > &#9888; **Remember: You're not done yet; you'll need to set an authentication environment variable for queries.** 
 
