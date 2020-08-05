@@ -1,6 +1,9 @@
 # codecov for pytest
 [run]
 omit = tests/*
+omit = dist/*
+omit = docs/*
+omit = pycmc.egg-info/*
 
 [tool:pytest]
 addopts = --cov-config=.coveragerc --cov=pycmc --cov-report html
