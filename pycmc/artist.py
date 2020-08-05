@@ -3,6 +3,7 @@
 """
 from . import utilities
 import datetime
+from requests.exceptions import HTTPError
 
 
 def albums(cmid):
@@ -96,7 +97,7 @@ def charts(chart_type, cmid, start_date, end_date=None):
 
 
 def fanmetrics(
-    cmid, start_date, end_date="today", dsrc="instagram", valueCol=None
+    cmid, start_date, end_date=None, dsrc="instagram", valueCol=None
 ):
     """
     Query the Chartmetric API for artist fan metrics.
@@ -130,11 +131,17 @@ def fanmetrics(
     if end_date == "today":
         end_date = str(datetime.datetime.today()).split(" ")[0]
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
-    params = dict(since=start_date, until=end_date,)
+    params = dict(since=start_date,)  # until=end_date,)
     if valueCol is not None:
         params["field"] = valueCol
+
     data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+
+    try:
+        return utilities.RequestGet(data)
+    except HTTPError as herr:
+        print(f"Error {herr} for {cmid} {dsrc} {valueCol}")
+        return {}
 
 
 def get_artist_ids(id_type, specific_id):

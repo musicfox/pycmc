@@ -2,6 +2,7 @@ import pytest
 import pycmc
 import datetime
 import time
+import logging
 
 
 def test_albums():
@@ -22,7 +23,8 @@ def test_charts(dates):
     assert len(test)
 
 
-def test_fanmetrics(dates):
+def test_fanmetrics(dates, caplog):
+    caplog.set_level(logging.DEBUG)
     dsrcObj = dict(
         spotify="followers",
         bandsintown="followers",
@@ -67,7 +69,17 @@ def test_fanmetrics(dates):
         )
         assert isinstance(test, type(dict()))
         assert len(test.keys())
-
+    
+    for dsrc, valueCol in dsrcObj.items():
+        time.sleep(2)
+        test = pycmc.artist.fanmetrics(
+            "1408480", '2020-07-15', dsrc, valueCol
+        )
+        try:
+            assert isinstance(test, type(dict()))
+            assert len(test.keys())
+        except AssertionError as aerr:
+            logging.warning(f"Test assertion failed {aerr}: {dsrc} {valueCol}")
 
 def test_get_artist_ids():
     test = pycmc.artist.get_artist_ids("chartmetric", 4031)
