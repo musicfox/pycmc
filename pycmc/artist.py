@@ -131,7 +131,7 @@ def fanmetrics(
     if end_date == "today":
         end_date = str(datetime.datetime.today()).split(" ")[0]
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"
-    params = dict(since=start_date, )#until=end_date,)
+    params = dict(since=start_date,)  # until=end_date,)
     if valueCol is not None:
         params["field"] = valueCol
 

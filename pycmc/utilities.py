@@ -92,7 +92,9 @@ def RequestData(urlhandle, params):
     
     A dictionary with keys url, headers and params.
     """
-    reload(credentials_manager) # TODO Fix side effect, this is horrible style/architecture
+    reload(
+        credentials_manager
+    )  # TODO Fix side effect, this is horrible style/architecture
     return {
         "url": f"{BaseURL()}{urlhandle}",
         "headers": {"Authorization": f"Bearer {credentials_manager.token}"},
