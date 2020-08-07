@@ -28,7 +28,7 @@ def test_applemusic_tracks(dates):
 
 
 def test_applemusic_albums(dates):
-    test = pycmc.charts.applemusic.albums(dates["start"], "US")
+    test = pycmc.charts.applemusic.albums(dates["end"], "US")
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -36,7 +36,7 @@ def test_applemusic_albums(dates):
 
 
 def test_applemusic_videos(dates):
-    test = pycmc.charts.applemusic.videos(dates["start"], "US")
+    test = pycmc.charts.applemusic.videos(dates["end"], "US")
     assert isinstance(test, list)
     assert len(test) > 90
     assert test[0]["name"] != ""
@@ -50,8 +50,9 @@ def test_beatport_tracks(dates):
     From the Chartmetric documentation,
     > This data is updated weekly only (on Fridays).
     """
-    test = pycmc.charts.beatport.tracks(dates["start"])
+    test = pycmc.charts.beatport.tracks(dates["end"])
     assert isinstance(test, list)
+    assert len(test)
     assert len(test) < 200
     assert test[0]["name"] != ""
     assert test[0]["id"] != ""
@@ -94,7 +95,7 @@ def test_deezer_insights(dates):
 
 
 def test_itunes_albums(dates):
-    test = pycmc.charts.itunes.albums(dates["start"])
+    test = pycmc.charts.itunes.albums(dates["end"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -103,7 +104,7 @@ def test_itunes_albums(dates):
 
 
 def test_itunes_tracks(dates):
-    test = pycmc.charts.itunes.tracks(dates["start"])
+    test = pycmc.charts.itunes.tracks(dates["end"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -112,7 +113,7 @@ def test_itunes_tracks(dates):
 
 
 def test_itunes_videos(dates):
-    test = pycmc.charts.itunes.videos(dates["start"])
+    test = pycmc.charts.itunes.videos(dates["end"])
     assert isinstance(test, list)
     assert len(test) > 100
     assert len(test) < 201
@@ -147,7 +148,7 @@ def test_soundcloud_tracks(dates):
     From the Chartmetric documentation,
     > This data is updated weekly only (on Fridays).
     """
-    test = pycmc.charts.soundcloud.tracks(dates["start"])
+    test = pycmc.charts.soundcloud.tracks(dates["end"])
     assert isinstance(test, list)
     assert len(test)
     assert len(test) > 90
