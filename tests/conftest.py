@@ -50,7 +50,7 @@ def todayStr():
 
 @pytest.fixture(scope="module")
 def dates(todayStr):
-    return dict(start="2020-05-01", end="2020-08-07") # fridays!
+    return dict(start="2020-05-01", end="2020-08-07")  # fridays!
 
 
 @pytest.fixture(scope="module")
