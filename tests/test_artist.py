@@ -42,6 +42,10 @@ def test_fanmetrics(dates, caplog):
     test = pycmc.artist.fanmetrics("3380", dates["start"], dsrc="spotify")
     assert isinstance(test, type(dict()))
     assert len(test.keys())
+    assert test.get('listeners')
+    assert len(test['listeners'])
+    assert test['listeners'][0].get('timestp')
+    assert test['listeners'][0]['timestp'].split('T')[0] == dates['start']
     #   broken upstream as of 2020-04-30
     #    test = pycmc.artist.fanmetrics('3380', dates['start'], dsrc='youtube')
     #    assert isinstance(test, type(dict()))
@@ -69,7 +73,7 @@ def test_fanmetrics(dates, caplog):
         )
         assert isinstance(test, type(dict()))
         assert len(test.keys())
-    
+ 
     for dsrc, valueCol in dsrcObj.items():
         time.sleep(2)
         test = pycmc.artist.fanmetrics(
