@@ -1,9 +1,9 @@
 from . import utilities
 
 
-def search(query, limit=None, offset=None):
+def search(query, limit=None, offset=None, type="all"):
     """
-    Search the tracks, albums, artists, curators and playlists 
+    Search the tracks, albums, artists, curators and playlists
     with one single query.
 
     https://api.chartmetric.com/api/search
@@ -12,13 +12,19 @@ def search(query, limit=None, offset=None):
 
     - `query`:       string of search query, can be URLs
 
-    - `limit`:      int number of entries returned, default 10 
+    - `limit`:      int number of entries returned, default 10
 
     - `offset`:     int offset of entries returned, default 0
 
+    - `type`:       string defining search type, must be one of
+
+        'all' (default), 'artists', 'tracks', 'playlists',
+
+        'curators', 'albums', 'stations' or 'cities'.
+
     **Returns**
 
-    A dictionary of results, keys include 
+    A dictionary of results, keys include
 
         'artists', 'playlists', 'tracks',
         'curators', 'albums', 'labels',
@@ -26,7 +32,7 @@ def search(query, limit=None, offset=None):
 
     """
     urlhandle = f"/search"
-    params = {"q": query}
+    params = {"q": query, "type": type}
     if limit != None:
         params["limit"] = limit
     if offset != None:
