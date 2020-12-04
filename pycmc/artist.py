@@ -19,7 +19,7 @@ def albums(cmid):
 
     **Returns**
 
-    A dictionary of artist metatdata. 
+    A dictionary of artist metatdata.
     """
     urlhandle = f"/artist/{cmid}/albums"
     params = None
@@ -115,9 +115,9 @@ def fanmetrics(
     - `dsrc`:       string data source, choose from
 
         'spotify', 'facebook', 'twitter', 'instagram',
-        'youtube_channel', 'wikipedia', 
+        'youtube_channel', 'wikipedia',
         'bandsintown', 'soundcloud'
-                        
+
     - `valueCol`:   None or string specific data field returned, choose from
 
         'followers', 'popularity', 'listeners',
@@ -130,9 +130,14 @@ def fanmetrics(
     """
     if end_date == "today":
         end_date = str(datetime.datetime.today()).split(" ")[0]
-        params = dict(since=start_date,)
+        params = dict(
+            since=start_date,
+        )
     else:
-        params = dict(until=end_date, since=start_date,)
+        params = dict(
+            until=end_date,
+            since=start_date,
+        )
 
     urlhandle = f"/artist/{cmid}/stat/{dsrc}"  # until=end_date,)
 
@@ -241,7 +246,7 @@ def playlists(cmid, dsrc, start_date, status="past"):
     - `cmid`:        string or int Chartmetric artist ID
 
     - `dsrc`:        string data source, choose from
-    
+
         'spotify', 'applemusic', or 'deezer'
 
     - `start_date`:  string ISO date %Y-%m-%d
@@ -249,7 +254,7 @@ def playlists(cmid, dsrc, start_date, status="past"):
     - `status`:      string indicating status of pulled playlists,
 
         either 'current' or 'past'
-    
+
     **Returns**
 
     A list of dictionaries of playlists on the data source for the given artist.
@@ -297,8 +302,8 @@ def urls(cmid):
 
     **Parameters**
 
-    - `cmid`:    string or int Chartmetric artist ID 
-    
+    - `cmid`:    string or int Chartmetric artist ID
+
     **Returns**
 
     A dictionary of various URLs for the artist.
@@ -318,7 +323,7 @@ def tracks(cmid):
     **Parameters**
 
     - `cmid`:    string or int chartmetric artist ID
-    
+
     **Returns**
 
     A list of dictionaries of the artist's tracks.
@@ -338,7 +343,7 @@ def tunefind(cmid):
     **Parameters**
 
     - `cmid`:    string or int Chartmetric artist ID
-    
+
     **Returns**
 
     A list of dictionaries of tunefind data for the given artist.

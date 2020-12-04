@@ -15,7 +15,7 @@ def metadata(cmid, stype):
 
         'spotify', 'applemusic', or 'deezer'
 
-    **Returns**            
+    **Returns**
 
     A dictionary of playlist metadata.
     """
@@ -81,14 +81,14 @@ def lists(
     - `country`:     string country code
 
     - `limit`:       int number of playlists to return,
-    
+
         maximum acceptable is 100
 
     - `offset`:      offset of entries to be returned
 
     - `indie`:       boolean True to return indie playlists
 
-    **Returns**            
+    **Returns**
 
     A list of dicts of playlists.
     """

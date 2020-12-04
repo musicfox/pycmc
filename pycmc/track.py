@@ -12,10 +12,10 @@ def charts(chart_type, cm_track_id, start_date, end_date=None):
 
     - `chart_type`:  string type of chart, choose from
 
-       'spotify_viral_daily', 'spotify_viral_weekly', 
-       'spotify_top_daily', 'spotify_top_weekly', 
-       'applemusic_top', 'applemusic_daily', 
-       'applemusic_albums', 'itunes_top', 'amazon', 
+       'spotify_viral_daily', 'spotify_viral_weekly',
+       'spotify_top_daily', 'spotify_top_weekly',
+       'applemusic_top', 'applemusic_daily',
+       'applemusic_albums', 'itunes_top', 'amazon',
        'itunes_albums', 'shazam', 'beatport'
 
     - `cm_track_id`: string or int Chartmetric track ID
@@ -67,15 +67,15 @@ def get_track_ids(id_type, matching_id):
 
 def metadata(cmid):
     """
-    Get the metadata for the track given CMID. 
-    
+    Get the metadata for the track given CMID.
+
     https://api.chartmetric.com/api/track/:id
 
     **Parameters**
 
     - `cmid`:        string or int Chartmetric track ID
 
-    **Returns**            
+    **Returns**
 
     dictionary of track metadata
     """
@@ -103,7 +103,7 @@ def playlist_snapshot(cmid, platform, date, limit=100, offset=0):
 
     - `offset`:      int offset of entries to be returned
 
-    **Returns**            
+    **Returns**
 
     A list of dictionaries of playlists data.
     """
@@ -129,7 +129,7 @@ def playlists(
 ):
     """
     Get the current or past playlists containing the track
-    on the given streaming platform.    
+    on the given streaming platform.
 
     https://api.chartmetric.com/api/track/:id/:platform/:status/playlists
 
@@ -187,7 +187,7 @@ def stats(cm_track_id, platform, start_date=None, end_date=None):
 
     - `end_date`:    string date in ISO format, default is today
 
-    **Returns**           
+    **Returns**
 
     A list of dictionaries of the track value stats time-series.
     """
@@ -211,7 +211,7 @@ def tunefind(cmid):
 
     - `cmid`:        string or int Chartmetric track ID
 
-    **Returns**            
+    **Returns**
 
     A list of dictionaries of Tunefind data.
     """

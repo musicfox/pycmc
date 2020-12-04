@@ -6,7 +6,7 @@ def tracks(cm_track_id, chart_type, start_date, end_date=None):
     Gets the Chartmetric Score for tracks given the CM track ID.
 
     https://api.chartmetric.com/api/charts/track/:type_id/:chart_type/cm-score
-    
+
     **Parameters**
 
     - `cm_track_id`:     Chartmetric track ID
@@ -15,14 +15,14 @@ def tracks(cm_track_id, chart_type, start_date, end_date=None):
 
     - Choose from:
     'spotify-top', 'spotify-viral',
-    'applemusic-genre', 'applemusic-daily', 
-    'applemusic-albums' 'itunes', 
+    'applemusic-genre', 'applemusic-daily',
+    'applemusic-albums' 'itunes',
     'itunes-albums', 'shazam'
 
     - `start_date`:      string date in ISO format %Y-%m-%d
 
     - `end_date`:        string date in ISO format %Y-%m-%d, default today
-    
+
     **Returns**
 
     A list of dictionary of CM scores for the track.
@@ -49,15 +49,15 @@ def artists(cm_artist_id, chart_type, start_date, end_date=None):
 
     - `chart_type`:      string chart type, choose from
                             'spotify-top', 'spotify-viral',
-                            'applemusic-genre', 'applemusic-daily', 
-                            'applemusic-albums' 'itunes', 
+                            'applemusic-genre', 'applemusic-daily',
+                            'applemusic-albums' 'itunes',
                             'itunes-albums', 'shazam'
 
     - `start_date`:      string date in ISO format %Y-%m-%d
 
     - `end_date`:        string date in ISO format %Y-%m-%d, default today
 
-    **Returns**                
+    **Returns**
 
     A list of dictionary of CM scores for the artist.
     """
@@ -83,15 +83,15 @@ def albums(cm_album_id, chart_type, start_date, end_date=None):
 
     - `chart_type`:      string chart type, choose from
                             'spotify-top', 'spotify-viral',
-                            'applemusic-genre', 'applemusic-daily', 
-                            'applemusic-albums' 'itunes', 
+                            'applemusic-genre', 'applemusic-daily',
+                            'applemusic-albums' 'itunes',
                             'itunes-albums', 'shazam'
 
     - `start_date`:      string date in ISO format %Y-%m-%d
 
     - `end_date`:        string date in ISO format %Y-%m-%d, default today
 
-    **Returns**                
+    **Returns**
 
     A list of dictionary of CM scores for the album.
     """

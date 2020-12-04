@@ -15,7 +15,7 @@ def insights(date, country="US"):
 
     - `country`:     string country code
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of tracks on Deezer chart.
     """

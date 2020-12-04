@@ -3,7 +3,9 @@ import pycmc
 
 
 def test_lists():
-    test = pycmc.curator.lists("spotify",)
+    test = pycmc.curator.lists(
+        "spotify",
+    )
     assert isinstance(test, list)
     assert len(test) > 0
 

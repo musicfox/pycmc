@@ -15,7 +15,7 @@ def albums(date, country="US"):
 
     - `country`:     string country code, e.g. 'US'
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of albums data on iTunes charts.
     """
@@ -42,7 +42,7 @@ def tracks(date, country="US"):
 
     - `country`:     string country code, e.g. 'US'
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of tracks data on iTunes charts.
     """
@@ -69,7 +69,7 @@ def videos(date, country="US"):
 
     - `country`:     string country code, e.g. 'US'
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of videos data on iTunes charts.
     """

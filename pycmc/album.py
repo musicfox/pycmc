@@ -5,10 +5,10 @@ import logging
 
 def charts(stype, cmid, start_date, end_date=None):
     """
-    Query the charts for the given album of a selected streamer type. 
+    Query the charts for the given album of a selected streamer type.
 
     https://api.chartmetric.com/api/album/:id/:type/charts
-    
+
     **Parameters**
 
     - `stype`:           string streaming platform, choose from
@@ -20,7 +20,7 @@ def charts(stype, cmid, start_date, end_date=None):
 
     - `end_date`:        string end date in ISO format
 
-    **Returns**              
+    **Returns**
 
     A list of dictionaries of the chart for the given album.
     """
@@ -54,7 +54,7 @@ def get_album_ids(id_type, specific_id):
                          'chartmetric', 'upc', 'spotify', 'itunes', 'deezer'
 
     - `specific_id`:     specific ID corresponding to the id_type
-    
+
     **Returns**
 
     A list of dictionaries with various types of ID.
@@ -66,15 +66,15 @@ def get_album_ids(id_type, specific_id):
 
 def metadata(cmid):
     """
-    Query the album metadata endpoint given the chartmetric ID. 
-    
+    Query the album metadata endpoint given the chartmetric ID.
+
     https://api.chartmetric.com/api/album/:id
 
     **Parameters**
 
     - `cmid`:        string or int Chartmetric album ID
 
-    **Returns**            
+    **Returns**
 
     A dictionary of album metadata.
     """
@@ -134,7 +134,7 @@ def stats(cmid, stype, start_date=None, end_date=None):
     specifically popularity for Spotify.
 
     https://api.chartmetric.com/api/album/:id/:platform/stats
-    
+
     **Parameters**
 
     - `cmid`:        string or int Chartmetric album ID
@@ -167,7 +167,7 @@ def tracks(cmid):
     **Parametrs**
 
     - `cmid`:   string or int Chartmetric album ID
-   
+
     **Returns**
 
     A list of dictionaries of the tracks in an album.

@@ -21,7 +21,9 @@ def test_metadata(dta):
 
 
 def test_lists():
-    test = pycmc.playlist.lists("spotify",)
+    test = pycmc.playlist.lists(
+        "spotify",
+    )
     assert isinstance(test, type(list()))
     assert len(test)
 
@@ -33,6 +35,10 @@ def test_snapshot(dta, dates):
 
 
 def test_tracks(dta):
-    test = pycmc.playlist.tracks(dta["cmid"], dta["stype"], "past",)
+    test = pycmc.playlist.tracks(
+        dta["cmid"],
+        dta["stype"],
+        "past",
+    )
     assert isinstance(test, type(list()))
     assert len(test)

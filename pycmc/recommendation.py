@@ -24,7 +24,7 @@ def similar_playlists(
 
     - `limit`:          int number of entries to be returned, default 9; maximum acceptable input is 100 (gets 99 back)
 
-    **Returns**              
+    **Returns**
 
     A list of dictionaries of similar playlists.
     """

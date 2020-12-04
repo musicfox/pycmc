@@ -6,7 +6,9 @@ import logging
 
 
 def test_albums():
-    test = pycmc.artist.albums("3380",)
+    test = pycmc.artist.albums(
+        "3380",
+    )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
@@ -65,7 +67,9 @@ def test_fanmetrics(dates, caplog):
         assert len(test.keys())
     # do it again with new data
     dsrcObj = dict(
-        youtube_channel="views", spotify="popularity", facebook="likes",
+        youtube_channel="views",
+        spotify="popularity",
+        facebook="likes",
     )
     for dsrc, valueCol in dsrcObj.items():
         test = pycmc.artist.fanmetrics(
@@ -97,7 +101,9 @@ def test_get_artists():
 
 
 def test_metadata():
-    test = pycmc.artist.metadata("3380",)
+    test = pycmc.artist.metadata(
+        "3380",
+    )
     assert isinstance(test, type(dict()))
     assert test is not None
 
@@ -109,25 +115,33 @@ def test_playlists(dates):
 
 
 def test_related():
-    test = pycmc.artist.related("3380",)
+    test = pycmc.artist.related(
+        "3380",
+    )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 
 def test_urls():
-    test = pycmc.artist.urls("3380",)
+    test = pycmc.artist.urls(
+        "3380",
+    )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 
 def test_tracks():
-    test = pycmc.artist.tracks("3380",)
+    test = pycmc.artist.tracks(
+        "3380",
+    )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 
 
 def test_tunefind():
-    test = pycmc.artist.tunefind("3380",)
+    test = pycmc.artist.tunefind(
+        "3380",
+    )
     assert isinstance(test, type(list()))
     assert len(test) > 0
 

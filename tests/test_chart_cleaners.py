@@ -8,7 +8,7 @@ import pycmc
 def platforms():
     """
     # `platforms`
-    Return a list of all the chart endpoint keys. 
+    Return a list of all the chart endpoint keys.
     """
     return ["youtube", "itunes", "spotify", "applemusic", "shazam"]
 
@@ -311,7 +311,7 @@ def test_parse_charts(cm_raw, keys):
 def test_type_cast(parsed_df, types):
     """
     Test if the type-casted DataFrame has data fields
-    with expected types. 
+    with expected types.
     """
     for plat, parsed in parsed_df.items():
         try:

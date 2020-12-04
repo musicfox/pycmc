@@ -18,7 +18,7 @@ def tracks(date, country="US", genre="All Genres"):
 
     - `genre`:             string genre (see CM docs)
 
-    **Returns**            
+    **Returns**
 
     list of dictionary of tracks on AppleMusic charts
     """
@@ -49,7 +49,7 @@ def albums(date, country="US", genre="All Genres"):
     - `genre`:             string genre (see CM docs)
 
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of albums on AppleMusic charts.
     """

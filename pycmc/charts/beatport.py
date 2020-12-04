@@ -15,7 +15,7 @@ def tracks(date):
 
     - `date`:        string date in ISO format %Y-%m-%d
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of tracks on Beatport charts.
     """

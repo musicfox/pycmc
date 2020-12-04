@@ -48,7 +48,9 @@ def DefaultCredentials(refreshtoken: str) -> None:
         # Break exec early as api credentials are not set.
 
 
-def TTLwait(func,):
+def TTLwait(
+    func,
+):
     @wraps(func)
     def wrapper(*args, **kwds):
         if len(args) > 0:
@@ -69,7 +71,7 @@ def PeriodicUpdate(TTL_seconds=3600, repeat=None):
 
     - `TTL_seconds`     integer seconds to wait between refreshes
 
-    - `repeat`          _default_: `None`; integer loops to repeat; -1 = inf 
+    - `repeat`          _default_: `None`; integer loops to repeat; -1 = inf
 
     **Returns**
 
@@ -91,7 +93,7 @@ def Update() -> None:
     """
     Use the `CMCREDENTIALS` environment variable to make a HTTP
     GET request for the token, lifetime, and scope attributes and subsequently
-    update the `CMCREDENTIALS` environment variable. 
+    update the `CMCREDENTIALS` environment variable.
 
     **Returns**
 
@@ -118,9 +120,9 @@ def Load():
     Load the credentials from the environment
     and return the credentials dictionary.
 
-    **Returns** 
+    **Returns**
 
-    - `dict` of keys: 
+    - `dict` of keys:
       - `token`,
       - `scope`,
       - `expires_in`,
@@ -134,7 +136,7 @@ def Load():
 
 def Check():
     """
-    Check that the `CMCREDENTIALS` environment variable is extant within the 
+    Check that the `CMCREDENTIALS` environment variable is extant within the
     environment.
 
     It is important that this causes failure as early in the client init
@@ -163,7 +165,7 @@ def FetchAccessToken():
     from chartmetric.com.
 
 
-    **Returns**       
+    **Returns**
     - A Python Requests response object in dictionary form with keys:
         - `token`,
         - `expires_in`,
