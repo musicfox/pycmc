@@ -1,7 +1,7 @@
 from . import utilities
 
 
-def search(query, limit=None, offset=None):
+def search(query, limit=None, offset=None, type="all"):
     """
     Search the tracks, albums, artists, curators and playlists
     with one single query.
@@ -16,6 +16,12 @@ def search(query, limit=None, offset=None):
 
     - `offset`:     int offset of entries returned, default 0
 
+    - `type`:       string defining search type, must be one of
+
+        'all' (default), 'artists', 'tracks', 'playlists',
+
+        'curators', 'albums', 'stations' or 'cities'.
+
     **Returns**
 
     A dictionary of results, keys include
@@ -26,7 +32,7 @@ def search(query, limit=None, offset=None):
 
     """
     urlhandle = f"/search"
-    params = {"q": query}
+    params = {"q": query, "type": type}
     if limit != None:
         params["limit"] = limit
     if offset != None:
