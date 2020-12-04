@@ -13,12 +13,12 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = "pycmc"
-DESCRIPTION = "A Python client for the chartmetric.com API."
+DESCRIPTION = "A Python client for the chartmetric.com API, by Musicfox."
 URL = "https://github.com/musicfox/pycmc"
 EMAIL = "dev@musicfox.io"
 AUTHOR = "Jason R. Stevens, CFA | Musicfox, Inc. | https://musicfox.io"
 REQUIRES_PYTHON = ">=3.8.0"
-VERSION = "0.0.10"
+VERSION = "0.0.11"
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
@@ -105,10 +105,16 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy",
+        "Programming Language :: Python :: 3.9",
         "Development Status :: 3 - Alpha",
         "Topic :: Scientific/Engineering :: Information Analysis",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Education",
+        "Intended Audience :: Financial and Insurance Industry",
+        "Intended Audience :: Information Technology",
+        "Intended Audience :: Other Audience",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Telecommunications Industry",
     ],
     # $ setup.py publish support.
     cmdclass={"upload": UploadCommand,},
