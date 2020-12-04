@@ -25,13 +25,16 @@ def insights(date):
 
     - `date`:        string date in ISO format %Y-%m-%d
 
-    **Returns**            
+    **Returns**
 
     A list of dictionary of tracks on QQ music chart.
     """
     urlhandle = f"{QQ_CHARTS_URL}/"
     params = {
-        "date": utilities.strWeekday(date, THURSDAY,),
+        "date": utilities.strWeekday(
+            date,
+            THURSDAY,
+        ),
     }
 
     data = utilities.RequestData(urlhandle, params)

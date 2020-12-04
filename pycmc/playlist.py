@@ -15,7 +15,7 @@ def metadata(cmid, stype):
 
         'spotify', 'applemusic', or 'deezer'
 
-    **Returns**            
+    **Returns**
 
     A dictionary of playlist metadata.
     """
@@ -25,33 +25,36 @@ def metadata(cmid, stype):
     return utilities.RequestGet(data)
 
 
-def evolution(cmid, byType):
-    """
-    Get the playlist evolution stats, given artist, album or track CMID.
-
-    https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
-
-    **Parameters**
-
-    - `cmid`:        string Chartmetric {byType} ID
-
-    - `byType`:      string type of evolution stats requested, choose from
-
-        'artist', 'track', 'album'
-
-    **Returns**            
-
-    A nested dict, keys being
-    - 'playlistDataPerDate' (dicts indexed by dates),
-
-    - 'statsDataPlot' (list of lists)
-
-    - 'playlistDataPlot' (list of lists)
-    """
-    urlhandle = f"/playlist/by/{byType}/{cmid}/playlist-evolution"
-    params = None
-    data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
+# Deprecated upstream
+# Removed herein 2020-12-03
+# def evolution(cmid, byType):
+#    """
+#    Get the playlist evolution stats, given artist, album or track CMID.
+#
+#    https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
+#
+#    **Parameters**
+#
+#    - `cmid`:        string Chartmetric {byType} ID
+#
+#    - `byType`:      string type of evolution stats requested, choose from
+#
+#        'artist', 'track', 'album'
+#
+#    **Returns**
+#
+#    A nested dict, keys being
+#    - 'playlistDataPerDate' (dicts indexed by dates),
+#
+#    - 'statsDataPlot' (list of lists)
+#
+#    - 'playlistDataPlot' (list of lists)
+#    """
+#    urlhandle = f"/playlist/by/{byType}/{cmid}/playlist-evolution"
+#    params = None
+#    data = utilities.RequestData(urlhandle, params)
+#    return utilities.RequestGet(data)
+#
 
 
 def lists(
@@ -78,14 +81,14 @@ def lists(
     - `country`:     string country code
 
     - `limit`:       int number of playlists to return,
-    
+
         maximum acceptable is 100
 
     - `offset`:      offset of entries to be returned
 
     - `indie`:       boolean True to return indie playlists
 
-    **Returns**            
+    **Returns**
 
     A list of dicts of playlists.
     """

@@ -16,16 +16,18 @@ import datetime
 import pandas as pd
 
 
-def TTLwait(func,):
+def TTLwait(
+    func,
+):
     """
     Utility waiting function for the credentials.PeriodicUpdate
     method.
-    
+
     **Parameters**
 
-    - `func`:    function PeriodicUpdate from the credentials.py module 
-    
-    **Returns**       
+    - `func`:    function PeriodicUpdate from the credentials.py module
+
+    **Returns**
 
     credentials.PeriodicUpdate method instantiation
     """
@@ -45,8 +47,8 @@ def TTLwait(func,):
 def ProjectRootDir():
     """
     Return path to root directory of project with trailing slash.
-    
-    **Returns**       
+
+    **Returns**
 
     string path with trailing /
     """
@@ -60,8 +62,8 @@ def FindProcess(name):
     **Parameters**
 
     - `name`:        string process name
-    
-    **Returns**           
+
+    **Returns**
 
     list of items matching process 'name'
     """
@@ -76,20 +78,20 @@ def BaseURL():
 
 def RequestData(urlhandle, params):
     """
-    Build chartmetric data object and call requests.get with 
+    Build chartmetric data object and call requests.get with
     constructed data.
-    
+
     **Parameters**
 
     - `urlhandle`:       string additional url after base
                             *with a leading* and *without ending slash*
-    
+
     - `params`:          dictionary of keyword data to send in the
-                            query string, specific to the particular 
-    			            api endpoint
-    
+                            query string, specific to the particular
+                                    api endpoint
+
     **Returns**
-    
+
     A dictionary with keys url, headers and params.
     """
     reload(
@@ -108,13 +110,13 @@ def RequestGet(data):
 
     **Parameters**
 
-    - `data`:        dictionary with at least the following 
-    
-        key:value pairs: url, headers, params
-    
-    **Returns**           
+    - `data`:        dictionary with at least the following
 
-    A dictionary of request data. 
+        key:value pairs: url, headers, params
+
+    **Returns**
+
+    A dictionary of request data.
     """
     response = requests.get(
         data["url"], headers=data["headers"], params=data["params"]
@@ -142,7 +144,11 @@ def strDateToday():
     return str(datetime.datetime.today()).split(" ")[0]
 
 
-def strWeekday(date: str, target: int, after: bool = False,) -> str:
+def strWeekday(
+    date: str,
+    target: int,
+    after: bool = False,
+) -> str:
     """
     Given a ISO string `date` return the nearest `target` weekday.
 

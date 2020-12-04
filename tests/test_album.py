@@ -56,7 +56,10 @@ def test_metadata(requestkeys):
 
 
 def test_playlists(dates):
-    test = pycmc.album.playlists("1119543", dates["start"],)
+    test = pycmc.album.playlists(
+        "1119543",
+        dates["start"],
+    )
     assert isinstance(test, list)
     assert len(test)
 

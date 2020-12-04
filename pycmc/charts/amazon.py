@@ -18,16 +18,16 @@ def tracks(date, track_type, genre):
                         taking 'popular_track' or 'new_track'
 
     - `genre`:       string genre, taking one of the following
-                        'All Genres', 'Pop', 'Rock', 'Dance', 
-                        'Latino' 'K-Pop', 'Singer/Songwriter', 
-                        'Hip-Hop/Rap', 'Jazz', 'Electronic', 
-                        'R&B/Soul', 'Blues', 'Country', 'Reggae', 
-                        'Classical', 'Alternative', 'World', 
-                        'Disney', 'J-Pop', 'Christian & Gospel', 
-                        'Easy Listening', 'Children's Music', 
+                        'All Genres', 'Pop', 'Rock', 'Dance',
+                        'Latino' 'K-Pop', 'Singer/Songwriter',
+                        'Hip-Hop/Rap', 'Jazz', 'Electronic',
+                        'R&B/Soul', 'Blues', 'Country', 'Reggae',
+                        'Classical', 'Alternative', 'World',
+                        'Disney', 'J-Pop', 'Christian & Gospel',
+                        'Easy Listening', 'Children's Music',
                         'Fitness & Workout', 'Soundtrack'
 
-    **Returns**            
+    **Returns**
 
     list of dictionary of tracks on Amazon charts
     """
@@ -54,13 +54,13 @@ def albums(date, album_type, genre):
     - `track_type`:  string album type,
                         taking 'popular_album' or 'new_album'
     - `genre`:       string genre, taking one of the following
-                        'All Genres', 'Pop', 'Rock', 'Dance', 
-                        'Latino' 'K-Pop', 'Singer/Songwriter', 
-                        'Hip-Hop/Rap', 'Jazz', 'Electronic', 
-                        'R&B/Soul', 'Blues', 'Country', 'Reggae', 
-                        'Classical', 'Alternative', 'World', 
-                        'Disney', 'J-Pop', 'Christian & Gospel', 
-                        'Easy Listening', 'Children's Music', 
+                        'All Genres', 'Pop', 'Rock', 'Dance',
+                        'Latino' 'K-Pop', 'Singer/Songwriter',
+                        'Hip-Hop/Rap', 'Jazz', 'Electronic',
+                        'R&B/Soul', 'Blues', 'Country', 'Reggae',
+                        'Classical', 'Alternative', 'World',
+                        'Disney', 'J-Pop', 'Christian & Gospel',
+                        'Easy Listening', 'Children's Music',
                         'Fitness & Workout', 'Soundtrack'
 
     **Returns**

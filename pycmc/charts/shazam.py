@@ -8,7 +8,7 @@ def tracks(date, country="US", city=None):
     Get the top 200 tracks on Shazam chart for the given date.
 
     https://api.chartmetric.com/api/charts/shazam
-    
+
     **Parameters**
 
     - `date`:        string date in ISO format %Y-%m-%d

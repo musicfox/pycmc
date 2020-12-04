@@ -13,14 +13,17 @@ def test_metadata(dta):
     assert len(test.keys())
 
 
-def test_evolution():
-    test = pycmc.playlist.evolution(439, "artist")
-    assert isinstance(test, list)
-    assert len(test)
+# Deprecated upstream; removed herein 2020-12-03
+# def test_evolution():
+#    test = pycmc.playlist.evolution(439, "artist")
+#    assert isinstance(test, list)
+#    assert len(test)
 
 
 def test_lists():
-    test = pycmc.playlist.lists("spotify",)
+    test = pycmc.playlist.lists(
+        "spotify",
+    )
     assert isinstance(test, type(list()))
     assert len(test)
 
@@ -32,6 +35,10 @@ def test_snapshot(dta, dates):
 
 
 def test_tracks(dta):
-    test = pycmc.playlist.tracks(dta["cmid"], dta["stype"], "past",)
+    test = pycmc.playlist.tracks(
+        dta["cmid"],
+        dta["stype"],
+        "past",
+    )
     assert isinstance(test, type(list()))
     assert len(test)

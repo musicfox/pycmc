@@ -13,7 +13,7 @@ def lists(stype, limit=100, offset=0, indie=False, social=True):
     **Parameters**
 
     - `stype`:       string streaming platform, choose from
-    
+
         'spotify', 'applemusic', or 'deezer'
 
     - `limit`:       int number of entries returned; maximum acceptable is 100
@@ -24,7 +24,7 @@ def lists(stype, limit=100, offset=0, indie=False, social=True):
     - `social`:      boolean True to return social url data
 
     **Returns**
-    
+
     A Python list of dictionaries of curators.
     """
     indie = "true" if indie else "false"
@@ -69,7 +69,7 @@ def playlists(cmid, stype):
     Get the playlists by the curator on the given streaming platform.
 
     https://api.chartmetric.com/api/curator/:platform/:id/playlists
-    
+
     **Parameters**
 
     - `cmid`:        string or in Chartmetric curator ID
