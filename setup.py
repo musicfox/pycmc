@@ -75,7 +75,6 @@ class UploadCommand(Command):
         self.status("Uploading the package to PyPI via Twine…")
         os.system("twine upload dist/*")
 
-
         sys.exit()
 
 
@@ -96,11 +95,7 @@ setup(
     # entry_points={
     #     'console_scripts': ['mycli=mymodule:cli'],
     # },
-    install_requires=[
-        "numpy>=1.0.0",
-        "pandas>=1.0.0",
-        "requests>=2.0.0",
-    ],
+    install_requires=["numpy>=1.0.0", "pandas>=1.0.0", "requests>=2.0.0",],
     include_package_data=True,
     license="MIT",
     classifiers=[
@@ -113,7 +108,7 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "Development Status :: 3 - Alpha",
-        "Topic :: Scientific/Engineering :: Information Analysis"
+        "Topic :: Scientific/Engineering :: Information Analysis",
     ],
     # $ setup.py publish support.
     cmdclass={"upload": UploadCommand,},

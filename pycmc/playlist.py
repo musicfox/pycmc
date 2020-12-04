@@ -23,9 +23,11 @@ def metadata(cmid, stype):
     params = None
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
+
+
 # Deprecated upstream
-# Removed herein 2020-12-03 
-#def evolution(cmid, byType):
+# Removed herein 2020-12-03
+# def evolution(cmid, byType):
 #    """
 #    Get the playlist evolution stats, given artist, album or track CMID.
 #
@@ -39,7 +41,7 @@ def metadata(cmid, stype):
 #
 #        'artist', 'track', 'album'
 #
-#    **Returns**            
+#    **Returns**
 #
 #    A nested dict, keys being
 #    - 'playlistDataPerDate' (dicts indexed by dates),
@@ -53,6 +55,7 @@ def metadata(cmid, stype):
 #    data = utilities.RequestData(urlhandle, params)
 #    return utilities.RequestGet(data)
 #
+
 
 def lists(
     stype="spotify",
