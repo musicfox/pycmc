@@ -16,7 +16,7 @@ NAME = "pycmc"
 DESCRIPTION = "A Python client for the chartmetric.com API, by Musicfox."
 URL = "https://github.com/musicfox/pycmc"
 EMAIL = "dev@musicfox.io"
-AUTHOR = "Jason R. Stevens, CFA | Musicfox, Inc. | https://musicfox.io"
+AUTHOR = "Jason R. Stevens, CFA | Musicfox, Inc. | musicfox.io"
 REQUIRES_PYTHON = ">=3.8.0"
 VERSION = "0.0.11"
 

@@ -190,7 +190,7 @@ First, DM [@thinkjrs](https://github.com/thinkjrs) for the codecov token, which 
 to set below.
 
 Coverage is typically updated automagically but if you need to manually generate the coverage on
-https://codecov.io, run:
+https://codecov.io/gh/musicfox/pycmc, run:
 ```bash
 export CODECOV_TOKEN="token-from-@thinkjrs"
 ./upload_coverage.bash
