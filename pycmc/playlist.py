@@ -23,36 +23,36 @@ def metadata(cmid, stype):
     params = None
     data = utilities.RequestData(urlhandle, params)
     return utilities.RequestGet(data)
-
-
-def evolution(cmid, byType):
-    """
-    Get the playlist evolution stats, given artist, album or track CMID.
-
-    https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
-
-    **Parameters**
-
-    - `cmid`:        string Chartmetric {byType} ID
-
-    - `byType`:      string type of evolution stats requested, choose from
-
-        'artist', 'track', 'album'
-
-    **Returns**            
-
-    A nested dict, keys being
-    - 'playlistDataPerDate' (dicts indexed by dates),
-
-    - 'statsDataPlot' (list of lists)
-
-    - 'playlistDataPlot' (list of lists)
-    """
-    urlhandle = f"/playlist/by/{byType}/{cmid}/playlist-evolution"
-    params = None
-    data = utilities.RequestData(urlhandle, params)
-    return utilities.RequestGet(data)
-
+# Deprecated upstream
+# Removed herein 2020-12-03 
+#def evolution(cmid, byType):
+#    """
+#    Get the playlist evolution stats, given artist, album or track CMID.
+#
+#    https://api.chartmetric.com/api/playlist/by/:type/:id/playlist-evolution
+#
+#    **Parameters**
+#
+#    - `cmid`:        string Chartmetric {byType} ID
+#
+#    - `byType`:      string type of evolution stats requested, choose from
+#
+#        'artist', 'track', 'album'
+#
+#    **Returns**            
+#
+#    A nested dict, keys being
+#    - 'playlistDataPerDate' (dicts indexed by dates),
+#
+#    - 'statsDataPlot' (list of lists)
+#
+#    - 'playlistDataPlot' (list of lists)
+#    """
+#    urlhandle = f"/playlist/by/{byType}/{cmid}/playlist-evolution"
+#    params = None
+#    data = utilities.RequestData(urlhandle, params)
+#    return utilities.RequestGet(data)
+#
 
 def lists(
     stype="spotify",

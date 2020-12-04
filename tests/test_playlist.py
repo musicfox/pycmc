@@ -12,11 +12,11 @@ def test_metadata(dta):
     assert isinstance(test, type(dict()))
     assert len(test.keys())
 
-
-def test_evolution():
-    test = pycmc.playlist.evolution(439, "artist")
-    assert isinstance(test, list)
-    assert len(test)
+# Deprecated upstream; removed herein 2020-12-03
+#def test_evolution():
+#    test = pycmc.playlist.evolution(439, "artist")
+#    assert isinstance(test, list)
+#    assert len(test)
 
 
 def test_lists():
