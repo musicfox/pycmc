@@ -62,7 +62,7 @@ def test_playlists(dates):
 
 
 def test_stats():
-    test = pycmc.album.stats(1119543, "spotify")
+    test = pycmc.album.stats(7060236, "spotify")
     assert isinstance(test, list)
     assert len(test)
 
