@@ -140,6 +140,7 @@ Please report bugs or problems in our [issues](https://github.com/musicfox/pycmc
 If you have an idea for a feature or suggestion, please open an issue the Github repository. Please describe _what_ you're trying to
 accomplish and your idea to fix it with `pycmc`. We'll work through next steps on our end, or together if you'd like to contribute. 
 
+
 ## Contibutions to `pycmc`
 
 Contributions are quite welcome and it's very easy to get started.
@@ -153,3 +154,57 @@ that contributors' contributions are protected property, outside of the
 Please see our [`CONTRIBUTING.md`](CONTRIBUTING.md)
 to get started.
 
+## `pycmc` development
+
+### Environment setup
+
+- Create an `.env` file in the application directory: `touch pycmc/.env` and populate with:
+  ```sh
+  export CMCREDENTIALS="your-key"
+  ```
+- Jump into your dev shell:
+  ```sh
+  pipenv shell
+  ```
+- And populate your environment: 
+  ```sh
+  source pycmc/.env
+  ```
+
+🎉 🎸 You're ready to rock! 🎸 🎉
+
+### Running the test suite
+
+You'll obviously need to have an API key for Chartmetric to run tests. 
+> ℹ️ The test suite is slowed to ~6s per request to the Chartmetric
+API to protect production usage of the same keys, likely an issue (which we've handled herein) since
+the API is rate limited.️
+
+**Run tests**
+```sh
+pytest --cov=pycmc tests
+```
+
+#### Upload to the coverage tracker manually
+
+First, DM [@thinkjrs](https://github.com/thinkjrs) for the codecov token, which you'll need
+to set below.
+
+Coverage is typically updated automagically but if you need to manually generate the coverage on
+https://codecov.io, run:
+```bash
+export CODECOV_TOKEN="token-from-@thinkjrs"
+./upload_coverage.bash
+```
+from your bash shell after running tests.
+
+#### CI/CD on GCP
+`pycmc` has a runner that builds a Python container, runs tests, and builds
+the documentation site when new commits are pushed. As of December 2020 this is private
+within the Musicfox Google Cloud Platform account. 
+
+Currently, you can track these builds in the action platform after you've been
+given access to the repo. 
+
+> Coming soon! We are planning to migrate to another
+solution in the near future along with full tox-support (multiple python package build tests).  
