@@ -149,7 +149,7 @@ def stats(cmid, stype, start_date=None, end_date=None):
 
     A list of dictionaries of the statistics for an album on a streaming platform.
     """
-    urlhandle = f"/album/{cmid}/{stype}/stats"
+    urlhandle = f"/album/{cmid}/{stype}/followers" # not sure when this changed upstream
     params = {
         "since": start_date,
         "until": end_date,
